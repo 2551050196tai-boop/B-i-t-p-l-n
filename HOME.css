@@ -125,7 +125,7 @@ body {
   align-items: center;
   justify-content: center;
 
-  /* ✨ Position mới - X=64, Y=102 */
+  /*Position mới - X=64, Y=102 */
   margin-left: 64px; /* Khoảng cách từ trái = 64px */
   margin-top: 102px; /* Khoảng cách từ trên = 102px */
 }
@@ -193,12 +193,14 @@ body {
 }
 .hero-description {
   color: white;
+  margin-top: 20px;
 }
 .hero-button {
   background: #e8973c; /* Màu cam */
   padding: 12px 35px;
   border-radius: 50px;
   transition: all 0.3s ease;
+  margin-top: 20px;
 }
 
 .hero-button:hover {
