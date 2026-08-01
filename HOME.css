@@ -129,12 +129,22 @@ body {
   margin-left: 64px; /* Khoảng cách từ trái = 64px */
   margin-top: 102px; /* Khoảng cách từ trên = 102px */
 }
+/* desktop (1920px trở xuống) */
+@media (max-width: 1920px) {
+}
 /* Desktop nhỏ (1400px trở xuống) */
 @media (max-width: 1400px) {
   .hero {
     margin-left: auto; /* Căn giữa */
     margin-right: auto; /* Căn giữa */
     margin-top: 20px; /* Giảm khoảng cách */
+    width: 1000px;
+    height: 435px;
+  }
+  .navbar {
+    margin-left: auto; /* Căn giữa */
+    margin-right: auto;
+    width: 1000px;
   }
 }
 
