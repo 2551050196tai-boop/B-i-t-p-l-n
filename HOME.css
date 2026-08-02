@@ -247,8 +247,8 @@ body {
   overflow: hidden; /*Ẩn tất cả nội dung vượt ra ngoài kích thước của phần tử.*/
   border-radius: 24px; /*Bo tròn 4 góc của phần tử*/
   display: flex; /*Biến phần tử thành Flex Container, giúp sắp xếp các phần tử con dễ dàng theo hàng hoặc cột.*/
-  align-items: center; /*Căn giữa các phần tử con theo chiều dọc*/
-  justify-content: center; /*Căn giữa các phần tử con theo chiều ngang (trục chính của Flex).*/
+  align-items: flex-end; /*Căn giữa các phần tử con theo chiều dọc*/
+  justify-content: flex-start; /*Căn giữa các phần tử con theo chiều ngang (trục chính của Flex).*/
 
   /*Position mới - X=64, Y=102 */
   margin-left: 64px; /* Khoảng cách từ trái = 64px */
@@ -263,11 +263,18 @@ body {
     margin-top: 20px; /* Giảm khoảng cách */
     width: 1312px;
     height: 504px;
+
   }
-  
+
 .left-palet{
   max-width: 494px;
   max-height: 276px;
+  padding: 35px;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-end;
+  justify-self: flex-start;
 
 }
 .explore{
