@@ -11,6 +11,11 @@
     />
     <title>công thức nấu ăn</title>
     <link rel="stylesheet" href="HOME.css" />
+    <!--Thuận link thêm font chữ Monsterrat-->
+    <link
+  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+  rel="stylesheet"
+/>
   </head>
   <body class="congthucnauan">
     <nav class="navbar">
@@ -75,6 +80,61 @@
         </div>
       </div>
     </section>
-    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati laborum ipsa magni, atque harum tempora omnis ea, quo eius quam praesentium fugiat quis nisi, beatae dolorum laudantium autem aperiam voluptatem.</p>
+    <!--Phan lam tiep theo cua Thuan-->
+    <section class="featured-section">
+      <!-- header: title + nav arrows -->
+      <div class="featured-header">
+        <h2 class="featured-title">FEATURED RECIPES</h2>
+        <div class="featured-nav">
+          <button class="nav-arrow prev-arrow" aria-label="previous">
+            <img src="./picture/Arrow Left.png" alt="prev" />
+          </button>
+          <button class="nav-arrow next-arrow" aria-label="next">
+            <img src="./picture/Arrow Right.png" alt="next" />
+          </button>
+        </div>
+      </div>
+
+      <!-- recipe cards -->
+      <div class="featured-cards">
+        <div class="recipe-card">
+          <div class="recipe-image">
+            <img src="./picture/chicken.png" alt="Savory Herb-Infused Chicken" />
+          </div>
+          <div class="recipe-info">
+            <h3 class="recipe-title">Savory Herb-Infused Chicken</h3>
+            <p class="recipe-description">
+              Indulge in the rich and savory symphony of flavors with our
+              Savory Herb-Infused Chicken
+            </p>
+            <div class="recipe-footer">
+              <span class="recipe-meta">40 MIN · EASY PREP · 3 SERVES</span>
+              <button class="btn-viewrecipe">VIEW RECIPE</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="recipe-card">
+          <div class="recipe-image">
+            <img src="./picture/chocolate.png" alt="Decadent Chocolate Mousse" />
+            <span class="recipe-badge">
+              <img src="./picture/Tag.png" alt="vegan" />
+              VEGAN
+            </span>
+          </div>
+          <div class="recipe-info">
+            <h3 class="recipe-title">Decadent Chocolate Mousse</h3>
+            <p class="recipe-description">
+              Dive into the velvety indulgence of our Decadent Chocolate
+              Mousse. A dessert that transcends sweetness!
+            </p>
+            <div class="recipe-footer">
+              <span class="recipe-meta">30 MIN · MEDIUM PREP · 4 SERVES</span>
+              <button class="btn-viewrecipe">VIEW RECIPE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
