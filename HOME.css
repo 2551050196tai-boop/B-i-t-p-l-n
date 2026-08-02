@@ -265,7 +265,7 @@ body {
 .palet-contain {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Để không bị ép căn giữa, dễ kéo phần trái xuống */
+  align-items: flex-start; /* để không bị ép căn giữa, dễ kéo phần trái xuống */
   gap: 238px;
   width: 100%;
 }
@@ -276,7 +276,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: 150px; /* Kéo toàn bộ phần bên trái xuống dưới */
+  padding-top: 150px; /* kéo toàn bộ phần bên trái xuống dưới */
 }
 
 .explore {
@@ -309,7 +309,7 @@ body {
 
 .btn-seemore {
   display: inline-block; /* BẮT BUỘC có thuộc tính này để margin-top hoạt động chuẩn */
-  margin-top: 40px !important; /* Đẩy nút xa ra khỏi đoạn văn trên (dùng !important để ghi đè) */
+  margin-top: 40px !important; /* đẩy nút xa ra khỏi đoạn văn trên (dùng !important để ghi đè) */
   background: transparent;
   border: 1px solid #262522;
   color: #262522;
@@ -328,7 +328,7 @@ body {
 
 .right-palet {
   flex: 1;
-  max-width: 480px; /* Thu ngắn độ rộng của cột bên phải lại */
+  max-width: 480px; /* thu ngắn độ rộng của cột bên phải lại */
   display: flex;
   flex-direction: column;
 }
@@ -347,7 +347,7 @@ body {
   opacity: 0.7;
 }
 
-/* Khung chứa Icon */
+/* khung chứa icon */
 .item-icon {
   width: 32px;
   height: 32px;
@@ -356,11 +356,10 @@ body {
   justify-content: center;
 }
 
-/* Code chỉnh trực tiếp thẻ <img> bên trong Icon */
 .item-icon img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Giữ nguyên tỷ lệ ảnh, không bị co giãn/méo */
+  object-fit: contain; /* giữ nguyên tỷ lệ ảnh, không bị co giãn/méo */
 }
 
 .item-icon svg {
