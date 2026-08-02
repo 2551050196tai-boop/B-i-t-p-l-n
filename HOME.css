@@ -297,3 +297,171 @@ body {
   padding: 8px 16px;
   border-radius: 25px;
 }
+
+/* ===== FEATURED RECIPES SECTION ===== */
+.featured-section {
+  position: relative;
+  width: 1312px;
+  height: 573px;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px 16px 16px 16px;
+  margin-left: 64px;
+  margin-top: 20px;
+}
+
+/* desktop - căn giữa giống các section khác */
+@media (max-width: 2560px) {
+  .featured-section {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1312px;
+  }
+}
+
+/* header: title + nav arrows */
+.featured-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.featured-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #262522;
+}
+
+.featured-nav {
+  display: flex;
+  gap: 2px;
+}
+
+.nav-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #262522;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+  background: #f2ece1;
+}
+
+/* recipe cards container */
+.featured-cards {
+  display: flex;
+  gap: 16px;
+}
+
+.recipe-card {
+  position: relative;
+  width: 632px;
+  height: 437px;
+  background: #fffbf2;
+  border-radius: 24px;
+  overflow: visible; /* để badge vegan tràn ra ngoài ảnh */
+}
+
+.recipe-image {
+  position: relative;
+  width: 632px;
+  height: 234px;
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+}
+
+.recipe-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* badge vegan */
+.recipe-badge {
+  position: absolute;
+  top: 184px;
+  right: 24px;
+  width: 66px;
+  height: 66px;
+  background: #9fdc26;
+  border-radius: 34.43px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 10.35px;
+  font-weight: 700;
+  color: #262522;
+  text-align: center;
+  z-index: 2;
+}
+
+.recipe-badge img {
+  width: 18px;
+  height: 18px;
+}
+
+/* phần info dưới ảnh */
+.recipe-info {
+  padding: 24px 24px 16px 24px;
+}
+
+.recipe-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #262522;
+  margin-bottom: 8px;
+}
+
+.recipe-description {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #262522;
+  line-height: 140%;
+  margin-bottom: 16px;
+}
+
+.recipe-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.recipe-meta {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #262522;
+  line-height: 120%;
+  letter-spacing: 1%;
+}
+
+.btn-viewrecipe {
+  width: 132px;
+  height: 38px;
+  border-radius: 24px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  background: none;
+  border: 1px solid #262522;
+  color: #262522;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-viewrecipe:hover {
+  background: #262522;
+  color: #ffffff;
+}
