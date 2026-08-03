@@ -256,36 +256,37 @@ body {
   width: 1312px; /*chiều rộng*/
   height: 504px; /*chiều cao*/
   overflow: hidden; /*Ẩn tất cả nội dung vượt ra ngoài kích thước của phần tử.*/
-  /* border-radius: 24px; Bo tròn 4 góc của phần tử */
+  border-radius: 24px; /*Bo tròn 4 góc của phần tử*/
   display: flex; /*Biến phần tử thành Flex Container, giúp sắp xếp các phần tử con dễ dàng theo hàng hoặc cột.*/
   align-items: flex-end; /*Căn giữa các phần tử con theo chiều dọc*/
   justify-content: flex-start; /*Căn giữa các phần tử con theo chiều ngang (trục chính của Flex).*/
-  background:#cbe5fb ;
+
+}
+.palet-section {
+  position: relative;
+  width: 1309px;
+  height: 504px;
+  background: #cbe5fb;
   border-radius: 32px;
-<<<<<<< HEAD
-  padding: 40px 40px; /* Padding khung ngoài */
-  margin-top: 40px;
-  margin-bottom: 40px;
-  /* box-sizing: border-box;*/
-=======
   padding: 40px 40px 40px 40px;
   margin-top: 16px;
   margin-left: auto;
   margin-right: auto;
->>>>>>> c272ebc (dkhoa-animation)
+  padding: 40px 40px; /* Padding khung ngoài */
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
+  box-sizing: border-box;
 }
 
-.palet-contain{
+.palet-contain {
   display: flex;
-  border: 1px solid black;
+  justify-content: space-between;
+  align-items: flex-start; /* để không bị ép căn giữa, dễ kéo phần trái xuống */
+  gap: 238px;
+  width: 100%;
 }
-<<<<<<< HEAD
-.explore {
-  background-color: #ff6452;
-  border-radius: 20px;
-  color: #ffffff;
-padding: 8px 16px;
-=======
 
 .left-palet {
   flex: 1;
@@ -294,7 +295,8 @@ padding: 8px 16px;
   flex-direction: column;
   align-items: flex-start;
   padding-top: 140px; /* kéo toàn bộ phần bên trái xuống dưới */
-}
+  padding-top: 150px; /* kéo toàn bộ phần bên trái xuống dưới */
+} 
 
 .explore {
   display: inline-block;
@@ -306,8 +308,8 @@ padding: 8px 16px;
   color: #ffffff;
   padding: 4px 8px;
   font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  font-weight: 500;
+  letter-spacing: 1%;
   text-decoration: none; /* xóa gạch chân */
   cursor: pointer; /* con trỏ chuột khi hover */
   margin-bottom: 20px;
@@ -319,7 +321,6 @@ padding: 8px 16px;
   background-color: #d94f30;
   transform: translateY(-3px); /* Nhô nhẹ lên */
   box-shadow: 0 4px 12px rgba(255, 100, 82, 0.35); /* Đổ bóng nhẹ cùng màu */
->>>>>>> c272ebc (dkhoa-animation)
 }
 
 .left-palet .title {
@@ -329,16 +330,12 @@ padding: 8px 16px;
   color: #262522;
   line-height: 1.1;
   margin-bottom: 16px;
-<<<<<<< HEAD
-  margin-top: 16px;
-=======
   letter-spacing: 1%;
->>>>>>> c272ebc (dkhoa-animation)
 }
 
 .left-palet .description {
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   color: #262522;
   line-height: 140%;
   letter-spacing: 1%;
@@ -346,24 +343,19 @@ padding: 8px 16px;
 
 .btn-seemore {
   display: inline-block; /* BẮT BUỘC có thuộc tính này để margin-top hoạt động chuẩn */
-  /* margin-top: 40px !important; đẩy nút xa ra khỏi đoạn văn trên (dùng !important để ghi đè) */
+  margin-top: 40px !important; /* đẩy nút xa ra khỏi đoạn văn trên (dùng !important để ghi đè) */
   background: transparent;
   border: 1px solid #262522;
   color: #262522;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   padding: 10px 20px;
   border-radius: 25px;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
-<<<<<<< HEAD
-  max-width:115px ;
-  max-height: 38px;
-=======
   cursor: pointer;
   transition: 20px;
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
->>>>>>> c272ebc (dkhoa-animation)
 }
 .btn-seemore:hover {
   background: #262522;
@@ -382,7 +374,7 @@ padding: 8px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px 40px;
+  padding: 27px 40px;
   border-bottom: 1px solid rgba(38, 37, 34, 0.15);
   border-radius: 8px;
   cursor: pointer;
@@ -396,8 +388,8 @@ padding: 8px 16px;
 
 /* khung chứa icon */
 .item-icon {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -430,43 +422,6 @@ padding: 8px 16px;
     margin-right: auto;
     width: 1312px;
     height: 504px;
-
-  }
-
-.left-palet{
-  max-width: 494px;
-  max-height: 236px;
-  padding: 1px;
-  flex: 0 0 auto;
-  flex-direction: column;
-  gap: 20px;
-  align-items: flex-end;
-  justify-self: flex-start;
-
-}
-.explore{
-  background-color: #EE6352;
-  border: none;
-  padding: 6px 9px;
-  border-radius: 50px;
-  color: white;
-  transition: all 0.5s ease;
-}
-.explore:hover {
-  background: #e07b6e;
-  transform: translateY(-3px); /* Nâng lên khi hover */
-  box-shadow: 0 6px 20px rgba(202, 78, 41, 0.4);
-}
-.decription{
-  opacity: 0.6;
-}
-.btn-seemore{
-  border-bottom: 1px solid #262522;
-  font-size: 14;
-  background: none;
-  padding: 8px 16px;
-  border-radius: 25px;
-=======
   }
 }
 
@@ -480,11 +435,7 @@ padding: 8px 16px;
   border-radius: 24px;
   padding: 40px 16px 24px 16px;
   margin-left: 64px;
-<<<<<<< HEAD
-  margin-top: 15px;
-=======
   margin-top: 16px;
->>>>>>> c272ebc (dkhoa-animation)
 }
 
 /* desktop - căn giữa giống các section khác */
