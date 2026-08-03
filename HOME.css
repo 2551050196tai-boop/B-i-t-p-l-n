@@ -252,17 +252,6 @@ body {
 /* Khoa sửa animation */
 /* ===== OUR DIVERSE PALETTE SECTION ===== */
 .palet-section {
-  position: relative; /*Đặt phần tử ở chế độ định vị tương đối*/
-  width: 1312px; /*chiều rộng*/
-  height: 504px; /*chiều cao*/
-  overflow: hidden; /*Ẩn tất cả nội dung vượt ra ngoài kích thước của phần tử.*/
-  border-radius: 24px; /*Bo tròn 4 góc của phần tử*/
-  display: flex; /*Biến phần tử thành Flex Container, giúp sắp xếp các phần tử con dễ dàng theo hàng hoặc cột.*/
-  align-items: flex-end; /*Căn giữa các phần tử con theo chiều dọc*/
-  justify-content: flex-start; /*Căn giữa các phần tử con theo chiều ngang (trục chính của Flex).*/
-
-}
-.palet-section {
   position: relative;
   width: 1309px;
   height: 504px;
@@ -294,7 +283,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: 140px; /* kéo toàn bộ phần bên trái xuống dưới */
   padding-top: 150px; /* kéo toàn bộ phần bên trái xuống dưới */
 } 
 
