@@ -15,7 +15,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: #f2ece1;
-  border-radius: 40px;
+  border-radius: 32px;
   border: 1px solid #d3d3d3;
   padding: 12px 20px;
   max-width: 1312px;
@@ -109,7 +109,11 @@ body {
   font-weight: 600;
   letter-spacing: 0.5px;
   cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .subscribe-btn:hover {
@@ -282,12 +286,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: 150px; /* kéo toàn bộ phần bên trái xuống dưới */
-} 
+  padding-top: 100px; /* kéo toàn bộ phần bên trái xuống dưới */
+}
 
 .explore {
   display: inline-block;
-  background-color: #EE6352;
+  background-color: #ee6352;
   /* xóa viền đen */
   border: none;
   box-shadow: none;
@@ -301,7 +305,10 @@ body {
   cursor: pointer; /* con trỏ chuột khi hover */
   margin-bottom: 20px;
   gap: 10px;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .explore:hover {
@@ -325,6 +332,8 @@ body {
   font-size: 16px;
   line-height: 1.4;
   letter-spacing: 1%;
+}
+.decription {
   opacity: 0.6;
 }
 
@@ -342,7 +351,11 @@ body {
   transition: all 0.3s ease;
   cursor: pointer;
   transition: 20px;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 .btn-seemore:hover {
   background: #262522;
@@ -365,7 +378,10 @@ body {
   border-bottom: 1px solid rgba(38, 37, 34, 0.15);
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease, padding 0.25s ease;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    padding 0.25s ease;
 }
 
 .palette-item:hover {
@@ -418,7 +434,7 @@ body {
   width: 1312px;
   height: 573px;
   background: none;
-  border: 1px solid  rgb(124, 117, 117);
+  border: 1px solid rgb(124, 117, 117);
   border-radius: 24px;
   padding: 40px 16px 24px 16px;
   margin-left: 64px;
@@ -466,7 +482,11 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .nav-arrow:hover {
@@ -514,9 +534,6 @@ body {
   position: absolute;
   bottom: 12px;
   right: 24px;
-  width: 66px;
-  height: 66px;
-  background: #9fdc26;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -530,8 +547,8 @@ body {
 }
 
 .recipe-badge img {
-  width: 18px;
-  height: 18px;
+  width: 66px;
+  height: 66px;
 }
 
 /* phần info dưới ảnh */
@@ -589,15 +606,52 @@ body {
   border: 1px solid #262522;
   color: #262522;
   cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-              background-color 0.25s ease,
-              color 0.25s ease,
-              box-shadow 0.25s ease;
-
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .btn-viewrecipe:hover {
   background: #262522;
   color: #ffffff;
   box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
+}
+.embark-section {
+  position: relative;
+  width: 1312px;
+  height: 1292px;
+  background: none;
+  /* padding: 40px 40px 40px 40px; */
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  /* padding: 40px 40px; Padding khung ngoài */
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+.header-section {
+  width: 813px;
+  height: 246px;
+
+  margin: 0 auto;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  border: 1px solid black;
+}
+.body-section {
+  width: 1312px;
+  height: 926px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
+  border: 1px solid black;
+  margin-top: 40px;
 }
