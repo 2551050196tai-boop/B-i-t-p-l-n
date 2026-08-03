@@ -253,53 +253,27 @@ body {
   width: 1312px; /*chiều rộng*/
   height: 504px; /*chiều cao*/
   overflow: hidden; /*Ẩn tất cả nội dung vượt ra ngoài kích thước của phần tử.*/
-  border-radius: 24px; /*Bo tròn 4 góc của phần tử*/
+  /* border-radius: 24px; Bo tròn 4 góc của phần tử */
   display: flex; /*Biến phần tử thành Flex Container, giúp sắp xếp các phần tử con dễ dàng theo hàng hoặc cột.*/
   align-items: flex-end; /*Căn giữa các phần tử con theo chiều dọc*/
   justify-content: flex-start; /*Căn giữa các phần tử con theo chiều ngang (trục chính của Flex).*/
-
-}
-.palet-section {
-  position: relative;
-  width: 1309px;
-  height: 504px;
-  background: #cbe5fb;
+  background:#cbe5fb ;
   border-radius: 32px;
   padding: 40px 40px; /* Padding khung ngoài */
   margin-top: 40px;
   margin-bottom: 40px;
-  margin-left: 40px;
-  margin-right: 40px;
-  /* box-sizing: border-box; */
+  /* box-sizing: border-box;*/
 }
 
-.palet-contain {
+.palet-contain{
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start; /* để không bị ép căn giữa, dễ kéo phần trái xuống */
-  gap: 238px;
-  width: 100%;
+  border: 1px solid black;
 }
-
-/* .left-palet {
-  flex: 1;
-  max-width: 450px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-top: 150px; /* kéo toàn bộ phần bên trái xuống dưới */
-} */
-
 .explore {
-  display: inline-block;
   background-color: #ff6452;
   border-radius: 20px;
   color: #ffffff;
-  padding: 6px 16px;
-  /* font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  margin-bottom: 20px; */
+padding: 8px 16px;
 }
 
 .left-palet .title {
@@ -309,6 +283,7 @@ body {
   color: #262522;
   line-height: 1.1;
   margin-bottom: 16px;
+  margin-top: 16px;
 }
 
 .left-palet .description {
@@ -320,17 +295,19 @@ body {
 
 .btn-seemore {
   display: inline-block; /* BẮT BUỘC có thuộc tính này để margin-top hoạt động chuẩn */
-  margin-top: 40px !important; /* đẩy nút xa ra khỏi đoạn văn trên (dùng !important để ghi đè) */
+  /* margin-top: 40px !important; đẩy nút xa ra khỏi đoạn văn trên (dùng !important để ghi đè) */
   background: transparent;
   border: 1px solid #262522;
   color: #262522;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   padding: 10px 20px;
   border-radius: 25px;
   cursor: pointer;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
+  max-width:115px ;
+  max-height: 38px;
 }
 .btn-seemore:hover {
   background: #262522;
