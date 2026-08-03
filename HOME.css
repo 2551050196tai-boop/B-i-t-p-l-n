@@ -655,3 +655,55 @@ body {
   border: 1px solid black;
   margin-top: 40px;
 }
+.header-embark {
+  width: 426px;
+  height: 168px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 0px;
+  text-align: center;
+  border: 1px solid black;
+}
+.footer-embark {
+  width: 813px;
+  height: 38px;
+  display: flex;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+}
+.recipes-embark {
+  padding: 4px 8px;
+  font-family: "Roboto", sans-serif;
+  border-radius: 20px;
+  color: white;
+  background-color: #ee6352;
+  border: none;
+  width: 72px;
+  height: 24px;
+  font-size: 14;
+}
+.h2-p-embark {
+  width: 426px;
+  height: 136px;
+  display: flex;
+  border: 1px solid black;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.h2-embark {
+  width: 426px;
+  height: 80px;
+  border: 1px solid black;
+  font-size: 20px;
+  font-family: "Nunito Sans", sans-serif;
+  color: #262522;
+}
+.p-embark {
+  opacity: 0.6;
+}
