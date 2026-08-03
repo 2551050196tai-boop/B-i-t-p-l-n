@@ -262,8 +262,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 40px 40px; /* Padding khung ngoài */
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 16px;
   margin-left: 40px;
   margin-right: 40px;
   box-sizing: border-box;
@@ -323,10 +322,10 @@ body {
 
 .left-palet .description {
   font-family: "Roboto", sans-serif;
-  font-size: 20px;
-  color: #262522;
-  line-height: 140%;
+  font-size: 16px;
+  line-height: 1.4;
   letter-spacing: 1%;
+  opacity: 0.6;
 }
 
 .btn-seemore {
@@ -353,7 +352,7 @@ body {
 
 .right-palet {
   flex: 1;
-  max-width: 480px; /* thu ngắn độ rộng của cột bên phải lại */
+  max-width: 550px; /* thu ngắn độ rộng của cột bên phải lại */
   display: flex;
   flex-direction: column;
 }
@@ -362,7 +361,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 27px 40px;
+  padding: 27px 50px;
   border-bottom: 1px solid rgba(38, 37, 34, 0.15);
   border-radius: 8px;
   cursor: pointer;
@@ -376,7 +375,7 @@ body {
 
 /* khung chứa icon */
 .item-icon {
-  width: 30px;
+  width: 40px;
   height: 30px;
   display: flex;
   align-items: center;
