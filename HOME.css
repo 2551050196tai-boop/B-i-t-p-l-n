@@ -642,7 +642,7 @@ body {
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 .body-section {
   width: 1312px;
@@ -653,6 +653,7 @@ body {
   margin-top: 40px;
   justify-content: space-between;
   flex-direction: column;
+  background: none;
 }
 .header-embark {
   width: 426px;
@@ -663,15 +664,17 @@ body {
   justify-content: space-between;
   margin-top: 0px;
   text-align: center;
-  border: 1px solid black;
+  background: none;
+  /* border: 1px solid black; */
 }
 .footer-embark {
   width: 813px;
   height: 38px;
   display: flex;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   justify-content: center;
   align-items: center;
+  background: none;
 }
 .recipes-embark {
   padding: 4px 8px;
@@ -682,33 +685,80 @@ body {
   border: none;
   width: 72px;
   height: 24px;
-  font-size: 14;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .h2-p-embark {
   width: 426px;
   height: 136px;
   display: flex;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   align-items: center;
-  text-align: center;
   flex-direction: column;
   justify-content: space-between;
   margin-top: 8px;
+  display: flex;
 }
 .h2-embark {
   width: 426px;
   height: 80px;
   /* border: 1px solid black; */
-  font-size: 20px;
-  font-family: "Nunito Sans", sans-serif;
+  /* font-family: "Montserrat", sans-serif; */
   color: #262522;
 }
+.h2-embark h2 {
+  margin: 0;
+  font-size: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  line-height: 37px;
+}
 .p-embark {
-  opacity: 0.6;
+  opacity: 0.7;
+  color: #262522;
+}
+.p-embark p {
+  font-family: "Monterrat", sans-serif;
+  font-size: 16px;
+  line-height: 22px;
 }
 .footer-embark {
   width: 813px;
   height: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-embark button {
+  color: #9f9e9a;
+  font-family: "Roboto", sans-serif;
+  font-size: 14;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  border-radius: 24px;
+  height: 38px;
+  text-align: center;
+  border: 1px solid#9F9E9A;
+  font-weight: bold;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: none;
+}
+.footer-embark .ALL {
+  background: #9fdc26;
+  border-color: #262522;
+  color: #262522;
+}
+.footer-embark button:hover {
+  color: #262522;
+  border-color: #262522;
 }
 .filter-embark1 {
   width: 1312px;
