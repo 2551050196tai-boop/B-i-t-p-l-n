@@ -901,10 +901,17 @@ body {
   margin: 16px 16px;
   overflow: hidden;
 }
-.right-img-OUR {
+.right-body-OUR {
   border: 1px solid black;
   margin-left: 869px;
   border-radius: 24px;
   width: 411px;
   height: 665px;
+}
+.left-body_OUR {
+  width: 861px;
+  height: 665px;
+  margin-left: 0px;
+  border: 1px solid black;
+  display: flex;
 }
