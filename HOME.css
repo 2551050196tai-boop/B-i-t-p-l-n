@@ -907,11 +907,11 @@ body {
   border-radius: 24px;
   width: 411px;
   height: 665px;
+  background: none;
 }
-.left-body_OUR {
+.left-body-OUR {
   width: 861px;
   height: 665px;
-  margin-left: 0px;
   border: 1px solid black;
   display: flex;
 }
