@@ -20,7 +20,8 @@ body {
   padding: 12px 20px;
   max-width: 1312px;
   max-height: 70px;
-  margin-left: 64px; /* Khoảng cách từ trái = 64px */
+  margin-left: auto; /* Khoảng cách từ trái = 64px */
+  margin-right: auto;
   margin-top: 16px; /* Khoảng cách từ trên = 102px */
 }
 
@@ -132,7 +133,8 @@ body {
   justify-content: center; /*Căn giữa các phần tử con theo chiều ngang (trục chính của Flex).*/
 
   /*Position mới - X=64, Y=102 */
-  margin-left: 64px; /* Khoảng cách từ trái = 64px */
+  margin-left: auto; /* Khoảng cách từ trái = 64px */
+  margin-right: auto;
   margin-top: 102px; /* Khoảng cách từ trên = 102px */
 }
 /* desktop (2560px trở xuống) */
@@ -267,8 +269,8 @@ body {
   margin-right: auto;
   padding: 40px 40px; /* Padding khung ngoài */
   margin-top: 16px;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: auto;
+  margin-right: auto;
   box-sizing: border-box;
 }
 
@@ -437,7 +439,8 @@ body {
   border: 1px solid rgb(124, 117, 117);
   border-radius: 24px;
   padding: 40px 16px 24px 16px;
-  margin-left: 64px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 16px;
 }
 
@@ -915,4 +918,83 @@ body {
   height: 665px;
   border: 1px solid black;
   display: flex;
+}
+.SUBSCRIBE {
+  width: 1312px;
+  height: 486px;
+  /* border: 1px solid black; */
+  border-radius: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  background: #ee6352;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+}
+.Oval-top-SUB {
+  width: 1328px;
+  height: 772px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  position: absolute;
+  top: -512px;
+  left: -8px;
+  background: #ff6653;
+  /* transform: translateX(-0.5%); */
+}
+.Oval-bottom-SUB {
+  width: 1328px;
+  height: 772px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  position: absolute;
+  top: 276px;
+  left: -8px;
+  background: #ff6653;
+}
+.content-SUB {
+  position: absolute;
+  width: 1078px;
+  height: 358px;
+  /* border: 1px solid black; */
+  z-index: 2;
+  margin-top: 64px;
+  left: 117px;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+.title-decrip-SUB {
+  width: 1078px;
+  height: 260px;
+  border: 1px solid black;
+}
+.email-address-SUB {
+  width: 426px;
+  height: 50px;
+  /* border: 1px solid black; */
+  margin-top: 48px;
+  margin-left: 326px;
+  border-radius: 24px;
+  background: #fffbf2;
+  display: flex;
+  align-items: center;
+}
+.input {
+  font-family: "Roboto", sans-serif;
+  font-size: 21px;
+  /* font-weight: 300; */
+  color: #262522;
+  opacity: 0.4;
+  padding: 0 20px;
+}
+.email-address-SUB button {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: #f0ebe1;
+  background: #262522;
+  padding: 12px 24px;
+  border-radius: 24px;
+  right: 12px;
 }
