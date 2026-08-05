@@ -881,3 +881,30 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
 }
+.OUR-CULINARY-section {
+  width: 1312px;
+  height: 697px;
+  display: flex;
+  border: 1px solid black;
+  border-radius: 24px;
+  align-items: center;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  background: none;
+}
+.body-OUR {
+  background: none;
+  border: 1px solid black;
+  width: 1280px;
+  height: 665px;
+  margin: 16px 16px;
+  overflow: hidden;
+}
+.right-img-OUR {
+  border: 1px solid black;
+  margin-left: 869px;
+  border-radius: 24px;
+  width: 411px;
+  height: 665px;
+}
