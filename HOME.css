@@ -968,7 +968,7 @@ body {
 .title-decrip-SUB {
   width: 1078px;
   height: 260px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 .email-address-SUB {
   width: 426px;
@@ -1003,4 +1003,23 @@ body {
   cursor: pointer;
   transition: 0.3s;
   margin-left: 120px;
+}
+.SUB {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #fffbf2;
+  font-weight: bold 1;
+}
+.title-SUB {
+  font-family: "Montserrat", sans-serif;
+  font-size: 80px;
+  color: #fffbf2;
+  line-height: 1.05;
+}
+.decription-SUB {
+  color: #fffbf2;
+  font-family: "Roboto", sans-serif;
+  font-size: 21px;
+  margin-top: 12px;
+  /* font-weight: bold 1; */
 }
