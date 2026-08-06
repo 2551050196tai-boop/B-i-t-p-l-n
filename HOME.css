@@ -998,3 +998,111 @@ body {
   border-radius: 24px;
   right: 12px;
 }
+
+/* Doan cuoi trang Home */
+.footer{
+    width: 1313px;
+    height: 136px;
+
+    margin: 0 auto;
+    margin-top: 40px;
+
+    padding: 24px 40px;
+    box-sizing: border-box;
+
+    background: #262522;
+    border-radius: 32px;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 24px;
+}
+
+.footer-logo{
+    display: flex;
+    align-items: center;
+    gap: 3.5px;
+}
+
+.footer-logo img{
+    width: 40px;
+    height: 35px;
+}
+
+.logo-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text h3{
+    margin: 0;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 120%;
+    color: #F0EBE1;
+}
+
+.footer-menu{
+    display: flex;
+    gap: 32px;
+}
+
+.footer-menu a{
+    text-decoration: none;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #F0EBE1;
+
+    transition: .3s;
+}
+
+.footer-menu a:hover{
+    color: #EA5A47;
+}
+
+.foot-mxh{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.foot-mxh img{
+    width: 24px;
+    height: 24px;
+
+    transition: .3s;
+}
+
+.foot-mxh img:hover{
+    transform: scale(1.1);
+}
+
+.footer hr{
+    border: none;
+    height: 1px;
+    background: #F0EBE1;
+
+    margin: 24px 0 15px;
+}
+
+.footer-bottom{
+    text-align: center;
+}
+
+.footer-bottom p{
+    margin: 0;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 120%;
+    color: #F0EBE1;
+}
