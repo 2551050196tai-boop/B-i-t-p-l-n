@@ -49,6 +49,7 @@ body {
   display: flex;
   gap: 36px;
   list-style: none;
+  position: relative;
 }
 
 .nav-links li a {
@@ -68,7 +69,16 @@ body {
 .nav-links li a.active {
   color: #1a1a1a;
   font-weight: 600;
-  border-bottom: 3px solid #d94f30;
+}
+.slide-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background-color: #d94f30; /* Màu đỏ của bạn */
+  transition: all 0.3s ease-in-out; /* Hiệu ứng trượt mượt mà */
+  border-radius: 2px;
+  pointer-events: none; /* Không cản trở việc click chuột */
 }
 
 .nav-actions {
@@ -1064,7 +1074,7 @@ body {
   border-radius: 24px;
   background: #fffbf2;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
 }
 .input {
   font-family: "Roboto", sans-serif;
@@ -1072,22 +1082,25 @@ body {
   /* font-weight: 300; */
   color: #262522;
   opacity: 0.4;
-  padding: 0 20px;
+  margin-top: 12px;
+  margin-left: 24px;
 }
-.email-address-SUB button {
+.btn-subcribe-SUB {
   width: 122px;
   height: 38px;
+  background: #262522;
+  color: #f0ebe1;
+  border-radius: 50px;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
-  color: #f0ebe1;
-  background: #262522;
-  padding: 12px auto;
-  border-radius: 24px;
-  right: 12px;
-  border: none;
+  margin-top: 6px;
+  margin-right: 9px;
+  transition: background-color 0.3s ease;
+}
+.btn-subcribe-SUB:hover {
+  background: #f0ebe1;
+  color: #262522;
   cursor: pointer;
-  transition: 0.3s;
-  margin-left: 120px;
 }
 .SUB {
   font-family: "Roboto", sans-serif;
