@@ -362,3 +362,218 @@ body {
   height: 801px;
   border: 1px solid black;
 }
+.SUBSCRIBE {
+  width: 1312px;
+  height: 486px;
+  /* border: 1px solid black; */
+  border-radius: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  background: #ee6352;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+}
+.Oval-top-SUB {
+  width: 1328px;
+  height: 772px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  position: absolute;
+  top: -512px;
+  left: -8px;
+  background: #ff6653;
+  /* transform: translateX(-0.5%); */
+}
+.Oval-bottom-SUB {
+  width: 1328px;
+  height: 772px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  position: absolute;
+  top: 276px;
+  left: -8px;
+  background: #ff6653;
+}
+.content-SUB {
+  position: absolute;
+  width: 1078px;
+  height: 358px;
+  /* border: 1px solid black; */
+  z-index: 2;
+  margin-top: 64px;
+  left: 117px;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+.title-decrip-SUB {
+  width: 1078px;
+  height: 260px;
+  /* border: 1px solid black; */
+}
+.email-address-SUB {
+  width: 426px;
+  height: 50px;
+  /* border: 1px solid black; */
+  margin-top: 48px;
+  margin-left: 326px;
+  border-radius: 24px;
+  background: #fffbf2;
+  display: flex;
+  justify-content: space-between;
+}
+.input {
+  font-family: "Roboto", sans-serif;
+  font-size: 21px;
+  /* font-weight: 300; */
+  color: #262522;
+  opacity: 0.4;
+  margin-top: 12px;
+  margin-left: 24px;
+}
+.btn-subcribe-SUB {
+  width: 122px;
+  height: 38px;
+  background: #262522;
+  color: #f0ebe1;
+  border-radius: 50px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  margin-top: 6px;
+  margin-right: 9px;
+  transition: background-color 0.3s ease;
+}
+.btn-subcribe-SUB:hover {
+  background: #f0ebe1;
+  color: #262522;
+  cursor: pointer;
+}
+.SUB {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #fffbf2;
+  font-weight: bold 1;
+}
+.title-SUB {
+  font-family: "Montserrat", sans-serif;
+  font-size: 80px;
+  color: #fffbf2;
+  line-height: 1.05;
+}
+.decription-SUB {
+  color: #fffbf2;
+  font-family: "Roboto", sans-serif;
+  font-size: 21px;
+  margin-top: 12px;
+  /* font-weight: bold 1; */
+}
+
+/* Doan cuoi trang Home */
+.footer {
+  width: 1313px;
+  height: 136px;
+
+  margin: 0 auto;
+  margin-top: 40px;
+
+  padding: 24px 40px;
+  box-sizing: border-box;
+
+  background: #262522;
+  border-radius: 32px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 24px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 3.5px;
+}
+
+.footer-logo img {
+  width: 40px;
+  height: 35px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-text h3 {
+  margin: 0;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 120%;
+  color: #f0ebe1;
+}
+
+.footer-menu {
+  display: flex;
+  gap: 32px;
+}
+
+.footer-menu a {
+  text-decoration: none;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #f0ebe1;
+
+  transition: 0.3s;
+}
+
+.footer-menu a:hover {
+  color: #ea5a47;
+}
+
+.foot-mxh {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.foot-mxh img {
+  width: 24px;
+  height: 24px;
+
+  transition: 0.3s;
+}
+
+.foot-mxh img:hover {
+  transform: scale(1.1);
+}
+
+.footer hr {
+  border: none;
+  height: 1px;
+  background: #f0ebe1;
+
+  margin: 24px 0 15px;
+}
+
+.footer-bottom {
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 120%;
+  color: #f0ebe1;
+}
