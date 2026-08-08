@@ -1,0 +1,514 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background: #efebe2;
+  padding: 40px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f2ece1;
+  border-radius: 32px;
+  border: 1px solid #d3d3d3;
+  padding: 12px 20px;
+  max-width: 1312px;
+  max-height: 70px;
+  margin-left: auto; /* Khoảng cách từ trái = 64px */
+  margin-right: auto;
+  margin-top: 16px; /* Khoảng cách từ trên = 102px */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logo span {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2b2b2b;
+  line-height: 1.1;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  position: relative;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #6b6b6b;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding-bottom: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #1a1a1a;
+}
+
+.nav-links li a.active {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+.slide-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background-color: #d94f30; /* Màu đỏ của bạn */
+  transition: all 0.3s ease-in-out; /* Hiệu ứng trượt mượt mà */
+  border-radius: 2px;
+  pointer-events: none; /* Không cản trở việc click chuột */
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.search-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e4ddd1;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #333;
+  transition: background 0.3s ease;
+}
+
+.search-btn svg {
+  color: #333;
+  stroke: #333;
+}
+
+.search-btn:hover {
+  background: #d9cec2;
+}
+
+.subscribe-btn {
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.subscribe-btn:hover {
+  background: #333;
+  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
+}
+
+/* ================= 3. HEADER SECTION ================= */
+.Lemon-section {
+    width: 1312px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin: 50px auto 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipes-tag {
+  display: inline-block;
+  background: #d94f30;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 16px;
+  border-radius: 20px;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.Lemon-title {
+  color: #262522; /* Chữ xám đen chìm theo thiết kế Blog.jpg */
+  font-family: "Montserrat", sans-serif;
+  font-size: 80px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.Lemon-description {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.Recipe-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #262522;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.Recipe-meta .dot {
+  color: #262522;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.meta-item img {
+  width: 14px;
+  height: 14px;
+  filter: brightness(0.6);
+}
+
+/* ================= 4. HERO IMAGE ================= */
+.hero-image-container {
+  max-width: 1200px;
+  margin: 0 auto 50px auto;
+}
+
+/* Tối ưu sắc nét cho ảnh chính */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+/* ================= 5. MAIN CONTAINER (2 COLUMNS) ================= */
+.recipe-container {
+  display: flex;
+  gap: 56px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Cột trái (Nội dung chính) */
+.main-content {
+  flex: 1.8;
+}
+
+/* ================= 6. LEFT CONTENT STYLES ================= */
+/* 1. Tiêu đề chính: Dùng màu đen/xám đậm */
+.intro-text .dos-donts-title {
+    font-family: "Montserrat", sans-serif;
+  color: #262522 !important; /* Màu xám đen (không dùng màu cam/đỏ ở đây) */
+  font-size: 24px;
+  line-height: 120%;
+  gap: 40px;
+  margin-top: 40px;
+  letter-spacing: -1%;
+  margin-bottom: 16px;
+}
+
+/* 2. Nhãn DO'S: và DON'TS:: Dùng màu cam đỏ */
+.intro-text .label-red {
+  color: #EE6352 !important; /* Màu cam đỏ chính chủ */
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 16px;
+}
+
+/* 3. Tên từng mục nhỏ (Thoroughly Clean...): In đậm, màu tối */
+.dos-item p strong {
+  color: #262522;
+  font-size: 15px;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 4px;
+  margin-top: 16px;
+}
+
+/* 4. Nội dung giải thích phía dưới: Màu xám nhẹ */
+.dos-item p {
+  color: #333333;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* Khối Instructions */
+.instructions-section {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/* Tiêu đề INSTRUCTIONS to, đậm, màu tối xám đen */
+.instructions-section .section-title {
+  font-size: 46px;
+  font-weight: 900;
+  color: #2b2b2b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+/* Các đoạn văn mô tả màu xám, dãn dòng đọc dễ chịu */
+.instructions-section p {
+  color: #666666;
+  font-size: 15px;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.SUBSCRIBE {
+  width: 1312px;
+  height: 486px;
+  /* border: 1px solid black; */
+  border-radius: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  background: #ee6352;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+}
+.Oval-top-SUB {
+  width: 1328px;
+  height: 772px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  position: absolute;
+  top: -512px;
+  left: -8px;
+  background: #ff6653;
+  /* transform: translateX(-0.5%); */
+}
+.Oval-bottom-SUB {
+  width: 1328px;
+  height: 772px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  position: absolute;
+  top: 276px;
+  left: -8px;
+  background: #ff6653;
+}
+.content-SUB {
+  position: absolute;
+  width: 1078px;
+  height: 358px;
+  /* border: 1px solid black; */
+  z-index: 2;
+  margin-top: 64px;
+  left: 117px;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+.title-decrip-SUB {
+  width: 1078px;
+  height: 260px;
+  /* border: 1px solid black; */
+}
+.email-address-SUB {
+  width: 426px;
+  height: 50px;
+  /* border: 1px solid black; */
+  margin-top: 48px;
+  margin-left: 326px;
+  border-radius: 24px;
+  background: #fffbf2;
+  display: flex;
+  justify-content: space-between;
+}
+.input {
+  font-family: "Roboto", sans-serif;
+  font-size: 21px;
+  /* font-weight: 300; */
+  color: #262522;
+  opacity: 0.4;
+  margin-top: 12px;
+  margin-left: 24px;
+}
+.btn-subcribe-SUB {
+  width: 122px;
+  height: 38px;
+  background: #262522;
+  color: #f0ebe1;
+  border-radius: 50px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  margin-top: 6px;
+  margin-right: 9px;
+  transition: background-color 0.3s ease;
+}
+.btn-subcribe-SUB:hover {
+  background: #f0ebe1;
+  color: #262522;
+  cursor: pointer;
+}
+.SUB {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #fffbf2;
+  font-weight: bold 1;
+}
+.title-SUB {
+  font-family: "Montserrat", sans-serif;
+  font-size: 80px;
+  color: #fffbf2;
+  line-height: 1.05;
+}
+.decription-SUB {
+  color: #fffbf2;
+  font-family: "Roboto", sans-serif;
+  font-size: 21px;
+  margin-top: 12px;
+  /* font-weight: bold 1; */
+}
+
+/* Doan cuoi trang Home */
+.footer {
+  width: 1313px;
+  height: 136px;
+
+  margin: 0 auto;
+  margin-top: 40px;
+
+  padding: 24px 40px;
+  box-sizing: border-box;
+
+  background: #262522;
+  border-radius: 32px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 24px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 3.5px;
+}
+
+.footer-logo img {
+  width: 40px;
+  height: 35px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-text h3 {
+  margin: 0;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 120%;
+  color: #f0ebe1;
+}
+
+.footer-menu {
+  display: flex;
+  gap: 32px;
+}
+
+.footer-menu a {
+  text-decoration: none;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #f0ebe1;
+
+  transition: 0.3s;
+}
+
+.footer-menu a:hover {
+  color: #ea5a47;
+}
+
+.foot-mxh {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.foot-mxh img {
+  width: 24px;
+  height: 24px;
+
+  transition: 0.3s;
+}
+
+.foot-mxh img:hover {
+  transform: scale(1.1);
+}
+
+.footer hr {
+  border: none;
+  height: 1px;
+  background: #f0ebe1;
+
+  margin: 24px 0 15px;
+}
+
+.footer-bottom {
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 120%;
+  color: #f0ebe1;
+}
