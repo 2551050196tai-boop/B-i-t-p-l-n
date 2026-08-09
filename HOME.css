@@ -490,7 +490,7 @@ body {
   height: 40px;
   border-radius: 50%;
   background: #ffffff;
-  border: 1px solid #262522;
+  /* border: 1px solid #262522; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -513,18 +513,26 @@ body {
   display: flex;
   gap: 16px;
   align-items: stretch;
-}
+  overflow-x: auto; /* MỚI THÊM: Cho phép cuộn ngang */
+  scroll-behavior: smooth; /* MỚI THÊM: Tạo hiệu ứng cuộn mượt mà */
+  padding-bottom: 10px; /* Tạo chút khoảng trống ở đáy */
 
+  /* MỚI THÊM: Ẩn thanh cuộn (scrollbar) để giao diện đẹp như ảnh */
+  scrollbar-width: none; /* Dành cho Firefox */
+  -ms-overflow-style: none; /* Dành cho IE/Edge */
+}
+.featured-cards::-webkit-scrollbar {
+  display: none;
+}
 .recipe-card {
   width: 632px;
-  height: 437px;
+  height: auto;
   position: relative;
-  flex: 1;
+  flex: 0 0 auto; /* ĐÃ SỬA: Thay flex: 1 thành 0 0 auto để thẻ không bị bóp méo khi có nhiều món ăn */
   display: flex;
   flex-direction: column;
   background: #fffbf2;
   border-radius: 24px;
-  overflow: visible; /* để badge vegan tràn ra ngoài ảnh */
 }
 
 .recipe-image {
@@ -579,6 +587,10 @@ body {
   font-weight: 700;
   color: #262522;
   margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Chỉ cho phép tối đa 2 dòng */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .recipe-description {
@@ -588,6 +600,11 @@ body {
   color: #262522;
   line-height: 140%;
   margin-bottom: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .recipe-footer {

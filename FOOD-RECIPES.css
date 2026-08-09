@@ -277,7 +277,7 @@ body {
 .body-recipe-food {
   width: 1232px;
   height: auto;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
@@ -285,23 +285,24 @@ body {
 .content-recipe-food {
   width: 1161px;
   height: auto;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin-left: auto;
   display: flex;
   justify-content: space-between;
 }
 .collum1-recipe {
   width: 645px;
-  height: 4177px;
-  border: 1px solid black;
+  height: auto;
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  overflow: hidden;
 }
 .intro-content {
   width: 560px;
   height: auto;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   opacity: 0.8;
 }
 .intro-content p {
@@ -312,7 +313,7 @@ body {
 .decription-recipe-food {
   width: 560px;
   height: auto;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -356,11 +357,534 @@ body {
 .chu-nhat {
   opacity: 0.8;
 }
-
+.INSTRUCTIONS-recipe {
+  width: 560px;
+  height: auto;
+  /* border: 1px solid black; */
+  margin-top: 40px;
+}
+.H2-INSTRUCTIONS {
+  font-family: "Monterrat", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+.Paragraph-recipe {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  margin-top: 16px;
+  opacity: 0.8;
+  color: #262522;
+  line-height: 1.3;
+}
+.LIST-TITLE-recipe-food {
+  width: 560px;
+  height: auto;
+  /* border: 1px solid black; */
+  margin-top: 40px;
+}
+.TITLE-in-LIST {
+  color: #ee6352;
+  font-family: "Monterrat", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.LIST-in-LIST {
+  list-style-position: outside; /* Mấu chốt: Kéo dấu chấm vào trong khung */
+  /* border: 1px solid black; */
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #262522;
+  opacity: 0.8;
+  line-height: 1.5;
+  margin-top: 16px;
+  margin-left: 24px;
+}
+.img-recipe-food {
+  width: 645px;
+  height: 480px;
+  margin-top: 40px;
+}
+.video {
+  width: 645px;
+  height: auto;
+  margin-top: 40px;
+  /* border: 1px solid black; */
+  /* object-fit: contain; */
+  border-radius: 20px;
+}
+.PAIRING-SUGGESTIONS-box {
+  width: 560px;
+  height: auto;
+  /* border: 1px solid black; */
+  margin-top: 40px;
+}
+.TITLE-PAIRING {
+  color: #ee6352;
+  font-family: "Monterrat", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.LIST-PAIRING {
+  list-style-position: outside; /* Mấu chốt: Kéo dấu chấm vào trong khung */
+  /* border: 1px solid black; */
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #262522;
+  opacity: 0.8;
+  line-height: 1.5;
+  margin-top: 16px;
+  margin-left: 24px;
+}
+.RED-LINE-PAIRING {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  margin-top: 16px;
+  color: #262522;
+  opacity: 0.8;
+}
+.RED {
+  color: #ee6352;
+  opacity: 1;
+  font-weight: 500;
+  text-decoration: underline;
+}
+.DECRIPTION-PAIRING {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  margin-top: 16px;
+  color: #262522;
+  opacity: 0.8;
+}
+.SHARE-BOX {
+  width: 231px;
+  height: 48px;
+  margin-top: 40px;
+  border: 1px solid #262522;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.SHARE {
+  color: #262522;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 24px;
+}
+.ICON-SHARE {
+  width: 96px;
+  height: 24px;
+  /* border: 1px solid black; */
+  margin-right: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ICON-SHARE a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ICON-SHARE img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+.UNDERLINE {
+  margin-top: 40px;
+  opacity: 0.8;
+}
+.LEARN-MORE-BOX {
+  width: 645px;
+  height: auto;
+  /* border: 1px solid black; */
+  margin-top: 40px;
+  margin-bottom: 64px;
+  display: flex;
+  justify-content: space-between;
+}
+.IMG-Isabella {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 24px;
+}
+.INFO-Isa {
+  width: 509px;
+  height: auto;
+  /* border: 1px solid black; */
+}
+.Isabella-Russo {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.6;
+  color: #333333;
+}
+.Decription-Isa {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  opacity: 0.6;
+  color: #333333;
+  margin-top: 12px;
+  line-height: 1.3;
+}
+.LEAR-MORE {
+  margin-top: 24px;
+  border-radius: 50px;
+  border: 1px solid #262522;
+  width: 134px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.LEAR-MORE a {
+  text-decoration: none;
+  color: #262522;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center; /* Căn giữa chữ theo chiều dọc */
+  justify-content: center; /* Căn giữa chữ theo chiều ngang */
+  width: 100%; /* Ép vùng bấm rộng 100% theo khung ngoài */
+  height: 100%; /* Ép vùng bấm cao 100% theo khung ngoài */
+  transition: background-color 0.3s ease;
+}
+.LEAR-MORE a:hover {
+  background: #262522;
+  color: #f0ebe1;
+  cursor: pointer;
+}
 .collum2-recipe {
   width: 460px;
   height: 801px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+}
+.INGREDIENTS-BOX {
+  margin-top: 40px;
+  width: 428px;
+  height: auto;
+  border: 1px solid #bcb9b6;
+  background: #fffbf2;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.INGREDIENTS {
+  margin-left: 16px;
+  margin-top: 24px;
+  color: #ee6352;
+  font-family: "Monterrat", sans-serif;
+  font-size: 18px;
+  font-weight: 550;
+}
+.LIST-INGREDIENTS {
+  width: 396px;
+  margin-top: 16px;
+  margin-left: 44px;
+  margin-bottom: 24px;
+  /* border: 1px solid black; */
+  list-style-position: outside;
+  font-family: "Roboto", sans-serif;
+  font-size: 21px;
+  line-height: 1.3;
+}
+.EQUIPMENT-BOX {
+  margin-top: 16px;
+  width: 428px;
+  height: auto;
+  border: 1px solid #bcb9b6;
+  background: #fffbf2;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.EQUIPMENT {
+  margin-left: 16px;
+  margin-top: 24px;
+  color: #ee6352;
+  font-family: "Monterrat", sans-serif;
+  font-size: 18px;
+  font-weight: 550;
+}
+.LIST-EQUIPMENT {
+  width: 396px;
+  margin-top: 16px;
+  margin-left: 44px;
+  margin-bottom: 24px;
+  /* border: 1px solid black; */
+  list-style-position: outside;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+.NUTRITIONAL-BOX {
+  margin-top: 16px;
+  width: 428px;
+  height: auto;
+  border: 1px solid #bcb9b6;
+  background: #fffbf2;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.NUTRITIONAL {
+  margin-left: 16px;
+  margin-top: 24px;
+  color: #ee6352;
+  font-family: "Monterrat", sans-serif;
+  font-size: 18px;
+  font-weight: 550;
+}
+.TITLE-NUTRITIONAL {
+  margin-top: 16px;
+  margin-left: 16px;
+  color: #262522;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+.LIST-NUTRITIONAL {
+  margin-top: 16px;
+  margin-left: 16px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  gap: 8px;
+  list-style-type: none;
+  margin-bottom: 24px;
+}
+.NOTE {
+  width: 428px;
+  margin-top: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #333333;
+  opacity: 0.6;
+}
+.featured-section {
+  position: relative;
+  width: 1312px;
+  height: 573px;
+  background: none;
+  border: 1px solid #bcb9b6;
+  border-radius: 24px;
+  padding: 40px 16px 24px 16px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 64px;
+}
+
+/* desktop - căn giữa giống các section khác */
+@media (max-width: 2560px) {
+  .featured-section {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1312px;
+  }
+}
+
+/* header: title + nav arrows */
+.featured-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  margin-top: -5px;
+}
+
+.featured-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #262522;
+  margin-left: 25px;
+}
+
+.featured-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  /* border: 1px solid #262522; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.nav-arrow:hover {
+  background: #f2ece1;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
+}
+
+/* recipe cards container */
+.featured-cards {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+  overflow-x: auto; /* MỚI THÊM: Cho phép cuộn ngang */
+  scroll-behavior: smooth; /* MỚI THÊM: Tạo hiệu ứng cuộn mượt mà */
+  padding-bottom: 10px; /* Tạo chút khoảng trống ở đáy */
+
+  /* MỚI THÊM: Ẩn thanh cuộn (scrollbar) để giao diện đẹp như ảnh */
+  scrollbar-width: none; /* Dành cho Firefox */
+  -ms-overflow-style: none; /* Dành cho IE/Edge */
+}
+.featured-cards::-webkit-scrollbar {
+  display: none;
+}
+.recipe-card {
+  width: 632px;
+  height: auto;
+  position: relative;
+  flex: 0 0 auto; /* ĐÃ SỬA: Thay flex: 1 thành 0 0 auto để thẻ không bị bóp méo khi có nhiều món ăn */
+  display: flex;
+  flex-direction: column;
+  background: #fffbf2;
+  border-radius: 24px;
+}
+
+.recipe-image {
+  position: relative;
+  width: 100%;
+  height: 234px;
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.recipe-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* badge vegan */
+.recipe-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 24px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 10.35px;
+  font-weight: 700;
+  color: #262522;
+  text-align: center;
+  z-index: 2;
+}
+
+.recipe-badge img {
+  width: 66px;
+  height: 66px;
+}
+
+/* phần info dưới ảnh */
+.recipe-info {
+  padding: 24px 24px 16px 24px;
+  /* 3 dòng này để kích hoạt flexbox */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.recipe-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #262522;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Chỉ cho phép tối đa 2 dòng */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.recipe-description {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #262522;
+  line-height: 140%;
+  margin-bottom: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recipe-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.recipe-meta {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #262522;
+  line-height: 120%;
+}
+
+.btn-viewrecipe {
+  min-width: 132px;
+  height: 38px;
+  border-radius: 24px;
+  padding: 0px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  background: none;
+  border: 1px solid #262522;
+  color: #262522;
+  cursor: pointer;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btn-viewrecipe:hover {
+  background: #262522;
+  color: #ffffff;
+  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
 }
 .SUBSCRIBE {
   width: 1312px;
