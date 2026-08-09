@@ -262,6 +262,8 @@ body {
   border-radius: 50px;
   transition: all 0.5s ease;
   margin-top: 20px;
+  text-decoration: none;
+  color: #262522;
 }
 
 .hero-button:hover {

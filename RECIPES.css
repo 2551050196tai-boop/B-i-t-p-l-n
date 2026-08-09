@@ -134,11 +134,12 @@ body {
 
 .MENU-ALL {
   width: 1312px;
-  height: 2000px;
+  height: auto;
+  padding-bottom: 80px;
   margin-top: 24px;
   margin-left: auto;
   margin-right: auto;
-  /*border: 1px solid black; */
+  border: 1px solid black;
 }
 .btn-option-Menu {
   width: 813px;
@@ -184,18 +185,10 @@ body {
   height: auto;
   /* border: 1px solid black; */
   margin-top: 40px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 427px);
   justify-content: space-between;
-}
-.Line-menu {
-  width: 1312px;
-  height: 451px;
-  /* border: 1px solid#262522; */
-  border-radius: 30px;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 24px;
+  row-gap: 24px;
 }
 .Food-menu {
   width: 427px;
