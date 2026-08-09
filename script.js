@@ -107,3 +107,54 @@ document.addEventListener("DOMContentLoaded", () => {
   // Chạy hàm lấy dữ liệu ngay khi web vừa load xong
   fetchFeaturedRecipes();
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const recipeContainer = document.getElementById("recipe-container");
+
+  if (recipeContainer) {
+    loadDynamicRecipes();
+  }
+
+  async function loadDynamicRecipes() {
+    try {
+      const response = await fetch(
+        "https://www.themealdb.com/api/json/v1/1/search.php?f=a",
+      );
+      const data = await response.json();
+
+      if (data.meals) {
+        // SỬA Ở ĐÂY: Xóa .slice(0, 6) để lấy toàn bộ mảng dữ liệu
+        const newMeals = data.meals;
+
+        newMeals.forEach((recipe) => {
+          // Xử lý huy hiệu ngẫu nhiên
+          const prepTime = Math.floor(Math.random() * 40) + 15;
+          const levels = ["EASY PREP", "MEDIUM PREP", "HARD PREP"];
+          const difficulty = levels[Math.floor(Math.random() * levels.length)];
+          const serves = Math.floor(Math.random() * 4) + 2;
+          const metaInfo = `${prepTime} MIN - ${difficulty} - ${serves} SERVES`;
+
+          // Tạo cấu trúc HTML
+          const cardHTML = `
+            <div class="Food-menu">
+              <img class="picture-Menu" src="${recipe.strMealThumb}" alt="${recipe.strMeal}" />
+              <div class="title-decrip-food">
+                <a class="title-food" href="#">${recipe.strMeal}</a>
+                <p class="decription-food" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
+                  ${recipe.strInstructions}
+                </p>
+              </div>
+              <div class="more-view-food">
+                <span class="more-menu">${metaInfo}</span>
+                <a class="view-recipe-menu" href="${recipe.strSource || "#"}" target="_blank">VIEW RECIPE</a>
+              </div>
+            </div>
+          `;
+
+          recipeContainer.insertAdjacentHTML("beforeend", cardHTML);
+        });
+      }
+    } catch (error) {
+      console.error("Lỗi khi tải thêm dữ liệu API:", error);
+    }
+  }
+});
