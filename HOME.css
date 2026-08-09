@@ -141,7 +141,7 @@ body {
   display: flex; /*Biến phần tử thành Flex Container, giúp sắp xếp các phần tử con dễ dàng theo hàng hoặc cột.*/
   align-items: center; /*Căn giữa các phần tử con theo chiều dọc*/
   justify-content: center; /*Căn giữa các phần tử con theo chiều ngang (trục chính của Flex).*/
-
+  
   /*Position mới - X=64, Y=102 */
   margin-left: auto; /* Khoảng cách từ trái = 64px */
   margin-right: auto;
@@ -253,7 +253,11 @@ body {
 }
 
 .hero-button {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 100%;
   background: #e8973c; /* Màu cam */
+  color: #262522;
   padding: 12px 35px;
   border-radius: 50px;
   transition: all 0.5s ease;
@@ -274,10 +278,6 @@ body {
   background: #cbe5fb;
   border-radius: 32px;
   padding: 40px 40px 40px 40px;
-  margin-top: 16px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 40px 40px; /* Padding khung ngoài */
   margin-top: 16px;
   margin-left: auto;
   margin-right: auto;
