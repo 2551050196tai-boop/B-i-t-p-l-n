@@ -590,8 +590,6 @@ body {
   color: #262522;
   margin-bottom: 8px;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Chỉ cho phép tối đa 2 dòng */
-  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
@@ -603,8 +601,6 @@ body {
   line-height: 140%;
   margin-bottom: 24px;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
