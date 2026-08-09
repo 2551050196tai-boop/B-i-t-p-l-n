@@ -402,8 +402,10 @@ body {
 }
 .img-recipe-food {
   width: 645px;
-  height: 480px;
+  height: auto;
   margin-top: 40px;
+  border-radius: 24px;
+  object-fit: contain;
 }
 .video {
   width: 645px;
