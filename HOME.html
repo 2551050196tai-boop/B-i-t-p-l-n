@@ -22,6 +22,24 @@
       href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./favicon_io/site.webmanifest" />
   </head>
   <body class="congthucnauan">
     <nav class="navbar">
@@ -128,7 +146,7 @@
     <section class="featured-section">
       <!-- header: title + nav arrows -->
       <div class="featured-header">
-        <h2 class="featured-title">FEATURED RECIPES</h2>
+        <h2 class="featured-title">SIMILAR RECIPES</h2>
         <div class="featured-nav">
           <button class="nav-arrow prev-arrow" aria-label="previous">
             <img src="./picture/Arrow Left.png" alt="prev" />
@@ -139,50 +157,9 @@
         </div>
       </div>
 
-      <!-- recipe cards -->
-      <div class="featured-cards">
-        <div class="recipe-card">
-          <div class="recipe-image">
-            <img
-              src="./picture/chicken.png"
-              alt="Savory Herb-Infused Chicken"
-            />
-          </div>
-          <div class="recipe-info">
-            <h3 class="recipe-title">Savory Herb-Infused Chicken</h3>
-            <p class="recipe-description">
-              Indulge in the rich and savory symphony of flavors with our Savory
-              Herb-Infused Chicken
-            </p>
-            <div class="recipe-footer">
-              <span class="recipe-meta">40 MIN · EASY PREP · 3 SERVES</span>
-              <button class="btn-viewrecipe">VIEW RECIPE</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="recipe-card">
-          <div class="recipe-image">
-            <img
-              src="./picture/chocolate.png"
-              alt="Decadent Chocolate Mousse"
-            />
-            <span class="recipe-badge">
-              <img src="./picture/Tag.png" alt="vegan" />
-            </span>
-          </div>
-          <div class="recipe-info">
-            <h3 class="recipe-title">Decadent Chocolate Mousse</h3>
-            <p class="recipe-description">
-              Dive into the velvety indulgence of our Decadent Chocolate Mousse.
-              A dessert that transcends sweetness!
-            </p>
-            <div class="recipe-footer">
-              <span class="recipe-meta">30 MIN · MEDIUM PREP · 4 SERVES</span>
-              <button class="btn-viewrecipe">VIEW RECIPE</button>
-            </div>
-          </div>
-        </div>
+      <!-- recipe cards: Bỏ trống để JS tự điền vào, thêm id để JS dễ tìm -->
+      <div class="featured-cards" id="featured-cards-container">
+        <!-- Dữ liệu từ API sẽ được tự động chèn vào đây -->
       </div>
     </section>
     <section class="embark-section">

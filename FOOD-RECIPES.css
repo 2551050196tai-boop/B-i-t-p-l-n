@@ -273,35 +273,34 @@ body {
   object-fit: cover;
   border-radius: 50px;
 }
-
-.recipe-section {
-  width: 1161px;
-  height: 4177px;
+.body-recipe-food {
+  width: 1232px;
+  height: auto;
+  border: 1px solid black;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 25px;
-  border: 0.5px solid #bcb9b6;
+  margin-top: 40px;
 }
-
-.recipe-conten {
+.content-recipe-food {
+  width: 1161px;
+  height: auto;
+  border: 1px solid black;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.collum1-recipe {
   width: 645px;
   height: 4177px;
-  border: 0.5px solid #262522;
-
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
-
-.left-recipe {
-  width: 645px;
-  height: 4177px;
-  margin-right: 60px;
-  border: 1px solid #333333;
-}
-
-.info-picture {
-  font-family: "Roboto", sans-serif;
+.intro-content {
   width: 560px;
-  height: 258px;
-  color: #333333;
+  height: auto;
+  border: 1px solid black;
   opacity: 0.8;
   font-size: 16px;
   letter-spacing: 1.1;
@@ -310,7 +309,8 @@ body {
 
 .recipe-decription {
   width: 560px;
-  height: 497px;
+  height: auto;
+  border: 1px solid black;
   margin-top: 40px;
   border: 1px solid #333333;
 }
@@ -375,6 +375,11 @@ body {
   margin-top: 16px;
 }
 
+.collum2-recipe {
+  width: 460px;
+  height: 801px;
+  border: 1px solid black;
+}
 .SUBSCRIBE {
   width: 1312px;
   height: 486px;
