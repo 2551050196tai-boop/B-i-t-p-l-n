@@ -99,10 +99,15 @@ document.addEventListener("DOMContentLoaded", () => {
   if (recipeContainer && filterButtons.length > 0) {
     // CHIÊU THỨC QUAN TRỌNG: Lưu lại 6 món tĩnh trong HTML trước khi bị xóa
     const staticHTML = recipeContainer.innerHTML;
+    // TÌM XEM NÚT NÀO ĐANG ĐƯỢC CHỌN SẴN TRONG HTML
+    const activeBtn = document.querySelector(".filter-btn.active-filter");
+    //LẤY TÊN DANH MỤC CỦA NÚT ĐÓ (NẾU KHÔNG CÓ THÌ MẶC ĐỊNH LÀ ALL)
+    const initialCategory = activeBtn
+      ? activeBtn.getAttribute("data-category")
+      : "ALL";
 
-    // Chạy mặc định mục ALL
-    loadRecipes("ALL");
-
+    // Chạy mặc định đúng mục đang được kích hoạt
+    loadRecipes(initialCategory);
     // Lắng nghe sự kiện Click trên các nút
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
