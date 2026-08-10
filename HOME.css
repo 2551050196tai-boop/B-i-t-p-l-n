@@ -595,11 +595,9 @@ body {
   color: #262522;
   margin-bottom: 8px;
   display: -webkit-box;
-<<<<<<< HEAD
   -webkit-line-clamp: 2; /* Chỉ cho phép tối đa 2 dòng */
   -webkit-box-orient: vertical;
-=======
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
+  line-clamp: 2;
   overflow: hidden;
 }
 
@@ -611,11 +609,9 @@ body {
   line-height: 140%;
   margin-bottom: 24px;
   display: -webkit-box;
-<<<<<<< HEAD
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
-=======
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -1261,76 +1257,42 @@ body {
 }
 /* Giao diện Mobile */
 
-<<<<<<< HEAD
 .mobile-menu-btn {
   display: none;
 }
 
 @media (max-width: 768px) {
   body {
-=======
-.mobile-menu-btn{
-  display: none;
-}
-
-@media (max-width: 768px){
-
-  body{
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
     padding: 16px;
   }
 
   /* Header */
 
-<<<<<<< HEAD
   .navbar {
-=======
-  .navbar{
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
     width: 100%;
     max-width: none;
     height: 67px;
     max-height: none;
-<<<<<<< HEAD
     margin-left: auto;
     margin-right: auto;
     margin: 0;
     padding: 16px;
 
     background: #f0ebe1;
-=======
-
-    margin: 0;
-    padding: 16px;
-
-    background: #F0EBE1;
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
     border-radius: 32px;
     border: 1px solid #d3d3d3;
   }
 
-<<<<<<< HEAD
   .logo {
     gap: 3.5px;
   }
 
   .logo img {
-=======
-  .logo{
-    gap: 3.5px;
-  }
-
-  .logo img{
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
     width: 40px;
     height: 35px;
   }
 
-<<<<<<< HEAD
   .logo span {
-=======
-  .logo span{
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     font-weight: 700;
@@ -1338,7 +1300,6 @@ body {
     color: #262522;
   }
 
-<<<<<<< HEAD
   .nav-links {
     display: none;
   }
@@ -1348,17 +1309,6 @@ body {
   }
 
   .mobile-menu-btn {
-=======
-  .nav-links{
-    display: none;
-  }
-
-  .nav-actions{
-    display: none;
-  }
-
-  .mobile-menu-btn{
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1380,11 +1330,7 @@ body {
 
   /* Hero */
 
-<<<<<<< HEAD
   .hero {
-=======
-  .hero{
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
     width: 100%;
     height: 640px;
 
@@ -1395,11 +1341,7 @@ body {
     display: block;
   }
 
-<<<<<<< HEAD
   .background-hero {
-=======
-  .background-hero{
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
     width: 100%;
     height: 640px;
 
@@ -1407,35 +1349,20 @@ body {
     aspect-ratio: auto;
   }
 
-<<<<<<< HEAD
   .background-hero img {
-=======
-  .background-hero img{
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
     width: 100%;
     height: 100%;
 
     object-fit: cover;
-<<<<<<< HEAD
     /* object-position: 16px 99px; */
   }
 
   .hero-overlay {
-=======
-    object-position: 16px 99px;
-  }
-
-  .hero-overlay{
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
     width: 100%;
     height: 100%;
   }
 
-<<<<<<< HEAD
   .hero-content {
-=======
-  .hero-content{
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
     position: absolute;
 
     top: 185px;
@@ -1453,11 +1380,7 @@ body {
     text-align: center;
   }
 
-<<<<<<< HEAD
   .hero-title {
-=======
-  .hero-title{
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
     width: 311px;
 
     margin: 0;
@@ -1467,17 +1390,10 @@ body {
     font-weight: 800;
     line-height: 100%;
 
-<<<<<<< HEAD
     color: #f0ebe1;
   }
 
   .hero-description {
-=======
-    color: #F0EBE1;
-  }
-
-  .hero-description{
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
     width: 311px;
 
     margin: 12px 0 0;
@@ -1487,17 +1403,10 @@ body {
     font-weight: 400;
     line-height: 140%;
 
-<<<<<<< HEAD
     color: #f0ebe1;
   }
 
   .hero-button {
-=======
-    color: #F0EBE1;
-  }
-
-  .hero-button{
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
     width: 166px;
     height: 38px;
 
@@ -1507,11 +1416,7 @@ body {
     border: none;
     border-radius: 24px;
 
-<<<<<<< HEAD
     background: #f29c33;
-=======
-    background: #F29C33;
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
 
     font-family: "Roboto", sans-serif;
     font-size: 14px;
@@ -1521,19 +1426,9 @@ body {
     color: #262522;
   }
 
-<<<<<<< HEAD
   .hero-button:hover {
     background: #f29c33;
     transform: none;
     box-shadow: none;
   }
 }
-=======
-  .hero-button:hover{
-    background: #F29C33;
-    transform: none;
-    box-shadow: none;
-  }
-
-}
->>>>>>> 97990985a4e695a3109a007cd588155174c44057
