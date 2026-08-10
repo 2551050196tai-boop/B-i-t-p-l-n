@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" 
+      rel="stylesheet"
+      />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" 
+      rel="stylesheet"
+    />
+
     <title>Công thức nấu ăn</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="COOKINGS TIPS.css" />
   </head>
+
   <body class="congthucnauan">
     <nav class="navbar">
       <div class="logo">
@@ -21,17 +31,83 @@
 
       <ul class="nav-links">
         <li><a href="HOME.html">HOME</a></li>
-        <li><a href="RECIPES.html">RECIPES</a></li>
-        <li><a href="COOKINGS TIPS.html" class="active">COOKING TIPS</a></li>
+        <li><a href="RECIPES.html" class="active">RECIPES</a></li>
+        <li><a href="COOKINGS TIPS.html">COOKING TIPS</a></li>
         <li><a href="ABOUT_US.html">ABOUT US</a></li>
       </ul>
-
       <div class="nav-actions">
         <button class="search-btn">
-          <img src="search-icon.svg" alt="tìm kiếm" width="24" height="24" />
+          <img src="./picture/search-icon.svg" alt="tìm kiếm" width="24" height="24" />
         </button>
         <button class="subscribe-btn">SUBSCRIBE</button>
       </div>
     </nav>
+
+    <section clas="cookings">
+      <div class="cookings-container">
+        <h1 class="cookings-title">
+          OUR ESSENTIAL <br /> COOKINGS TIPS 
+        </h1>
+        <div class="cookings-right">
+          <p class="cookings-description">
+            Welcome to Cooks Delight's treasure trove of cooking wisdom! Whether you're a seasoned chef or just starting your culinary journey, our cooking tips are designed to elevate your skills, enhance your kitchen experience, and bring joy to your cooking adventures.          
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="features-container">
+  
+  <!-- Cột 1 -->
+  <div class="feature-item">
+    <img src="./picture/knife-icon.svg" alt="Quality Tools" class="feature-icon">
+    <div class="feature-content">
+      <h4 class="feature-title">QUALITY TOOLS</h4>
+      <p class="feature-desc">Invest in high-quality knives, cutting boards, and cookware.</p>
+    </div>
+  </div>
+
+  <!-- Cột 2 -->
+  <div class="feature-item">
+    <img src="./picture/tongs-icon.svg" alt="Essential Utensils" class="feature-icon">
+    <div class="feature-content">
+      <h4 class="feature-title">ESSENTIAL UTENSILS</h4>
+      <p class="feature-desc">Have a variety of utensils, including spatulas, tongs, and ladles.</p>
+    </div>
+  </div>
+
+  <!-- Cột 3 -->
+  <div class="feature-item">
+    <img src="./picture/scale-icon.svg" alt="Measuring Accuracy" class="feature-icon">
+    <div class="feature-content">
+      <h4 class="feature-title">MEASURING ACCURACY</h4>
+      <p class="feature-desc">Use measuring cups and spoons for precise ingredient quantities.</p>
+    </div>
+  </div>
+
+</div>
+
+      <section class="featured-section">
+      <!-- header: title + nav arrows -->
+      <div class="featured-header">
+        <h2 class="featured-title">NEWEST RECIPES</h2>
+        <div class="featured-nav">
+          <button class="nav-arrow prev-arrow" aria-label="previous">
+            <img src="./picture/Arrow Left.png" alt="prev" />
+          </button>
+          <button class="nav-arrow next-arrow" aria-label="next">
+            <img src="./picture/Arrow Right.png" alt="next" />
+          </button>
+        </div>
+      </div>
+
+      <!-- recipe cards: Bỏ trống để JS tự điền vào, thêm id để JS dễ tìm -->
+      <div class="featured-cards" id="featured-cards-container">
+        <!-- Dữ liệu từ API sẽ được tự động chèn vào đây -->
+      </div>
+    </section>
+        <script src="script.js"></script>
+
   </body>
 </html>
+

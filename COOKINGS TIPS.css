@@ -140,23 +140,24 @@ body {
 }
 
 /* Khung chứa 2 cột */
-.welcome-container {
+.cookings-container {
   display: grid;
   width: 1312px;
-  height: 240px;
+  height: 160px;
   margin-top: 88px;
   margin-left: auto;
   margin-right: auto;
   grid-template-columns: 1fr 1fr; /* Chia thành 2 cột bằng nhau */
   gap: 12px;                     /* Khoảng cách giữa 2 cột */
   align-items: start;
+  border: 1px solid rgb(124, 117, 117);
 }
 
 /* Tiêu đề lớn bên trái */
-.welcome-title {
+.cookings-title {
   font-family: "Montserrat", sans-serif;
-  width: 648px;
-  height: 240px;
+  width: 763px;
+  height: 160px;
   font-size: 80px;
   line-height: 100%;
   letter-spacing: -0.01rem;
@@ -164,155 +165,87 @@ body {
 }
 
 /* Cột bên phải */
-.welcome-right {
+.cookings-right {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
 }
 
-.welcome-description {
+.cookings-description {
+  text-align: right;
   opacity: 0.6;
   font-family: "Roboto", sans-serif;
-  margin-top: 40px;
   font-size: 21px;
   line-height: 1.4;
   letter-spacing: 1%;
   color: #262522;
 }
 
-/* Nút màu cam bo tròn dạng Pill */
-.welcome-button {
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  line-height: 100%;
-  background: #e8973c; /* Màu cam */
-  color: #262522;
-  padding: 12px 35px;
-  border-radius: 50px;
-  transition: all 0.5s ease;
-  margin-top: 40px;
-}
-
-.welcome-button:hover {
-  background: #f0a84a;
-  transform: translateY(-3px); /* Nâng lên khi hover */
-  box-shadow: 0 6px 20px rgba(232, 151, 60, 0.4);
-}
-
-.info {
-  width: 1312px;        /* Dùng max-width thay vì width cố định để co giãn tốt trên mọi màn hình */
-  height: 1144;
-  border-radius: 32px;
-  margin-top: 16px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 32px;            /* Tăng padding giúp bố cục thở tốt hơn */
-  border: 1px solid rgb(124, 117, 117);
-  background-color: #f4f1ea; /* Nền kem chuẩn theo thiết kế */
-}
-
-.info-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Chia 2 cột bằng nhau */
-  gap: 40px;                     /* Khoảng cách giữa 2 cột */
-  align-items: start;
-}
-
-.info-left {
-  display: flex;
-  flex-direction: column;
-  gap: 16px; 
-}
-
-.info-picture img {
+.features-container {
+  max-width: 1312px;
   width: 100%;
-  height: auto;
-  border-radius: 16px;
-  object-fit: cover;
-  display: block;
-}
-
-.follow_me {
-  display: flex;
-  justify-content: space-between;
+  margin: 40px auto;
+  padding: 40px 32px;
+  border: 1px solid rgb(124, 117, 117);
+  border-radius: 24px;           /* Bo góc khung lớn */
+  box-sizing: border-box;
+  /* Chia 3 cột đều nhau */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
   align-items: center;
-  background-color: #e6e1d5;
-  padding: 12px 24px;
-  border-radius: 9999px;
-  font-size: 0.85rem;
-  font-weight: bold;
-  letter-spacing: 0.05em;
-  color: #333;
 }
 
-.social-icons {
+/* Từng phần tử cột */
+.feature-item {
   display: flex;
-  align-items: center;
-  gap: 16px;
+  align-items: center;          /* Căn giữa icon và chữ theo chiều dọc */
+  gap: 40px;                     /* Khoảng cách giữa icon và chữ */
 }
 
-.social-icons a {
-  color: #1c1c1c;
-  font-size: 1.1rem;
-  text-decoration: none;
-  display: flex;
+/* Định dạng Icon */
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;                /* Giữ nguyên kích thước icon không bị bóp méo */
 }
 
-.social-icons img {
-  width: 20px;
-  height: 20px;
-}
-
-.info-right {
+/* Khung nội dung chữ */
+.feature-content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 6px;
 }
 
-.info-title {
+/* Tiêu đề màu cam đỏ */
+.feature-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 40px;
-  line-height: 100%;
-  letter-spacing: 0.01em;    /* Sửa 1% thành 0.01em (CSS không hỗ trợ % cho letter-spacing) */
-  color: #262522;
+  font-size: 18px;
+  color: #ee6352;                /* Màu cam đỏ nổi bật */
+  letter-spacing: 0.02em;
   text-transform: uppercase;
+  margin: 0;
 }
 
-.info-description {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+/* Mô tả ngắn bên dưới */
+.feature-desc {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  color: #262522;
   line-height: 1.4;
-  gap: 16px;
   letter-spacing: 0.01em;
-  opacity: 0.8;
+  color: #262522;
+  margin: 0;
 }
 
-.signature {
-  font-family: 'Homemade Apple', cursive;
-  font-size: 21px;
-  line-height: 120%;
-  letter-spacing: 0.01em;
-  color: rgba(51, 51, 51, 0.8);
-  margin-top: 8px;
-}
-
-.info-gallery {
-  margin-top: 64px;               
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;                     
-}
-
-.info-gallery img {
-  width: 100%;
-  height: 220px;                  
-  object-fit: cover;             
-  border-radius: 24px;          
-  display: block;
+/* Tự động chuyển thành 1 cột khi xem trên màn hình điện thoại */
+@media (max-width: 768px) {
+  .features-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px;
+  }
 }
 
 /* ===== FEATURED RECIPES SECTION ===== */
@@ -526,218 +459,3 @@ body {
   box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
 }
 
-.SUBSCRIBE {
-  width: 1312px;
-  height: 486px;
-  /* border: 1px solid black; */
-  border-radius: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 80px;
-  background: #ee6352;
-  overflow: hidden;
-  position: relative;
-  align-items: center;
-}
-.Oval-top-SUB {
-  width: 1328px;
-  height: 772px;
-  /* border: 1px solid black; */
-  border-radius: 50%;
-  position: absolute;
-  top: -512px;
-  left: -8px;
-  background: #ff6653;
-  /* transform: translateX(-0.5%); */
-}
-.Oval-bottom-SUB {
-  width: 1328px;
-  height: 772px;
-  /* border: 1px solid black; */
-  border-radius: 50%;
-  position: absolute;
-  top: 276px;
-  left: -8px;
-  background: #ff6653;
-}
-.content-SUB {
-  position: absolute;
-  width: 1078px;
-  height: 358px;
-  /* border: 1px solid black; */
-  z-index: 2;
-  margin-top: 64px;
-  left: 117px;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-}
-.title-decrip-SUB {
-  width: 1078px;
-  height: 260px;
-  /* border: 1px solid black; */
-}
-.email-address-SUB {
-  width: 426px;
-  height: 50px;
-  /* border: 1px solid black; */
-  margin-top: 48px;
-  margin-left: 326px;
-  border-radius: 24px;
-  background: #fffbf2;
-  display: flex;
-  justify-content: space-between;
-}
-.input {
-  font-family: "Roboto", sans-serif;
-  font-size: 21px;
-  /* font-weight: 300; */
-  color: #262522;
-  opacity: 0.4;
-  margin-top: 12px;
-  margin-left: 24px;
-}
-.btn-subcribe-SUB {
-  width: 122px;
-  height: 38px;
-  background: #262522;
-  color: #f0ebe1;
-  border-radius: 50px;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  margin-top: 6px;
-  margin-right: 9px;
-  transition: background-color 0.3s ease;
-}
-.btn-subcribe-SUB:hover {
-  background: #f0ebe1;
-  color: #262522;
-  cursor: pointer;
-}
-.SUB {
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  color: #fffbf2;
-  font-weight: bold 1;
-}
-.title-SUB {
-  font-family: "Montserrat", sans-serif;
-  font-size: 80px;
-  color: #fffbf2;
-  line-height: 1.05;
-}
-.decription-SUB {
-  color: #fffbf2;
-  font-family: "Roboto", sans-serif;
-  font-size: 21px;
-  margin-top: 12px;
-  /* font-weight: bold 1; */
-}
-
-/* Doan cuoi trang Home */
-.footer {
-  width: 1313px;
-  height: 136px;
-
-  margin: 0 auto;
-  margin-top: 40px;
-
-  padding: 24px 40px;
-  box-sizing: border-box;
-
-  background: #262522;
-  border-radius: 32px;
-}
-
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin-bottom: 24px;
-}
-
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 3.5px;
-}
-
-.footer-logo img {
-  width: 40px;
-  height: 35px;
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.logo-text h3 {
-  margin: 0;
-
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 120%;
-  color: #f0ebe1;
-}
-
-.footer-menu {
-  display: flex;
-  gap: 32px;
-}
-
-.footer-menu a {
-  text-decoration: none;
-
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #f0ebe1;
-
-  transition: 0.3s;
-}
-
-.footer-menu a:hover {
-  color: #ea5a47;
-}
-
-.foot-mxh {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.foot-mxh img {
-  width: 24px;
-  height: 24px;
-
-  transition: 0.3s;
-}
-
-.foot-mxh img:hover {
-  transform: scale(1.1);
-}
-
-.footer hr {
-  border: none;
-  height: 1px;
-  background: #f0ebe1;
-
-  margin: 24px 0 15px;
-}
-
-.footer-bottom {
-  text-align: center;
-}
-
-.footer-bottom p {
-  margin: 0;
-
-  font-family: "Roboto", sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 120%;
-  color: #f0ebe1;
-}
