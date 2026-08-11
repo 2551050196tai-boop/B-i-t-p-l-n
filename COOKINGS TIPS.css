@@ -150,7 +150,6 @@ body {
   grid-template-columns: 1fr 1fr; /* Chia thành 2 cột bằng nhau */
   gap: 12px;                     /* Khoảng cách giữa 2 cột */
   align-items: start;
-  border: 1px solid rgb(124, 117, 117);
 }
 
 /* Tiêu đề lớn bên trái */
@@ -237,15 +236,6 @@ body {
   letter-spacing: 0.01em;
   color: #262522;
   margin: 0;
-}
-
-/* Tự động chuyển thành 1 cột khi xem trên màn hình điện thoại */
-@media (max-width: 768px) {
-  .features-container {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 24px;
-  }
 }
 
 /* ===== FEATURED RECIPES SECTION ===== */
@@ -459,3 +449,361 @@ body {
   box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
 }
 
+/* Nền chung toàn khối */
+.basics-section {
+  width: 1313px;
+  height: 1050px;
+  margin-top: 38px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Phần Header */
+.basics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.basics-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0.01em;
+  color: #262522;
+}
+
+.nav-controls {
+  display: flex;
+  gap: 12px;
+}
+
+/* Nút bấm chứa icon mũi tên */
+.circle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  /* border: 1px solid #262522; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.circle-btn:hover {
+  background: #f2ece1;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
+}
+
+.arrow-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Lưới 3 cột */
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Khung từng thẻ Card */
+.card-item {
+  width: 427px;
+  height: 473px;
+  position: relative;
+  flex: 0 0 auto; /* ĐÃ SỬA: Thay flex: 1 thành 0 0 auto để thẻ không bị bóp méo khi có nhiều món ăn */
+  display: flex;
+  flex-direction: column;
+  background: #fffbf2;
+  border-radius: 24px;
+}
+
+.card-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 234px;
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Nội dung bài viết trong Card */
+.card-content {
+  padding: 24px 24px 16px 24px;
+  /* 3 dòng này để kích hoạt flexbox */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #262522;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Chỉ cho phép tối đa 2 dòng */
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.card-desc {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #262522;
+  line-height: 140%;
+  margin-bottom: 54px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Phần Chân Card (Thời gian + Nút) */
+.card-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-meta {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #262522;
+  line-height: 120%;
+}
+
+.read-more-btn {
+  font-family: "Roboto", sans-serif;
+  min-width: 126px;
+  height: 38px;
+  border-radius: 24px;
+  padding: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  background: none;
+  border: 1px solid #262522;
+  color: #262522;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.read-more-btn:hover {
+  background: #262522;
+  color: #ffffff;
+  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
+}
+
+
+/* Khung ngoài NOURISHING EVERY PALATE */
+.nourishing-section {
+  max-width: 1322px;
+  width: 100%;
+  margin: 64px auto 40px 65px;
+  padding: 64px 40px 40px 40px; /* Đặt theo đúng Padding Figma: top 40px, right 64px, bottom 40px, left 40px */
+  background-color: #C4E5FC;   /* Màu Primary Color 4 trong Figma */
+  border-radius: 32px;         /* Corner radius 32 trong Figma */
+  box-sizing: border-box;}
+
+/* Header tiêu đề & nút điều hướng */
+.nourishing-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nourishing-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: #262522;
+}
+
+.nav-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.circle-btn {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  /* border: 1px solid #262522; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.circle-btn:hover {
+  opacity: 0.7;
+  transform: scale(1.05);
+}
+
+.arrow-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Lưới 3 cột */
+.nourishing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Khung chứa Card */
+.overlay-card {
+  position: relative;
+  width: 400px;
+  height: 464px;
+  border-radius: 24px;
+  display: flex;
+  overflow: hidden;           /* Bo góc ảnh đúng theo khung */
+  flex-direction: column;
+  justify-content: flex-end;  /* Đẩy nội dung xuống đáy */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.overlay-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Thẻ ảnh <img> chìm bên dưới */
+.overlay-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;   
+  object-fit: cover;      /* Nằm dưới cùng */
+}
+
+/* Lớp màu phủ giúp nổi bật chữ */
+.overlay-card-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(38, 37, 34, 0.85) 64%);
+  pointer-events: none;
+}
+
+/* Khối nội dung chữ nằm trên cùng */
+.overlay-card-content {
+  position: relative;
+  z-index: 3;                 /* BẮT BUỘC: Nằm trên lớp gradient và ảnh */
+  padding: 24px;
+}
+
+.overlay-card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: #F0EBE1;
+  min-height: 58px;            /* Giữ khoảng trống bằng đúng 2 dòng chữ */
+  display: flex;
+  align-items: flex-end;       /* Căn chữ 1 dòng nằm bằng đáy với chữ 2 dòng */
+}
+
+.overlay-card-desc {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: #F0EBE1;
+  margin-top: 0;
+  margin-bottom: 16px;
+  min-height: 68px;
+}
+
+/* Chân card (Thông tin + Nút) */
+.overlay-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overlay-card-meta {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  color: #F0EBE1;
+  text-transform: uppercase;
+}
+
+/* Nút READ MORE */
+.overlay-read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 12px 24px;
+  border: 1px solid #F0EBE1;
+  backdrop-filter: blur(4px);
+  border-radius: 24px;
+  font-size: 14px;
+  color: #F0EBE1;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  box-sizing: border-box;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.overlay-read-more-btn:hover {
+  background-color: #ffffff;
+  color: #262522;
+  border-color: #ffffff;
+  text-decoration: none;
+}
