@@ -141,7 +141,7 @@ body {
   display: flex; /*Biến phần tử thành Flex Container, giúp sắp xếp các phần tử con dễ dàng theo hàng hoặc cột.*/
   align-items: center; /*Căn giữa các phần tử con theo chiều dọc*/
   justify-content: center; /*Căn giữa các phần tử con theo chiều ngang (trục chính của Flex).*/
-  
+
   /*Position mới - X=64, Y=102 */
   margin-left: auto; /* Khoảng cách từ trái = 64px */
   margin-right: auto;
@@ -241,8 +241,10 @@ body {
 
 .hero-title {
   color: white;
-  font-size: 56px;
-  font-weight: 700;
+  font-family: "Monterrat", sans-serif;
+  font-size: 80px;
+  font-weight: 800;
+  line-height: 1.1;
   letter-spacing: 2px;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Bóng chữ */
 }
@@ -250,6 +252,10 @@ body {
 .hero-description {
   color: white;
   margin-top: 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 21px;
+  line-height: 1.3;
+  font-weight: 300;
 }
 
 .hero-button {
