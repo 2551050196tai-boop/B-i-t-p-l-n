@@ -1248,12 +1248,11 @@ body {
   line-height: 120%;
   color: #f0ebe1;
 }
-/* Giao diện Mobile */
+/* Giao diện Mobile  */
 
 .mobile-menu-btn{
   display: none;
 }
-
 @media (max-width: 768px){
 
   body{
@@ -1425,4 +1424,144 @@ body {
     box-shadow: none;
   }
 
+}
+/* khi ấn vào nút menu trên mobile */
+.mobile-menu{
+  display: none;
+}
+@media (max-width: 450px){
+  .mobile-menu{
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 343px;
+    height: 509px;
+    padding: 16px 16px 48px 16px;
+    background: #262522;
+    border-radius: 24px;
+    z-index: 9999;
+    flex-direction: column;
+  }
+  .mobile-menu.show{
+    display: flex;
+  }
+  /* header menu*/
+  .mobile-menu-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  /* logo menu*/
+  .mobile-menu-header .logo{
+    display: flex;
+    align-items: center;
+    gap: 3.5px;
+  }
+  .mobile-menu-logo img{
+    width: 40px;
+    height: 35px;
+    object-fit: contain;
+  }
+  .mobile-menu-logo span{
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 103%;
+    color: #F0EBE1;
+  }
+  /*nut dong menu(dau X)*/
+  .mobile-menu-close-btn{
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border:none;
+    border-radius: 16px;
+    background: rgba(255, 251, 242, 0.16);
+    color: #F0EBE1;
+    font-size: 22px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  /*menu links*/
+  .mobile-menu-links{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+  .mobile-menu-links a{
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #F0EBE1;
+    text-decoration: none;
+    padding: 0 0 12px 0;
+    border-bottom: 1px solid rgba(255, 251, 242, 0.16);
+  }
+  .mobile-menu-links a:not(:first-child){
+    margin-top: 12px;
+  }
+  /* vi tri nut search va subcribe */
+  .mobile-menu-actions{
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    gap: 16px;
+  }
+  /* nut search */
+  .mobile-search-btn{
+    width: 37px;
+    height: 37px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 16px;
+    background: rgba(255, 251, 242, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .mobile-search-btn img{
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+  /* nut subcribe */
+  .mobile-subscribe-btn{
+    width: 258px;
+    height: 38px;
+    padding: 0;
+    border: none;
+    border-radius: 24px;
+    background: rgba(240, 235, 225, 0.16);
+    color: #F0EBE1;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  /* bieu tuong cac trang mang xa hoi */
+  .mobile-social{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .mobile-social a{
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-social img{
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
 }
