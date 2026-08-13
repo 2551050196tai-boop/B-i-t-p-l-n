@@ -1,10 +1,12 @@
+html {
+  scroll-behavior: smooth;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
-
 body {
   background: #efebe2;
   padding: 40px;
@@ -533,6 +535,7 @@ body {
   /* MỚI THÊM: Ẩn thanh cuộn (scrollbar) để giao diện đẹp như ảnh */
   scrollbar-width: none; /* Dành cho Firefox */
   -ms-overflow-style: none; /* Dành cho IE/Edge */
+  scroll-snap-type: x mandatory;
 }
 .featured-cards::-webkit-scrollbar {
   display: none;
@@ -546,6 +549,7 @@ body {
   flex-direction: column;
   background: #fffbf2;
   border-radius: 24px;
+  scroll-snap-align: start;
 }
 
 .recipe-image {
