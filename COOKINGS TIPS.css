@@ -150,7 +150,6 @@ body {
   grid-template-columns: 1fr 1fr; /* Chia thành 2 cột bằng nhau */
   gap: 12px;                     /* Khoảng cách giữa 2 cột */
   align-items: start;
-  border: 1px solid rgb(124, 117, 117);
 }
 
 /* Tiêu đề lớn bên trái */
@@ -237,15 +236,6 @@ body {
   letter-spacing: 0.01em;
   color: #262522;
   margin: 0;
-}
-
-/* Tự động chuyển thành 1 cột khi xem trên màn hình điện thoại */
-@media (max-width: 768px) {
-  .features-container {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 24px;
-  }
 }
 
 /* ===== FEATURED RECIPES SECTION ===== */
@@ -455,7 +445,766 @@ body {
 
 .btn-viewrecipe:hover {
   background: #262522;
-  color: #ffffff;
+  color: #F0EBE1;
   box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
 }
 
+/* Nền chung toàn khối */
+.basics-section {
+  width: 1313px;
+  height: 1050px;
+  margin-top: 38px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Phần Header */
+.basics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.basics-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  color: #262522;
+}
+
+.nav-controls {
+  display: flex;
+  gap: 8px;
+}
+
+/* Nút bấm chứa icon mũi tên */
+.circle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  /* border: 1px solid #262522; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.circle-btn:hover {
+  background: #f2ece1;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
+}
+
+.arrow-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Lưới 3 cột */
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Khung từng thẻ Card */
+.card-item {
+  width: 427px;
+  height: 479px;
+  position: relative;
+  flex: 0 0 auto; /* ĐÃ SỬA: Thay flex: 1 thành 0 0 auto để thẻ không bị bóp méo khi có nhiều món ăn */
+  display: flex;
+  flex-direction: column;
+  background: #fffbf2;
+  border-radius: 24px;
+}
+
+.card-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 234px;
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Nội dung bài viết trong Card */
+.card-content {
+  width: 427px;
+  height: 239px;
+  padding: 24px 24px 16px 24px;
+  /* 3 dòng này để kích hoạt flexbox */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #262522;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.card-desc {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #262522;
+  line-height: 140%;
+  letter-spacing: 0.01em;
+  margin-bottom: 54px;
+  overflow: hidden;
+}
+
+/* Phần Chân Card (Thời gian + Nút) */
+.card-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-meta {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #262522;
+  line-height: 120%;
+}
+
+.read-more-btn {
+  min-width: 132px;
+  height: 38px;
+  border-radius: 24px;
+  padding: 0px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  background: none;
+  border: 1px solid #262522;
+  color: #262522;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.read-more-btn:hover {
+  background: #262522;
+  color: #F0EBE1;
+  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
+}
+
+
+/* Khung ngoài NOURISHING EVERY PALATE */
+.nourishing-section {
+  width: 1312px;
+  height: 648px;
+  margin-top: 38px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 38px;
+  padding: 64px 40px 40px 40px;
+  background-color: #C4E5FC;   /* Màu Primary Color 4 trong Figma */
+  border-radius: 32px;         /* Corner radius 32 trong Figma */
+  box-sizing: border-box;
+}
+
+/* Header tiêu đề & nút điều hướng */
+.nourishing-header {
+  width: 1232px;
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nourishing-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  letter-spacing: 0.01em;
+  color: #262522;
+}
+
+.nav-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.circle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  /* border: 1px solid #262522; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.circle-btn:hover {
+  background: #f2ece1;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
+}
+
+.arrow-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Lưới 3 cột */
+.nourishing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Khung chứa Card */
+.overlay-card {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 464px;
+  margin-top: 24px;
+  border-radius: 24px;
+  display: flex;
+  overflow: hidden;           /* Bo góc ảnh đúng theo khung */
+  flex-direction: column;
+  justify-content: flex-end;
+    /* Đẩy nội dung xuống đáy */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.overlay-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.overlay-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Gradient phủ mặt trên ảnh */
+.overlay-card-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+/* Khối nội dung chữ nằm trên cùng */
+.overlay-card-content {
+  width: 100%;
+  min-height: 209px;           /* "209 Hug" trong Figma dịch sang CSS */
+  position: relative;
+  z-index: 3;
+  padding: 24px 24px 12px 24px;               /* Padding 24px chuẩn theo vạch hồng Figma */
+  box-sizing: border-box;      /* BẮT BUỘC: Giữ đúng chiều rộng 400px */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* BẮT BUỘC: Nằm trên lớp gradient và ảnh */
+}
+
+.overlay-card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #F0EBE1;
+  margin-top: 0;
+  margin-bottom: 8px;
+  min-height: 58px;            /* Cố định khoảng trống 2 dòng để 3 card luôn thẳng hàng */
+  display: flex;
+  align-items: flex-end;     
+}
+
+.overlay-card-desc {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #F0EBE1;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+/* Chân card (Thông tin + Nút) */
+.overlay-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overlay-card-meta {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  color: #F0EBE1;
+  text-transform: uppercase;
+}
+
+/* Nút READ MORE */
+.overlay-read-more-btn {
+  min-width: 132px;
+  height: 38px;
+  border-radius: 24px;
+  padding: 0px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  background: none;
+  border: 1px solid #F0EBE1;
+  color: #F0EBE1;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.overlay-read-more-btn:hover {
+  color: #262522;
+  background: #F0EBE1;
+  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
+}
+
+.SUBSCRIBE {
+  width: 1312px;
+  height: 486px;
+  /* border: 1px solid black; */
+  border-radius: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  background: #ee6352;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+}
+.Oval-top-SUB {
+  width: 1328px;
+  height: 772px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  position: absolute;
+  top: -512px;
+  left: -8px;
+  background: #ff6653;
+  /* transform: translateX(-0.5%); */
+}
+.Oval-bottom-SUB {
+  width: 1328px;
+  height: 772px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  position: absolute;
+  top: 276px;
+  left: -8px;
+  background: #ff6653;
+}
+.content-SUB {
+  position: absolute;
+  width: 1078px;
+  height: 358px;
+  /* border: 1px solid black; */
+  z-index: 2;
+  margin-top: 64px;
+  left: 117px;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+.title-decrip-SUB {
+  width: 1078px;
+  height: 260px;
+  /* border: 1px solid black; */
+}
+.email-address-SUB {
+  width: 426px;
+  height: 50px;
+  /* border: 1px solid black; */
+  margin-top: 48px;
+  margin-left: 326px;
+  border-radius: 24px;
+  background: #fffbf2;
+  display: flex;
+  justify-content: space-between;
+}
+.input {
+  font-family: "Roboto", sans-serif;
+  font-size: 21px;
+  /* font-weight: 300; */
+  color: #262522;
+  opacity: 0.4;
+  margin-top: 12px;
+  margin-left: 24px;
+}
+.btn-subcribe-SUB {
+  width: 122px;
+  height: 38px;
+  background: #262522;
+  color: #f0ebe1;
+  border-radius: 50px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  margin-top: 6px;
+  margin-right: 9px;
+  transition: background-color 0.3s ease;
+}
+.btn-subcribe-SUB:hover {
+  background: #f0ebe1;
+  color: #262522;
+  cursor: pointer;
+}
+.SUB {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #fffbf2;
+  font-weight: bold 1;
+}
+.title-SUB {
+  font-family: "Montserrat", sans-serif;
+  font-size: 80px;
+  color: #fffbf2;
+  line-height: 1.05;
+}
+.decription-SUB {
+  color: #fffbf2;
+  font-family: "Roboto", sans-serif;
+  font-size: 21px;
+  margin-top: 12px;
+  /* font-weight: bold 1; */
+}
+
+/* Doan cuoi trang Home */
+.footer {
+  width: 1313px;
+  height: 136px;
+
+  margin: 0 auto;
+  margin-top: 40px;
+
+  padding: 24px 40px;
+  box-sizing: border-box;
+
+  background: #262522;
+  border-radius: 32px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 24px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 3.5px;
+}
+
+.footer-logo img {
+  width: 40px;
+  height: 35px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-text h3 {
+  margin: 0;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 120%;
+  color: #f0ebe1;
+}
+
+.footer-menu {
+  display: flex;
+  gap: 32px;
+}
+
+.footer-menu a {
+  text-decoration: none;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #f0ebe1;
+
+  transition: 0.3s;
+}
+
+.footer-menu a:hover {
+  color: #ea5a47;
+}
+
+.foot-mxh {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.foot-mxh img {
+  width: 24px;
+  height: 24px;
+
+  transition: 0.3s;
+}
+
+.foot-mxh img:hover {
+  transform: scale(1.1);
+}
+
+.footer hr {
+  border: none;
+  height: 1px;
+  background: #f0ebe1;
+
+  margin: 24px 0 15px;
+}
+
+.footer-bottom {
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 120%;
+  color: #f0ebe1;
+}
+/* Giao diện Mobile */
+
+.mobile-menu-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 16px;
+  }
+
+  /* Header */
+
+  .navbar {
+    width: 100%;
+    max-width: none;
+    height: 67px;
+    max-height: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 0;
+    padding: 16px;
+
+    background: #f0ebe1;
+    border-radius: 32px;
+    border: 1px solid #d3d3d3;
+  }
+
+  .logo {
+    gap: 3.5px;
+  }
+
+  .logo img {
+    width: 40px;
+    height: 35px;
+  }
+
+  .logo span {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 103%;
+    color: #262522;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-actions {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+    border: none;
+    border-radius: 16px;
+
+    background: rgba(38, 37, 34, 0.16);
+
+    font-size: 18px;
+    color: #262522;
+
+    cursor: pointer;
+  }
+
+  /* Hero */
+
+  .hero {
+    width: 100%;
+    height: 640px;
+
+    margin: 16px 0 0;
+
+    border-radius: 24px;
+
+    display: block;
+  }
+
+  .background-hero {
+    width: 100%;
+    height: 640px;
+
+    max-width: none;
+    aspect-ratio: auto;
+  }
+
+  .background-hero img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    /* object-position: 16px 99px; */
+  }
+
+  .hero-overlay {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-content {
+    position: absolute;
+
+    top: 185px;
+    left: 50%;
+
+    width: 311px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    text-align: center;
+  }
+
+  .hero-title {
+    width: 311px;
+
+    margin: 0;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 100%;
+
+    color: #f0ebe1;
+  }
+
+  .hero-description {
+    width: 311px;
+
+    margin: 12px 0 0;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 140%;
+
+    color: #f0ebe1;
+  }
+
+  .hero-button {
+    width: 166px;
+    height: 38px;
+
+    margin-top: 40px;
+    padding: 12px 24px;
+
+    border: none;
+    border-radius: 24px;
+
+    background: #f29c33;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 100%;
+
+    color: #262522;
+  }
+
+  .hero-button:hover {
+    background: #f29c33;
+    transform: none;
+    box-shadow: none;
+  }
+}

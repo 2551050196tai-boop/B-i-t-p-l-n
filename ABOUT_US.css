@@ -180,7 +180,6 @@ body {
   color: #262522;
 }
 
-/* Nút màu cam bo tròn dạng Pill */
 .welcome-button {
   font-family: "Roboto", sans-serif;
   font-size: 14px;
@@ -191,6 +190,8 @@ body {
   border-radius: 50px;
   transition: all 0.5s ease;
   margin-top: 40px;
+  text-decoration: none;
+  color: #262522;
 }
 
 .welcome-button:hover {
@@ -208,7 +209,6 @@ body {
   margin-right: auto;
   padding: 32px;            /* Tăng padding giúp bố cục thở tốt hơn */
   border: 1px solid rgb(124, 117, 117);
-  background-color: #f4f1ea; /* Nền kem chuẩn theo thiết kế */
 }
 
 .info-container {
