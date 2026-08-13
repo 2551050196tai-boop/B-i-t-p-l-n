@@ -141,7 +141,7 @@ body {
   display: flex; /*Biến phần tử thành Flex Container, giúp sắp xếp các phần tử con dễ dàng theo hàng hoặc cột.*/
   align-items: center; /*Căn giữa các phần tử con theo chiều dọc*/
   justify-content: center; /*Căn giữa các phần tử con theo chiều ngang (trục chính của Flex).*/
-
+  
   /*Position mới - X=64, Y=102 */
   margin-left: auto; /* Khoảng cách từ trái = 64px */
   margin-right: auto;
@@ -253,7 +253,11 @@ body {
 }
 
 .hero-button {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 100%;
   background: #e8973c; /* Màu cam */
+  color: #262522;
   padding: 12px 35px;
   border-radius: 50px;
   transition: all 0.5s ease;
@@ -276,10 +280,6 @@ body {
   background: #cbe5fb;
   border-radius: 32px;
   padding: 40px 40px 40px 40px;
-  margin-top: 16px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 40px 40px; /* Padding khung ngoài */
   margin-top: 16px;
   margin-left: auto;
   margin-right: auto;
@@ -365,6 +365,7 @@ body {
   transition: all 0.3s ease;
   cursor: pointer;
   transition: 20px;
+  text-decoration: none;
   transition:
     transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
     background-color 0.25s ease,
@@ -430,6 +431,10 @@ body {
   font-weight: 800;
   color: #262522;
   letter-spacing: 0.8px;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  text-align: end;
 }
 
 /* Căn giữa màn hình lớn */
@@ -592,6 +597,7 @@ body {
   display: -webkit-box;
   -webkit-line-clamp: 2; /* Chỉ cho phép tối đa 2 dòng */
   -webkit-box-orient: vertical;
+  line-clamp: 2;
   overflow: hidden;
 }
 
@@ -604,6 +610,7 @@ body {
   margin-bottom: 24px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1250,41 +1257,48 @@ body {
 }
 /* Giao diện Mobile  */
 
-.mobile-menu-btn{
+.mobile-menu-btn {
   display: none;
 }
+<<<<<<< HEAD
 @media (max-width: 768px){
 
   body{
+=======
+
+@media (max-width: 768px) {
+  body {
+>>>>>>> a517e1a63d35522e9edf2c2913c09470bf75c619
     padding: 16px;
   }
 
   /* Header */
 
-  .navbar{
+  .navbar {
     width: 100%;
     max-width: none;
     height: 67px;
     max-height: none;
-
+    margin-left: auto;
+    margin-right: auto;
     margin: 0;
     padding: 16px;
 
-    background: #F0EBE1;
+    background: #f0ebe1;
     border-radius: 32px;
     border: 1px solid #d3d3d3;
   }
 
-  .logo{
+  .logo {
     gap: 3.5px;
   }
 
-  .logo img{
+  .logo img {
     width: 40px;
     height: 35px;
   }
 
-  .logo span{
+  .logo span {
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     font-weight: 700;
@@ -1292,15 +1306,15 @@ body {
     color: #262522;
   }
 
-  .nav-links{
+  .nav-links {
     display: none;
   }
 
-  .nav-actions{
+  .nav-actions {
     display: none;
   }
 
-  .mobile-menu-btn{
+  .mobile-menu-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1322,7 +1336,7 @@ body {
 
   /* Hero */
 
-  .hero{
+  .hero {
     width: 100%;
     height: 640px;
 
@@ -1333,7 +1347,7 @@ body {
     display: block;
   }
 
-  .background-hero{
+  .background-hero {
     width: 100%;
     height: 640px;
 
@@ -1341,20 +1355,20 @@ body {
     aspect-ratio: auto;
   }
 
-  .background-hero img{
+  .background-hero img {
     width: 100%;
     height: 100%;
 
     object-fit: cover;
-    object-position: 16px 99px;
+    /* object-position: 16px 99px; */
   }
 
-  .hero-overlay{
+  .hero-overlay {
     width: 100%;
     height: 100%;
   }
 
-  .hero-content{
+  .hero-content {
     position: absolute;
 
     top: 185px;
@@ -1372,7 +1386,7 @@ body {
     text-align: center;
   }
 
-  .hero-title{
+  .hero-title {
     width: 311px;
 
     margin: 0;
@@ -1382,10 +1396,10 @@ body {
     font-weight: 800;
     line-height: 100%;
 
-    color: #F0EBE1;
+    color: #f0ebe1;
   }
 
-  .hero-description{
+  .hero-description {
     width: 311px;
 
     margin: 12px 0 0;
@@ -1395,10 +1409,10 @@ body {
     font-weight: 400;
     line-height: 140%;
 
-    color: #F0EBE1;
+    color: #f0ebe1;
   }
 
-  .hero-button{
+  .hero-button {
     width: 166px;
     height: 38px;
 
@@ -1408,7 +1422,7 @@ body {
     border: none;
     border-radius: 24px;
 
-    background: #F29C33;
+    background: #f29c33;
 
     font-family: "Roboto", sans-serif;
     font-size: 14px;
@@ -1418,11 +1432,12 @@ body {
     color: #262522;
   }
 
-  .hero-button:hover{
-    background: #F29C33;
+  .hero-button:hover {
+    background: #f29c33;
     transform: none;
     box-shadow: none;
   }
+<<<<<<< HEAD
 
 }
 /* khi ấn vào nút menu trên mobile */
@@ -1565,3 +1580,6 @@ body {
     object-fit: contain;
   }
 }
+=======
+}
+>>>>>>> a517e1a63d35522e9edf2c2913c09470bf75c619

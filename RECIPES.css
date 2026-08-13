@@ -172,13 +172,17 @@ body {
   color: #9f9e9a;
 }
 .btn-option-Menu .ALL {
-  background: #9fdc26;
   border-color: #262522;
   color: #262522;
 }
 .btn-option-Menu button:hover {
   color: #262522;
   border-color: #262522;
+}
+.btn-option-Menu button.active-filter {
+  background: #9fdc26;
+  border-color: #262522;
+  color: #262522;
 }
 .recipes-all-menu {
   width: 1312px;

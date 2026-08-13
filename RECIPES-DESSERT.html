@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap"
+      rel="stylesheet"
+    />
+    <title>Công thức nấu ăn</title>
+    <link rel="stylesheet" href="RECIPES.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./favicon_io/site.webmanifest" />
+  </head>
+
+  <body class="congthucnauan">
+    <nav class="navbar">
+      <div class="logo">
+        <img src="./picture/chef.jpg" alt="Cooks Delight Logo" />
+        <span>Cooks<br />Delight</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="HOME.html">HOME</a></li>
+        <li><a href="RECIPES.html" class="active">RECIPES</a></li>
+        <li><a href="COOKINGS TIPS.html">COOKING TIPS</a></li>
+        <li><a href="ABOUT_US.html">ABOUT US</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="search-btn">
+          <img
+            src="./picture/search-icon.svg"
+            alt="tìm kiếm"
+            width="24"
+            height="24"
+          />
+        </button>
+        <button class="subscribe-btn">SUBSCRIBE</button>
+      </div>
+    </nav>
+
+    <section class="MENU-ALL">
+      <div class="btn-option-Menu">
+        <button class="filter-btn" data-category="ALL">ALL</button>
+        <button class="filter-btn" data-category="VEGAN">VEGAN</button>
+        <button class="filter-btn" data-category="BREAKFAST">BREAKFAST</button>
+        <button class="filter-btn" data-category="LUNCH">LUNCH</button>
+        <button class="filter-btn" data-category="DINNER">DINNER</button>
+        <button class="filter-btn active-filter" data-category="DESSERT">DESSERT</button>
+        <button class="filter-btn" data-category="QUICKBITE">QUICKBITE</button>
+      </div>
+
+      <div class="recipes-all-menu" id="recipe-container">
+        <div class="Food-menu">
+          <img
+            class="picture-Menu"
+            src="./picture/savory herb-infused chicken.png"
+            alt="Savory Herb-Infused Chicken"
+          />
+          <div class="title-decrip-food">
+            <a class="title-food" href="Savory Herb-Infused Chicken.html">Savory Herb-Infused Chicken</a>
+            <p class="decription-food">
+              Indulge in the rich and savory symphony of flavors <br />
+              with our Savory Herb-Infused Chicken
+            </p>
+          </div>
+          <div class="more-view-food">
+            <span class="more-menu">40 Min - easy prep - 3 serves</span>
+            <a class="view-recipe-menu" href="Savory Herb-Infused Chicken.html">VIEW RECIPE</a>
+          </div>
+        </div>
+
+        <div class="Food-menu">
+          <img
+            class="picture-Menu"
+            src="./picture/Lemon garlic grilled chicken.png"
+            alt="Lemon Garlic Grilled Chicken"
+          />
+          <div class="title-decrip-food">
+            <a class="title-food" href="Lemon Garlic Grilled Chicken.html">Lemon Garlic Grilled Chicken</a>
+            <p class="decription-food">
+              Experience the perfect blend of zesty lemon and <br />
+              aromatic garlic with this roasted chicken recipe
+            </p>
+          </div>
+          <div class="more-view-food">
+            <span class="more-menu">1 hour - hard prep - 4 serves</span>
+            <a class="view-recipe-menu" href="Lemon Garlic Grilled Chicken.html">VIEW RECIPE</a>
+          </div>
+        </div>
+
+        <div class="Food-menu">
+          <img
+            class="picture-Menu"
+            src="./picture/Quinoa Veggie Stir-Fry.png"
+            alt="Quinoa Veggie Stir-Fry"
+          />
+          <div class="title-decrip-food">
+            <a class="title-food" href="#">Quinoa Veggie Stir-Fry</a>
+            <p class="decription-food">
+              Quick, wholesome, and bursting with flavors, it's <br />
+              perfect for a healthy weeknight dinner.
+            </p>
+          </div>
+          <div class="more-view-food">
+            <span class="more-menu">30 Min - easy prep - 3 serves</span>
+            <a class="view-recipe-menu" href="#">VIEW RECIPE</a>
+          </div>
+        </div>
+
+        <div class="Food-menu">
+          <img
+            class="picture-Menu"
+            src="./picture/Berry Bliss Smoothie Bowl.png"
+            alt="Berry Bliss Smoothie Bowl"
+          />
+          <div class="title-decrip-food">
+            <a class="title-food" href="#">Berry Bliss Smoothie Bowl</a>
+            <p class="decription-food">
+              This berry smoothie bowl is not only visually appealing but also a
+              powerhouse of antioxidants.
+            </p>
+          </div>
+          <div class="more-view-food">
+            <span class="more-menu">10 Min - easy prep - 2 serves</span>
+            <a class="view-recipe-menu" href="#">VIEW RECIPE</a>
+          </div>
+        </div>
+
+        <div class="Food-menu">
+          <img
+            class="picture-Menu"
+            src="./picture/Spaghetti Aglio e Olio.png"
+            alt="Spaghetti Aglio e Olio"
+          />
+          <div class="title-decrip-food">
+            <a class="title-food" href="#">Spaghetti Aglio e Olio</a>
+            <p class="decription-food">
+              A minimalist yet flavorful dish with garlic, olive oil, and a hint
+              of red pepper flakes.
+            </p>
+          </div>
+          <div class="more-view-food">
+            <span class="more-menu">20 min - easy prep - 2 serves</span>
+            <a class="view-recipe-menu" href="#">VIEW RECIPE</a>
+          </div>
+        </div>
+        
+        <div class="Food-menu">
+          <img
+            class="picture-Menu"
+            src="./picture/Grilled Veggies with Sauce.png"
+            alt="Grilled Veggies with Sauce"
+          />
+          <div class="title-decrip-food">
+            <a class="title-food" href="#">Grilled Veggies with Sauce</a>
+            <p class="decription-food">
+              Served with a zesty chimichurri sauce its a perfect addition to
+              your outdoor gatherings.
+            </p>
+          </div>
+          <div class="more-view-food">
+            <span class="more-menu">25 Min - medium prep - 6 serves</span>
+            <a class="view-recipe-menu" href="#">VIEW RECIPE</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
