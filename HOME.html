@@ -189,115 +189,20 @@
           </div>
         </div>
         <div class="footer-embark">
-          <button class="ALL">ALL</button>
-          <button>VEGAN</button>
-          <button>BREAKFAST</button>
-          <button>LUNCH</button>
-          <button>DINNER</button>
-          <button>DESSERT</button>
-          <button>QUICK BITE!</button>
+          <button class="embark-filter-btn embark-active" data-category="ALL">ALL</button>
+          <button class="embark-filter-btn" data-category="VEGAN">VEGAN</button>
+          <button class="embark-filter-btn" data-category="BREAKFAST">BREAKFAST</button>
+          <button class="embark-filter-btn" data-category="LUNCH">LUNCH</button>
+          <button class="embark-filter-btn" data-category="DINNER">DINNER</button>
+          <button class="embark-filter-btn" data-category="DESSERT">DESSERT</button>
+          <button class="embark-filter-btn" data-category="QUICKBITE">QUICK BITE!</button>
         </div>
       </div>
-      <div class="body-section">
-        <div class="filter-embark1">
-          <div class="recipes-card-embark">
-            <img src="./picture/savory herb-infused chicken.png" alt="" />
-            <div class="title-recipes">
-              <h3>Savory Herb-Infused Chicken</h3>
-              <p>
-                Indulge in the rich and savory symphony of flavors <br />
-                with our Savory Herb-Infused Chicken
-              </p>
-            </div>
-            <div class="button-embark">
-              <span>40 Min - easy prep - 3 serves</span>
-              <button>VIEW RECIPE</button>
-            </div>
-          </div>
-          <div class="recipes-card-embark">
-            <img src="./picture/Lemon garlic grilled chicken.png" alt="" />
-            <div class="title-recipes">
-              <h3>Lemon Garlic Grilled Chicken</h3>
-              <p>
-                Experience the perfect blend of zesty lemon and <br />
-                aromatic garlic with this roasted chicken recipe
-              </p>
-            </div>
-            <div class="button-embark">
-              <span>1 hour - hard prep - 4 serves</span>
-              <button>VIEW RECIPE</button>
-            </div>
-          </div>
-          <div class="recipes-card-embark">
-            <img src="./picture/Quinoa Veggie Stir-Fry.png" alt="" />
-            <span class="tag-embark">
-              <img src="./picture/Tag.png" alt="VEGAN" />
-            </span>
-            <div class="title-recipes">
-              <h3>Quinoa Veggie Stir-Fry</h3>
-              <p>
-                Quick, wholesome, and bursting with flavors, it's <br />
-                perfect for a healthy weeknight dinner.
-              </p>
-            </div>
-            <div class="button-embark">
-              <span>30 Min - easy prep - 3 serves</span>
-              <button>VIEW RECIPE</button>
-            </div>
-          </div>
-        </div>
-        <div class="filter-embark2">
-          <div class="recipes-card-embark">
-            <img src="./picture/Berry Bliss Smoothie Bowl.png" alt="" />
-            <span class="tag-embark">
-              <img src="./picture/Tag.png" alt="VEGAN" />
-            </span>
-            <div class="title-recipes">
-              <h3>Berry Bliss Smoothie Bowl</h3>
-              <p>
-                This berry smoothie bowl is not only visually <br />
-                appealing but also a powerhouse of antioxidants.
-              </p>
-            </div>
-            <div class="button-embark">
-              <span>10 Min - easy prep - 2 serves</span>
-              <button>VIEW RECIPE</button>
-            </div>
-          </div>
-          <div class="recipes-card-embark">
-            <img src="./picture/Spaghetti Aglio e Olio.png" alt="" />
-            <span class="tag-embark">
-              <img src="./picture/Tag.png" alt="VEGAN" />
-            </span>
-            <div class="title-recipes">
-              <h3>Spaghetti Aglio e Olio</h3>
-              <p>
-                A minimalist yet flavorful dish with garlic, olive oil, <br />
-                and a hint of red pepper flakes.
-              </p>
-            </div>
-            <div class="button-embark">
-              <span>20 min - easy prep - 2 serves</span>
-              <button>VIEW RECIPE</button>
-            </div>
-          </div>
-          <div class="recipes-card-embark">
-            <img src="./picture/Grilled Veggies with Sauce.png" alt="" />
-            <span class="tag-embark">
-              <img src="./picture/Tag.png" alt="VEGAN" />
-            </span>
-            <div class="title-recipes">
-              <h3>Grilled Veggies with Sauce</h3>
-              <p>
-                Served with a zesty chimichurri sauce its a perfect addition to
-                your outdoor gatherings.
-              </p>
-            </div>
-            <div class="button-embark">
-              <span>25 Min - medium prep - 6 serves</span>
-              <button>VIEW RECIPE</button>
-            </div>
-          </div>
+      <div class="body-section" id="embark-cards-container">
+        <!-- Dữ liệu từ API sẽ được tự động chèn vào đây -->
+        <div class="embark-loading">
+          <div class="embark-spinner"></div>
+          <p>Đang tải món ăn...</p>
         </div>
       </div>
     </section>
