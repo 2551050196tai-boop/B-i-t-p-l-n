@@ -670,7 +670,8 @@ body {
 .embark-section {
   position: relative;
   width: 1313px;
-  height: 1292px;
+  height: auto;
+  min-height: 800px;
   background: none;
   /* padding: 40px 40px 40px 40px; */
   margin-top: 0px;
@@ -695,7 +696,8 @@ body {
 }
 .body-section {
   width: 1312px;
-  height: 926px;
+  height: auto;
+  min-height: 451px;
 
   display: flex;
   /* border: 1px solid black; */
@@ -703,6 +705,7 @@ body {
   justify-content: space-between;
   flex-direction: column;
   background: none;
+  gap: 24px;
 }
 .header-embark {
   width: 426px;
@@ -800,7 +803,7 @@ body {
   transition: all 0.3s ease;
   background: none;
 }
-.footer-embark .ALL {
+.footer-embark .embark-active {
   background: #9fdc26;
   border-color: #262522;
   color: #262522;
@@ -808,6 +811,94 @@ body {
 .footer-embark button:hover {
   color: #262522;
   border-color: #262522;
+}
+
+/* Loading spinner */
+.embark-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  width: 100%;
+  gap: 16px;
+}
+.embark-loading p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #666;
+}
+.embark-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e0ddd8;
+  border-top: 4px solid #ee6352;
+  border-radius: 50%;
+  animation: embark-spin 0.8s linear infinite;
+}
+@keyframes embark-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Empty state */
+.embark-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  width: 100%;
+  text-align: center;
+  gap: 8px;
+}
+.embark-empty h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  color: #262522;
+}
+.embark-empty p {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #666;
+}
+
+/* Fade-in animation for cards */
+.filter-embark1,
+.filter-embark2 {
+  animation: embarkFadeIn 0.5s ease forwards;
+}
+@keyframes embarkFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* VIEW RECIPE link button in embark cards */
+.btn-embark-view {
+  width: 132px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid #262522;
+  border-radius: 999px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #262522;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.btn-embark-view:hover {
+  background: #262522;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
 }
 .filter-embark1 {
   width: 1312px;
@@ -938,6 +1029,7 @@ body {
   border-radius: 24px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 24px;
   background: none;
   justify-content: space-between;
 }
