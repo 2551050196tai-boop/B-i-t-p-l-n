@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = await response.json();
         if (data.meals) {
           featuredContainer.innerHTML = "";
+          // Lấy 10 món đầu tiên cho thanh cuộn ngang
           data.meals.slice(0, 10).forEach((recipe) => {
             const area = recipe.strArea
               ? recipe.strArea.toUpperCase()
@@ -64,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   <p class="recipe-description">${recipe.strInstructions}</p>
                   <div class="recipe-footer">
                     <span class="recipe-meta">${area} CULINARY · ${category}</span>
-                    <button class="btn-viewrecipe" onclick="window.open('${recipe.strSource || "#"}', '_blank')">VIEW RECIPE</button>
+                    <a class="btn-viewrecipe" href="recipe-detail.html?id=${recipe.idMeal}" style="display: inline-flex; text-decoration: none;">VIEW RECIPE</a>
                   </div>
                 </div>
               </div>
@@ -96,19 +97,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const recipeContainer = document.getElementById("recipe-container");
   const filterButtons = document.querySelectorAll(".filter-btn");
 
-  if (recipeContainer && filterButtons.length > 0) {
-    // CHIÊU THỨC QUAN TRỌNG: Lưu lại 6 món tĩnh trong HTML trước khi bị xóa
+  // Kiểm tra nếu là trang Recipes mới kích hoạt phần này
+  if (recipeContainer && !window.location.href.includes("recipe-detail.html")) {
     const staticHTML = recipeContainer.innerHTML;
-    // TÌM XEM NÚT NÀO ĐANG ĐƯỢC CHỌN SẴN TRONG HTML
     const activeBtn = document.querySelector(".filter-btn.active-filter");
-    //LẤY TÊN DANH MỤC CỦA NÚT ĐÓ (NẾU KHÔNG CÓ THÌ MẶC ĐỊNH LÀ ALL)
     const initialCategory = activeBtn
       ? activeBtn.getAttribute("data-category")
       : "ALL";
 
-    // Chạy mặc định đúng mục đang được kích hoạt
     loadRecipes(initialCategory);
-    // Lắng nghe sự kiện Click trên các nút
+
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
         filterButtons.forEach((btn) => btn.classList.remove("active-filter"));
@@ -119,10 +117,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     async function loadRecipes(category) {
-      // Xóa rỗng màn hình để chuẩn bị hứng dữ liệu mới
       recipeContainer.innerHTML = "";
 
-      // NẾU BẤM VÀO MỤC 'ALL', BƠM LẠI 6 MÓN TĨNH VÀO TRƯỚC!
       if (category === "ALL") {
         recipeContainer.innerHTML = staticHTML;
       }
@@ -182,14 +178,14 @@ document.addEventListener("DOMContentLoaded", () => {
               <div class="Food-menu">
                 <img class="picture-Menu" src="${recipe.strMealThumb}" alt="${recipe.strMeal}" />
                 <div class="title-decrip-food">
-                  <a class="title-food" href="#">${recipe.strMeal}</a>
+                  <a class="title-food" href="recipe-detail.html?id=${recipe.idMeal}">${recipe.strMeal}</a>
                   <p class="decription-food" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
                     ${recipe.strInstructions}
                   </p>
                 </div>
                 <div class="more-view-food">
                   <span class="more-menu">${metaInfo}</span>
-                  <a class="view-recipe-menu" href="${recipe.strSource || "#"}" target="_blank">VIEW RECIPE</a>
+                  <a class="view-recipe-menu" href="recipe-detail.html?id=${recipe.idMeal}">VIEW RECIPE</a>
                 </div>
               </div>
             `;
@@ -201,128 +197,119 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
-});
-document.addEventListener("DOMContentLoaded", () => {
-  // Lấy các phần tử cần thiết
-  const featuredContainer = document.getElementById("featured-cards-container");
-  const prevBtn = document.querySelector(".prev-arrow");
-  const nextBtn = document.querySelector(".next-arrow");
 
-  // 1. Hàm gọi API từ TheMealDB
-  async function fetchFeaturedRecipes() {
-    try {
-      const response = await fetch(
-        "https://www.themealdb.com/api/json/v1/1/search.php?f=a",
-      );
-      const data = await response.json();
+  // ==========================================
+  // 4. TRANG CHI TIẾT MÓN ĂN (Phương pháp Hybrid + Lấy Video)
+  // ==========================================
+  const urlParams = new URLSearchParams(window.location.search);
+  const recipeId = urlParams.get("id");
 
-      // Nếu API trả về có dữ liệu, lấy 6 món ăn đầu tiên để hiển thị
-      if (data.meals) {
-        renderRecipes(data.meals.slice(0, 10));
+  // Nếu trên thanh URL có mã ID món ăn (Tức là đang ở trang recipe-detail.html)
+  if (recipeId) {
+    // Kho dữ liệu thủ công (Tài điền thêm thông tin tĩnh của từng món vào đây)
+    const myCustomData = {
+      53483: {
+        time: "40 MINS",
+        prepLevel: "EASY PREP",
+        serves: "3 SERVES",
+        instructions: "Bước 1: Làm nóng chảo... <br> Bước 2: Cho gà vào...",
+        dos: "Nên ướp gà trước 30 phút để thấm gia vị.",
+        donts: "Không lật gà quá nhiều lần khi chiên.",
+        pairing: "Ăn kèm với salad dưa chuột và cơm trắng rất ngon.",
+      },
+      // Khai báo thêm các ID khác ở đây...
+    };
+
+    async function fetchRecipeDetail() {
+      try {
+        const response = await fetch(
+          `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`,
+        );
+        const data = await response.json();
+
+        if (data.meals) {
+          const recipe = data.meals[0];
+
+          // 4.1. Đắp dữ liệu ĐỘNG (Tên và Ảnh) từ API
+          const titleEl = document.getElementById("recipe-title");
+          const imageEl = document.getElementById("recipe-image");
+
+          if (titleEl) titleEl.innerText = recipe.strMeal;
+          if (imageEl) imageEl.src = recipe.strMealThumb;
+
+          // Xử lý danh sách nguyên liệu từ API
+          const ingredientsList = document.getElementById("recipe-ingredients");
+          if (ingredientsList) {
+            ingredientsList.innerHTML = "";
+            for (let i = 1; i <= 20; i++) {
+              const ingredient = recipe[`strIngredient${i}`];
+              const measure = recipe[`strMeasure${i}`];
+              if (ingredient && ingredient.trim() !== "") {
+                ingredientsList.insertAdjacentHTML(
+                  "beforeend",
+                  `<li>${measure} ${ingredient}</li>`,
+                );
+              }
+            }
+          }
+
+          // Xử lý chèn Video YouTube từ API
+          const videoContainer = document.getElementById(
+            "recipe-video-container",
+          );
+          const strYoutube = recipe.strYoutube;
+
+          if (videoContainer && strYoutube && strYoutube.trim() !== "") {
+            // Tách lấy mã video (VD: https://www.youtube.com/watch?v=1234abcd -> lấy 1234abcd)
+            const videoId = strYoutube.split("v=")[1];
+
+            const iframeHTML = `
+              <iframe 
+                width="645" 
+                height="360" 
+                src="https://www.youtube.com/embed/${videoId}" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+                style="border-radius: 20px;">
+              </iframe>
+            `;
+            videoContainer.innerHTML = iframeHTML;
+          } else if (videoContainer) {
+            // Xóa khung video nếu món ăn này không có video
+            videoContainer.style.display = "none";
+          }
+
+          // 4.2. Đắp dữ liệu TĨNH từ myCustomData
+          const customRecipe = myCustomData[recipeId];
+          if (customRecipe) {
+            const timeEl = document.getElementById("recipe-time");
+            const prepEl = document.getElementById("recipe-prep");
+            const servesEl = document.getElementById("recipe-serves");
+            const instructionsEl = document.getElementById(
+              "recipe-instructions",
+            );
+            const dosEl = document.getElementById("recipe-dos");
+            const dontsEl = document.getElementById("recipe-donts");
+            const pairingEl = document.getElementById("recipe-pairing");
+
+            if (timeEl) timeEl.innerText = customRecipe.time;
+            if (prepEl) prepEl.innerText = customRecipe.prepLevel;
+            if (servesEl) servesEl.innerText = customRecipe.serves;
+            // Dùng innerHTML cho instructions để nhận diện được thẻ <br>, <b>
+            if (instructionsEl)
+              instructionsEl.innerHTML = customRecipe.instructions;
+            if (dosEl) dosEl.innerText = customRecipe.dos;
+            if (dontsEl) dontsEl.innerText = customRecipe.donts;
+            if (pairingEl) pairingEl.innerText = customRecipe.pairing;
+          }
+        }
+      } catch (error) {
+        console.error("Lỗi khi tải chi tiết món ăn:", error);
       }
-    } catch (error) {
-      console.error("Lỗi khi tải dữ liệu món ăn:", error);
-      featuredContainer.innerHTML =
-        "<p style='margin-left:24px;'>Không thể tải dữ liệu lúc này.</p>";
     }
-  }
 
-  // 2. Hàm chuyển đổi dữ liệu thành mã HTML và chèn vào web
-  // 2. Hàm chuyển đổi dữ liệu thành mã HTML và chèn vào web
-  function renderRecipes(recipes) {
-    featuredContainer.innerHTML = ""; // Xóa rỗng container trước khi thêm
-
-    recipes.forEach((recipe) => {
-      // SỬA LỖI Ở ĐÂY: Kiểm tra xem dữ liệu có bị null/undefined không trước khi toUpperCase()
-      const area = recipe.strArea ? recipe.strArea.toUpperCase() : "GLOBAL";
-      const category = recipe.strCategory
-        ? recipe.strCategory.toUpperCase()
-        : "DISH";
-
-      const metaInfo = `${area} CULINARY · ${category}`;
-
-      const cardHTML = `
-        <div class="recipe-card">
-          <div class="recipe-image">
-            <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}" />
-          </div>
-          <div class="recipe-info">
-            <h3 class="recipe-title">${recipe.strMeal}</h3>
-            <p class="recipe-description">${recipe.strInstructions}</p>
-            <div class="recipe-footer">
-              <span class="recipe-meta">${metaInfo}</span>
-              <button class="btn-viewrecipe" onclick="window.open('${recipe.strSource || "#"}', '_blank')">VIEW RECIPE</button>
-            </div>
-          </div>
-        </div>
-      `;
-      // Chèn thẻ vừa tạo vào web
-      featuredContainer.insertAdjacentHTML("beforeend", cardHTML);
-    });
-  }
-  // 3. Xử lý sự kiện khi ấn nút Trái / Phải
-  // Mỗi lần ấn sẽ cuộn qua bằng đúng chiều rộng 1 thẻ (632px) + khoảng cách gap (16px) = 648px
-  const scrollAmount = 648;
-
-  nextBtn.addEventListener("click", () => {
-    featuredContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
-  });
-
-  prevBtn.addEventListener("click", () => {
-    featuredContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-  });
-
-  // Chạy hàm lấy dữ liệu ngay khi web vừa load xong
-  fetchFeaturedRecipes();
-});
-document.addEventListener("DOMContentLoaded", () => {
-  const recipeContainer = document.getElementById("recipe-container");
-
-  if (recipeContainer) {
-    loadDynamicRecipes();
-  }
-
-  async function loadDynamicRecipes() {
-    try {
-      const response = await fetch(
-        "https://www.themealdb.com/api/json/v1/1/search.php?f=a",
-      );
-      const data = await response.json();
-
-      if (data.meals) {
-        // SỬA Ở ĐÂY: Xóa .slice(0, 6) để lấy toàn bộ mảng dữ liệu
-        const newMeals = data.meals;
-
-        newMeals.forEach((recipe) => {
-          // Xử lý huy hiệu ngẫu nhiên
-          const prepTime = Math.floor(Math.random() * 40) + 15;
-          const levels = ["EASY PREP", "MEDIUM PREP", "HARD PREP"];
-          const difficulty = levels[Math.floor(Math.random() * levels.length)];
-          const serves = Math.floor(Math.random() * 4) + 2;
-          const metaInfo = `${prepTime} MIN - ${difficulty} - ${serves} SERVES`;
-
-          // Tạo cấu trúc HTML
-          const cardHTML = `
-            <div class="Food-menu">
-              <img class="picture-Menu" src="${recipe.strMealThumb}" alt="${recipe.strMeal}" />
-              <div class="title-decrip-food">
-                <a class="title-food" href="#">${recipe.strMeal}</a>
-                <p class="decription-food" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
-                  ${recipe.strInstructions}
-                </p>
-              </div>
-              <div class="more-view-food">
-                <span class="more-menu">${metaInfo}</span>
-                <a class="view-recipe-menu" href="${recipe.strSource || "#"}" target="_blank">VIEW RECIPE</a>
-              </div>
-            </div>
-          `;
-
-          recipeContainer.insertAdjacentHTML("beforeend", cardHTML);
-        });
-      }
-    } catch (error) {
-      console.error("Lỗi khi tải thêm dữ liệu API:", error);
-    }
+    fetchRecipeDetail();
   }
 });

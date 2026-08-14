@@ -69,7 +69,7 @@
       <div class="intro-food">
         <div class="btn-title-decrip-food">
           <p class="tag-food">RECIPE</p>
-          <h1 class="title-food">Lemon Garlic Roasted Chicken</h1>
+          <h1 class="title-food" id="recipe-title">Loading...</h1>
           <p class="decription-food">
             Welcome to Cooks Delight, where culinary dreams come alive! Today,
             we embark on a journey of flavors with a dish that promises to
@@ -80,12 +80,12 @@
         <div class="time-level-recipe-food">
           <div class="HOUR-food">
             <img src="./picture/mdi_timer.svg" alt="TIME" />
-            <p>1 HOUR</p>
+            <p id="recipe-time">1 HOUR</p>
           </div>
           <div class="point"></div>
           <div class="level-prep-food">
             <img src="./picture/material-symbols-light_weight.svg" alt="PREP" />
-            <p>HARD PREP</p>
+            <p id="recipe-prep">HARD PREP</p>
           </div>
           <div class="point"></div>
           <div class="SERVES">
@@ -93,14 +93,10 @@
               src="./picture/streamline_serving-dome-solid.svg"
               alt="SERVES"
             />
-            <p>4 SERVES</p>
+            <p id="recipe-serves">4 SERVES</p>
           </div>
         </div>
-        <img
-          class="picture-food"
-          src="./picture/Lemon garlic grilled chicken.png"
-          alt="Lemon Garlic Roasted Chicken"
-        />
+        <img class="picture-food" id="recipe-image" src="" alt="Recipe Image" />
       </div>
       <div class="body-recipe-food">
         <div class="content-recipe-food">
@@ -338,15 +334,7 @@
           <div class="collum2-recipe">
             <div class="INGREDIENTS-BOX">
               <sub class="INGREDIENTS">INGREDIENTS</sub>
-              <ul class="LIST-INGREDIENTS">
-                <li>1 whole chicken (about 3-4 pounds)</li>
-                <li>2 lemons, sliced</li>
-                <li>6 cloves garlic, minced</li>
-                <li>2 tablespoons olive oil</li>
-                <li>1 teaspoon dried thyme</li>
-                <li>1 teaspoon dried rosemary</li>
-                <li>Salt and black pepper to taste</li>
-              </ul>
+              <ul class="LIST-INGREDIENTS" id="recipe-ingredients"></ul>
             </div>
             <div class="EQUIPMENT-BOX">
               <sub class="EQUIPMENT"
