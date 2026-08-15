@@ -517,3 +517,13 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchRecipeDetail();
   }
 });
+// Xử lý menu mobile
+  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const mobileCloseBtn = document.getElementById("mobileCloseBtn");
+  mobileMenuBtn.addEventListener("click", function () {
+    mobileMenu.classList.add("show");
+  });
+  mobileCloseBtn.addEventListener("click", function () {
+    mobileMenu.classList.remove("show");
+  });
