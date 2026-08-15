@@ -857,7 +857,6 @@ body {
   position: absolute;
   width: 1078px;
   height: 358px;
-  /* border: 1px solid black; */
   z-index: 2;
   margin-top: 64px;
   left: 117px;
@@ -868,27 +867,31 @@ body {
 .title-decrip-SUB {
   width: 1078px;
   height: 260px;
-  /* border: 1px solid black; */
 }
+/* Khung chứa ngoài cùng (màu trắng hình viên thuốc) */
 .email-address-SUB {
   width: 426px;
   height: 50px;
-  /* border: 1px solid black; */
   margin-top: 48px;
   margin-left: 326px;
   border-radius: 24px;
-  background: #fffbf2;
+  background: #f0ebe1;
   display: flex;
   justify-content: space-between;
 }
-.input {
+/* Thẻ input nhập dữ liệu */
+.input-email {
+  border: none;            /* Xóa khung viền xám mặc định */
+  outline: none;           /* Xóa viền khung khi click vào gõ */
+  background: transparent; /* Làm trong suốt để lộ nền màu kem bên dưới */
   font-family: "Roboto", sans-serif;
   font-size: 21px;
-  /* font-weight: 300; */
-  color: #262522;
+  color: black;
   opacity: 0.4;
-  margin-top: 12px;
-  margin-left: 24px;
+  margin-left: 24px;       /* Cỡ chữ tùy chỉnh */
+}
+.input-email::placeholder {
+  color: #262522;
 }
 .btn-subcribe-SUB {
   width: 122px;

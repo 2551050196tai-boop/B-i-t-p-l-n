@@ -1,30 +1,50 @@
 <!doctype html>
 <html lang="vi">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap"
-      rel="stylesheet"
-    />
-    <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <title>công thức nấu ăn</title>
+    <link rel="stylesheet" href="css/COOKINGS TIPS.css" />
+    <!--Thuận link thêm font chữ Monsterrat-->
     <link
-      href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <title>Công thức nấu ăn</title>
-    <link rel="stylesheet" href="COOKINGS TIPS.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="assets/favicon_io/site.webmanifest" />
   </head>
-
   <body class="congthucnauan">
     <nav class="navbar">
       <div class="logo">
-        <img src="./picture/chef.jpg" alt="Cooks Delight Logo" />
+        <img src="assets/picture/chef.jpg" alt="Cooks Delight Logo" />
         <span>Cooks<br />Delight</span>
       </div>
 
@@ -34,17 +54,18 @@
         <li><a href="COOKINGS TIPS.html" class="active">COOKING TIPS</a></li>
         <li><a href="ABOUT_US.html">ABOUT US</a></li>
       </ul>
+
       <div class="nav-actions">
         <button class="search-btn">
           <img
-            src="./picture/search-icon.svg"
+            src="assets/picture/search-icon.svg"
             alt="tìm kiếm"
             width="24"
             height="24"
           />
         </button>
         <button class="subscribe-btn">SUBSCRIBE</button>
-      </div>
+      </div>    
     </nav>
 
     <section clas="cookings">
@@ -68,7 +89,7 @@
       <!-- Cột 1 -->
       <div class="feature-item">
         <img
-          src="./picture/knife-icon.svg"
+          src="assets/picture/knife-icon.svg"
           alt="Quality Tools"
           class="feature-icon"
         />
@@ -83,7 +104,7 @@
       <!-- Cột 2 -->
       <div class="feature-item">
         <img
-          src="./picture/tongs-icon.svg"
+          src="assets/picture/tongs-icon.svg"
           alt="Essential Utensils"
           class="feature-icon"
         />
@@ -98,7 +119,7 @@
       <!-- Cột 3 -->
       <div class="feature-item">
         <img
-          src="./picture/scale-icon.svg"
+          src="assets/picture/scale-icon.svg"
           alt="Measuring Accuracy"
           class="feature-icon"
         />
@@ -117,10 +138,10 @@
         <h2 class="featured-title">NEWEST RECIPES</h2>
         <div class="featured-nav">
           <button class="nav-arrow prev-arrow" aria-label="previous">
-            <img src="./picture/Arrow Left.png" alt="prev" />
+            <img src="assets/picture/Arrow Left.png" alt="prev" />
           </button>
           <button class="nav-arrow next-arrow" aria-label="next">
-            <img src="./picture/Arrow Right.png" alt="next" />
+            <img src="assets/picture/Arrow Right.png" alt="next" />
           </button>
         </div>
       </div>
@@ -137,27 +158,27 @@
         <h2 class="basics-title">MASTERING THE BASICS</h2>
         <div class="nav-controls">
           <button class="circle-btn" aria-label="Previous">
-            <img src="./picture/Arrow Left.png" alt="Previous" class="arrow-icon">
+            <img src="assets/picture/Arrow Left.png" alt="Previous" class="arrow-icon">
           </button>
           <button class="circle-btn" aria-label="Next">
-            <img src="./picture/Arrow Right.png" alt="Next" class="arrow-icon">
+            <img src="assets/picture/Arrow Right.png" alt="Next" class="arrow-icon">
           </button>
         </div>
       </div>
 
       <!-- Danh sách 6 thẻ (Grid 3 cột) -->
-      <section class="basics-grid">
+      <div class="basics-grid">
         <!-- Card 1 -->
         <div class="card-item">
           <div class="card-image-wrap">
-            <img src="./picture/knife-skills.svg" alt="Knife Skills" class="card-image">
+            <img src="assets/picture/knife-skills.svg" alt="Knife Skills" class="card-image">
           </div>
           <div class="card-content">
             <h3 class="card-title">Knife Skills</h3>
             <p class="card-desc">Unlock the art of precision in your kitchen with proper chopping, dicing, and slicing techniques. Elevate your culinary creations to new heights.</p>
             <div class="card-footer">
               <span class="card-meta">15 MIN - 01 JUN 23</span>
-              <a href="#" class="read-more-btn">READ MORE</a>
+              <a href="RECIPES.html" class="read-more-btn">READ MORE</a>
             </div>
           </div>
         </div>
@@ -165,247 +186,248 @@
         <!-- Card 2 -->
         <div class="card-item">
           <div class="card-image-wrap">
-            <img src="./picture/sauteing.svg" alt="Sauteing and Searing" class="card-image">
+            <img src="assets/picture/sauteing.svg" alt="Sauteing and Searing" class="card-image">
           </div>
           <div class="card-content">
-          <h3 class="card-title">Sauteing and Searing</h3>
-          <p class="card-desc">Achieve the perfect sear and elevate flavors in your dishes. Learn the secrets to sautéing like a pro and creating irresistible textures.</p>
-          <div class="card-footer">
-            <span class="card-meta">20 MIN - 01 JUN 23</span>
-            <a href="#" class="read-more-btn">READ MORE</a>
-          </div>
-        </div>  
-      </div>
+            <h3 class="card-title">Sauteing and Searing</h3>
+            <p class="card-desc">Achieve the perfect sear and elevate flavors in your dishes. Learn the secrets to sautéing like a pro and creating irresistible textures.</p>
+            <div class="card-footer">
+              <span class="card-meta">20 MIN - 01 JUN 23</span>
+              <a href="RECIPES.html" class="read-more-btn">READ MORE</a>
+            </div>
+          </div>  
+        </div>
 
-      <!-- Card 3 -->
-      <div class="card-item">
-        <div class="card-image-wrap">
-          <img src="./picture/roasing.svg" alt="Roasting Tips" class="card-image">
-        </div>
-        <div class="card-content">
-          <h3 class="card-title">Roasting Tips</h3>
-          <p class="card-desc">Ensure even cooking and unlock flavorful results with our expert roasting tips. From golden vegetables to succulent meats, master the art of roasting.</p>
-          <div class="card-footer">
-            <span class="card-meta">25 MIN - 01 JUN 23</span>
-            <a href="#" class="read-more-btn">READ MORE</a>
+        <!-- Card 3 -->
+        <div class="card-item">
+          <div class="card-image-wrap">
+            <img src="assets/picture/roasing.svg" alt="Roasting Tips" class="card-image">
           </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="card-item">
-        <div class="card-image-wrap">
-          <img src="./picture/prep-workstations.svg" alt="Prep Workstations" class="card-image">
-        </div>
-        <div class="card-content">
-          <h3 class="card-title">Prep Workstations:</h3>
-          <p class="card-desc">Efficiently organize your kitchen space for chopping, mixing, and cooking. Elevate your efficiency in the heart of your culinary domain.</p>
-          <div class="card-footer">
-            <span class="card-meta">15 MIN - 01 JUN 23</span>
-            <a href="#" class="read-more-btn">READ MORE</a>
+          <div class="card-content">
+            <h3 class="card-title">Roasting Tips</h3>
+            <p class="card-desc">Ensure even cooking and unlock flavorful results with our expert roasting tips. From golden vegetables to succulent meats, master the art of roasting.</p>
+            <div class="card-footer">
+              <span class="card-meta">25 MIN - 01 JUN 23</span>
+              <a href="RECIPES.html" class="read-more-btn">READ MORE</a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Card 5 -->
-      <div class="card-item">
-        <div class="card-image-wrap">
-          <img src="./picture/cleaning.svg" alt="Cleaning as You Go" class="card-image">
-        </div>
-        <div class="card-content">
-          <h3 class="card-title">Cleaning as You Go</h3>
-          <p class="card-desc">Maintain a tidy kitchen for stress-free cooking. Learn the art of cleaning as you go, turning every culinary endeavor into a seamless experience.</p>
-          <div class="card-footer">
-            <span class="card-meta">20 MIN - 01 JUN 23</span>
-            <a href="#" class="read-more-btn">READ MORE</a>
+        <!-- Card 4 -->
+       <div class="card-item">
+          <div class="card-image-wrap">
+            <img src="assets/picture/prep-workstations.svg" alt="Prep Workstations" class="card-image">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Prep Workstations:</h3>
+            <p class="card-desc">Efficiently organize your kitchen space for chopping, mixing, and cooking. Elevate your efficiency in the heart of your culinary domain.</p>
+            <div class="card-footer">
+              <span class="card-meta">15 MIN - 01 JUN 23</span>
+              <a href="RECIPES.html" class="read-more-btn">READ MORE</a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Card 6 -->
-      <div class="card-item">
-        <div class="card-image-wrap">
-          <img src="./picture/recipe-modification.svg" alt="Recipe Modification" class="card-image">
+        <!-- Card 5 -->
+        <div class="card-item">
+          <div class="card-image-wrap">
+            <img src="assets/picture/cleaning.svg" alt="Cleaning as You Go" class="card-image">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Cleaning as You Go</h3>
+            <p class="card-desc">Maintain a tidy kitchen for stress-free cooking. Learn the art of cleaning as you go, turning every culinary endeavor into a seamless experience.</p>
+            <div class="card-footer">
+              <span class="card-meta">20 MIN - 01 JUN 23</span>
+              <a href="RECIPES.html" class="read-more-btn">READ MORE</a>
+            </div>
+          </div>
         </div>
-        <div class="card-content">
-          <h3 class="card-title">Recipe Modification</h3>
-          <p class="card-desc">Feel confident modifying recipes to suit your taste. Explore the art of culinary creativity in crafting dishes uniquely your own.</p>
-          <div class="card-footer">
-            <span class="card-meta">25 MIN - 01 JUN 23</span>
-            <a href="#" class="read-more-btn">READ MORE</a>
+
+        <!-- Card 6 -->
+        <div class="card-item">
+          <div class="card-image-wrap">
+            <img src="assets/picture/recipe-modification.svg" alt="Recipe Modification" class="card-image">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Recipe Modification</h3>
+            <p class="card-desc">Feel confident modifying recipes to suit your taste. Explore the art of culinary creativity in crafting dishes uniquely your own.</p>
+            <div class="card-footer">
+              <span class="card-meta">25 MIN - 01 JUN 23</span>
+              <a href="RECIPES.html" class="read-more-btn">READ MORE</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <section class="nourishing-section">
-    <!-- Header: Tiêu đề & Nút chuyển slide -->
+      <!-- Header: Tiêu đề & Nút chuyển slide -->
       <div class="nourishing-header">
         <h2 class="nourishing-title">NOURISHING EVERY PALATE</h2>
         <div class="nav-controls">
           <button class="circle-btn" aria-label="Previous">
-            <img src="./picture/Arrow Left.png" alt="Previous" class="arrow-icon">
+            <img src="assets/picture/Arrow Left.png" alt="Previous" class="arrow-icon">
           </button>
           <button class="circle-btn" aria-label="Next">
-            <img src="./picture/Arrow Right.png" alt="Next" class="arrow-icon">
+            <img src="assets/picture/Arrow Right.png" alt="Next" class="arrow-icon">
           </button>
         </div>
       </div>
-
+      
       <!-- Danh sách 3 Card -->
       <div class="nourishing-grid">
         <!-- Card 1 -->
         <div class="overlay-card">
-          <img src="./picture/gluten-free.svg" alt="Gluten-Free Alternatives" class="overlay-card-img">
-            <div class="overlay-card-gradient"></div>
-              <div class="overlay-card-content">
-    <h3 class="overlay-card-title">Gluten-Free Alternatives</h3>
-    <p class="overlay-card-desc">Explore the world of gluten-free flours and grains, ensuring your dishes cater to a diverse range of dietary preferences.</p>
-    <div class="overlay-card-footer">
-      <span class="overlay-card-meta">15 MIN - 01 JUN 23</span>
-      <a href="#" class="overlay-read-more-btn">READ MORE</a>
-    </div>
-  </div>
-</div>
+          <img src="assets/picture/gluten-free.svg" alt="Gluten-Free Alternatives" class="overlay-card-img">
+          <div class="overlay-card-gradient"></div>
+          <div class="overlay-card-content">
+            <h3 class="overlay-card-title">Gluten-Free Alternatives</h3>
+            <p class="overlay-card-desc">Explore the world of gluten-free flours and grains, ensuring your dishes cater to a diverse range of dietary preferences.</p>
+            <div class="overlay-card-footer">
+              <span class="overlay-card-meta">15 MIN - 01 JUN 23</span>
+              <a href="RECIPES.html" class="overlay-read-more-btn">READ MORE</a>
+            </div>
+          </div>
+        </div>
 
-<!-- Card 2 -->
-<div class="overlay-card">
-  <img src="./picture/plant-based.svg" alt="Plant-Based Cooking" class="overlay-card-img">
-  <div class="overlay-card-gradient"></div>
-  <div class="overlay-card-content">
-    <h3 class="overlay-card-title">Plant-Based Cooking</h3>
-    <p class="overlay-card-desc">Delight in the realm of plant-based cooking with tips for crafting delicious vegetarian and vegan dishes.</p>
-    <div class="overlay-card-footer">
-      <span class="overlay-card-meta">15 MIN - 01 JUN 23</span>
-      <a href="#" class="overlay-read-more-btn">READ MORE</a>
-    </div>
-  </div>
-</div>
+        <!-- Card 2 -->
+        <div class="overlay-card">
+          <img src="assets/picture/plant-based.svg" alt="Plant-Based Cooking" class="overlay-card-img">
+          <div class="overlay-card-gradient"></div>
+          <div class="overlay-card-content">
+            <h3 class="overlay-card-title">Plant-Based Cooking</h3>
+            <p class="overlay-card-desc">Delight in the realm of plant-based cooking with tips for crafting delicious vegetarian and vegan dishes.</p>
+            <div class="overlay-card-footer">
+              <span class="overlay-card-meta">15 MIN - 01 JUN 23</span>
+              <a href="RECIPES.html" class="overlay-read-more-btn">READ MORE</a>
+            </div>
+          </div>        
+        </div>
 
-<!-- Card 3 -->
-<div class="overlay-card">
-  <img src="./picture/allergy-friendly.svg" alt="Allergy-Friendly Substitutions" class="overlay-card-img">
-  <div class="overlay-card-gradient"></div>
-  <div class="overlay-card-content">
-    <h3 class="overlay-card-title">Allergy-Friendly Substitutions</h3>
-    <p class="overlay-card-desc">Discover options for common allergens, ensuring everyone can savor the flavors of your culinary creations.</p>
-    <div class="overlay-card-footer">
-      <span class="overlay-card-meta">15 MIN - 01 JUN 23</span>
-      <a href="#" class="overlay-read-more-btn">READ MORE</a>
-    </div>
-  </div>
-</div>
-</section>
+        <!-- Card 3 -->
+        <div class="overlay-card">
+          <img src="assets/picture/allergy-friendly.svg" alt="Allergy-Friendly Substitutions" class="overlay-card-img">
+          <div class="overlay-card-gradient"></div>
+          <div class="overlay-card-content">
+            <h3 class="overlay-card-title">Allergy-Friendly Substitutions</h3>
+            <p class="overlay-card-desc">Discover options for common allergens, ensuring everyone can savor the flavors of your culinary creations.</p>
+            <div class="overlay-card-footer">
+              <span class="overlay-card-meta">15 MIN - 01 JUN 23</span>
+              <a href="RECIPES.html" class="overlay-read-more-btn">READ MORE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section class="basics-section">
-  <!-- Header: Tiêu đề & Nút điều hướng -->
-  <div class="basics-header">
-    <h2 class="basics-title">TIPS & TRICKS</h2>
-    <div class="nav-controls">
-      <button class="circle-btn" aria-label="Previous">
-        <img src="./picture/Arrow Left.png" alt="Previous" class="arrow-icon">
-      </button>
-      <button class="circle-btn" aria-label="Next">
-        <img src="./picture/Arrow Right.png" alt="Next" class="arrow-icon">
-      </button>
-    </div>
-  </div>
+    <section class="basics-section">
+      <!-- Header: Tiêu đề & Nút điều hướng -->
+      <div class="basics-header">
+        <h2 class="basics-title">TIPS & TRICKS</h2>
+        <div class="nav-controls">
+          <button class="circle-btn" aria-label="Previous">
+            <img src="assets/picture/Arrow Left.png" alt="Previous" class="arrow-icon">
+          </button>
+          <button class="circle-btn" aria-label="Next">
+            <img src="assets/picture/Arrow Right.png" alt="Next" class="arrow-icon">
+          </button>
+        </div>
+      </div>
 
-  <!-- Danh sách 6 thẻ (Grid 3 cột) -->
-  <div class="basics-grid">
+      <!-- Danh sách 6 thẻ (Grid 3 cột) -->
+      <div class="basics-grid">
     
-    <!-- Card 1 -->
-    <div class="card-item">
-      <div class="card-image-wrap">
-        <img src="./picture/fresh-vs-dried-herbs.svg" alt="Fresh vs. Dried Herbs" class="card-image">
-      </div>
-      <div class="card-content">
-        <h3 class="card-title">Fresh vs. Dried Herbs</h3>
-        <p class="card-desc">Discover the nuanced world of herbs. Learn when to opt for the freshness of herbs and when dried variants can amplify your culinary creations.</p>
-        <div class="card-footer">
-          <span class="card-meta">15 MIN - 01 JUN 23</span>
-          <a href="#" class="read-more-btn">READ MORE</a>
+        <!-- Card 1 -->
+        <div class="card-item">
+          <div class="card-image-wrap">
+            <img src="assets/picture/fresh-vs-dried-herbs.svg" alt="Fresh vs. Dried Herbs" class="card-image">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Fresh vs. Dried Herbs</h3>
+            <p class="card-desc">Discover the nuanced world of herbs. Learn when to opt for the freshness of herbs and when dried variants can amplify your culinary creations.</p>
+            <div class="card-footer">
+              <span class="card-meta">15 MIN - 01 JUN 23</span>
+              <a href="RECIPES.html" class="read-more-btn">READ MORE</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-item">
+          <div class="card-image-wrap">
+            <img src="assets/picture/choosing-produce.svg" alt="Choosing Produce" class="card-image">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Choosing Produce</h3>
+            <p class="card-desc">Selecting ripe fruits and vegetables is an art. Explore our insights to ensure optimal taste in every dish.</p>
+            <div class="card-footer">
+              <span class="card-meta">20 MIN - 01 JUN 23</span>
+              <a href="RECIPES.html" class="read-more-btn">READ MORE</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-item"> 
+          <div class="card-image-wrap">
+            <img src="assets/picture/understanding-spices.svg" alt="Understanding Spices" class="card-image">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Understanding Spices</h3>
+            <p class="card-desc">Enhance flavors by navigating the vast array of spices and seasonings. Uncover the secrets of creating dynamic taste profiles.</p>
+            <div class="card-footer">
+              <span class="card-meta">25 MIN - 01 JUN 23</span>
+              <a href="RECIPES.html" class="read-more-btn">READ MORE</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card-item">
+          <div class="card-image-wrap">
+          <img src="assets/picture/balancing-sweet-and-savory.svg" alt="Balancing Sweet and Savory" class="card-image">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Balancing Sweet and Savory</h3>
+            <p class="card-desc">Achieve the perfect symphony of flavors by mastering the art of balancing sweet and savory elements in your dishes.</p>
+            <div class="card-footer">
+              <span class="card-meta">15 MIN - 01 JUN 23</span>
+              <a href="RECIPES.html" class="read-more-btn">READ MORE</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card-item">
+          <div class="card-image-wrap">
+            <img src="assets/picture/fixing-seasoning-issues.svg" alt="Too Salty? Too Sweet? Fixing Seasoning Issues" class="card-image">
+          </div>  
+          <div class="card-content">
+            <h3 class="card-title">Too Salty? Too Sweet? Fixing Seasoning Issues</h3>
+            <p class="card-desc">Discover quick fixes for seasoning mishaps and ensure your dishes are perfectly balanced.</p>
+            <div class="card-footer">
+              <span class="card-meta">20 MIN - 01 JUN 23</span>
+              <a href="RECIPES.html" class="read-more-btn">READ MORE</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card-item">
+          <div class="card-image-wrap">
+            <img src="assets/picture/storage-solutions.svg" alt="Storage Solutions" class="card-image">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Storage Solutions</h3>
+            <p class="card-desc">Keep ingredients fresh and accessible with our storage solutions. Transform your kitchen into an organized oasis.</p>
+            <div class="card-footer">
+              <span class="card-meta">25 MIN - 01 JUN 23</span>
+              <a href="RECIPES.html" class="read-more-btn">READ MORE</a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="card-item">
-      <div class="card-image-wrap">
-        <img src="./picture/choosing-produce.svg" alt="Choosing Produce" class="card-image">
-      </div>
-      <div class="card-content">
-        <h3 class="card-title">Choosing Produce</h3>
-        <p class="card-desc">Selecting ripe fruits and vegetables is an art. Explore our insights to ensure optimal taste in every dish.</p>
-        <div class="card-footer">
-          <span class="card-meta">20 MIN - 01 JUN 23</span>
-          <a href="#" class="read-more-btn">READ MORE</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="card-item">
-      <div class="card-image-wrap">
-        <img src="./picture/understanding-spices.svg" alt="Understanding Spices" class="card-image">
-      </div>
-      <div class="card-content">
-        <h3 class="card-title">Understanding Spices</h3>
-        <p class="card-desc">Enhance flavors by navigating the vast array of spices and seasonings. Uncover the secrets of creating dynamic taste profiles.</p>
-        <div class="card-footer">
-          <span class="card-meta">25 MIN - 01 JUN 23</span>
-          <a href="#" class="read-more-btn">READ MORE</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="card-item">
-      <div class="card-image-wrap">
-        <img src="./picture/balancing-sweet-and-savory.svg" alt="Balancing Sweet and Savory" class="card-image">
-      </div>
-      <div class="card-content">
-        <h3 class="card-title">Balancing Sweet and Savory</h3>
-        <p class="card-desc">Achieve the perfect symphony of flavors by mastering the art of balancing sweet and savory elements in your dishes.</p>
-        <div class="card-footer">
-          <span class="card-meta">15 MIN - 01 JUN 23</span>
-          <a href="#" class="read-more-btn">READ MORE</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="card-item">
-      <div class="card-image-wrap">
-        <img src="./picture/fixing-seasoning-issues.svg" alt="Too Salty? Too Sweet? Fixing Seasoning Issues" class="card-image">
-      </div>
-      <div class="card-content">
-        <h3 class="card-title">Too Salty? Too Sweet? Fixing Seasoning Issues</h3>
-        <p class="card-desc">Discover quick fixes for seasoning mishaps and ensure your dishes are perfectly balanced.</p>
-        <div class="card-footer">
-          <span class="card-meta">20 MIN - 01 JUN 23</span>
-          <a href="#" class="read-more-btn">READ MORE</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="card-item">
-      <div class="card-image-wrap">
-        <img src="./picture/storage-solutions.svg" alt="Storage Solutions" class="card-image">
-      </div>
-      <div class="card-content">
-        <h3 class="card-title">Storage Solutions</h3>
-        <p class="card-desc">Keep ingredients fresh and accessible with our storage solutions. Transform your kitchen into an organized oasis.</p>
-        <div class="card-footer">
-          <span class="card-meta">25 MIN - 01 JUN 23</span>
-          <a href="#" class="read-more-btn">READ MORE</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
+    </section>
 
     <section class="SUBSCRIBE">
       <div class="content-SUB">
@@ -417,30 +439,37 @@
           </h1>
           <p class="decription-SUB">
             Subscribe to our newsletter for a weekly serving of recipes, cooking
-            <br />
+              <br />
             tips, and exclusive insights straight to your inbox.
           </p>
         </div>
-        <div class="email-address-SUB">
-          <p class="input">Email Address</p>
-          <button class="btn-subcribe-SUB">SUBSCRIBE</button>
-        </div>
+        <form class="email-address-SUB">
+          <input 
+            type="email" 
+            class="input-email" 
+            placeholder="Email Address" 
+            required 
+          />
+          <button type="submit" class="btn-subcribe-SUB">SUBSCRIBE</button>
+        </form>
       </div>
       <div class="Oval-top-SUB"></div>
       <div class="Oval-bottom-SUB"></div>
     </section>
+
     <!--Doan cuoi cua trang Home-->
     <footer class="footer">
       <div class="footer-container">
         <!--logo cook delight-->
         <div class="footer-logo">
-          <img src="./picture/footer-logo.png" alt="Cooks Delight Logo" />
+          <img src="assets/picture/footer-logo.png" alt="Cooks Delight Logo" />
           <!--dong chu ke ben logo-->
           <div class="logo-text">
             <h3>Cooks</h3>
             <h3>Delight</h3>
           </div>
         </div>
+
         <!--Menu cuoi trang-->
         <div class="footer-menu">
           <a href="HOME.html" target="_blank">HOME</a>
@@ -448,32 +477,36 @@
           <a href="COOKINGS TIPS.html" target="_blank">COOKING TIPS</a>
           <a href="ABOUT_US.html" target="_blank">ABOUT US</a>
         </div>
+
         <!--Lien ket mang xa hoi-->
         <div class="foot-mxh">
           <a
-            href="https://www.tiktok.com/@depchainhungkhiemton"
+            href="https://www.tiktok.com/@zealous050307?lang=vi-VN"
             target="_blank"
-            ><img src="./picture/tiktok.svg" alt="TikTok"
+            ><img src="assets/picture/tiktok.svg" alt="TikTok"
           /></a>
           <a
-            href="https://www.facebook.com/dkhoacutii207"
+            href="https://www.facebook.com/nguyen.uc.thuan.506656"
             target="_blank"
-            ><img src="./picture/fb.svg" alt="Facebook"
+            ><img src="assets/picture/fb.svg" alt="Facebook"
           /></a>
-          <a href="https://www.instagram.com/_ldk.07_/" target="_blank"
-            ><img src="./picture/ig.svg" alt="Instagram"
+          <a 
+            href="https://www.instagram.com/zealous.0503/" 
+            target="_blank"
+            ><img src="assets/picture/ig.svg" alt="Instagram"
           /></a>
-          <a href="https://www.youtube.com/@khoaang9697" target="_blank"
-            ><img src="./picture/yt.svg" alt="Youtube"
+          <a 
+            href="https://www.youtube.com/@TobieeOfficial" 
+            target="_blank"
+            ><img src="assets/picture/yt.svg" alt="Youtube"
           /></a>
         </div>
       </div>
-      <hr />
+        <hr />
       <div class="footer-bottom">
         <p>COPYRIGHT: © 2024 COOKS DELIGHT.</p>
       </div>
     </footer>
-
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
