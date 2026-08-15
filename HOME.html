@@ -111,39 +111,39 @@
         <!-- Khoa lam ben phai-->
         <!--Cột danh sách thực đơn bên phải-->
         <div class="right-palet">
-          <div class="palette-item">
+          <a class="palette-item" href="RECIPES.html?category=BREAKFAST" style="text-decoration: none;">
             <div class="item-icon">
               <img src="./picture/icon-breakfast.png" alt="Breakfast" />
             </div>
-            <a class="item-name" href="RECIPES-BREAKFAST.html">BREAKFAST</a>
-          </div>
+            <span class="item-name">BREAKFAST</span>
+          </a>
 
-          <div class="palette-item">
+          <a class="palette-item" href="RECIPES.html?category=LUNCH" style="text-decoration: none;">
             <div class="item-icon">
               <img src="./picture/icon-lunch.png" alt="Lunch" />
             </div>
-            <a class="item-name" href="RECIPES-LUNCH.html">LUNCH</a>
-          </div>
+            <span class="item-name">LUNCH</span>
+          </a>
 
-          <div class="palette-item">
+          <a class="palette-item" href="RECIPES.html?category=DINNER" style="text-decoration: none;">
             <div class="item-icon">
               <img src="./picture/icon-dinner.png" alt="Dinner" />
             </div>
-            <a class="item-name" href="RECIPES-DINNER.html">DINNER</a>
-          </div>
+            <span class="item-name">DINNER</span>
+          </a>
 
-          <div class="palette-item">
+          <a class="palette-item" href="RECIPES.html?category=DESSERT" style="text-decoration: none;">
             <div class="item-icon">
               <img src="./picture/icon-dessert.png" alt="Dessert" />
             </div>
-            <a class="item-name" href="RECIPES-DESSERT.html">DESSERT</a>
-          </div>
-          <div class="palette-item">
+            <span class="item-name">DESSERT</span>
+          </a>
+          <a class="palette-item" href="RECIPES.html?category=QUICKBITE" style="text-decoration: none;">
             <div class="item-icon">
               <img src="./picture/icon-quickbite.png" alt="Quick Bite" />
             </div>
-            <a class="item-name" href="RECIPES-QUICK-BITE.html">QUICK BITE!</a>
-          </div>
+            <span class="item-name">QUICK BITE!</span>
+          </a>
         </div>
       </div>
     </section>
@@ -151,7 +151,7 @@
     <section class="featured-section">
       <!-- header: title + nav arrows -->
       <div class="featured-header">
-        <h2 class="featured-title">SIMILAR RECIPES</h2>
+        <h2 class="featured-title">FEATURED RECIPES</h2>
         <div class="featured-nav">
           <button class="nav-arrow prev-arrow" aria-label="previous">
             <img src="./picture/Arrow Left.png" alt="prev" />
@@ -189,115 +189,20 @@
           </div>
         </div>
         <div class="footer-embark">
-          <button class="ALL">ALL</button>
-          <button>VEGAN</button>
-          <button>BREAKFAST</button>
-          <button>LUNCH</button>
-          <button>DINNER</button>
-          <button>DESSERT</button>
-          <button>QUICK BITE!</button>
+          <button class="embark-filter-btn embark-active" data-category="ALL">ALL</button>
+          <button class="embark-filter-btn" data-category="VEGAN">VEGAN</button>
+          <button class="embark-filter-btn" data-category="BREAKFAST">BREAKFAST</button>
+          <button class="embark-filter-btn" data-category="LUNCH">LUNCH</button>
+          <button class="embark-filter-btn" data-category="DINNER">DINNER</button>
+          <button class="embark-filter-btn" data-category="DESSERT">DESSERT</button>
+          <button class="embark-filter-btn" data-category="QUICKBITE">QUICK BITE!</button>
         </div>
       </div>
-      <div class="body-section">
-        <div class="filter-embark1">
-          <div class="recipes-card-embark">
-            <img src="./picture/savory herb-infused chicken.png" alt="" />
-            <div class="title-recipes">
-              <h3>Savory Herb-Infused Chicken</h3>
-              <p>
-                Indulge in the rich and savory symphony of flavors <br />
-                with our Savory Herb-Infused Chicken
-              </p>
-            </div>
-            <div class="button-embark">
-              <span>40 Min - easy prep - 3 serves</span>
-              <button>VIEW RECIPE</button>
-            </div>
-          </div>
-          <div class="recipes-card-embark">
-            <img src="./picture/Lemon garlic grilled chicken.png" alt="" />
-            <div class="title-recipes">
-              <h3>Lemon Garlic Grilled Chicken</h3>
-              <p>
-                Experience the perfect blend of zesty lemon and <br />
-                aromatic garlic with this roasted chicken recipe
-              </p>
-            </div>
-            <div class="button-embark">
-              <span>1 hour - hard prep - 4 serves</span>
-              <button>VIEW RECIPE</button>
-            </div>
-          </div>
-          <div class="recipes-card-embark">
-            <img src="./picture/Quinoa Veggie Stir-Fry.png" alt="" />
-            <span class="tag-embark">
-              <img src="./picture/Tag.png" alt="VEGAN" />
-            </span>
-            <div class="title-recipes">
-              <h3>Quinoa Veggie Stir-Fry</h3>
-              <p>
-                Quick, wholesome, and bursting with flavors, it's <br />
-                perfect for a healthy weeknight dinner.
-              </p>
-            </div>
-            <div class="button-embark">
-              <span>30 Min - easy prep - 3 serves</span>
-              <button>VIEW RECIPE</button>
-            </div>
-          </div>
-        </div>
-        <div class="filter-embark2">
-          <div class="recipes-card-embark">
-            <img src="./picture/Berry Bliss Smoothie Bowl.png" alt="" />
-            <span class="tag-embark">
-              <img src="./picture/Tag.png" alt="VEGAN" />
-            </span>
-            <div class="title-recipes">
-              <h3>Berry Bliss Smoothie Bowl</h3>
-              <p>
-                This berry smoothie bowl is not only visually <br />
-                appealing but also a powerhouse of antioxidants.
-              </p>
-            </div>
-            <div class="button-embark">
-              <span>10 Min - easy prep - 2 serves</span>
-              <button>VIEW RECIPE</button>
-            </div>
-          </div>
-          <div class="recipes-card-embark">
-            <img src="./picture/Spaghetti Aglio e Olio.png" alt="" />
-            <span class="tag-embark">
-              <img src="./picture/Tag.png" alt="VEGAN" />
-            </span>
-            <div class="title-recipes">
-              <h3>Spaghetti Aglio e Olio</h3>
-              <p>
-                A minimalist yet flavorful dish with garlic, olive oil, <br />
-                and a hint of red pepper flakes.
-              </p>
-            </div>
-            <div class="button-embark">
-              <span>20 min - easy prep - 2 serves</span>
-              <button>VIEW RECIPE</button>
-            </div>
-          </div>
-          <div class="recipes-card-embark">
-            <img src="./picture/Grilled Veggies with Sauce.png" alt="" />
-            <span class="tag-embark">
-              <img src="./picture/Tag.png" alt="VEGAN" />
-            </span>
-            <div class="title-recipes">
-              <h3>Grilled Veggies with Sauce</h3>
-              <p>
-                Served with a zesty chimichurri sauce its a perfect addition to
-                your outdoor gatherings.
-              </p>
-            </div>
-            <div class="button-embark">
-              <span>25 Min - medium prep - 6 serves</span>
-              <button>VIEW RECIPE</button>
-            </div>
-          </div>
+      <div class="body-section" id="embark-cards-container">
+        <!-- Dữ liệu từ API sẽ được tự động chèn vào đây -->
+        <div class="embark-loading">
+          <div class="embark-spinner"></div>
+          <p>Đang tải món ăn...</p>
         </div>
       </div>
     </section>
@@ -308,7 +213,8 @@
             <div class="title-decription-OUR">
               <a
                 class="ABOUT-US-OUR"
-                href="https://www.facebook.com/otai.296166/">
+                href="https://www.facebook.com/otai.296166/"
+              >
                 ABOUT US
               </a>
               <h2 class="title-OUR">
@@ -411,5 +317,6 @@
       </div>
     </footer>
     <script src="script.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   </body>
 </html>
