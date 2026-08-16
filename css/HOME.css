@@ -405,65 +405,10 @@ body {
   /*Position mới - X=64, Y=102 */
   margin-left: auto; /* Khoảng cách từ trái = 64px */
   margin-right: auto;
-  margin-top: 102px; /* Khoảng cách từ trên = 102px */
-}
-/* desktop (2560px trở xuống) */
-@media (max-width: 2560px) {
-  .hero {
-    margin-left: auto; /* Căn giữa */
-    margin-right: auto; /* Căn giữa */
-    margin-top: 20px; /* Giảm khoảng cách */
-    width: 1312px;
-    height: 577px;
-  }
-  .navbar {
-    margin-left: auto;
-    margin-right: auto;
-    width: 1312px;
-  }
-}
-/* desktop (1920px trở xuống) */
-@media (max-width: 1920px) {
-  .hero {
-    margin-left: auto; /* Căn giữa */
-    margin-right: auto; /* Căn giữa */
-    margin-top: 20px; /* Giảm khoảng cách */
-    width: 1312px;
-    height: 577px;
-  }
-}
-/* Desktop nhỏ (1400px trở xuống) */
-@media (max-width: 1400px) {
-  .hero {
-    margin-left: auto; /* Căn giữa */
-    margin-right: auto; /* Căn giữa */
-    margin-top: 20px; /* Giảm khoảng cách */
-    width: 1000px;
-    height: 440px;
-  }
-  .navbar {
-    margin-left: auto; /* Căn giữa */
-    margin-right: auto;
-    width: 1000px;
-  }
+  margin-top: 24px; /* Khoảng cách từ trên = 102px */
 }
 
-/* Tablet (768px trở xuống) */
-@media (max-width: 768px) {
-  .hero {
-    width: 100%;
-    margin-left: 0; /* Xóa margin trên mobile */
-    margin-top: 15px;
-  }
-}
 
-/* Mobile nhỏ (480px trở xuống) */
-@media (max-width: 480px) {
-  .hero {
-    margin-left: 0;
-    margin-top: 10px;
-  }
-}
 
 .background-hero {
   position: absolute;
