@@ -351,26 +351,6 @@ body {
   margin-bottom: 6px;
 }
 
-@media (max-width: 768px) {
-  .search-box-wrapper.active {
-    width: 200px;
-  }
-  .search-suggestions-dropdown {
-    width: 280px;
-    right: -30px;
-  }
-}
-
-@media (max-width: 480px) {
-  .search-box-wrapper.active {
-    width: 160px;
-  }
-  .search-suggestions-dropdown {
-    width: 250px;
-    right: -50px;
-  }
-}
-
 .subscribe-btn {
   background: #1a1a1a;
   color: #fff;

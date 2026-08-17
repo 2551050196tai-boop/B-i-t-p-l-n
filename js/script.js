@@ -1618,4 +1618,75 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
 
     fetchRecipeDetail();
   }
+
+    // ==========================================
+  // MOBILE MENU
+  // ==========================================
+
+  const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+  const mobileMenuOverlay = document.querySelector(".mobile-menu-overlay");
+  const mobileCloseBtn = document.querySelector(".mobile-close-btn");
+
+  // Kiểm tra để tránh lỗi nếu trang nào không có mobile menu
+  if (mobileMenuBtn && mobileMenuOverlay && mobileCloseBtn) {
+
+    // MỞ MENU
+    mobileMenuBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      mobileMenuOverlay.classList.add("is-open");
+      mobileMenuOverlay.setAttribute("aria-hidden", "false");
+
+      document.body.classList.add("mobile-menu-open");
+    });
+
+    // ĐÓNG MENU bằng nút X
+    mobileCloseBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      closeMobileMenu();
+    });
+
+    // Hàm đóng menu
+    function closeMobileMenu() {
+      mobileMenuOverlay.classList.remove("is-open");
+      mobileMenuOverlay.setAttribute("aria-hidden", "true");
+
+      document.body.classList.remove("mobile-menu-open");
+    }
+
+    // Bấm ra bên ngoài panel -> đóng menu
+    mobileMenuOverlay.addEventListener("click", (e) => {
+      if (e.target === mobileMenuOverlay) {
+        closeMobileMenu();
+      }
+    });
+
+    // Bấm các menu HOME / RECIPES / COOKING TIPS / ABOUT US
+    const mobileMenuLinks =
+      document.querySelectorAll(".mobile-menu-links a");
+
+    mobileMenuLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMobileMenu();
+      });
+    });
+
+    // Nhấn ESC -> đóng menu
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeMobileMenu();
+      }
+    });
+
+    // Khi chuyển từ mobile/tablet về desktop
+    // tự động đóng menu nếu nó đang mở
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 1024) {
+        closeMobileMenu();
+      }
+    });
+  }
 });
