@@ -1716,33 +1716,9 @@ body {
   .logo span {
     font-size: 16px;
   }
- 
-  .nav-links,
-  .nav-actions {
-    display: none;
-  }
- 
+
   .mobile-menu-btn {
-    display: flex;
-    width: 40px;
-    height: 40px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 4px;
-    padding: 0;
-    border: 0;
-    border-radius: 50%;
-    background: #e5ded1;
-    cursor: pointer;
-  }
- 
-  .mobile-menu-btn span {
-    display: block;
-    width: 18px;
-    height: 2px;
-    background: #292824;
-    border-radius: 2px;
+    display: none;
   }
  
   /* Hero */
@@ -2347,34 +2323,7 @@ body {
   }
 }
  
-/* =========================================================
-   TABLET/DESKTOP: hide mobile overlay
-   ========================================================= */
-@media (min-width: 768px) {
-  .mobile-menu-overlay {
-    display: none;
-  }
-}
- 
-/* Keep desktop original nav on >= 1024px */
-@media (min-width: 1024px) {
-  .mobile-menu-btn {
-    display: none !important;
-  }
- 
-  .nav-links,
-  .nav-actions {
-    display: flex;
-  }
-}
- 
-/* Mobile/tablet only: desktop nav hidden */
-@media (max-width: 1023px) {
-  .nav-links,
-  .nav-actions {
-    display: none !important;
-  }
-}
+
  
 /* =========================================================
    CLEAN RESPONSIVE SYSTEM
@@ -3097,25 +3046,66 @@ body {
 }
  
 /* =========================================================
-   MOBILE MENU
+   GIAO DIỆN MOBILE (max-width: 768px)
    ========================================================= */
  
+/* Ẩn mặc định các phần tử mobile trên Desktop */
 .mobile-menu-overlay {
   display: none;
 }
  
-@media (max-width: 1023px) {
+.mobile-menu-btn {
+  display: none;
+}
+ 
+/* ---------- 1. GIAO DIỆN MOBILE CHÍNH (<= 768px) ---------- */
+@media (max-width: 768px) {
+  .nav-links,
+  .nav-actions {
+    display: none !important;
+  }
+ 
+  /* Navbar & Nút 3 gạch */
+  .mobile-menu-btn {
+    display: flex;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #e5ded1;
+    cursor: pointer;
+  }
+ 
+  .mobile-menu-btn span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: #292824;
+    border-radius: 2px;
+  }
+ 
+  /* Mobile Menu Modal Overlay & Panel */
   body.mobile-menu-open {
     overflow: hidden;
   }
  
   .mobile-menu-overlay {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 0.4);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -3131,19 +3121,19 @@ body {
  
   .mobile-menu-panel {
     width: 343px;
-    height: 509px;
-    max-width: calc(100vw - 28px);
     height: auto;
-    max-height: 90vh;
+    max-width: calc(100vw - 28px);
+    max-height: 85vh;
     overflow-y: auto;
     box-sizing: border-box;
     padding: 16px 16px 48px 16px;
     border-radius: 24px;
     background: #262522;    
     color: #F0EBE1;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
     transform: translateY(-12px) scale(0.985);
     transition: transform 0.28s ease;
   }
@@ -3213,7 +3203,7 @@ body {
     margin-top: 40px;
     display: flex;
     flex-direction: column;
-    padding: 8 16px;
+    padding: 8px 16px;
   }
  
   .mobile-menu-links a {
@@ -3299,29 +3289,7 @@ body {
   }
 }
  
-/* Tablet: menu drops down anchored top-right, under the hamburger button */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .mobile-menu-overlay {
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: 90px 20px 20px;
-  }
-}
- 
-/* Desktop / Extra large: same right-anchored behaviour, if the menu is ever shown here */
-@media (min-width: 1024px) {
-  .mobile-menu-overlay {
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: 110px 24px 24px;
-  }
- 
-  .mobile-menu-btn,
-  .mobile-menu-overlay {
-    display: none !important;
-  }
-}
- 
+/* ---------- 2. RESPONSIVE MÀN HÌNH CỰC NHỎ (<= 380px) ---------- */
 @media (max-width: 380px) {
   .mobile-menu-panel {
     width: calc(100vw - 24px);
@@ -3346,5 +3314,13 @@ body {
   .mobile-socials {
     margin-top: 16px;
     gap: 16px;
+  }
+}
+
+/* ---------- 3. DESKTOP: ẨN CÁC PHẦN TỬ MOBILE (> 768px) ---------- */
+@media (min-width: 769px) {
+  .mobile-menu-btn,
+  .mobile-menu-overlay {
+    display: none !important;
   }
 }
