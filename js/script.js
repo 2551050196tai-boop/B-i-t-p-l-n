@@ -1629,11 +1629,21 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
 
   // Kiểm tra để tránh lỗi nếu trang nào không có mobile menu
   if (mobileMenuBtn && mobileMenuOverlay && mobileCloseBtn) {
+    // Hàm cập nhật vị trí padding-top động theo đáy navbar + 24px
+    function updateMenuPosition() {
+      const navbar = document.querySelector(".navbar");
+      if (navbar) {
+        const navbarRect = navbar.getBoundingClientRect();
+        mobileMenuOverlay.style.paddingTop = Math.max(0, navbarRect.bottom + 24) + "px";
+      }
+    }
 
     // MỞ MENU
     mobileMenuBtn.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
+
+      updateMenuPosition();
 
       mobileMenuOverlay.classList.add("is-open");
       mobileMenuOverlay.setAttribute("aria-hidden", "false");
@@ -1674,6 +1684,15 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
       });
     });
 
+    // Bấm nút tìm kiếm trong mobile menu -> chuyển đến RECIPES
+    const mobileSearchBtn = document.querySelector(".mobile-search-btn");
+    if (mobileSearchBtn) {
+      mobileSearchBtn.addEventListener("click", () => {
+        closeMobileMenu();
+        window.location.href = "RECIPES.html";
+      });
+    }
+
     // Nhấn ESC -> đóng menu
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
@@ -1681,12 +1700,20 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
       }
     });
 
-    // Khi chuyển từ mobile/tablet về desktop
+    // Khi chuyển từ mobile về desktop (> 768px)
     // tự động đóng menu nếu nó đang mở
     window.addEventListener("resize", () => {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth > 768) {
         closeMobileMenu();
+      } else if (mobileMenuOverlay.classList.contains("is-open")) {
+        updateMenuPosition();
       }
     });
+
+    window.addEventListener("scroll", () => {
+      if (mobileMenuOverlay.classList.contains("is-open")) {
+        updateMenuPosition();
+      }
+    }, { passive: true });
   }
 });

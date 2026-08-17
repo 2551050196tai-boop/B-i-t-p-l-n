@@ -66,7 +66,55 @@
         </button>
         <button class="subscribe-btn">SUBSCRIBE</button>
       </div>
+      <button class="mobile-menu-btn" type="button" aria-label="Mở menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
+
+    <!-- MOBILE / TABLET MENU -->
+    <div class="mobile-menu-overlay" aria-hidden="true">
+      <div class="mobile-menu-panel">
+        <div class="mobile-menu-header">
+          <a href="HOME.html" class="mobile-menu-logo">
+            <img src="assets/picture/chef.jpg" alt="Cooks Delight Logo" />
+            <span>Cooks<br />Delight</span>
+          </a>
+
+          <button class="mobile-close-btn" type="button" aria-label="Đóng menu">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <nav class="mobile-menu-links" aria-label="Mobile navigation">
+          <a href="HOME.html">HOME</a>
+          <a href="RECIPES.html" class="active">RECIPES</a>
+          <a href="COOKINGS TIPS.html">COOKING TIPS</a>
+          <a href="ABOUT_US.html">ABOUT US</a>
+        </nav>
+
+        <div class="mobile-menu-actions">
+          <button class="mobile-search-btn" type="button" aria-label="Tìm kiếm">
+            <img src="assets/picture/search-icon.svg" alt="Search" />
+          </button>
+          <a href="#subscribe" class="mobile-subscribe-btn">SUBSCRIBE</a>
+        </div>
+
+        <div class="mobile-socials">
+          <a href="https://www.facebook.com/dkhoacutii207" target="_blank" rel="noopener">
+            <img src="assets/picture/fb.svg" alt="Facebook" />
+          </a>
+          <a href="https://www.instagram.com/_ldk.07_/" target="_blank" rel="noopener">
+            <img src="assets/picture/ig.svg" alt="Instagram" />
+          </a>
+          <a href="https://www.youtube.com/@khoaang9697" target="_blank" rel="noopener">
+            <img src="assets/picture/yt.svg" alt="Youtube" />
+          </a>
+        </div>
+      </div>
+    </div>
     <section class="recipe-food-section">
       <div class="intro-food">
         <div class="btn-title-decrip-food">
@@ -372,6 +420,10 @@
         <p>COPYRIGHT: © 2024 COOKS DELIGHT.</p>
       </div>
     </footer>
-    <script src="js/script.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/recipe-detail.js"></script>
   </body>
 </html>
