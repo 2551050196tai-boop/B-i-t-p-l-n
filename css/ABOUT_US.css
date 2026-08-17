@@ -341,26 +341,6 @@ body {
   margin-bottom: 6px;
 }
 
-@media (max-width: 768px) {
-  .search-box-wrapper.active {
-    width: 200px;
-  }
-  .search-suggestions-dropdown {
-    width: 280px;
-    right: -30px;
-  }
-}
-
-@media (max-width: 480px) {
-  .search-box-wrapper.active {
-    width: 160px;
-  }
-  .search-suggestions-dropdown {
-    width: 250px;
-    right: -50px;
-  }
-}
-
 .subscribe-btn {
   background: #1a1a1a;
   color: #fff;
@@ -382,13 +362,7 @@ body {
   background: #333;
   box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
 }
-@media (max-width: 2560px) {
-  .navbar {
-    margin-left: auto;
-    margin-right: auto;
-    width: 1312px;
-  }
-}
+
 .slide-line {
   position: absolute;
   bottom: 0;
@@ -588,15 +562,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: 16px;
-}
-
-/* desktop - căn giữa giống các section khác */
-@media (max-width: 2560px) {
-  .featured-section {
-    margin-left: auto;
-    margin-right: auto;
-    width: 1312px;
-  }
 }
 
 /* header: title + nav arrows */

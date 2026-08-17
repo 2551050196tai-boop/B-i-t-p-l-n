@@ -1560,183 +1560,10 @@ body {
   line-height: 120%;
   color: #f0ebe1;
 }
-/* Giao diện Mobile */
-
-.mobile-menu-btn {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  body {
-    padding: 16px;
-  }
-
-  /* Header */
-
-  .navbar {
-    width: 100%;
-    max-width: none;
-    height: 67px;
-    max-height: none;
-    margin-left: auto;
-    margin-right: auto;
-    margin: 0;
-    padding: 16px;
-
-    background: #f0ebe1;
-    border-radius: 32px;
-    border: 1px solid #d3d3d3;
-  }
-
-  .logo {
-    gap: 3.5px;
-  }
-
-  .logo img {
-    width: 40px;
-    height: 35px;
-  }
-
-  .logo span {
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 103%;
-    color: #262522;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .nav-actions {
-    display: none;
-  }
-
-  .mobile-menu-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 34px;
-    height: 34px;
-
-    padding: 0;
-    border: none;
-    border-radius: 16px;
-
-    background: rgba(38, 37, 34, 0.16);
-
-    font-size: 18px;
-    color: #262522;
-
-    cursor: pointer;
-  }
-
-  /* Hero */
-
-  .hero {
-    width: 100%;
-    height: 640px;
-
-    margin: 16px 0 0;
-
-    border-radius: 24px;
-
-    display: block;
-  }
-
-  .background-hero {
-    width: 100%;
-    height: 640px;
-
-    max-width: none;
-    aspect-ratio: auto;
-  }
-
-  .background-hero img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    /* object-position: 16px 99px; */
-  }
-
-  .hero-overlay {
-    width: 100%;
-    height: 100%;
-  }
-
-  .hero-content {
-    position: absolute;
-
-    top: 185px;
-    left: 50%;
-
-    width: 311px;
-
-    transform: translateX(-50%);
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-
-    text-align: center;
-  }
-
-  .hero-title {
-    width: 311px;
-
-    margin: 0;
-
-    font-family: "Montserrat", sans-serif;
-    font-size: 38px;
-    font-weight: 800;
-    line-height: 100%;
-
-    color: #f0ebe1;
-  }
-
-  .hero-description {
-    width: 311px;
-
-    margin: 12px 0 0;
-
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 140%;
-
-    color: #f0ebe1;
-  }
-
-  .hero-button {
-    width: 166px;
-    height: 38px;
-
-    margin-top: 40px;
-    padding: 12px 24px;
-
-    border: none;
-    border-radius: 24px;
-
-    background: #f29c33;
-
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 100%;
-
-    color: #262522;
-  }
-
-  .hero-button:hover {
-    background: #f29c33;
-    transform: none;
-    box-shadow: none;
-  }
-}
+<<<<<<< HEAD:css/HOME.css
+=======
+/* Giao diện Mobile  */
+>>>>>>> 1d72eb6e7c43178fa60f0959f3d60e8bded7aeb3:HOME.css
 
 /* ===== HOVER LIFT & SHADOW EFFECTS ===== */
 
@@ -1750,7 +1577,9 @@ body {
   transition: transform 0.3s ease, text-shadow 0.3s ease;
   display: inline-block;
 }
+@media (max-width: 768px){
 
+<<<<<<< HEAD:css/HOME.css
 .hero-title:hover,
 .title:hover,
 .featured-title:hover,
@@ -1759,6 +1588,150 @@ body {
 .title-SUB:hover {
   transform: translateY(-4px);
   text-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+=======
+  body{
+
+}
+/* khi ấn vào nút menu trên mobile */
+.mobile-menu{
+  display: none;
+}
+@media (max-width: 450px){
+  .mobile-menu{
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 343px;
+    height: 509px;
+    padding: 16px 16px 48px 16px;
+    background: #262522;
+    border-radius: 24px;
+    z-index: 9999;
+    flex-direction: column;
+  }
+  .mobile-menu.show{
+    display: flex;
+  }
+  /* header menu*/
+  .mobile-menu-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  /* logo menu*/
+  .mobile-menu-header .logo{
+    display: flex;
+    align-items: center;
+    gap: 3.5px;
+  }
+  .mobile-menu-logo img{
+    width: 40px;
+    height: 35px;
+    object-fit: contain;
+  }
+  .mobile-menu-logo span{
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 103%;
+    color: #F0EBE1;
+  }
+  /*nut dong menu(dau X)*/
+  .mobile-menu-close-btn{
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border:none;
+    border-radius: 16px;
+    background: rgba(255, 251, 242, 0.16);
+    color: #F0EBE1;
+    font-size: 22px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  /*menu links*/
+  .mobile-menu-links{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+  .mobile-menu-links a{
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #F0EBE1;
+    text-decoration: none;
+    padding: 0 0 12px 0;
+    border-bottom: 1px solid rgba(255, 251, 242, 0.16);
+  }
+  .mobile-menu-links a:not(:first-child){
+    margin-top: 12px;
+  }
+  /* vi tri nut search va subcribe */
+  .mobile-menu-actions{
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    gap: 16px;
+  }
+  /* nut search */
+  .mobile-search-btn{
+    width: 37px;
+    height: 37px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 16px;
+    background: rgba(255, 251, 242, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .mobile-search-btn img{
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+  /* nut subcribe */
+  .mobile-subscribe-btn{
+    width: 258px;
+    height: 38px;
+    padding: 0;
+    border: none;
+    border-radius: 24px;
+    background: rgba(240, 235, 225, 0.16);
+    color: #F0EBE1;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  /* bieu tuong cac trang mang xa hoi */
+  .mobile-social{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .mobile-social a{
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-social img{
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+>>>>>>> 1d72eb6e7c43178fa60f0959f3d60e8bded7aeb3:HOME.css
 }
 
 /* Text hover effects - paragraphs & descriptions */
