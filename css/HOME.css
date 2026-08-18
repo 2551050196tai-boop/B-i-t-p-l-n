@@ -1724,7 +1724,7 @@ body {
 
   /* Reset toàn bộ kích thước các section chính để không bị tràn ngang màn hình */
   .navbar,
-  .hero,
+  /* .hero,
   .background-hero,
   .palet-section,
   .palet-contain,
@@ -1733,7 +1733,7 @@ body {
   .embark-section,
   .SUBSCRIBE,
   .subscribe-container,
-  .footer {
+.footer { */{
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
