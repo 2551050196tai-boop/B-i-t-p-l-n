@@ -52,16 +52,44 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    if (nextBtn)
-      nextBtn.addEventListener("click", () =>
-        featuredContainer.scrollBy({ left: scrollAmount, behavior: "smooth" })
-      );
-    if (prevBtn)
-      prevBtn.addEventListener("click", () =>
-        featuredContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" })
-      );
+    function updateNavButtons() {
+      if (!prevBtn || !nextBtn) return;
+      const maxScroll = featuredContainer.scrollWidth - featuredContainer.clientWidth;
+      if (featuredContainer.scrollLeft <= 10) {
+        prevBtn.classList.add("disabled");
+        prevBtn.style.opacity = "0.35";
+        prevBtn.style.pointerEvents = "none";
+      } else {
+        prevBtn.classList.remove("disabled");
+        prevBtn.style.opacity = "1";
+        prevBtn.style.pointerEvents = "auto";
+      }
 
-    fetchFeaturedRecipes();
+      if (featuredContainer.scrollLeft >= maxScroll - 10) {
+        nextBtn.classList.add("disabled");
+        nextBtn.style.opacity = "0.35";
+        nextBtn.style.pointerEvents = "none";
+      } else {
+        nextBtn.classList.remove("disabled");
+        nextBtn.style.opacity = "1";
+        nextBtn.style.pointerEvents = "auto";
+      }
+    }
+
+    featuredContainer.addEventListener("scroll", updateNavButtons, { passive: true });
+
+    if (nextBtn)
+      nextBtn.addEventListener("click", () => {
+        featuredContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      });
+    if (prevBtn)
+      prevBtn.addEventListener("click", () => {
+        featuredContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      });
+
+    fetchFeaturedRecipes().then(() => {
+      setTimeout(updateNavButtons, 200);
+    });
   }
 
   // ==========================================

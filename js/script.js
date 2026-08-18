@@ -1,51 +1,22 @@
+// =========================================================
+// SCRIPT CHÍNH - CHỈ XỬ LÝ:
+// 1. Trang RECIPES (lọc danh mục món ăn)
+// 2. Trang Chi tiết Món ăn (recipe-detail.html)
+//
+// CÁC CHỨC NĂNG KHÁC ĐÃ ĐƯỢC TÁCH RA FILE RIÊNG:
+// - api.js         → window.getSharedMeals (tải & cache dữ liệu API)
+// - navbar.js      → Hiệu ứng gạch chân menu trượt
+// - search.js      → Tìm kiếm toàn trang (autocomplete)
+// - home.js        → Featured Recipes slider + Embark Journey
+// - mobile-menu.js → Menu hamburger mobile
+// =========================================================
+
 document.addEventListener("DOMContentLoaded", () => {
-  // ==========================================
-  // 1. HIỆU ỨNG GẠCH CHÂN MENU TRƯỢT
-  // ==========================================
-  const navLinks = document.querySelector(".nav-links");
-  const links = document.querySelectorAll(".nav-links li a");
 
-  if (navLinks) {
-    const slideLine = document.createElement("div");
-    slideLine.classList.add("slide-line");
-    // Tắt transition khi mới tải trang để gạch đỏ đứng yên ngay tại menu hiện tại
-    slideLine.style.transition = "none";
-    navLinks.appendChild(slideLine);
 
-    function moveSlideLine(element) {
-      slideLine.style.width = `${element.offsetWidth}px`;
-      slideLine.style.left = `${element.offsetLeft}px`;
-    }
 
-    const activeLink = document.querySelector(".nav-links li a.active");
-    if (activeLink) {
-      moveSlideLine(activeLink);
-    }
 
-    // Bật lại hiệu ứng trượt sau khi đã định vị xong vị trí ban đầu (dùng khi rê chuột)
-    setTimeout(() => {
-      slideLine.style.transition = "all 0.3s ease-in-out";
-    }, 50);
 
-    links.forEach((link) => {
-      link.addEventListener("mouseenter", function () {
-        moveSlideLine(this);
-      });
-    });
-
-    navLinks.addEventListener("mouseleave", () => {
-      const currentActive = document.querySelector(".nav-links li a.active");
-      if (currentActive) moveSlideLine(currentActive);
-    });
-  }
-
-  // ==========================================
-  // HÀM CHUNG: TẢI & CACHE DỮ LIỆU TỪ API TỐI ƯU CỰC NHANH
-  // ==========================================
-  const CACHE_KEY = "cooks_delight_all_meals_v3";
-  let sharedMealsCache = null;
-
-  async function getSharedMeals(onBackgroundUpdate = null) {
     // 1. Kiểm tra bộ nhớ RAM trước -> 0ms
     if (sharedMealsCache && sharedMealsCache.length > 0) {
       return sharedMealsCache;
