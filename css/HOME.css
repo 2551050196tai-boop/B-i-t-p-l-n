@@ -1,38 +1,115 @@
+/* ==========================================================================
+   TABLE OF CONTENTS - COOKS DELIGHT (HOME.CSS)
+   --------------------------------------------------------------------------
+   1. CSS VARIABLES & RESET (Biến dùng chung & Thiết lập nền tảng)
+   2. NAVBAR & NAVIGATION (Thanh điều hướng & Logo)
+   3. SEARCH BOX & AUTOCOMPLETE (Ô tìm kiếm mở rộng & Dropdown gợi ý)
+   4. MOBILE MENU OVERLAY (Giao diện bảng điều khiển Menu di động)
+   5. HERO BANNER SECTION (Khu vực Banner chính)
+   6. OUR DIVERSE PALETTE SECTION (Khám phá thực đơn theo danh mục)
+   7. FEATURED RECIPES SLIDER (Thanh cuộn ngang các món nổi bật)
+   8. EMBARK ON A JOURNEY SECTION (Bộ lọc danh mục & Danh sách thẻ món ăn)
+   9. OUR CULINARY CHRONICLE SECTION (Khu vực giới thiệu & Hình ảnh)
+   10. SUBSCRIBE NEWSLETTER SECTION (Khu vực đăng ký nhận tin)
+   11. FOOTER SECTION (Chân trang & Liên kết mạng xã hội)
+   12. HOVER & INTERACTIVE EFFECTS (Hiệu ứng di chuột nổi bật)
+   13. RESPONSIVE MEDIA QUERIES (Tối ưu giao diện đa màn hình)
+   ========================================================================== */
+
+/* ==========================================================================
+   1. CSS VARIABLES & RESET
+   ========================================================================== */
+:root {
+  /* Bảng màu chính */
+  --color-primary: #ee6352;
+  --color-primary-hover: #d94f30;
+  --color-accent-orange: #e8973c;
+  --color-accent-green: #9fdc26;
+  --color-dark: #262522;
+  --color-dark-alt: #1a1a1a;
+  --color-gray-dark: #616161;
+  --color-gray-medium: #8e887f;
+  --color-gray-light: #d3d3d3;
+  --color-border: #bcb9b6;
+  --color-bg-page: #efebe2;
+  --color-bg-navbar: #f2ece1;
+  --color-bg-card: #fffbf2;
+  --color-bg-card-alt: #fdfbf7;
+  --color-bg-palette: #cbe5fb;
+  --color-text-light: #f0ebe1;
+
+  /* Phông chữ */
+  --font-main: "Roboto", sans-serif;
+  --font-heading: "Montserrat", sans-serif;
+
+  /* Hiệu ứng chuyển động */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.2s ease;
+  --transition-transform: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+
+  /* Đổ bóng */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 6px 15px rgba(38, 37, 34, 0.2);
+  --shadow-lg: 0 14px 35px rgba(0, 0, 0, 0.15);
+}
+
 html {
   scroll-behavior: smooth;
 }
-* {
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font-main);
 }
-html, body {
+
+html,
+body {
   overflow-x: hidden;
   max-width: 100vw;
 }
 
 body {
-  background: #efebe2;
+  background: var(--color-bg-page);
   padding: 40px;
-  overflow-x: hidden;
+  min-height: 100vh;
+  width: 100%;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+a,
+input {
+  max-width: 100%;
+  font-family: inherit;
+}
+
+/* ==========================================================================
+   2. NAVBAR & NAVIGATION
+   ========================================================================== */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #f2ece1;
+  background: var(--color-bg-navbar);
   border-radius: 40px;
-  border: 1px solid #d3d3d3;
+  border: 1px solid var(--color-gray-light);
   padding: 12px 20px;
+  width: 100%;
   max-width: 1312px;
-  max-height: 70px;
-  margin-left: auto; /* Khoảng cách từ trái = 64px */
-  margin-right: auto;
-  margin-top: 16px; /* Khoảng cách từ trên = 102px */
+  height: 70px;
+  margin: 16px auto 0;
 }
 
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -44,6 +121,13 @@ body {
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+}
+
+.logo img:hover {
+  transform: translateY(-3px) scale(1.05);
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.18));
 }
 
 .logo span {
@@ -53,6 +137,7 @@ body {
   line-height: 1.1;
 }
 
+/* Menu links */
 .nav-links {
   display: flex;
   gap: 36px;
@@ -67,35 +152,58 @@ body {
   font-weight: 500;
   letter-spacing: 0.5px;
   padding-bottom: 6px;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-  color: #1a1a1a;
+  color: var(--color-dark-alt);
 }
 
 .nav-links li a.active {
-  color: #1a1a1a;
+  color: var(--color-dark-alt);
   font-weight: 600;
 }
+
+/* Đường gạch đỏ trượt theo menu (tạo bởi navbar.js) */
 .slide-line {
   position: absolute;
   bottom: 0;
   left: 0;
   height: 3px;
-  background-color: #d94f30; /* Màu đỏ của bạn */
-  transition: all 0.3s ease-in-out; /* Hiệu ứng trượt mượt mà */
+  background-color: var(--color-primary-hover);
+  transition: all 0.3s ease-in-out;
   border-radius: 2px;
-  pointer-events: none; /* Không cản trở việc click chuột */
+  pointer-events: none;
 }
 
+/* Cụm hành động bên phải navbar */
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
-/* SEARCH BOX WRAPPER - ANIMATED EXPAND */
+.subscribe-btn {
+  background: var(--color-dark-alt);
+  color: #fff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: var(--transition-transform);
+}
+
+.subscribe-btn:hover {
+  background: #333;
+  box-shadow: var(--shadow-md);
+}
+
+/* ==========================================================================
+   3. SEARCH BOX & AUTOCOMPLETE (JS điều khiển)
+   ========================================================================== */
 .search-box-wrapper {
   position: relative;
   display: flex;
@@ -104,10 +212,10 @@ body {
   height: 40px;
   background: #e4ddd1;
   border-radius: 20px;
-  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease,
+    box-shadow 0.3s ease, border-color 0.3s ease;
   overflow: visible;
   border: 1.5px solid transparent;
-  box-sizing: border-box;
 }
 
 .search-box-wrapper:hover {
@@ -117,11 +225,11 @@ body {
 .search-box-wrapper.active {
   width: 290px;
   background: #ffffff;
-  border-color: #ee6352;
+  border-color: var(--color-primary);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
 }
 
-.search-box-wrapper .search-btn,
+/* Nút search mặc định (chưa được JS wrap vào .search-box-wrapper) */
 .search-btn {
   width: 40px;
   height: 40px;
@@ -136,10 +244,14 @@ body {
   color: #333;
   transition: background 0.3s ease, transform 0.2s ease;
   padding: 0;
-  margin: 0;
   z-index: 2;
 }
 
+.search-btn:hover {
+  background: #d9cec2;
+}
+
+/* Khi nút search nằm bên trong search-box-wrapper (đã được JS wrap) */
 .search-box-wrapper .search-btn {
   background: transparent;
 }
@@ -149,27 +261,22 @@ body {
   transform: scale(1.08);
 }
 
-.search-btn:hover {
-  background: #d9cec2;
-}
-
 .search-input {
   width: 0;
   opacity: 0;
   border: none;
   outline: none;
   background: transparent;
-  font-family: 'Montserrat', 'Roboto', sans-serif;
+  font-family: var(--font-heading), var(--font-main);
   font-size: 13.5px;
   font-weight: 500;
-  color: #262522;
+  color: var(--color-dark);
   padding: 0;
   transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
-  box-sizing: border-box;
 }
 
 .search-input::placeholder {
-  color: #8e887f;
+  color: var(--color-gray-medium);
   font-size: 13px;
 }
 
@@ -194,7 +301,7 @@ body {
   justify-content: center;
   cursor: pointer;
   margin-right: 8px;
-  transition: all 0.2s ease;
+  transition: var(--transition-fast);
 }
 
 .search-box-wrapper.active .search-clear-btn.visible {
@@ -202,12 +309,12 @@ body {
 }
 
 .search-clear-btn:hover {
-  background: #ee6352;
+  background: var(--color-primary);
   color: #ffffff;
   transform: scale(1.1);
 }
 
-/* SEARCH SUGGESTIONS DROPDOWN */
+/* Dropdown danh sách gợi ý món ăn */
 .search-suggestions-dropdown {
   position: absolute;
   top: calc(100% + 10px);
@@ -217,12 +324,11 @@ body {
   overflow-y: auto;
   background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-lg), 0 2px 8px rgba(0, 0, 0, 0.06);
   border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 8px;
   display: none;
   z-index: 9999;
-  box-sizing: border-box;
   animation: searchDropdownFadeIn 0.25s ease forwards;
 }
 
@@ -257,8 +363,8 @@ body {
 }
 
 .search-suggestion-header {
-  padding: 6px 10px 6px 10px;
-  font-family: 'Montserrat', sans-serif;
+  padding: 6px 10px;
+  font-family: var(--font-heading);
   font-size: 11px;
   font-weight: 700;
   color: #999;
@@ -277,7 +383,7 @@ body {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
-  transition: all 0.2s ease;
+  transition: var(--transition-fast);
   margin-bottom: 4px;
 }
 
@@ -309,10 +415,10 @@ body {
 }
 
 .search-suggestion-name {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-heading);
   font-size: 13.5px;
   font-weight: 700;
-  color: #262522;
+  color: var(--color-dark);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -321,18 +427,17 @@ body {
 
 .search-suggestion-item:hover .search-suggestion-name,
 .search-suggestion-item.selected .search-suggestion-name {
-  color: #ee6352;
+  color: var(--color-primary);
 }
 
 .search-suggestion-name .highlight {
-  color: #ee6352;
+  color: var(--color-primary);
   background: rgba(238, 99, 82, 0.12);
   padding: 0 2px;
   border-radius: 3px;
 }
 
 .search-suggestion-meta {
-  font-family: 'Roboto', sans-serif;
   font-size: 11px;
   color: #888;
   text-transform: uppercase;
@@ -345,7 +450,6 @@ body {
 .search-suggestion-empty {
   padding: 20px 16px;
   text-align: center;
-  font-family: 'Roboto', sans-serif;
   font-size: 13px;
   color: #777;
 }
@@ -356,139 +460,121 @@ body {
   margin-bottom: 6px;
 }
 
-
-
-.subscribe-btn {
-  background: #1a1a1a;
-  color: #fff;
-  border: none;
-  padding: 12px 26px;
-  border-radius: 30px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition:
-    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease;
+/* ==========================================================================
+   4. MOBILE MENU OVERLAY & BUTTON (Ẩn mặc định trên màn hình lớn)
+   ========================================================================== */
+.mobile-menu-btn,
+.mobile-menu-overlay {
+  display: none;
 }
 
-.subscribe-btn:hover {
-  background: #333;
-  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
-}
-
+/* ==========================================================================
+   5. HERO BANNER SECTION
+   ========================================================================== */
 .hero {
-  position: relative; /*Đặt phần tử ở chế độ định vị tương đối*/
-  width: 1312px; /*chiều rộng*/
-  height: 577px; /*chiều cao*/
-  overflow: hidden; /*Ẩn tất cả nội dung vượt ra ngoài kích thước của phần tử.*/
-  border-radius: 24px; /*Bo tròn 4 góc của phần tử*/
-  display: flex; /*Biến phần tử thành Flex Container, giúp sắp xếp các phần tử con dễ dàng theo hàng hoặc cột.*/
-  align-items: center; /*Căn giữa các phần tử con theo chiều dọc*/
-  justify-content: center; /*Căn giữa các phần tử con theo chiều ngang (trục chính của Flex).*/
-
-  /*Position mới - X=64, Y=102 */
-  margin-left: auto; /* Khoảng cách từ trái = 64px */
-  margin-right: auto;
-  margin-top: 24px; /* Khoảng cách từ trên = 102px */
+  position: relative;
+  width: 100%;
+  max-width: 1312px;
+  height: 577px;
+  overflow: hidden;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 24px auto 0;
 }
-
-
 
 .background-hero {
   position: absolute;
+  inset: 0;
   width: 100%;
-  max-width: 1312px;
-  aspect-ratio: 1312/577;
-  height: auto;
+  height: 100%;
 }
 
 .background-hero img {
   width: 100%;
   height: 100%;
-  position: absolute;
-  object-fit: cover; /* Lấp đầy container */
+  object-fit: cover;
   object-position: center;
 }
 
 .hero-overlay {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Tối 40% */
-  z-index: 1; /*quyết định phần tử nằm trên hoặc dưới*/
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
-  z-index: 2; /* Hiển thị trên overlay */
+  z-index: 2;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0 20px;
 }
 
 .hero-title {
-  color: white;
-  font-family: "Monterrat", sans-serif;
+  color: #ffffff;
+  font-family: var(--font-heading);
   font-size: 80px;
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Bóng chữ */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
 }
 
 .hero-description {
-  color: white;
+  color: #ffffff;
   margin-top: 20px;
-  font-family: "Roboto", sans-serif;
   font-size: 21px;
   line-height: 1.3;
   font-weight: 300;
+  display: inline-block;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
 }
 
 .hero-button {
-  font-family: "Roboto", sans-serif;
   font-size: 14px;
-  line-height: 100%;
-  background: #e8973c; /* Màu cam */
-  color: #262522;
+  line-height: 1;
+  background: var(--color-accent-orange);
+  color: var(--color-dark);
   padding: 12px 35px;
   border-radius: 50px;
-  transition: all 0.5s ease;
   margin-top: 20px;
   text-decoration: none;
-  color: #262522;
+  font-weight: 500;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-button:hover {
   background: #f0a84a;
-  transform: translateY(-3px); /* Nâng lên khi hover */
+  transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(232, 151, 60, 0.4);
 }
-/* Khoa sửa animation */
-/* ===== OUR DIVERSE PALETTE SECTION ===== */
+
+/* ==========================================================================
+   6. OUR DIVERSE PALETTE SECTION
+   ========================================================================== */
 .palet-section {
   position: relative;
-  width: 1309px;
-  height: 504px;
-  background: #cbe5fb;
+  width: 100%;
+  max-width: 1312px;
+  min-height: 504px;
+  background: var(--color-bg-palette);
   border-radius: 32px;
-  padding: 40px 40px 40px 40px;
-  margin-top: 16px;
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
+  padding: 40px;
+  margin: 16px auto 0;
 }
 
 .palet-contain {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* để không bị ép căn giữa, dễ kéo phần trái xuống */
+  align-items: flex-start;
   gap: 238px;
   width: 100%;
 }
@@ -499,87 +585,73 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: 100px; /* kéo toàn bộ phần bên trái xuống dưới */
+  padding-top: 100px;
 }
 
 .explore {
   display: inline-block;
-  background-color: #ee6352;
-  /* xóa viền đen */
+  background-color: var(--color-primary);
   border: none;
-  box-shadow: none;
   border-radius: 12px;
   color: #ffffff;
   padding: 4px 8px;
   font-size: 14px;
   font-weight: 500;
-  letter-spacing: 1%;
-  text-decoration: none; /* xóa gạch chân */
-  cursor: pointer; /* con trỏ chuột khi hover */
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  cursor: pointer;
   margin-bottom: 20px;
-  gap: 10px;
-  transition:
-    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: var(--transition-transform);
 }
 
 .explore:hover {
-  background-color: #d94f30;
-  transform: translateY(-3px); /* Nhô nhẹ lên */
-  box-shadow: 0 4px 12px rgba(255, 100, 82, 0.35); /* Đổ bóng nhẹ cùng màu */
+  background-color: var(--color-primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(255, 100, 82, 0.35);
 }
 
 .left-palet .title {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-heading);
   font-size: 40px;
-  font-weight: 494px;
-  color: #262522;
+  font-weight: 700;
+  color: var(--color-dark);
   line-height: 1.1;
   margin-bottom: 16px;
-  letter-spacing: 1%;
 }
 
-.left-palet .description {
-  font-family: "Roboto", sans-serif;
+.left-palet .description,
+.decription {
   font-size: 16px;
   line-height: 1.4;
-  letter-spacing: 1%;
-}
-.decription {
   opacity: 0.6;
 }
 
 .btn-seemore {
-  display: inline-block; /* BẮT BUỘC có thuộc tính này để margin-top hoạt động chuẩn */
-  margin-top: 40px !important; /* đẩy nút xa ra khỏi đoạn văn trên (dùng !important để ghi đè) */
+  display: inline-block;
+  margin-top: 40px;
   background: transparent;
-  border: 1px solid #262522;
-  color: #262522;
+  border: 1px solid var(--color-dark);
+  color: var(--color-dark);
   font-size: 12px;
   font-weight: 700;
   padding: 10px 20px;
   border-radius: 25px;
   letter-spacing: 0.5px;
-  transition: all 0.3s ease;
   cursor: pointer;
-  transition: 20px;
   text-decoration: none;
-  transition:
-    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: var(--transition-transform);
 }
+
 .btn-seemore:hover {
-  background: #262522;
+  background: var(--color-dark);
   color: #ffffff;
-  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
 }
 
 .right-palet {
   flex: 1;
-  max-width: 550px; /* thu ngắn độ rộng của cột bên phải lại */
+  max-width: 550px;
   display: flex;
   flex-direction: column;
 }
@@ -592,18 +664,16 @@ body {
   border-bottom: 1px solid rgba(38, 37, 34, 0.15);
   border-radius: 8px;
   cursor: pointer;
-  transition:
-    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 0.25s ease,
-    padding 0.25s ease;
+  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease, padding 0.25s ease, box-shadow 0.25s ease;
 }
 
 .palette-item:hover {
-  transform: translateX(8px); /* Trượt sang phải 8px */
-  background-color: rgba(255, 255, 255, 0.4); /* Nền sáng nhẹ highlight */
+  transform: translateX(8px);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
-/* khung chứa icon */
 .item-icon {
   width: 40px;
   height: 30px;
@@ -612,134 +682,149 @@ body {
   justify-content: center;
 }
 
-.item-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* giữ nguyên tỷ lệ ảnh, không bị co giãn/méo */
-}
-
+.item-icon img,
 .item-icon svg {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+}
+
+.palette-item:hover .item-icon img {
+  transform: scale(1.1);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
 }
 
 .item-name {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-heading);
   font-size: 15px;
   font-weight: 800;
-  color: #262522;
+  color: var(--color-dark);
   letter-spacing: 0.8px;
-  text-decoration: none;
-  width: 100%;
-  height: 100%;
-  text-align: end;
+  text-align: right;
+  flex: 1;
 }
 
-/* Căn giữa màn hình lớn */
-@media (max-width: 2560px) {
-  .palet-section {
-    margin-left: auto;
-    margin-right: auto;
-    width: 1312px;
-    height: 504px;
-  }
-}
-
-/* ===== FEATURED RECIPES SECTION ===== */
+/* ==========================================================================
+   7. FEATURED RECIPES SLIDER
+   ========================================================================== */
 .featured-section {
   position: relative;
-  width: 1312px;
-  height: 573px;
-  background: none;
-  border: 1px solid rgb(124, 117, 117);
+  width: 100%;
+  max-width: 1312px;
+  min-height: 573px;
+  border: 1px solid var(--color-border);
   border-radius: 24px;
-  padding: 40px 16px 24px 16px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 16px;
+  padding: 40px 16px 24px;
+  margin: 16px auto 0;
 }
 
-/* desktop - căn giữa giống các section khác */
-@media (max-width: 2560px) {
-  .featured-section {
-    margin-left: auto;
-    margin-right: auto;
-    width: 1312px;
-  }
-}
-
-/* header: title + nav arrows */
 .featured-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 24px;
-  margin-top: -5px;
+  gap: 20px;
+  width: 100%;
 }
 
 .featured-title {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-heading);
   font-size: 40px;
   font-weight: 700;
-  color: #262522;
+  color: var(--color-dark);
   margin-left: 25px;
+  flex: 1;
+  min-width: 0;
 }
 
 .featured-nav {
   display: flex;
+  align-items: center;
+  justify-content: flex-end;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 .nav-arrow {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: #ffffff;
-  display: flex;
+  background: transparent;
+  border: none;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition:
-    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease;
+  flex-shrink: 0;
+  padding: 0;
+  transition: opacity 0.25s ease, transform 0.2s ease;
 }
 
-.nav-arrow:hover {
-  background: #f2ece1;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
+.nav-arrow img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
-/* recipe cards container */
+.nav-arrow.prev-arrow {
+  opacity: 0.35;
+}
+
+.nav-arrow.next-arrow {
+  opacity: 1;
+}
+
+.nav-arrow:hover:not(.disabled):not([disabled]) {
+  transform: scale(1.08);
+  opacity: 0.85;
+}
+
+.nav-arrow:active:not(.disabled):not([disabled]) {
+  transform: scale(0.95);
+}
+
+.nav-arrow.disabled,
+.nav-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Container cuộn ngang món ăn */
 .featured-cards {
   display: flex;
   gap: 16px;
   align-items: stretch;
-  overflow-x: auto; /* MỚI THÊM: Cho phép cuộn ngang */
-  scroll-behavior: smooth; /* MỚI THÊM: Tạo hiệu ứng cuộn mượt mà */
-  padding-bottom: 10px; /* Tạo chút khoảng trống ở đáy */
-
-  /* MỚI THÊM: Ẩn thanh cuộn (scrollbar) để giao diện đẹp như ảnh */
-  scrollbar-width: none; /* Dành cho Firefox */
-  -ms-overflow-style: none; /* Dành cho IE/Edge */
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   scroll-snap-type: x mandatory;
 }
+
 .featured-cards::-webkit-scrollbar {
   display: none;
 }
+
 .recipe-card {
   width: 632px;
   height: auto;
   position: relative;
-  flex: 0 0 auto; /* ĐÃ SỬA: Thay flex: 1 thành 0 0 auto để thẻ không bị bóp méo khi có nhiều món ăn */
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  background: #fffbf2;
+  background: var(--color-bg-card);
   border-radius: 24px;
   scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
 }
 
 .recipe-image {
@@ -757,20 +842,14 @@ body {
   object-fit: cover;
 }
 
-/* badge vegan */
 .recipe-badge {
   position: absolute;
   bottom: 12px;
   right: 24px;
   border-radius: 50%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 10.35px;
-  font-weight: 700;
-  color: #262522;
-  text-align: center;
   z-index: 2;
 }
 
@@ -779,39 +858,36 @@ body {
   height: 66px;
 }
 
-/* phần info dưới ảnh */
 .recipe-info {
-  padding: 24px 24px 16px 24px;
-  /* 3 dòng này để kích hoạt flexbox */
+  padding: 24px 24px 16px;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
 .recipe-title {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-heading);
   font-size: 24px;
   font-weight: 700;
-  color: #262522;
+  color: var(--color-dark);
   margin-bottom: 8px;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Chỉ cho phép tối đa 2 dòng */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   line-clamp: 2;
   overflow: hidden;
 }
 
 .recipe-description {
-  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 300;
-  color: #262522;
-  line-height: 140%;
+  color: var(--color-dark);
+  line-height: 1.4;
   margin-bottom: 24px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
-  line-clamp: 2;
   -webkit-box-orient: vertical;
+  line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -824,213 +900,281 @@ body {
 }
 
 .recipe-meta {
-  font-family: "Roboto", sans-serif;
   font-size: 12px;
   font-weight: 500;
-  color: #262522;
-  line-height: 120%;
+  color: var(--color-dark);
+  line-height: 1.2;
 }
 
 .btn-viewrecipe {
   min-width: 132px;
   height: 38px;
   border-radius: 24px;
-  padding: 0px 24px;
+  padding: 0 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
   font-weight: 500;
   background: none;
-  border: 1px solid #262522;
-  color: #262522;
+  border: 1px solid var(--color-dark);
+  color: var(--color-dark);
+  text-decoration: none;
   cursor: pointer;
-  transition:
-    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: var(--transition-transform);
 }
 
 .btn-viewrecipe:hover {
-  background: #262522;
+  background: var(--color-dark);
   color: #ffffff;
-  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
+  box-shadow: var(--shadow-md);
 }
+
+/* ==========================================================================
+   8. EMBARK ON A JOURNEY SECTION
+   ========================================================================== */
 .embark-section {
   position: relative;
-  width: 1313px;
-  height: auto;
+  width: 100%;
+  max-width: 1312px;
   min-height: 800px;
-  background: none;
-  /* padding: 40px 40px 40px 40px; */
-  margin-top: 0px;
-  margin-left: auto;
-  margin-right: auto;
-  /* padding: 40px 40px; Padding khung ngoài */
-  box-sizing: border-box;
-  /* border: 1px solid black; */
-}
-.header-section {
-  width: 813px;
-  height: 246px;
-
   margin: 0 auto;
-  margin-top: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
-  /* border: 1px solid black; */
 }
-.body-section {
-  width: 1312px;
-  height: auto;
-  min-height: 451px;
 
+.header-section {
+  width: 100%;
+  max-width: 813px;
+  min-height: 246px;
+  margin: 80px auto 0;
   display: flex;
-  /* border: 1px solid black; */
-  margin-top: 40px;
-  justify-content: space-between;
   flex-direction: column;
-  background: none;
-  gap: 24px;
-}
-.header-embark {
-  width: 426px;
-  height: 168px;
-  display: flex;
   align-items: center;
-  flex-direction: column;
   justify-content: space-between;
-  margin-top: 0px;
   text-align: center;
-  background: none;
-  /* border: 1px solid black; */
 }
-.footer-embark {
-  width: 813px;
-  height: 38px;
+
+.header-embark {
+  width: 100%;
+  max-width: 426px;
   display: flex;
-  /* border: 1px solid black; */
-  justify-content: center;
   align-items: center;
-  background: none;
+  flex-direction: column;
+  text-align: center;
 }
+
 .recipes-embark {
   padding: 4px 8px;
-  font-family: "Roboto", sans-serif;
   border-radius: 20px;
-  color: white;
-  background-color: #ee6352;
-  border: none;
-  width: 72px;
-  height: 24px;
+  color: #ffffff;
+  background-color: var(--color-primary);
   font-size: 14px;
+  font-weight: 500;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
+
 .h2-p-embark {
-  width: 426px;
-  height: 136px;
+  width: 100%;
+  max-width: 426px;
   display: flex;
-  /* border: 1px solid black; */
   align-items: center;
   flex-direction: column;
-  justify-content: space-between;
   margin-top: 8px;
-  display: flex;
+  gap: 8px;
 }
-.h2-embark {
-  width: 426px;
-  height: 80px;
-  /* border: 1px solid black; */
-  /* font-family: "Montserrat", sans-serif; */
-  color: #262522;
-}
+
 .h2-embark h2 {
-  margin: 0;
   font-size: 40px;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
-  line-height: 37px;
+  line-height: 1.1;
+  color: var(--color-dark);
 }
+
 .p-embark {
   opacity: 0.7;
-  color: #262522;
+  color: var(--color-dark);
 }
+
 .p-embark p {
-  font-family: "Monterrat", sans-serif;
   font-size: 16px;
-  line-height: 22px;
+  line-height: 1.4;
 }
+
 .footer-embark {
-  width: 813px;
-  height: 38px;
+  width: 100%;
+  max-width: 813px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
-.footer-embark button {
+
+.footer-embark button,
+.embark-filter-btn {
   color: #9f9e9a;
-  font-family: "Roboto", sans-serif;
-  font-size: 14;
+  font-size: 14px;
+  font-weight: 500;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 12px 24px;
+  padding: 10px 24px;
   border-radius: 24px;
   height: 38px;
-  text-align: center;
-  border: 1px solid#9F9E9A;
-  font-weight: bold;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 100%;
+  border: 1px solid #9f9e9a;
   cursor: pointer;
   transition: all 0.3s ease;
   background: none;
 }
+
 .footer-embark .embark-active {
-  background: #9fdc26;
-  border-color: #262522;
-  color: #262522;
-}
-.footer-embark button:hover {
-  color: #262522;
-  border-color: #262522;
+  background: var(--color-accent-green);
+  border-color: var(--color-dark);
+  color: var(--color-dark);
+  font-weight: 700;
 }
 
-/* Loading spinner */
-.embark-loading {
+.footer-embark button:hover {
+  color: var(--color-dark);
+  border-color: var(--color-dark);
+}
+
+/* Thẻ món ăn trong mục Embark */
+.body-section {
+  width: 100%;
+  max-width: 1312px;
+  display: flex;
+  margin-top: 40px;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.filter-embark1,
+.filter-embark2 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  animation: embarkFadeIn 0.5s ease forwards;
+}
+
+@keyframes embarkFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.recipes-card-embark {
+  width: 100%;
+  max-width: 427px;
+  background: var(--color-bg-card-alt);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #dbd7d2;
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 400px;
-  width: 100%;
-  gap: 16px;
-}
-.embark-loading p {
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  color: #666;
-}
-.embark-spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #e0ddd8;
-  border-top: 4px solid #ee6352;
-  border-radius: 50%;
-  animation: embark-spin 0.8s linear infinite;
-}
-@keyframes embark-spin {
-  to { transform: rotate(360deg); }
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Empty state */
+.recipes-card-embark:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
+
+.recipes-card-embark img {
+  width: 100%;
+  height: 234px;
+  object-fit: cover;
+}
+
+.tag-embark {
+  position: absolute;
+  top: 180px;
+  right: 24px;
+  width: 66px;
+  height: 66px;
+  display: flex;
+  z-index: 2;
+}
+
+.tag-embark img {
+  width: 66px;
+  height: 66px;
+}
+
+.title-recipes {
+  padding: 24px 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title-recipes h3 {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-dark);
+}
+
+.title-recipes p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-gray-dark);
+}
+
+.button-embark {
+  padding: 24px;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-embark span {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--color-dark);
+}
+
+.btn-embark-view {
+  width: 132px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--color-dark);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-dark);
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition-transform);
+}
+
+.btn-embark-view:hover {
+  background: var(--color-dark);
+  color: #ffffff;
+  box-shadow: var(--shadow-md);
+}
+
+/* Loading spinner & Empty states */
+.embark-loading,
 .embark-empty {
   display: flex;
   flex-direction: column;
@@ -1039,419 +1183,299 @@ body {
   min-height: 400px;
   width: 100%;
   text-align: center;
-  gap: 8px;
+  gap: 16px;
 }
+
+.embark-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e0ddd8;
+  border-top: 4px solid var(--color-primary);
+  border-radius: 50%;
+  animation: embark-spin 0.8s linear infinite;
+}
+
+@keyframes embark-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .embark-empty h3 {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-heading);
   font-size: 20px;
-  color: #262522;
+  color: var(--color-dark);
 }
-.embark-empty p {
-  font-family: "Roboto", sans-serif;
+
+.embark-empty p,
+.embark-loading p {
   font-size: 16px;
   color: #666;
 }
 
-/* Fade-in animation for cards */
-.filter-embark1,
-.filter-embark2 {
-  animation: embarkFadeIn 0.5s ease forwards;
-}
-@keyframes embarkFadeIn {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* VIEW RECIPE link button in embark cards */
-.btn-embark-view {
-  width: 132px;
-  height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: 1px solid #262522;
-  border-radius: 999px;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #262522;
-  cursor: pointer;
-  text-decoration: none;
-  transition:
-    transform 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-.btn-embark-view:hover {
-  background: #262522;
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
-}
-.filter-embark1 {
-  width: 1312px;
-  height: 451px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  /* border: 1px solid black; */
-}
-.filter-embark2 {
-  width: 1312px;
-  height: 451px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  /* border: 1px solid black; */
-}
-.recipes-card-embark {
-  width: 427px;
-  height: 451px;
-  background: #fdfbf7;
-  border-radius: 24px;
-  overflow: hidden;
-  border: 1px solid #dbd7d2;
-  position: relative;
-  overflow: hidden;
-}
-.recipes-card-embark img {
-  width: 100%;
-  height: 234px;
-  object-fit: cover;
-}
-.tag-embark {
-  position: absolute;
-
-  margin-left: 335px;
-  margin-top: -53px;
-
-  width: 66px;
-  height: 66px;
-
-  display: flex;
-}
-.tag-embark img {
-  width: 66px;
-  height: 66px;
-}
-.title-recipes {
-  width: 379px;
-  height: 85px;
-  border: none;
-  margin: 24px 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.button-embark {
-  width: 379px;
-  height: 38px;
-  /* border: 1px solid black; */
-  margin: 54px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.title-recipes h3 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 120%;
-  color: #262522;
-}
-.title-recipes p {
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 150%;
-  color: #616161;
-}
-.button-embark span {
-  font-family: "Roboto", sans-serif;
-  font-size: 12px;
-  font-weight: 500; /* hoặc 400 nếu Figma dùng Regular */
-  line-height: 120%;
-  letter-spacing: 0;
-
-  text-transform: uppercase;
-  color: #262522;
-}
-.button-embark button {
-  width: 132px;
-  height: 38px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: transparent;
-  border: 1px solid #262522;
-  border-radius: 999px;
-
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #262522;
-
-  cursor: pointer;
-
-  transition:
-    transform 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-.button-embark button:hover {
-  background: #262522;
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
-}
+/* ==========================================================================
+   9. OUR CULINARY CHRONICLE SECTION
+   ========================================================================== */
 .OUR-CULINARY-section {
-  width: 1312px;
-  height: 697px;
+  width: 100%;
+  max-width: 1312px;
+  min-height: 697px;
   display: flex;
-  border: 1px solid #bcb9b6;
+  border: 1px solid var(--color-border);
   border-radius: 24px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 24px;
-  background: none;
-  justify-content: space-between;
+  margin: 24px auto 0;
+  padding: 16px;
 }
+
 .body-OUR {
-  background: none;
-  /* border: 1px solid black; */
-  width: 1280px;
-  height: 665px;
-  margin: 16px 16px;
-  overflow: hidden;
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  gap: 16px;
 }
+
 .left-body-OUR {
-  width: 861px;
-  height: 665px;
-  /* border: 1px solid black; */
-  background: none;
-  border-radius: 30px;
+  flex: 1;
+  max-width: 861px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 16px;
 }
+
 .title-pc-right_OUR {
-  width: 861px;
-  height: 326px;
-  /* border: 1px solid black; */
   display: flex;
   justify-content: space-between;
+  gap: 16px;
 }
+
 .title-decription-OUR {
-  width: 385px;
-  height: 262px;
-  /* border: 1px solid black; */
-  margin-top: 50px;
-  margin-left: 24px;
+  flex: 1;
+  padding: 34px 8px 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+
 .ABOUT-US-OUR {
-  color: #f0ebe1;
-  background: #ee6352;
-  padding: 8px 4px;
+  color: var(--color-text-light);
+  background: var(--color-primary);
+  padding: 4px 12px;
   border-radius: 24px;
-  font-family: "Roboto", sans-serif;
   font-size: 14px;
-  width: 83px;
-  height: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  line-height: 24px;
+  font-weight: 500;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-transform);
 }
+
+.ABOUT-US-OUR:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
 .title-OUR {
-  font-family: "Monterrat", sans-serif;
+  font-family: var(--font-heading);
   font-size: 40px;
+  font-weight: 700;
   margin-top: 8px;
   line-height: 1.1;
+  color: var(--color-dark);
 }
+
 .decription-OUR {
-  font-family: "Roboto", sans-serif;
   font-size: 16px;
   margin-top: 12px;
-  color: #262522;
+  color: var(--color-dark);
   opacity: 0.8;
   line-height: 1.25;
 }
+
 .READ-MORE-OUR {
-  border: 0.5px solid #262522;
+  border: 0.5px solid var(--color-dark);
   border-radius: 50px;
-  width: 126px;
-  height: 38px;
-  margin-top: 12px;
-  color: #262522;
-  font-family: "Roboto", sans-serif;
+  padding: 8px 24px;
+  margin-top: 16px;
+  color: var(--color-dark);
   font-size: 14px;
   font-weight: 600;
-  text-align: center;
   text-decoration: none;
-  line-height: 38px;
-  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-transform);
 }
+
 .READ-MORE-OUR:hover {
-  background: #262522;
-  color: #f0ebe1;
+  background: var(--color-dark);
+  color: var(--color-text-light);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
+
 .picture-right-OUR {
   width: 316px;
   height: 326px;
   border-radius: 30px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease;
 }
+
 .picture-bottom-OUR {
-  width: 861px;
+  width: 100%;
   height: 331px;
   border-radius: 30px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease;
 }
 
 .right-body-OUR {
-  /* border: 1px solid black; */
-  border-radius: 30px;
   width: 411px;
-  height: 665px;
-  background: none;
+  flex-shrink: 0;
 }
+
 .picture-right-body-OUR {
+  width: 100%;
+  height: 100%;
   border-radius: 30px;
-  width: 411px;
-  height: 665px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease;
 }
+
+.picture-right-OUR:hover,
+.picture-bottom-OUR:hover,
+.picture-right-body-OUR:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   10. SUBSCRIBE NEWSLETTER SECTION
+   ========================================================================== */
 .SUBSCRIBE {
-  width: 1312px;
+  width: 100%;
+  max-width: 1312px;
   height: 486px;
-  /* border: 1px solid black; */
   border-radius: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 80px;
-  background: #ee6352;
+  margin: 80px auto 0;
+  background: var(--color-primary);
   overflow: hidden;
   position: relative;
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
-.Oval-top-SUB {
-  width: 1328px;
-  height: 772px;
-  /* border: 1px solid black; */
-  border-radius: 50%;
-  position: absolute;
-  top: -512px;
-  left: -8px;
-  background: #ff6653;
-  /* transform: translateX(-0.5%); */
-}
+
+.Oval-top-SUB,
 .Oval-bottom-SUB {
   width: 1328px;
   height: 772px;
-  /* border: 1px solid black; */
   border-radius: 50%;
   position: absolute;
-  top: 276px;
-  left: -8px;
   background: #ff6653;
+  pointer-events: none;
 }
+
+.Oval-top-SUB {
+  top: -512px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.Oval-bottom-SUB {
+  top: 276px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .content-SUB {
-  position: absolute;
-  width: 1078px;
-  height: 358px;
-  /* border: 1px solid black; */
+  position: relative;
   z-index: 2;
-  margin-top: 64px;
-  left: 117px;
-  align-items: center;
+  width: 100%;
+  max-width: 1078px;
   text-align: center;
-  overflow: hidden;
-}
-.title-decrip-SUB {
-  width: 1078px;
-  height: 260px;
-  /* border: 1px solid black; */
-}
-.email-address-SUB {
-  width: 426px;
-  height: 50px;
-  /* border: 1px solid black; */
-  margin-top: 48px;
-  margin-left: 326px;
-  border-radius: 24px;
-  background: #fffbf2;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
 }
-.input {
-  font-family: "Roboto", sans-serif;
-  font-size: 21px;
-  /* font-weight: 300; */
-  color: #262522;
-  opacity: 0.4;
-  margin-top: 12px;
-  margin-left: 24px;
-}
-.btn-subcribe-SUB {
-  width: 122px;
-  height: 38px;
-  background: #262522;
-  color: #f0ebe1;
-  border-radius: 50px;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  margin-top: 6px;
-  margin-right: 9px;
-  transition: background-color 0.3s ease;
-}
-.btn-subcribe-SUB:hover {
-  background: #f0ebe1;
-  color: #262522;
-  cursor: pointer;
-}
+
 .SUB {
-  font-family: "Roboto", sans-serif;
   font-size: 18px;
-  color: #fffbf2;
-  font-weight: bold 1;
+  color: var(--color-bg-card);
+  font-weight: 700;
+  margin-bottom: 8px;
 }
+
 .title-SUB {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-heading);
   font-size: 80px;
-  color: #fffbf2;
+  font-weight: 700;
+  color: var(--color-bg-card);
   line-height: 1.05;
 }
+
 .decription-SUB {
-  color: #fffbf2;
-  font-family: "Roboto", sans-serif;
+  color: var(--color-bg-card);
   font-size: 21px;
   margin-top: 12px;
-  /* font-weight: bold 1; */
+  line-height: 1.3;
 }
 
-/* Doan cuoi trang Home */
+.email-address-SUB {
+  width: 100%;
+  max-width: 426px;
+  height: 50px;
+  margin-top: 36px;
+  border-radius: 24px;
+  background: var(--color-bg-card);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 9px 6px 24px;
+}
+
+.input {
+  font-size: 18px;
+  color: var(--color-dark);
+  opacity: 0.5;
+}
+
+.btn-subcribe-SUB {
+  height: 38px;
+  padding: 0 20px;
+  background: var(--color-dark);
+  color: var(--color-text-light);
+  border: none;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-transform);
+}
+
+.btn-subcribe-SUB:hover {
+  background: var(--color-text-light);
+  color: var(--color-dark);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   11. FOOTER SECTION
+   ========================================================================== */
 .footer {
-  width: 1313px;
-  height: 136px;
-
-  margin: 0 auto;
-  margin-top: 40px;
-
+  width: 100%;
+  max-width: 1312px;
+  margin: 40px auto 0;
   padding: 24px 40px;
-  box-sizing: border-box;
-
-  background: #262522;
+  background: var(--color-dark);
   border-radius: 32px;
 }
 
@@ -1459,34 +1483,33 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   margin-bottom: 24px;
 }
 
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: 3.5px;
+  gap: 6px;
 }
 
 .footer-logo img {
   width: 40px;
   height: 35px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
 }
 
-.logo-text {
-  display: flex;
-  flex-direction: column;
+.footer-logo img:hover {
+  transform: translateY(-2px) scale(1.05);
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.18));
 }
 
 .logo-text h3 {
-  margin: 0;
-
-  font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 120%;
-  color: #f0ebe1;
+  line-height: 1.2;
+  color: var(--color-text-light);
 }
 
 .footer-menu {
@@ -1496,13 +1519,10 @@ body {
 
 .footer-menu a {
   text-decoration: none;
-
-  font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 500;
-  color: #f0ebe1;
-
-  transition: 0.3s;
+  color: var(--color-text-light);
+  transition: color 0.3s ease;
 }
 
 .footer-menu a:hover {
@@ -1515,23 +1535,28 @@ body {
   gap: 16px;
 }
 
+.foot-mxh a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .foot-mxh img {
   width: 24px;
   height: 24px;
-
-  transition: 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .foot-mxh img:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 .footer hr {
   border: none;
   height: 1px;
-  background: #f0ebe1;
-
-  margin: 24px 0 15px;
+  background: var(--color-text-light);
+  opacity: 0.3;
+  margin: 20px 0 15px;
 }
 
 .footer-bottom {
@@ -1539,17 +1564,16 @@ body {
 }
 
 .footer-bottom p {
-  margin: 0;
-  font-family: "Roboto", sans-serif;
   font-size: 12px;
   font-weight: 500;
-  line-height: 120%;
-  color: #f0ebe1;
+  line-height: 1.2;
+  color: var(--color-text-light);
+  opacity: 0.8;
 }
 
-
-/* ===== HOVER LIFT & SHADOW EFFECTS ===== */
-/* Text hover effects - headings */
+/* ==========================================================================
+   12. HOVER & INTERACTIVE EFFECTS (Tối ưu hóa các tương tác UI)
+   ========================================================================== */
 .hero-title,
 .title,
 .featured-title,
@@ -1557,36 +1581,24 @@ body {
 .title-OUR,
 .title-SUB {
   transition: transform 0.3s ease, text-shadow 0.3s ease;
-  display: inline-block;
 }
+
 .hero-title:hover,
 .title:hover,
 .featured-title:hover,
 .h2-embark h2:hover,
 .title-OUR:hover,
 .title-SUB:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   text-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.hero-title,
-.title,
-.featured-title,
-.h2-embark h2,
-.title-OUR,
-.title-SUB {
-  transition: transform 0.3s ease, text-shadow 0.3s ease;
-  display: inline-block;
-}
-
-/* Text hover effects - paragraphs & descriptions */
 .hero-description,
 .decription,
 .decription-OUR,
 .decription-SUB,
 .p-embark p {
   transition: transform 0.3s ease, text-shadow 0.3s ease;
-  display: inline-block;
 }
 
 .hero-description:hover,
@@ -1594,159 +1606,60 @@ body {
 .decription-OUR:hover,
 .decription-SUB:hover,
 .p-embark p:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Text hover effects - small labels & links */
-.explore,
-.btn-seemore,
-.ABOUT-US-OUR,
-.READ-MORE-OUR,
-.SUB,
-.recipes-embark,
-.hero-button {
-  transition: transform 0.3s ease, text-shadow 0.3s ease;
-}
+/* ==========================================================================
+   13. RESPONSIVE MEDIA QUERIES (Tối ưu đa thiết bị)
+   ========================================================================== */
 
-.explore:hover,
-.btn-seemore:hover,
-.ABOUT-US-OUR:hover,
-.READ-MORE-OUR:hover,
-.SUB:hover,
-.recipes-embark:hover,
-.hero-button:hover {
-  transform: translateY(-3px);
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
-}
-
-/* Card hover effects - palette items */
-.palette-item {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.palette-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
-
-/* Card hover effects - featured recipe cards (generated by JS) */
-.recipe-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.recipe-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
-}
-
-/* Card hover effects - embark section cards */
-.embark-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.embark-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
-}
-
-/* Subscribe button hover */
-.btn-subcribe-SUB {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.btn-subcribe-SUB:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* ===== IMAGE HOVER LIFT & SHADOW EFFECTS ===== */
-.picture-right-OUR,
-.picture-bottom-OUR,
-.picture-right-body-OUR {
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease;
-  cursor: pointer;
-}
-
-.picture-right-OUR:hover,
-.picture-bottom-OUR:hover,
-.picture-right-body-OUR:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.2);
-}
-
-.item-icon img {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
-}
-
-.item-icon img:hover {
-  transform: translateY(-4px) scale(1.1);
-  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
-}
-
-.logo img,
-.footer-logo img {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
-  cursor: pointer;
-}
-
-.logo img:hover,
-.footer-logo img:hover {
-  transform: translateY(-3px) scale(1.05);
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.18));
-}
-
-/* =========================================================
-   GIAO DIỆN MOBILE (max-width: 768px)
-   ========================================================= */
-
-/* Ẩn mặc định các phần tử mobile trên Desktop */
-.mobile-menu-overlay {
-  display: none;
-}
-
-.mobile-menu-btn {
-  display: none;
-}
-
-/* ---------- 1. GIAO DIỆN MOBILE CHÍNH (<= 768px) ---------- */
-@media (max-width: 768px) {
-  html, body {
-    overflow-x: hidden !important;
-    max-width: 100vw !important;
-    width: 100% !important;
-  }
-
+/* ---------- 13.1. DESKTOP VỪA (1200px - 1439px) ---------- */
+@media (max-width: 1439px) and (min-width: 1200px) {
   body {
-    padding: 16px 12px !important;
-    overflow-x: hidden !important;
+    padding: 28px 24px;
   }
 
-  /* Reset toàn bộ kích thước các section chính để không bị tràn ngang màn hình */
-  .navbar,
-  /* .hero,
-  .background-hero,
-  .palet-section,
-  .palet-contain,
-  .featured-section,
-  .explore-section,
-  .embark-section,
-  .SUBSCRIBE,
-  .subscribe-container,
-.footer { */{
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
+  .hero {
+    height: min(577px, 43vw);
+    min-height: 500px;
   }
 
-  /* Navbar & Nút 3 gạch */
+  .hero-title {
+    font-size: clamp(60px, 5vw, 80px);
+  }
+
+  .palet-contain {
+    gap: 100px;
+  }
+
+  .recipe-card {
+    width: calc((100vw - 80px) / 2);
+    max-width: 632px;
+  }
+
+  .recipes-card-embark {
+    width: calc((100% - 32px) / 3);
+  }
+
+  .left-body-OUR {
+    width: 67%;
+  }
+
+  .right-body-OUR {
+    width: 32%;
+  }
+}
+
+/* ---------- 13.2. TABLET (769px - 1199px) ---------- */
+@media (min-width: 769px) and (max-width: 1199px) {
+  body {
+    padding: 20px 18px;
+  }
+
   .navbar {
-    width: 100% !important;
-    max-width: none !important;
     height: 64px;
-    max-height: none;
-    margin: 0 !important;
-    padding: 10px 16px !important;
+    padding: 10px 16px;
   }
 
   .logo img {
@@ -1755,7 +1668,188 @@ body {
   }
 
   .logo span {
-    font-size: 16px;
+    font-size: 15px;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+
+  .nav-links li a {
+    font-size: 12px;
+  }
+
+  .subscribe-btn {
+    padding: 10px 18px;
+    font-size: 12px;
+  }
+
+  .hero {
+    height: 480px;
+    border-radius: 22px;
+  }
+
+  .hero-title {
+    font-size: clamp(46px, 6vw, 64px);
+  }
+
+  .palet-section {
+    padding: 36px 30px;
+    border-radius: 28px;
+  }
+
+  .palet-contain {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    align-items: center;
+  }
+
+  .left-palet {
+    max-width: none;
+    padding-top: 20px;
+  }
+
+  .left-palet .title {
+    font-size: clamp(32px, 4vw, 40px);
+  }
+
+  .left-palet .description br {
+    display: none;
+  }
+
+  .palette-item {
+    padding: 20px 24px;
+  }
+
+  .featured-section {
+    padding: 30px 16px 20px;
+  }
+
+  .featured-title {
+    font-size: clamp(28px, 4vw, 36px);
+    margin-left: 12px;
+  }
+
+  .recipe-card {
+    width: calc(50vw - 30px);
+    max-width: 560px;
+  }
+
+  .recipe-image {
+    height: 210px;
+  }
+
+  .header-section {
+    max-width: 700px;
+    margin-top: 60px;
+  }
+
+  .h2-embark h2 {
+    font-size: 36px;
+  }
+
+  .p-embark p br {
+    display: none;
+  }
+
+  .footer-embark {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .footer-embark button {
+    padding: 8px 16px;
+  }
+
+  .filter-embark1,
+  .filter-embark2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .recipes-card-embark {
+    max-width: none;
+  }
+
+  .OUR-CULINARY-section {
+    padding: 12px;
+  }
+
+  .body-OUR {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 16px;
+  }
+
+  .left-body-OUR,
+  .right-body-OUR {
+    max-width: none;
+    width: 100%;
+  }
+
+  .title-OUR {
+    font-size: clamp(28px, 4vw, 38px);
+  }
+
+  .decription-OUR br {
+    display: none;
+  }
+
+  .picture-right-OUR {
+    width: 40%;
+    height: 260px;
+  }
+
+  .picture-bottom-OUR {
+    height: 300px;
+  }
+
+  .picture-right-body-OUR {
+    height: 575px;
+  }
+
+  .SUBSCRIBE {
+    height: 400px;
+    margin-top: 50px;
+  }
+
+  .title-SUB {
+    font-size: clamp(44px, 6vw, 64px);
+  }
+
+  .decription-SUB br {
+    display: none;
+  }
+
+  .footer-container {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+/* ---------- 13.3. MOBILE CHÍNH (<= 768px) ---------- */
+@media (max-width: 768px) {
+  body {
+    padding: 12px !important;
+  }
+
+  /* Navbar mobile */
+  .navbar {
+    height: 60px !important;
+    border-radius: 30px;
+    padding: 8px 12px !important;
+    margin: 0 !important;
+  }
+
+  .logo img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo span {
+    font-size: 14px;
   }
 
   .nav-links,
@@ -1763,6 +1857,7 @@ body {
     display: none !important;
   }
 
+  /* Nút 3 gạch hamburger */
   .mobile-menu-btn {
     display: flex;
     width: 38px;
@@ -1782,31 +1877,18 @@ body {
     display: block;
     width: 18px;
     height: 2px;
-    background: #292824;
+    background: var(--color-dark);
     border-radius: 2px;
   }
 
-  /* Khung tìm kiếm gợi ý trên mobile */
-  .search-box-wrapper.active {
-    width: 200px;
-  }
-
-  .search-suggestions-dropdown {
-    width: 280px;
-    right: -30px;
-  }
-
-  /* Mobile Menu Modal Overlay & Panel */
+  /* Mobile menu overlay & panel */
   body.mobile-menu-open {
     overflow: hidden;
   }
 
   .mobile-menu-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -1828,15 +1910,13 @@ body {
 
   .mobile-menu-panel {
     width: 343px;
-    height: auto;
     max-width: calc(100vw - 28px);
     max-height: 85vh;
     overflow-y: auto;
-    box-sizing: border-box;
-    padding: 16px 16px 48px 16px;
+    padding: 16px 16px 48px;
     border-radius: 24px;
-    background: #262522;    
-    color: #F0EBE1;
+    background: var(--color-dark);
+    color: var(--color-text-light);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
     display: flex;
     flex-direction: column;
@@ -1874,7 +1954,6 @@ body {
   .mobile-menu-logo span {
     font-size: 14px;
     font-weight: 700;
-    line-height: 103%;
   }
 
   .mobile-close-btn {
@@ -1885,7 +1964,7 @@ body {
     background: #45443f;
     position: relative;
     cursor: pointer;
-    flex: 0 0 auto;
+    flex-shrink: 0;
   }
 
   .mobile-close-btn span {
@@ -1919,7 +1998,7 @@ body {
     min-height: 48px;
     padding: 0 8px;
     border-bottom: 1px solid #4a4945;
-    color: #F0EBE1;
+    color: var(--color-text-light);
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
@@ -1928,7 +2007,7 @@ body {
 
   .mobile-menu-links a:hover,
   .mobile-menu-links a.active {
-    color: #fff;
+    color: #ffffff;
     padding-left: 13px;
   }
 
@@ -1949,7 +2028,7 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    flex: 0 0 40px;
+    flex-shrink: 0;
   }
 
   .mobile-search-btn img {
@@ -1991,790 +2070,23 @@ body {
   .mobile-socials img {
     width: 18px;
     height: 18px;
-    object-fit: contain;
     filter: brightness(0) invert(1);
   }
-}
 
-/* ---------- 2. RESPONSIVE MÀN HÌNH NHỎ (<= 480px) ---------- */
-@media (max-width: 480px) {
-  .search-box-wrapper.active {
-    width: 160px;
-  }
-
-  .search-suggestions-dropdown {
-    width: 250px;
-    right: -50px;
-  }
-}
-
-/* ---------- 3. RESPONSIVE MÀN HÌNH CỰC NHỎ (<= 380px) ---------- */
-@media (max-width: 380px) {
-  .mobile-menu-panel {
-    width: calc(100vw - 24px);
-    padding: 16px;
-    border-radius: 25px;
-  }
-
-  .mobile-menu-links {
-    margin-top: 16px;
-  }
-
-  .mobile-menu-links a {
-    min-height: 46px;
-    font-size: 15px;
-  }
-
-  .mobile-menu-actions {
-    margin-top: 16px;
-    gap: 10px;
-  }
-
-  .mobile-socials {
-    margin-top: 16px;
-    gap: 16px;
-  }
-}
-
-/* ---------- 4. DESKTOP: ẨN CÁC PHẦN TỬ MOBILE (> 768px) ---------- */
-@media (min-width: 769px) {
-  .mobile-menu-btn,
-  .mobile-menu-overlay {
-    display: none !important;
-  }
-}
-
-/* =========================================================
-   RESPONSIVE SYSTEM - COOKS DELIGHT
-   Không cần sửa HTML / JS
-   Dán đoạn này vào CUỐI HOME.css
-   ========================================================= */
-
-
-/* =========================================================
-   0. GLOBAL RESPONSIVE FOUNDATION
-   ========================================================= */
-
-img {
-  max-width: 100%;
-}
-
-button,
-a,
-input {
-  max-width: 100%;
-}
-
-body {
-  width: 100%;
-  min-height: 100vh;
-}
-
-
-/* =========================================================
-   1. EXTRA LARGE DESKTOP
-   >= 1440px
-   ========================================================= */
-
-@media (min-width: 1440px) {
-
-  body {
-    padding: 40px;
-  }
-
-  .navbar,
-  .hero,
-  .palet-section,
-  .featured-section,
-  .embark-section,
-  .OUR-CULINARY-section,
-  .SUBSCRIBE,
-  .footer {
-    max-width: 1312px;
-  }
-
-  .navbar {
-    width: 100%;
-  }
-
+  /* Hero mobile */
   .hero {
-    width: 100%;
-  }
-
-  .palet-section {
-    width: 100%;
-  }
-
-  .featured-section {
-    width: 100%;
-  }
-
-  .embark-section {
-    width: 100%;
-  }
-
-  .OUR-CULINARY-section {
-    width: 100%;
-  }
-
-  .SUBSCRIBE {
-    width: 100%;
-  }
-
-  .footer {
-    width: 100%;
-  }
-}
-
-
-/* =========================================================
-   2. DESKTOP
-   1200px - 1439px
-   ========================================================= */
-
-@media (min-width: 1200px) and (max-width: 1439px) {
-
-  body {
-    padding: 28px 24px;
-  }
-
-  .navbar,
-  .hero,
-  .palet-section,
-  .featured-section,
-  .embark-section,
-  .OUR-CULINARY-section,
-  .SUBSCRIBE,
-  .footer {
-    width: 100%;
-    max-width: 1312px;
-  }
-
-  /* ---------- NAVBAR ---------- */
-
-  .navbar {
-    margin-top: 10px;
-  }
-
-  .nav-links {
-    gap: 28px;
-  }
-
-  /* ---------- HERO ---------- */
-
-  .hero {
-    height: min(577px, 43vw);
-    min-height: 500px;
-  }
-
-  .hero-title {
-    font-size: clamp(60px, 5vw, 80px);
-  }
-
-  /* ---------- PALETTE ---------- */
-
-  .palet-section {
-    height: auto;
-    min-height: 504px;
-  }
-
-  .palet-contain {
-    gap: 100px;
-  }
-
-  .left-palet {
-    max-width: 45%;
-  }
-
-  .right-palet {
-    max-width: 48%;
-  }
-
-  /* ---------- FEATURED ---------- */
-
-  .featured-section {
-    height: auto;
-    min-height: 573px;
-  }
-
-  .recipe-card {
-    width: calc((100vw - 80px) / 2);
-    max-width: 632px;
-  }
-
-  /* ---------- EMBARK ---------- */
-
-  .embark-section {
-    min-height: 800px;
-  }
-
-  .filter-embark1,
-  .filter-embark2 {
-    width: 100%;
-  }
-
-  .recipes-card-embark {
-    width: calc((100% - 48px) / 3);
-  }
-
-  .title-recipes {
-    width: calc(100% - 48px);
-  }
-
-  .button-embark {
-    width: calc(100% - 48px);
-  }
-
-  /* ---------- OUR CULINARY ---------- */
-
-  .OUR-CULINARY-section {
-    height: auto;
-  }
-
-  .body-OUR {
-    width: calc(100% - 32px);
-    height: auto;
-  }
-
-  .left-body-OUR {
-    width: 67%;
-  }
-
-  .right-body-OUR {
-    width: 32%;
-  }
-
-  .title-pc-right_OUR {
-    width: 100%;
-  }
-
-  .title-decription-OUR {
-    width: 48%;
-  }
-
-  .picture-right-OUR {
-    width: 40%;
-  }
-
-  .picture-bottom-OUR {
-    width: 100%;
-    object-fit: cover;
-  }
-
-  .picture-right-body-OUR {
-    width: 100%;
-    object-fit: cover;
-  }
-
-  /* ---------- SUBSCRIBE ---------- */
-
-  .content-SUB {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .email-address-SUB {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* ---------- FOOTER ---------- */
-
-  .footer {
-    height: auto;
-  }
-}
-
-
-/* =========================================================
-   3. TABLET
-   769px - 1199px
-   ========================================================= */
-
-@media (min-width: 769px) and (max-width: 1199px) {
-
-  body {
-    padding: 20px 18px;
-  }
-
-
-  /* =======================================================
-     NAVBAR
-     ======================================================= */
-
-  .navbar {
-    width: 100%;
-    max-width: none;
-    height: 64px;
-    max-height: none;
-    margin: 0;
-    padding: 10px 16px;
-  }
-
-  .logo img {
-    width: 42px;
-    height: 42px;
-  }
-
-  .logo span {
-    font-size: 15px;
-  }
-
-  .nav-links {
-    gap: 16px;
-  }
-
-  .nav-links li a {
-    font-size: 12px;
-  }
-
-  .nav-actions {
-    gap: 8px;
-  }
-
-  .search-box-wrapper {
-    width: 40px;
-  }
-
-  .subscribe-btn {
-    padding: 10px 18px;
-    font-size: 12px;
-  }
-
-
-  /* =======================================================
-     HERO
-     ======================================================= */
-
-  .hero {
-    width: 100%;
-    height: 480px;
-    margin-top: 18px;
-    border-radius: 22px;
-  }
-
-  .background-hero {
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    aspect-ratio: auto;
-  }
-
-  .background-hero img {
-    object-fit: cover;
-  }
-
-  .hero-title {
-    font-size: clamp(46px, 6vw, 64px);
-    line-height: 1.08;
-    letter-spacing: 1px;
-  }
-
-  .hero-description {
-    font-size: 17px;
-    line-height: 1.4;
-    padding: 0 20px;
-  }
-
-  .hero-button {
-    padding: 12px 28px;
-  }
-
-
-  /* =======================================================
-     PALETTE
-     ======================================================= */
-
-  .palet-section {
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    padding: 36px 30px;
-    border-radius: 28px;
-  }
-
-  .palet-contain {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 35px;
-    align-items: center;
-  }
-
-  .left-palet {
-    width: 100%;
-    max-width: none;
-    padding-top: 20px;
-  }
-
-  .left-palet .title {
-    font-size: clamp(32px, 4vw, 40px);
-  }
-
-  .left-palet .description {
-    font-size: 14px;
-  }
-
-  .left-palet .description br {
-    display: none;
-  }
-
-  .right-palet {
-    width: 100%;
-    max-width: none;
-  }
-
-  .palette-item {
-    padding: 20px 24px;
-  }
-
-  .item-name {
-    font-size: 14px;
-  }
-
-
-  /* =======================================================
-     FEATURED RECIPES
-     ======================================================= */
-
-  .featured-section {
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    padding: 30px 16px 20px;
-  }
-
-  .featured-title {
-    font-size: clamp(28px, 4vw, 36px);
-    margin-left: 12px;
-  }
-
-  .recipe-card {
-    width: calc(50vw - 30px);
-    max-width: 560px;
-  }
-
-  .recipe-image {
-    height: 210px;
-  }
-
-  .recipe-title {
-    font-size: 21px;
-  }
-
-  .recipe-description {
-    font-size: 14px;
-  }
-
-
-  /* =======================================================
-     EMBARK
-     ======================================================= */
-
-  .embark-section {
-    width: 100%;
-    min-height: 0;
-  }
-
-  .header-section {
-    width: 100%;
-    max-width: 700px;
-    height: auto;
-    margin-top: 60px;
-  }
-
-  .header-embark {
-    width: 100%;
-    max-width: 426px;
-  }
-
-  .h2-p-embark,
-  .h2-embark {
-    width: 100%;
-  }
-
-  .h2-embark h2 {
-    font-size: 36px;
-  }
-
-  .p-embark p br {
-    display: none;
-  }
-
-  .footer-embark {
-    width: 100%;
-    max-width: 760px;
-    height: auto;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 25px;
-  }
-
-  .footer-embark button {
-    padding: 9px 16px;
-  }
-
-  .body-section {
-    width: 100%;
-    min-height: 0;
-    height: auto;
-    gap: 20px;
-    margin-top: 35px;
-  }
-
-  .filter-embark1,
-  .filter-embark2 {
-    width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .recipes-card-embark {
-    width: 100%;
-    height: auto;
-    min-height: 430px;
-  }
-
-  .recipes-card-embark img {
-    width: 100%;
-    height: 210px;
-    object-fit: cover;
-  }
-
-  .title-recipes {
-    width: calc(100% - 40px);
-    height: auto;
-    min-height: 90px;
-    margin: 20px;
-  }
-
-  .button-embark {
-    width: calc(100% - 40px);
-    margin: 25px 20px;
-  }
-
-  .tag-embark {
-    right: 18px;
-    left: auto;
-    margin-left: 0;
-  }
-
-
-  /* =======================================================
-     OUR CULINARY
-     ======================================================= */
-
-  .OUR-CULINARY-section {
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    margin-top: 40px;
-  }
-
-  .body-OUR {
-    width: calc(100% - 24px);
-    height: auto;
-    margin: 12px;
-    display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
-    gap: 16px;
-  }
-
-  .left-body-OUR {
-    width: 100%;
-    height: auto;
-  }
-
-  .right-body-OUR {
-    width: 100%;
-    height: 100%;
-  }
-
-  .title-pc-right_OUR {
-    width: 100%;
-    height: auto;
-    display: flex;
-    gap: 15px;
-  }
-
-  .title-decription-OUR {
-    width: 55%;
-    height: auto;
-    margin: 25px 0 0 15px;
-  }
-
-  .title-OUR {
-    font-size: clamp(28px, 4vw, 38px);
-  }
-
-  .decription-OUR {
-    font-size: 14px;
-  }
-
-  .decription-OUR br {
-    display: none;
-  }
-
-  .picture-right-OUR {
-    width: 40%;
-    height: 260px;
-    object-fit: cover;
-  }
-
-  .picture-bottom-OUR {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    margin-top: 15px;
-  }
-
-  .picture-right-body-OUR {
-    width: 100%;
-    height: 575px;
-    object-fit: cover;
-  }
-
-
-  /* =======================================================
-     SUBSCRIBE
-     ======================================================= */
-
-  .SUBSCRIBE {
-    width: 100%;
-    height: 400px;
-    margin-top: 50px;
-  }
-
-  .content-SUB {
-    width: 90%;
-    height: auto;
-    left: 5%;
-    margin-top: 50px;
-  }
-
-  .title-decrip-SUB {
-    width: 100%;
-    height: auto;
-  }
-
-  .title-SUB {
-    font-size: clamp(44px, 6vw, 64px);
-  }
-
-  .decription-SUB {
-    font-size: 16px;
-  }
-
-  .decription-SUB br {
-    display: none;
-  }
-
-  .email-address-SUB {
-    width: min(426px, 90%);
-    margin: 35px auto 0;
-  }
-
-
-  /* =======================================================
-     FOOTER
-     ======================================================= */
-
-  .footer {
-    width: 100%;
-    height: auto;
-    padding: 24px 28px;
-  }
-
-  .footer-container {
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .footer-menu {
-    gap: 18px;
-  }
-
-}
-
-
-/* =========================================================
-   4. MOBILE
-   <= 768px
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-  body {
-    padding: 12px !important;
-  }
-
-
-  /* =======================================================
-     NAVBAR
-     ======================================================= */
-
-  .navbar {
-    width: 100% !important;
-    height: 60px !important;
-    min-height: 60px;
-    border-radius: 30px;
-    padding: 8px 12px !important;
-  }
-
-  .logo {
-    gap: 7px;
-  }
-
-  .logo img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .logo span {
-    font-size: 14px;
-  }
-
-
-  /* =======================================================
-     HERO
-     ======================================================= */
-
-  .hero {
-    width: 100% !important;
     height: 500px;
     min-height: 500px;
     margin-top: 14px;
     border-radius: 20px;
   }
 
-  .background-hero {
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    aspect-ratio: auto;
-  }
-
-  .background-hero img {
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .hero-content {
-    width: 100%;
-    padding: 0 20px;
-  }
-
   .hero-title {
-    width: 100%;
     font-size: clamp(36px, 10vw, 52px);
-    line-height: 1.05;
     letter-spacing: 0;
   }
 
   .hero-description {
-    width: 100%;
     margin-top: 18px;
     font-size: 15px;
     line-height: 1.45;
@@ -2790,124 +2102,126 @@ body {
     font-size: 13px;
   }
 
-
-  /* =======================================================
-     PALETTE
-     ======================================================= */
-
+  /* Palette mobile */
   .palet-section {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0;
-    padding: 30px 20px;
+    padding: 32px 20px;
     margin-top: 14px;
-    border-radius: 24px;
+    border-radius: 28px;
+    min-height: 0;
   }
 
   .palet-contain {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 32px;
+    width: 100%;
   }
 
   .left-palet {
+    max-width: 100%;
     width: 100%;
-    max-width: none;
     padding-top: 0;
-  }
-
-  .explore {
-    margin-bottom: 14px;
   }
 
   .left-palet .title {
     font-size: 32px;
-    line-height: 1.08;
+    line-height: 1.15;
   }
 
-  .left-palet .description {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .left-palet .description br {
+  .left-palet .description br,
+  .decription br {
     display: none;
   }
 
   .btn-seemore {
-    margin-top: 22px !important;
+    margin-top: 22px;
   }
 
   .right-palet {
+    max-width: 100%;
     width: 100%;
-    max-width: none;
+    display: flex;
+    flex-direction: column;
   }
 
   .palette-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    padding: 17px 10px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(38, 37, 34, 0.15);
+    border-radius: 0;
+    box-sizing: border-box;
+  }
+
+  .palette-item:hover {
+    transform: none;
+    background-color: transparent;
   }
 
   .item-icon {
-    width: 36px;
-    height: 28px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+  }
+
+  .item-icon img,
+  .item-icon svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .item-name {
-    font-size: 13px;
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--color-dark);
+    letter-spacing: 0.8px;
+    text-align: right;
+    margin-left: auto;
+    flex: 1;
   }
 
-
-  /* =======================================================
-     FEATURED RECIPES
-     ======================================================= */
-
+  /* Featured recipes mobile */
   .featured-section {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0;
-    margin-top: 14px;
     padding: 25px 12px 18px;
     border-radius: 20px;
+    min-height: 0;
   }
 
   .featured-header {
     margin-bottom: 18px;
-    margin-top: 0;
-    padding: 0 2px;
+    gap: 10px;
   }
 
   .featured-title {
     font-size: 26px;
-    line-height: 1.1;
     margin-left: 0;
   }
 
   .featured-nav {
-    gap: 5px;
+    gap: 6px;
   }
 
   .nav-arrow {
-    width: 34px;
-    height: 34px;
-  }
-
-  .nav-arrow img {
-    width: 16px;
-    height: 16px;
+    width: 36px;
+    height: 36px;
   }
 
   .featured-cards {
-    width: 100%;
     gap: 12px;
     padding-bottom: 8px;
   }
 
   .recipe-card {
     width: calc(100vw - 48px);
-    max-width: none;
     min-width: calc(100vw - 48px);
+    max-width: none;
     border-radius: 20px;
   }
 
@@ -2932,21 +2246,11 @@ body {
 
   .recipe-title {
     font-size: 20px;
-    line-height: 1.2;
   }
 
   .recipe-description {
     font-size: 14px;
-    line-height: 1.45;
     margin-bottom: 18px;
-  }
-
-  .recipe-footer {
-    gap: 10px;
-  }
-
-  .recipe-meta {
-    font-size: 11px;
   }
 
   .btn-viewrecipe {
@@ -2956,58 +2260,18 @@ body {
     font-size: 12px;
   }
 
-
-  /* =======================================================
-     EMBARK
-     ======================================================= */
-
+  /* Embark mobile */
   .embark-section {
-    width: 100% !important;
     min-height: 0;
-    margin-top: 0;
   }
 
   .header-section {
-    width: 100%;
-    height: auto;
     margin-top: 50px;
-  }
-
-  .header-embark {
-    width: 100%;
-    height: auto;
-  }
-
-  .recipes-embark {
-    width: 70px;
-    height: 24px;
-    font-size: 12px;
-  }
-
-  .h2-p-embark {
-    width: 100%;
-    height: auto;
-    gap: 12px;
-    margin-top: 12px;
-  }
-
-  .h2-embark {
-    width: 100%;
-    height: auto;
+    min-height: 0;
   }
 
   .h2-embark h2 {
     font-size: 32px;
-    line-height: 1.1;
-  }
-
-  .p-embark {
-    width: 100%;
-  }
-
-  .p-embark p {
-    font-size: 14px;
-    line-height: 1.5;
   }
 
   .p-embark p br {
@@ -3015,11 +2279,7 @@ body {
   }
 
   .footer-embark {
-    width: 100%;
-    height: auto;
     margin-top: 25px;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 7px;
   }
@@ -3031,47 +2291,32 @@ body {
   }
 
   .body-section {
-    width: 100%;
-    min-height: 0;
-    height: auto;
     margin-top: 25px;
     gap: 16px;
   }
 
   .filter-embark1,
   .filter-embark2 {
-    width: 100%;
-    height: auto;
-    display: flex;
     flex-direction: column;
     gap: 16px;
   }
 
   .recipes-card-embark {
-    width: 100%;
-    height: auto;
-    min-height: 0;
+    max-width: none;
     border-radius: 20px;
   }
 
   .recipes-card-embark img {
-    width: 100%;
     height: 210px;
-    object-fit: cover;
   }
 
   .tag-embark {
     right: 15px;
-    left: auto;
-    margin-left: 0;
-    margin-top: -52px;
+    top: 158px;
   }
 
   .title-recipes {
-    width: calc(100% - 36px);
-    height: auto;
-    min-height: 85px;
-    margin: 18px;
+    padding: 18px;
   }
 
   .title-recipes h3 {
@@ -3080,137 +2325,76 @@ body {
 
   .title-recipes p {
     font-size: 14px;
-    line-height: 1.45;
   }
 
   .button-embark {
-    width: calc(100% - 36px);
-    height: 38px;
-    margin: 22px 18px 18px;
+    padding: 0 18px 18px;
+    margin-top: 22px;
   }
 
-  .button-embark span {
-    font-size: 11px;
-  }
-
-
-  /* =======================================================
-     OUR CULINARY
-     ======================================================= */
-
+  /* Our Culinary mobile */
   .OUR-CULINARY-section {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0;
     margin-top: 35px;
     border-radius: 20px;
+    min-height: 0;
+    padding: 10px;
   }
 
   .body-OUR {
-    width: calc(100% - 20px);
-    height: auto;
-    margin: 10px;
-    display: flex;
     flex-direction: column;
     gap: 15px;
   }
 
   .left-body-OUR {
-    width: 100%;
-    height: auto;
+    max-width: none;
   }
 
   .title-pc-right_OUR {
-    width: 100%;
-    height: auto;
-    display: flex;
     flex-direction: column;
     gap: 15px;
   }
 
   .title-decription-OUR {
-    width: calc(100% - 24px);
-    height: auto;
-    margin: 20px 12px 0;
-  }
-
-  .ABOUT-US-OUR {
-    width: 82px;
-    height: 24px;
-    font-size: 12px;
+    padding: 12px 4px 0;
   }
 
   .title-OUR {
     font-size: 31px;
-    line-height: 1.08;
     margin-top: 10px;
-  }
-
-  .decription-OUR {
-    font-size: 14px;
-    line-height: 1.5;
-    margin-top: 12px;
   }
 
   .decription-OUR br {
     display: none;
   }
 
-  .READ-MORE-OUR {
-    margin-top: 15px;
-  }
-
-  .picture-right-OUR {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-    border-radius: 20px;
-  }
-
+  .picture-right-OUR,
   .picture-bottom-OUR {
     width: 100%;
     height: 230px;
-    object-fit: cover;
     border-radius: 20px;
-    margin-top: 15px;
   }
 
   .right-body-OUR {
     width: 100%;
-    height: auto;
   }
 
   .picture-right-body-OUR {
     width: 100%;
     height: 400px;
-    object-fit: cover;
     border-radius: 20px;
   }
 
-
-  /* =======================================================
-     SUBSCRIBE
-     ======================================================= */
-
+  /* Subscribe mobile */
   .SUBSCRIBE {
-    width: 100% !important;
     height: 430px;
     min-height: 430px;
     margin-top: 40px;
     border-radius: 24px;
   }
 
-  .content-SUB {
-    position: absolute;
-    width: calc(100% - 32px);
-    height: auto;
-    left: 16px;
-    margin-top: 45px;
-  }
-
-  .title-decrip-SUB {
-    width: 100%;
-    height: auto;
+  .Oval-top-SUB,
+  .Oval-bottom-SUB {
+    width: 150%;
   }
 
   .SUB {
@@ -3219,12 +2403,10 @@ body {
 
   .title-SUB {
     font-size: clamp(38px, 10vw, 52px);
-    line-height: 1.05;
   }
 
   .decription-SUB {
     font-size: 14px;
-    line-height: 1.5;
   }
 
   .decription-SUB br {
@@ -3232,60 +2414,40 @@ body {
   }
 
   .email-address-SUB {
-    width: 100%;
     max-width: 400px;
     height: 48px;
-    margin: 30px auto 0;
+    margin-top: 30px;
+    padding: 5px 6px 5px 18px;
   }
 
   .input {
     font-size: 14px;
-    margin-top: 14px;
-    margin-left: 18px;
   }
 
   .btn-subcribe-SUB {
-    width: 105px;
     height: 36px;
+    padding: 0 14px;
     font-size: 12px;
-    margin-top: 6px;
-    margin-right: 6px;
   }
 
-  .Oval-top-SUB,
-  .Oval-bottom-SUB {
-    width: 150%;
-    left: -25%;
-  }
-
-
-  /* =======================================================
-     FOOTER
-     ======================================================= */
-
+  /* Footer mobile */
   .footer {
-    width: 100% !important;
-    height: auto;
-    min-height: 0;
-    margin-top: 25px;
     padding: 24px 20px;
     border-radius: 24px;
   }
 
   .footer-container {
-    display: flex;
     flex-direction: column;
     gap: 20px;
     margin-bottom: 15px;
   }
 
-  .footer-logo {
+  .footer-logo,
+  .foot-mxh {
     justify-content: center;
   }
 
   .footer-menu {
-    width: 100%;
-    display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 12px 20px;
@@ -3293,10 +2455,6 @@ body {
 
   .footer-menu a {
     font-size: 12px;
-  }
-
-  .foot-mxh {
-    justify-content: center;
   }
 
   .footer hr {
@@ -3308,21 +2466,14 @@ body {
   }
 }
 
-
-/* =========================================================
-   5. SMALL MOBILE
-   <= 480px
-   ========================================================= */
-
+/* ---------- 13.4. SMALL MOBILE (<= 480px) ---------- */
 @media (max-width: 480px) {
-
   body {
     padding: 10px !important;
   }
 
   .navbar {
     height: 58px !important;
-    min-height: 58px;
   }
 
   .logo img {
@@ -3339,6 +2490,15 @@ body {
     height: 36px;
   }
 
+  .search-box-wrapper.active {
+    width: 160px;
+  }
+
+  .search-suggestions-dropdown {
+    width: 250px;
+    right: -50px;
+  }
+
   .hero {
     height: 470px;
     min-height: 470px;
@@ -3353,15 +2513,15 @@ body {
   }
 
   .palet-section {
-    padding: 25px 16px;
+    padding: 26px 16px;
   }
 
   .left-palet .title {
-    font-size: 29px;
+    font-size: 28px;
   }
 
   .palette-item {
-    padding: 15px 6px;
+    padding: 16px 0;
   }
 
   .featured-title {
@@ -3414,23 +2574,17 @@ body {
 
   .input {
     font-size: 13px;
-    margin-left: 15px;
+    margin-left: 0;
   }
 
   .btn-subcribe-SUB {
-    width: 95px;
     font-size: 11px;
+    padding: 0 12px;
   }
 }
 
-
-/* =========================================================
-   6. EXTRA SMALL MOBILE
-   <= 380px
-   ========================================================= */
-
+/* ---------- 13.5. EXTRA SMALL MOBILE (<= 380px) ---------- */
 @media (max-width: 380px) {
-
   body {
     padding: 8px !important;
   }
@@ -3446,6 +2600,26 @@ body {
 
   .logo span {
     font-size: 12px;
+  }
+
+  .mobile-menu-panel {
+    width: calc(100vw - 24px);
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .mobile-menu-links {
+    margin-top: 20px;
+  }
+
+  .mobile-menu-links a {
+    min-height: 44px;
+    font-size: 15px;
+  }
+
+  .mobile-menu-actions,
+  .mobile-socials {
+    margin-top: 20px;
   }
 
   .hero {
@@ -3474,8 +2648,23 @@ body {
     font-size: 13px;
   }
 
+  .featured-header {
+    gap: 6px;
+  }
+
   .featured-title {
     font-size: 21px;
+  }
+
+  .featured-nav {
+    gap: 4px;
+  }
+
+  .nav-arrow {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
   }
 
   .recipe-title {
@@ -3529,13 +2718,8 @@ body {
   }
 }
 
-
-/* =========================================================
-   7. LANDSCAPE MOBILE
-   ========================================================= */
-
+/* ---------- 13.6. LANDSCAPE MOBILE ---------- */
 @media (max-width: 768px) and (orientation: landscape) {
-
   .hero {
     height: 420px;
     min-height: 420px;
@@ -3551,23 +2735,14 @@ body {
     gap: 20px;
   }
 
-  .left-palet {
-    padding-top: 0;
-  }
-
   .filter-embark1,
   .filter-embark2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-
 }
 
-
-/* =========================================================
-   8. ACCESSIBILITY
-   ========================================================= */
-
+/* ---------- 13.7. ACCESSIBILITY (Giảm chuyển động nếu người dùng bật cài đặt này) ---------- */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -3580,139 +2755,4 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* =========================================================
-   FEATURED RECIPES - GIỮ 2 NÚT MŨI TÊN
-   ========================================================= */
-
-.featured-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    gap: 20px;
-}
-
-.featured-title {
-    flex: 1;
-    min-width: 0;
-    margin: 0;
-}
-
-/* Cụm 2 nút mũi tên */
-.featured-nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-    flex: 0 0 auto;
-}
-
-/* Từng nút */
-.featured-nav .nav-arrow {
-    width: 42px;
-    height: 42px;
-    min-width: 42px;
-    min-height: 42px;
-
-    padding: 0;
-    margin: 0;
-
-    border: none;
-    background: transparent;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    flex-shrink: 0;
-    cursor: pointer;
-}
-
-/* Hình mũi tên */
-.featured-nav .nav-arrow img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 767px) {
-
-    .featured-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        gap: 10px;
-    }
-
-    .featured-title {
-        flex: 1;
-        min-width: 0;
-        margin: 0;
-    }
-
-    .featured-nav {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 6px;
-
-        flex-shrink: 0;
-        width: auto;
-    }
-
-    .featured-nav .nav-arrow {
-        display: flex;
-
-        width: 34px;
-        height: 34px;
-        min-width: 34px;
-        min-height: 34px;
-
-        flex: 0 0 34px;
-
-        padding: 0;
-        margin: 0;
-    }
-
-    .featured-nav .nav-arrow img {
-        width: 34px;
-        height: 34px;
-        object-fit: contain;
-    }
-}
-
-/* =========================================================
-   MOBILE NHỎ <= 380px
-   ========================================================= */
-
-@media (max-width: 380px) {
-
-    .featured-header {
-        gap: 6px;
-    }
-
-    .featured-nav {
-        gap: 4px;
-    }
-
-    .featured-nav .nav-arrow {
-        width: 30px;
-        height: 30px;
-        min-width: 30px;
-        min-height: 30px;
-        flex-basis: 30px;
-    }
-
-    .featured-nav .nav-arrow img {
-        width: 30px;
-        height: 30px;
-    }
 }
