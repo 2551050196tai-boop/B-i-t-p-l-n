@@ -1409,5 +1409,138 @@ body {
   }
 }
 
+/* =========================================================
+   FEATURED RECIPES - GIỮ 2 NÚT MŨI TÊN
+   ========================================================= */
 
+.featured-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+.featured-title {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+}
+
+/* Cụm 2 nút mũi tên */
+.featured-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex: 0 0 auto;
+}
+
+/* Từng nút */
+.featured-nav .nav-arrow {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    min-height: 42px;
+
+    padding: 0;
+    margin: 0;
+
+    border: none;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+/* Hình mũi tên */
+.featured-nav .nav-arrow img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .featured-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .featured-title {
+        flex: 1;
+        min-width: 0;
+        margin: 0;
+    }
+
+    .featured-nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 6px;
+
+        flex-shrink: 0;
+        width: auto;
+    }
+
+    .featured-nav .nav-arrow {
+        display: flex;
+
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+        min-height: 34px;
+
+        flex: 0 0 34px;
+
+        padding: 0;
+        margin: 0;
+    }
+
+    .featured-nav .nav-arrow img {
+        width: 34px;
+        height: 34px;
+        object-fit: contain;
+    }
+}
+
+/* =========================================================
+   MOBILE NHỎ <= 380px
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .featured-header {
+        gap: 6px;
+    }
+
+    .featured-nav {
+        gap: 4px;
+    }
+
+    .featured-nav .nav-arrow {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        min-height: 30px;
+        flex-basis: 30px;
+    }
+
+    .featured-nav .nav-arrow img {
+        width: 30px;
+        height: 30px;
+    }
+}
 

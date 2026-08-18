@@ -703,36 +703,6 @@ body {
   gap: 8px;
 }
 
-/* Nút bấm chứa icon mũi tên */
-.circle-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #ffffff;
-  /* border: 1px solid #262522; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition:
-    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.circle-btn:hover {
-  background: #f2ece1;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
-}
-
-.arrow-icon {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
 /* Lưới 3 cột */
 .basics-grid {
   display: grid;
@@ -842,7 +812,6 @@ body {
   box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
 }
 
-
 /* Khung ngoài NOURISHING EVERY PALATE */
 .nourishing-section {
   width: 1312px;
@@ -850,63 +819,10 @@ body {
   margin-top: 38px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 38px;
   padding: 64px 40px 40px 40px;
   background-color: #C4E5FC;   /* Màu Primary Color 4 trong Figma */
   border-radius: 32px;         /* Corner radius 32 trong Figma */
   box-sizing: border-box;
-}
-
-/* Header tiêu đề & nút điều hướng */
-.nourishing-header {
-  width: 1232px;
-  height: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nourishing-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 40px;
-  letter-spacing: 0.01em;
-  color: #262522;
-}
-
-.nav-controls {
-  display: flex;
-  gap: 8px;
-}
-
-.circle-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #ffffff;
-  /* border: 1px solid #262522; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition:
-    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.circle-btn:hover {
-  background: #f2ece1;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
-}
-
-.arrow-icon {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 }
 
 /* Lưới 3 cột */
@@ -922,7 +838,7 @@ body {
   width: 100%;
   max-width: 400px;
   height: 464px;
-  margin-top: 40px;
+  
   border-radius: 24px;
   display: flex;
   overflow: hidden;           /* Bo góc ảnh đúng theo khung */
@@ -3323,4 +3239,139 @@ body {
   .mobile-menu-overlay {
     display: none !important;
   }
+}
+
+/* =========================================================
+   FEATURED RECIPES - GIỮ 2 NÚT MŨI TÊN
+   ========================================================= */
+
+.featured-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+.featured-title {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+}
+
+/* Cụm 2 nút mũi tên */
+.featured-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex: 0 0 auto;
+}
+
+/* Từng nút */
+.featured-nav .nav-arrow {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    min-height: 42px;
+
+    padding: 0;
+    margin: 0;
+
+    border: none;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+/* Hình mũi tên */
+.featured-nav .nav-arrow img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .featured-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .featured-title {
+        flex: 1;
+        min-width: 0;
+        margin: 0;
+    }
+
+    .featured-nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 6px;
+
+        flex-shrink: 0;
+        width: auto;
+    }
+
+    .featured-nav .nav-arrow {
+        display: flex;
+
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+        min-height: 34px;
+
+        flex: 0 0 34px;
+
+        padding: 0;
+        margin: 0;
+    }
+
+    .featured-nav .nav-arrow img {
+        width: 34px;
+        height: 34px;
+        object-fit: contain;
+    }
+}
+
+/* =========================================================
+   MOBILE NHỎ <= 380px
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .featured-header {
+        gap: 6px;
+    }
+
+    .featured-nav {
+        gap: 4px;
+    }
+
+    .featured-nav .nav-arrow {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        min-height: 30px;
+        flex-basis: 30px;
+    }
+
+    .featured-nav .nav-arrow img {
+        width: 30px;
+        height: 30px;
+    }
 }
