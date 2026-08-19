@@ -1,14 +1,20 @@
-// =========================================================
-// CHI TIẾT MÓN ĂN (RECIPE-DETAIL.HTML Logic)
-// Tải chi tiết món ăn từ TheMealDB API & Kho dữ liệu bổ sung
-// =========================================================
+// ==============================================================================
+// TẬP TIN: js/recipe-detail.js
+// DỰ ÁN: Cooks Delight - Trang web công thức nấu ăn trực tuyến
+// MÔ TẢ: Xử lý trang xem chi tiết công thức món ăn (RECIPE-DETAIL.HTML):
+//        1. Lấy mã món ăn (?id=...) từ URL và gọi API TheMealDB để lấy dữ liệu động
+//        2. Kết hợp với kho dữ liệu chi tiết thủ công (myCustomData) về DO's & DON'Ts,
+//           hình ảnh các bước nấu, video hướng dẫn, dụng cụ, giá trị dinh dưỡng
+//        3. Gắn sự kiện thả tim yêu thích đồng bộ với hệ thống tài khoản
+// ==============================================================================
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Lấy ID món ăn từ chuỗi truy vấn URL (Ví dụ: recipe-detail.html?id=53483 -> recipeId = "53483")
   const urlParams = new URLSearchParams(window.location.search);
   const recipeId = urlParams.get("id");
 
   if (recipeId) {
-    // Kho dữ liệu thủ công mở rộng cho từng món
+    // Kho dữ liệu thủ công mở rộng cho từng món ăn (Bổ sung nội dung chuyên sâu ngoài API TheMealDB)
     const myCustomData = {
       // ---------------------------------------------------------
       // Acarajé with Shrimp Filling (ID: 53483)
@@ -611,31 +617,40 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
       },
     };
 
+    /**
+     * Hàm chính: Gọi API TheMealDB và hiển thị đầy đủ thông tin món ăn lên trang web
+     */
     async function fetchRecipeDetail() {
       try {
+        // Gọi API tra cứu chi tiết món ăn theo ID
         const response = await fetch(
           `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`
         );
         const data = await response.json();
 
         if (data.meals) {
-          const recipe = data.meals[0];
+          const recipe = data.meals[0]; // Đối tượng món ăn nhận về từ API
 
-          // 1. Dữ liệu ĐỘNG từ API
+          // [PHẦN 1]: GÁN DỮ LIỆU ĐỘNG TỪ THEMEALDB API
           const titleEl = document.getElementById("recipe-title");
           const imageEl = document.getElementById("recipe-image");
 
-          if (titleEl) titleEl.innerText = recipe.strMeal;
-          if (imageEl) imageEl.src = recipe.strMealThumb;
+          if (titleEl) titleEl.innerText = recipe.strMeal;       // Tiêu đề món ăn
+          if (imageEl) imageEl.src = recipe.strMealThumb;        // Ảnh bìa món ăn
 
+          // Xử lý nút Thả tim trên đầu trang chi tiết
           const detailHeartBtn = document.getElementById("detail-card-heart-btn");
           if (detailHeartBtn) {
             detailHeartBtn.setAttribute("data-id", recipe.idMeal);
+            
+            // Kiểm tra trạng thái đã yêu thích chưa
             if (typeof window.isMealFavorited === "function" && window.isMealFavorited(recipe.idMeal)) {
               detailHeartBtn.classList.add("is-favorited");
             } else {
               detailHeartBtn.classList.remove("is-favorited");
             }
+
+            // Gắn sự kiện click để bật/tắt yêu thích
             detailHeartBtn.onclick = (e) => {
               e.preventDefault();
               e.stopPropagation();
@@ -651,7 +666,7 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
             };
           }
 
-          // Danh sách nguyên liệu
+          // Lấy danh sách tối đa 20 nguyên liệu và định lượng tương ứng từ API
           const ingredientsList = document.getElementById("recipe-ingredients");
           if (ingredientsList) {
             ingredientsList.innerHTML = "";
@@ -667,10 +682,8 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
             }
           }
 
-          // Video YouTube
-          const videoContainer = document.getElementById(
-            "recipe-video-container"
-          );
+          // Xử lý nhúng Video hướng dẫn YouTube nếu API có cung cấp đường dẫn video
+          const videoContainer = document.getElementById("recipe-video-container");
           const strYoutube = recipe.strYoutube;
 
           if (videoContainer && strYoutube && strYoutube.trim() !== "") {
@@ -690,13 +703,13 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
               `;
             }
           } else if (videoContainer) {
-            videoContainer.style.display = "none";
+            videoContainer.style.display = "none"; // Ẩn khung nếu không có video YouTube
           }
 
-          // 2. Dữ liệu TĨNH từ myCustomData
+          // [PHẦN 2]: GÁN DỮ LIỆU TĨNH CHUYÊN SÂU TỪ myCustomData
           const customRecipe = myCustomData[recipeId];
           if (customRecipe) {
-            // Tự động gán tất cả các trường có ID khớp với key trong customRecipe
+            // Tự động quét và gán tất cả các trường HTML có ID khớp với key trong customRecipe
             for (const key in customRecipe) {
               const element = document.getElementById(key);
               if (element) {
@@ -719,11 +732,12 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
             }
           }
 
-          // 3. Xử lý an toàn cho ảnh minh họa các bước và video để không bị icon ảnh vỡ
+          // [PHẦN 3]: XỬ LÝ AN TOÀN CHO HÌNH ẢNH CÁC BƯỚC & VIDEO TỰ QUAY (TRÁNH LỖI ICON VỠ)
           const stepImg1 = document.getElementById("img-recipe-food-1");
           const stepImg2 = document.getElementById("img-recipe-food-2");
           const recipeVideo = document.getElementById("video-recipe");
 
+          // Kiểm tra và ẩn ảnh minh họa nếu không có src hoặc xảy ra lỗi tải ảnh (onerror)
           [stepImg1, stepImg2].forEach((img) => {
             if (img) {
               const src = img.getAttribute("src");
@@ -745,6 +759,7 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
             }
           });
 
+          // Kiểm tra và ẩn khung video nếu không có tệp video hoặc tải lỗi (onerror)
           if (recipeVideo) {
             const vSrc = recipeVideo.getAttribute("src");
             if (
@@ -769,6 +784,7 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
       }
     }
 
+    // Kích hoạt hàm tải chi tiết món ăn khi trang web sẵn sàng
     fetchRecipeDetail();
   }
 });
