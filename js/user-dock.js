@@ -1,18 +1,29 @@
-// =========================================================
-// HỆ THỐNG TÀI KHOẢN NGƯỜI DÙNG, TASKBAR DOCK, MÓN YÊU THÍCH & SUBSCRIBE
-// (Kèm Animation chuông thông báo YouTube khi Subscribe thành công)
-// =========================================================
+// ==============================================================================
+// TẬP TIN: js/user-dock.js
+// DỰ ÁN: Cooks Delight - Trang web công thức nấu ăn trực tuyến
+// MÔ TẢ: Hệ thống toàn diện:
+//        1. Thanh công cụ nổi đáy màn hình (User Taskbar Dock)
+//        2. Chế độ Giao diện Sáng / Tối (Light / Dark Mode)
+//        3. Quản lý Tài khoản (Đăng nhập, Đăng ký, Đăng xuất, Lưu session)
+//        4. Quản lý Món ăn Yêu thích theo từng tài khoản cá nhân
+//        5. Đăng ký nhận bản tin (Subscribe) & Animation Chuông YouTube chúc mừng
+// ==============================================================================
 
 (function () {
-  const STORAGE_KEY_USERS = "cooks_delight_users";
-  const STORAGE_KEY_CURRENT_USER = "cooks_delight_current_user";
-  const STORAGE_KEY_FAVORITES = "cooks_delight_favorites";
-  const STORAGE_KEY_SUBSCRIBERS = "cooks_delight_subscribers";
-  const STORAGE_KEY_THEME = "cooks_delight_theme";
+  // Các khóa lưu trữ cục bộ (localStorage keys)
+  const STORAGE_KEY_USERS = "cooks_delight_users";               // Danh sách tài khoản đã đăng ký
+  const STORAGE_KEY_CURRENT_USER = "cooks_delight_current_user"; // Tài khoản đang đăng nhập hiện tại
+  const STORAGE_KEY_FAVORITES = "cooks_delight_favorites";       // Tiền tố lưu món yêu thích theo người dùng
+  const STORAGE_KEY_SUBSCRIBERS = "cooks_delight_subscribers";   // Danh sách email đã đăng ký bản tin
+  const STORAGE_KEY_THEME = "cooks_delight_theme";               // Trạng thái theme 'light' hoặc 'dark'
 
-  // ==========================================
-  // DARK MODE / THEME MANAGEMENT
-  // ==========================================
+  // ============================================================================
+  // PHẦN 1: QUẢN LÝ CHẾ ĐỘ SÁNG / TỐI (Dark Mode / Light Mode)
+  // ============================================================================
+  
+  /**
+   * Lấy chế độ màu đã lưu từ localStorage (mặc định là 'light')
+   */
   function getSavedTheme() {
     try {
       return localStorage.getItem(STORAGE_KEY_THEME) || "light";
@@ -21,6 +32,10 @@
     }
   }
 
+  /**
+   * Áp dụng chế độ màu lên toàn bộ trang web bằng cách thêm/xóa class 'dark-theme'
+   * @param {string} theme - 'dark' hoặc 'light'
+   */
   function applyTheme(theme) {
     const isDark = theme === "dark";
     if (isDark) {
@@ -33,6 +48,10 @@
     updateThemeSwitchUI(isDark);
   }
 
+  /**
+   * Cập nhật giao diện nút công tắc chuyển chế độ màu trên Taskbar Dock
+   * @param {boolean} isDark - true nếu đang ở chế độ tối
+   */
   function updateThemeSwitchUI(isDark) {
     const themeBtn = document.getElementById("dock-theme-btn");
     const themeLabel = document.getElementById("dock-theme-label");

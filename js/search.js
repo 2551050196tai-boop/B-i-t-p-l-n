@@ -1,12 +1,21 @@
-// =========================================================
-// TÌM KIẾM TOÀN TRANG (Global & Mobile Search & Autocomplete)
-// Hỗ trợ gợi ý tự động, lọc danh sách món ăn, highlight từ khóa
-// cho cả giao diện Desktop và Mobile Menu
-// =========================================================
+// ==============================================================================
+// TẬP TIN: js/search.js
+// DỰ ÁN: Cooks Delight - Trang web công thức nấu ăn trực tuyến
+// MÔ TẢ: Hệ thống tìm kiếm toàn trang (Global Search & Autocomplete):
+//        1. Gợi ý từ khóa tự động (Live Autocomplete Dropdown)
+//        2. Highlight từ khóa tìm kiếm trong kết quả
+//        3. Hỗ trợ điều hướng bằng phím mũi tên Lên/Xuống và Enter
+//        4. Đồng bộ trên cả giao diện Desktop (Navbar) và Mobile Drawer
+// ==============================================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-  let searchMealsList = [];
+  let searchMealsList = []; // Mảng chứa toàn bộ dữ liệu món ăn dùng để tìm kiếm
 
+  /**
+   * Hàm làm sạch chuỗi (Sanitize) để phòng chống tấn công XSS (Cross-Site Scripting)
+   * @param {string} str - Chuỗi đầu vào
+   * @returns {string} Chuỗi an toàn
+   */
   function escapeHTML(str) {
     if (!str) return "";
     return str
@@ -17,14 +26,25 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/'/g, "&#039;");
   }
 
+  /**
+   * Hàm làm nổi bật (Highlight) từ khóa người dùng đang gõ bằng thẻ <span class="highlight">
+   * @param {string} text - Tên món ăn gốc
+   * @param {string} query - Từ khóa người dùng đang gõ
+   * @returns {string} Chuỗi HTML có chứa phần highlight màu vàng cam
+   */
   function highlightText(text, query) {
     if (!query || !text) return escapeHTML(text);
     const safeText = escapeHTML(text);
     const safeQuery = escapeHTML(query.trim());
+    // Tạo biểu thức chính quy (Regex) không phân biệt hoa thường ('gi')
     const regex = new RegExp(`(${safeQuery.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi");
     return safeText.replace(regex, '<span class="highlight">$1</span>');
   }
 
+  /**
+   * Hàm đảm bảo danh sách món ăn đã được tải về sẵn sàng phục vụ tìm kiếm
+   * @param {Function|null} callback - Hàm thực thi sau khi đã có dữ liệu món ăn
+   */
   async function ensureMealsLoaded(callback = null) {
     if (searchMealsList && searchMealsList.length > 0) {
       if (typeof callback === "function") callback(searchMealsList);
@@ -40,12 +60,12 @@ document.addEventListener("DOMContentLoaded", () => {
     return [];
   }
 
-  // Tải trước dữ liệu món ăn trong nền
+  // Tải trước dữ liệu món ăn ngầm ngay khi trang vừa tải xong
   ensureMealsLoaded();
 
-  // =========================================================
-  // 1. TÌM KIẾM TRÊN DESKTOP (Navbar)
-  // =========================================================
+  // ============================================================================
+  // PHẦN 1: TÌM KIẾM TRÊN GIAO DIỆN DESKTOP (Thanh Navbar)
+  // ============================================================================
   function initDesktopSearch() {
     const navActions = document.querySelector(".nav-actions");
     if (!navActions) return;

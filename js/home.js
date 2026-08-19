@@ -1,24 +1,32 @@
-// =========================================================
-// TRANG CHỦ (HOME.HTML Logic)
-// 1. Featured Recipes Slider (Thanh cuộn ngang món nổi bật)
-// 2. Embark on a Journey (Bộ lọc danh mục món ăn)
-// =========================================================
+// ==============================================================================
+// TẬP TIN: js/home.js
+// DỰ ÁN: Cooks Delight - Trang web công thức nấu ăn trực tuyến
+// MÔ TẢ: Xử lý tương tác trang chủ (HOME.HTML):
+//        1. Thanh cuộn ngang món ăn nổi bật (Featured Recipes Slider)
+//        2. Bộ lọc danh mục món ăn (Embark on a Journey)
+// ==============================================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-  // ==========================================
-  // 1. FEATURED / SIMILAR / NEWEST RECIPES SLIDER
-  // ==========================================
+  // ============================================================================
+  // PHẦN 1: THANH CUỘN NGANG MÓN NỔI BẬT / TƯƠNG TỰ (Featured / Similar Slider)
+  // ============================================================================
   const featuredContainer = document.getElementById("featured-cards-container");
+  
   if (featuredContainer) {
-    const featuredSection =
-      featuredContainer.closest(".featured-section") || document;
-    const prevBtn = featuredSection.querySelector(".prev-arrow");
-    const nextBtn = featuredSection.querySelector(".next-arrow");
-    const scrollAmount = 648;
+    // Lấy phần tử cha .featured-section để tìm 2 nút mũi tên điều hướng
+    const featuredSection = featuredContainer.closest(".featured-section") || document;
+    const prevBtn = featuredSection.querySelector(".prev-arrow"); // Nút mũi tên sang trái
+    const nextBtn = featuredSection.querySelector(".next-arrow"); // Nút mũi tên sang phải
+    const scrollAmount = 648; // Khoảng cách cuộn mỗi lần bấm (pixel)
 
+    /**
+     * Hàm hiển thị (render) danh sách các thẻ món ăn nổi bật vào trong container
+     * @param {Array} meals - Mảng các đối tượng món ăn lấy từ API
+     */
     function renderFeatured(meals) {
       if (!meals || meals.length === 0) return;
 
+      // Lấy ID món ăn hiện tại từ URL (dành cho trang recipe-detail.html) để loại trừ chính món đó
       const urlParams = new URLSearchParams(window.location.search);
       const currentId = urlParams.get("id");
       let displayMeals = meals;
@@ -26,15 +34,16 @@ document.addEventListener("DOMContentLoaded", () => {
         displayMeals = meals.filter((m) => m.idMeal !== currentId);
       }
 
+      // Xóa nội dung cũ trước khi thêm mới
       featuredContainer.innerHTML = "";
-      // Lấy danh sách món cho thanh cuộn / danh sách món tương tự
+      
+      // Lấy tối đa 10 món đầu tiên để tạo thanh cuộn mượt mà
       displayMeals.slice(0, 10).forEach((recipe) => {
-        const area = recipe.strArea
-          ? recipe.strArea.toUpperCase()
-          : "GLOBAL";
-        const category = recipe.strCategory
-          ? recipe.strCategory.toUpperCase()
-          : "DISH";
+        // Chuẩn hóa tên quốc gia/phong cách ẩm thực và danh mục
+        const area = recipe.strArea ? recipe.strArea.toUpperCase() : "GLOBAL";
+        const category = recipe.strCategory ? recipe.strCategory.toUpperCase() : "DISH";
+        
+        // Kiểm tra xem món ăn có phải là món chay/thuần chay/tráng miệng không để gắn nhãn VEGAN
         const isVegan =
           recipe.strCategory === "Vegan" ||
           recipe.strCategory === "Vegetarian" ||
@@ -43,9 +52,12 @@ document.addEventListener("DOMContentLoaded", () => {
               recipe.strMeal.toLowerCase().includes("vegan") ||
               recipe.strMeal.toLowerCase().includes("salad") ||
               recipe.strMeal.toLowerCase().includes("veggie")));
+              
         const badgeHTML = isVegan
           ? `<div class="recipe-badge"><img src="assets/picture/Tag.png" alt="VEGAN" /></div>`
           : "";
+
+        // Tạo cấu trúc HTML cho từng thẻ card món ăn
         const cardHTML = `
           <div class="recipe-card">
             <div class="recipe-image">
@@ -65,36 +77,45 @@ document.addEventListener("DOMContentLoaded", () => {
         featuredContainer.insertAdjacentHTML("beforeend", cardHTML);
       });
 
+      // Cập nhật trạng thái hiển thị mờ/sáng cho 2 nút mũi tên
       setTimeout(updateNavButtons, 200);
     }
 
+    /**
+     * Hàm gọi API chung để lấy dữ liệu món ăn nổi bật
+     */
     async function fetchFeaturedRecipes() {
       try {
         if (typeof window.getSharedMeals !== "function") return;
+        
+        // Gọi hàm getSharedMeals từ api.js (hỗ trợ callback cập nhật dữ liệu ngầm)
         const meals = await window.getSharedMeals((updatedMeals) => {
           if (
-            (!featuredContainer.children ||
-              featuredContainer.children.length === 0) &&
+            (!featuredContainer.children || featuredContainer.children.length === 0) &&
             updatedMeals &&
             updatedMeals.length > 0
           ) {
             renderFeatured(updatedMeals);
           }
         });
+        
         if (meals && meals.length > 0) {
           renderFeatured(meals);
         }
       } catch (error) {
         console.error("Lỗi khi tải món nổi bật:", error);
-        featuredContainer.innerHTML =
-          "<p style='margin-left:24px;'>Không thể tải dữ liệu lúc này.</p>";
+        featuredContainer.innerHTML = "<p style='margin-left:24px;'>Không thể tải dữ liệu lúc này.</p>";
       }
     }
 
+    /**
+     * Hàm kiểm tra tọa độ cuộn và bật/tắt (disabled) nút mũi tên trái/phải
+     */
     function updateNavButtons() {
       if (!prevBtn || !nextBtn) return;
-      const maxScroll =
-        featuredContainer.scrollWidth - featuredContainer.clientWidth;
+      const maxScroll = featuredContainer.scrollWidth - featuredContainer.clientWidth;
+      
+      // Nếu đang ở đầu thanh cuộn -> Làm mờ nút lùi lại
       if (featuredContainer.scrollLeft <= 10) {
         prevBtn.classList.add("disabled");
         prevBtn.style.opacity = "0.35";
@@ -105,6 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
         prevBtn.style.pointerEvents = "auto";
       }
 
+      // Nếu đã cuộn đến kịch bên phải -> Làm mờ nút tiến lên
       if (featuredContainer.scrollLeft >= maxScroll - 10) {
         nextBtn.classList.add("disabled");
         nextBtn.style.opacity = "0.35";
@@ -116,35 +138,41 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    featuredContainer.addEventListener("scroll", updateNavButtons, {
-      passive: true,
-    });
+    // Lắng nghe sự kiện cuộn để cập nhật trạng thái nút
+    featuredContainer.addEventListener("scroll", updateNavButtons, { passive: true });
 
-    if (nextBtn)
+    // Sự kiện nhấn nút tiến (Sang phải)
+    if (nextBtn) {
       nextBtn.addEventListener("click", () => {
         featuredContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
       });
-    if (prevBtn)
+    }
+    
+    // Sự kiện nhấn nút lùi (Sang trái)
+    if (prevBtn) {
       prevBtn.addEventListener("click", () => {
-        featuredContainer.scrollBy({
-          left: -scrollAmount,
-          behavior: "smooth",
-        });
+        featuredContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
       });
+    }
 
+    // Kích hoạt tải dữ liệu khi khởi động
     fetchFeaturedRecipes();
   }
 
-  // ==========================================
-  // 2. EMBARK ON A JOURNEY (Bộ lọc món ăn)
-  // ==========================================
+  // ============================================================================
+  // PHẦN 2: EMBARK ON A JOURNEY (Bộ lọc danh mục món ăn theo chủ đề)
+  // ============================================================================
   const embarkContainer = document.getElementById("embark-cards-container");
   const embarkFilterBtns = document.querySelectorAll(".embark-filter-btn");
 
   if (embarkContainer && embarkFilterBtns.length > 0) {
-    let embarkAllMeals = [];
+    let embarkAllMeals = []; // Biến chứa tất cả món ăn dùng cho bộ lọc
 
-    // Hàm lọc món ăn theo category
+    /**
+     * Hàm lọc món ăn theo từng danh mục (Category)
+     * @param {string} category - Tên danh mục (ALL, VEGAN, BREAKFAST, DESSERT, LUNCH, DINNER, QUICKBITE)
+     * @returns {Array} Mảng 6 món ăn phù hợp nhất
+     */
     function filterEmbarkMeals(category) {
       if (category === "ALL") return embarkAllMeals.slice(0, 6);
 
@@ -179,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
       }
 
-      // Luôn đảm bảo hiển thị đúng 6 món để lưới bài trí trọn vẹn (3x2 Desktop hoặc 2x3 Tablet)
+      // Luôn đảm bảo hiển thị đúng 6 món để bố cục lưới (Grid) 3x2 hoặc 2x3 luôn đều đặn, không bị khuyết
       if (filtered.length > 0 && filtered.length < 6) {
         const extra = embarkAllMeals.filter(
           (m) => !filtered.some((f) => f.idMeal === m.idMeal)
@@ -194,7 +222,10 @@ document.addEventListener("DOMContentLoaded", () => {
       return filtered;
     }
 
-    // Hàm render cards thành lưới đồng nhất
+    /**
+     * Hàm render các card món ăn theo bố cục lưới
+     * @param {Array} meals - Danh sách món ăn cần hiển thị
+     */
     function renderEmbarkCards(meals) {
       if (!meals || meals.length === 0) {
         embarkContainer.innerHTML = `
@@ -214,8 +245,12 @@ document.addEventListener("DOMContentLoaded", () => {
       embarkContainer.innerHTML = html;
     }
 
-    // Hàm tạo HTML cho 1 card
+    /**
+     * Hàm tạo cấu trúc HTML cho 1 thẻ món ăn trong lưới Embark
+     * @param {Object} recipe - Đối tượng món ăn
+     */
     function buildEmbarkCard(recipe) {
+      // Tạo thông số ngẫu nhiên sinh động cho thời gian, độ khó và khẩu phần
       const prepTime = Math.floor(Math.random() * 40) + 10;
       const levels = ["easy prep", "medium prep", "hard prep"];
       const difficulty = levels[Math.floor(Math.random() * levels.length)];
@@ -227,6 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
         recipe.strCategory === "Vegetarian" ||
         recipe.strCategory === "Side";
 
+      // Cắt ngắn mô tả hướng dẫn nếu quá dài
       const description = recipe.strInstructions
         ? recipe.strInstructions.substring(0, 85) + "..."
         : "A delicious and wholesome recipe that brings incredible flavors to your kitchen.";
@@ -248,13 +284,16 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>`;
     }
 
-    // Hàm chính: load + render
+    /**
+     * Hàm tải và hiển thị danh sách món ăn theo danh mục
+     * @param {string} category - Danh mục được chọn
+     */
     async function loadEmbarkRecipes(category) {
       if (embarkAllMeals.length === 0) {
         if (typeof window.getSharedMeals === "function") {
           embarkAllMeals = await window.getSharedMeals((updatedMeals) => {
             embarkAllMeals = updatedMeals;
-            // Tự động cập nhật nếu người dùng đang ở danh mục
+            // Tự động cập nhật nếu dữ liệu nền vừa tải xong
             const currentActive = document.querySelector(".embark-filter-btn.embark-active");
             const curCat = currentActive ? currentActive.getAttribute("data-category") : "ALL";
             renderEmbarkCards(filterEmbarkMeals(curCat));
@@ -266,7 +305,7 @@ document.addEventListener("DOMContentLoaded", () => {
       renderEmbarkCards(filtered);
     }
 
-    // Gắn sự kiện click cho các nút filter
+    // Gắn sự kiện click cho các nút chuyển danh mục
     embarkFilterBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         embarkFilterBtns.forEach((b) => b.classList.remove("embark-active"));
@@ -276,6 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    // Mặc định tải danh mục ALL khi vừa mở trang
     loadEmbarkRecipes("ALL");
   }
 });
