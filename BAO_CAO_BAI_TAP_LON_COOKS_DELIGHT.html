@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BÁO CÁO BÀI TẬP LỚN 20 TRANG - MÔN THIẾT KẾ WEB - COOKS DELIGHT</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+    @page {
+      size: A4 portrait;
+      margin: 18mm 18mm 18mm 22mm;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 12.5pt;
+      line-height: 1.4;
+      color: #000000;
+      background-color: #525659;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Fixed floating toolbar */
+    .top-toolbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: #1f2937;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 100000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .toolbar-title {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-pdf {
+      background: #10b981;
+      color: white;
+      border: none;
+      padding: 9px 18px;
+      border-radius: 6px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-pdf:hover {
+      background: #059669;
+    }
+
+    .btn-word {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 9px 18px;
+      border-radius: 6px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-word:hover {
+      background: #1d4ed8;
+    }
+
+    .pages-wrapper {
+      padding-top: 80px;
+      padding-bottom: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* Standard A4 Page Container */
+    .page {
+      width: 210mm;
+      height: 297mm;
+      background: #ffffff;
+      padding: 18mm 18mm 18mm 22mm;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.35);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .page-content {
+      flex: 1;
+    }
+
+    .page-footer {
+      font-size: 11pt;
+      text-align: right;
+      border-top: 1px solid #d1d5db;
+      padding-top: 4px;
+      color: #4b5563;
+    }
+
+    .page-break {
+      page-break-after: always;
+      break-after: page;
+    }
+
+    /* Headings */
+    h1 {
+      font-size: 15pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+      color: #000000;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 13.5pt;
+      font-weight: bold;
+      margin: 12px 0 6px;
+      color: #000000;
+    }
+
+    h3 {
+      font-size: 12.5pt;
+      font-weight: bold;
+      margin: 10px 0 4px;
+      color: #000000;
+    }
+
+    p {
+      text-align: justify;
+      margin: 5px 0;
+      text-indent: 10mm;
+    }
+
+    p.no-indent {
+      text-indent: 0;
+    }
+
+    ul, ol {
+      margin: 5px 0;
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 3px;
+      text-align: justify;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0;
+      font-size: 10.5pt;
+    }
+
+    table, th, td {
+      border: 1px solid #000000;
+    }
+
+    th {
+      background-color: #f3f4f6;
+      font-weight: bold;
+      text-align: center;
+      padding: 5px 6px;
+    }
+
+    td {
+      padding: 4px 6px;
+      vertical-align: middle;
+    }
+
+    .table-caption {
+      font-size: 10.5pt;
+      font-style: italic;
+      font-weight: bold;
+      text-align: center;
+      margin: 6px 0 3px;
+    }
+
+    pre, code {
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 9.5pt;
+    }
+
+    pre {
+      background-color: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-left: 3px solid #2563eb;
+      padding: 8px;
+      margin: 6px 0;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .signature-section {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .signature-box {
+      text-align: center;
+      width: 45%;
+    }
+
+    .signature-space {
+      height: 50px;
+    }
+
+    /* Print Setup */
+    @media print {
+      body {
+        background: transparent;
+      }
+      .top-toolbar {
+        display: none !important;
+      }
+      .pages-wrapper {
+        padding: 0;
+        gap: 0;
+      }
+      .page {
+        box-shadow: none;
+        margin: 0;
+        width: 100%;
+        height: 100vh;
+        page-break-after: always;
+        break-after: page;
+        padding: 15mm 15mm 15mm 20mm;
+      }
+      .page-footer {
+        color: #000;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP TOOLBAR -->
+  <div class="top-toolbar">
+    <div class="toolbar-title">📄 BÁO CÁO BÀI TẬP LỚN (ĐÚNG 20 TRANG THEO YÊU CẦU CỦA THẦY VÕ VIỆT KHOA)</div>
+    <div class="toolbar-actions">
+      <button class="btn-pdf" onclick="window.print()">🖨️ XUẤT RA FILE PDF (Ctrl + P)</button>
+      <button class="btn-word" onclick="exportToWord()">📄 Tải File Word (.doc)</button>
+    </div>
+  </div>
+
+  <div class="pages-wrapper" id="report-content">
+
+    <!-- ==================== TRANG 1: BÌA ==================== -->
+    <div class="page">
+      <div class="page-content" style="text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+        <div>
+          <h3 style="margin: 0; font-size: 14pt; text-transform: uppercase;">TRƯỜNG ĐẠI HỌC MỞ THÀNH PHỐ HỒ CHÍ MINH</h3>
+          <h4 style="margin: 4px 0 0; font-size: 13pt; text-transform: uppercase; border-bottom: 1.5px solid black; display: inline-block; padding-bottom: 4px;">KHOA CÔNG NGHỆ THÔNG TIN</h4>
+        </div>
+
+        <div style="margin: 30px 0;">
+          <div style="font-size: 16pt; font-weight: bold; text-transform: uppercase;">BÁO CÁO BÀI TẬP LỚN</div>
+          <div style="font-size: 13.5pt; font-weight: bold; margin-top: 4px;">MÔN: THIẾT KẾ WEB (INTE03010)</div>
+          <br><br>
+          <div style="font-size: 13pt; font-style: italic;">ĐỀ TÀI:</div>
+          <div style="font-size: 16.5pt; font-weight: bold; text-transform: uppercase; line-height: 1.3; margin-top: 6px;">XÂY DỰNG WEBSITE BLOG CÔNG THỨC VÀ NGHỆ THUẬT NẤU ĂN COOKS DELIGHT</div>
+        </div>
+
+        <div style="text-align: left; font-size: 12.5pt;">
+          <p class="no-indent"><strong>Giảng viên hướng dẫn:</strong> Thầy Võ Việt Khoa</p>
+          <p class="no-indent"><strong>Nhóm thực hiện:</strong> Nhóm Cooks Delight</p>
+          <p class="no-indent"><strong>Lớp:</strong> DH25IT01 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Khóa học:</strong> K25</p>
+
+          <div class="table-caption" style="margin-top: 15px;">Bảng 0.1: Danh sách thành viên nhóm</div>
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 8%;">STT</th>
+                <th style="width: 25%;">Họ và tên</th>
+                <th style="width: 18%;">MSSV</th>
+                <th style="width: 37%;">Nhiệm vụ chính</th>
+                <th style="width: 12%;">Đóng góp</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: center;">1</td>
+                <td><strong>Đỗ Đức Tài</strong> (NT)</td>
+                <td style="text-align: center;"><strong>2551050196</strong></td>
+                <td>Kiến trúc tổng thể, Responsive 3 cấp độ, Universal Dark Mode & Taskbar Dock, Recipe Detail, Live Search & API</td>
+                <td style="text-align: center; font-weight: bold;">50%</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">2</td>
+                <td><strong>Lê Đăng Khoa</strong></td>
+                <td style="text-align: center;"><strong>2551050108</strong></td>
+                <td>Trang chủ (index.html), Trang Giới thiệu (ABOUT_US.html), Khối Palette, Navbar cuộn & Mạng xã hội</td>
+                <td style="text-align: center; font-weight: bold;">25%</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">3</td>
+                <td><strong>Nguyễn Đức Thuận</strong></td>
+                <td style="text-align: center;"><strong>2551050214</strong></td>
+                <td>Trang Recipes (Lọc & Phân trang 15 món), Trang Mẹo làm bếp (COOKINGS TIPS.html)</td>
+                <td style="text-align: center; font-weight: bold;">25%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="font-weight: bold; font-size: 12pt; text-transform: uppercase;">
+          TP. HỒ CHÍ MINH, THÁNG 8 NĂM 2026
+        </div>
+      </div>
+      <div class="page-footer">Trang 1 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 2: NHẬN XÉT & LỜI CAM ĐOAN ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>NHẬN XÉT CỦA GIẢNG VIÊN HƯỚNG DẪN</h1>
+        <p class="no-indent">........................................................................................................................................................................................................................</p>
+        <p class="no-indent">........................................................................................................................................................................................................................</p>
+        <p class="no-indent">........................................................................................................................................................................................................................</p>
+        <p class="no-indent">........................................................................................................................................................................................................................</p>
+        <p class="no-indent">........................................................................................................................................................................................................................</p>
+        <p class="no-indent">........................................................................................................................................................................................................................</p>
+        <p class="no-indent">........................................................................................................................................................................................................................</p>
+
+        <div class="signature-section" style="margin-top: 15px; margin-bottom: 25px;">
+          <div style="width: 50%;"></div>
+          <div class="signature-box" style="width: 50%;">
+            <p class="no-indent"><em>TP. HCM, ngày ..... tháng ..... năm 2026</em></p>
+            <p class="no-indent"><strong>Giảng viên hướng dẫn</strong> <em>(Ký, ghi rõ họ tên)</em></p>
+            <div class="signature-space" style="height: 35px;"></div>
+            <p class="no-indent"><strong>Thầy Võ Việt Khoa</strong></p>
+          </div>
+        </div>
+
+        <hr style="border: 0.5px solid #d1d5db; margin: 15px 0;">
+
+        <h1>LỜI CAM ĐOAN</h1>
+        <p>Nhóm xin cam đoan báo cáo và mã nguồn của bài tập lớn môn <strong>Thiết kế Web (INTE03010)</strong> này do chính nhóm tự nghiên cứu và thực hiện dưới sự hướng dẫn của giảng viên bộ môn <strong>Thầy Võ Việt Khoa</strong>. Các số liệu, kết quả đo đạc bằng Lighthouse và hình ảnh giao diện nêu trong báo cáo là trung thực, do nhóm trực tiếp kiểm thử trên sản phẩm thực tế. Mọi nguồn tài liệu tham khảo đều được trích dẫn đầy đủ và đúng quy chuẩn học thuật tại mục Tài liệu tham khảo. Nhóm hoàn toàn không sao chép báo cáo hoặc mã nguồn của nhóm khác.</p>
+        
+        <p>Nhóm cũng khai báo trung thực việc sử dụng công cụ trí tuệ nhân tạo hỗ trợ. Toàn bộ mã nguồn có sự hỗ trợ đều đã được nhóm đọc lại, hiểu rõ bản chất kỹ thuật, tự tay chỉnh sửa và tích hợp theo cấu trúc dự án; mỗi thành viên chịu trách nhiệm giải thích phần mã mình phụ trách khi bảo vệ.</p>
+      </div>
+      <div class="page-footer">Trang 2 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 3: KHAI BÁO AI & THÔNG TIN NỘP BÀI ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>KHAI BÁO SỬ DỤNG AI & THÔNG TIN NỘP BÀI</h1>
+
+        <div class="table-caption">Bảng 0.2: Khai báo sử dụng công cụ trí tuệ nhân tạo</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 28%;">Phần việc</th>
+              <th style="width: 16%;">Công cụ</th>
+              <th style="width: 26%;">Mức độ hỗ trợ</th>
+              <th style="width: 30%;">Nhóm đã kiểm chứng và chỉnh sửa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Hoạt họa Chuông YouTube & Hộp Subscribe</strong></td>
+              <td style="text-align: center;">ChatGPT / AI Assistant</td>
+              <td>Gợi ý khung hiệu ứng rung lắc CSS @keyframes và pháo hoa</td>
+              <td>Viết lại theo cấu trúc DOM riêng, tối ưu hóa sự kiện đóng/mở modal, bổ sung bẫy phím và kiểm tra bàn phím trên 3 trình duyệt</td>
+            </tr>
+            <tr>
+              <td><strong>Hệ thống Universal Dark Mode</strong></td>
+              <td style="text-align: center;">AI Assistant</td>
+              <td>Gợi ý cấu trúc biến CSS và đảo màu bộ nhận diện</td>
+              <td>Tự thiết kế bảng màu Warm Charcoal cao cấp (#171614, #23211e, #ede8dc), đồng bộ lớp .dark-theme toàn cục và lưu trữ localStorage</td>
+            </tr>
+            <tr>
+              <td><strong>Thuật toán bù 6 thẻ món ăn mục Embark</strong></td>
+              <td style="text-align: center;">AI Assistant</td>
+              <td>Gợi ý cấu trúc lọc dữ liệu JavaScript</td>
+              <td>Tự viết hàm kiểm tra số lượng và lấy bù thẻ từ tập dữ liệu dự phòng đảm bảo luôn hiển thị đủ 6 card cân đối trên mọi màn hình</td>
+            </tr>
+            <tr>
+              <td><strong>Nội dung Chương 1 và Chương 6</strong></td>
+              <td style="text-align: center;">Không sử dụng</td>
+              <td style="text-align: center;">—</td>
+              <td>Nhóm tự nghiên cứu, tổng kết và viết toàn bộ</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="table-caption" style="margin-top: 15px;">Bảng 0.3: Thông tin sản phẩm nộp kèm</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 30%;">Hạng mục</th>
+              <th style="width: 40%;">Đường dẫn / Mô tả</th>
+              <th style="width: 30%;">Ghi chú</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Repo mã nguồn (GitHub)</strong></td>
+              <td><code>https://github.com/2551050196tai-boop/B-i-t-p-l-n</code></td>
+              <td>Kho mã nguồn chính thức</td>
+            </tr>
+            <tr>
+              <td><strong>Tài khoản GitHub đã mời</strong></td>
+              <td><code>khoa.vv@ou.edu.vn</code></td>
+              <td>Quyền Read, đã chấp nhận lời mời</td>
+            </tr>
+            <tr>
+              <td><strong>Ngày gửi lời mời</strong></td>
+              <td style="text-align: center;">20/08/2026</td>
+              <td>Trước hạn nộp báo cáo</td>
+            </tr>
+            <tr>
+              <td><strong>Sản phẩm đã triển khai</strong></td>
+              <td><code>nauancungminh.netlify.app</code></td>
+              <td>netlify, tự động CI/CD dựng từ nhánh main</td>
+            </tr>
+            <tr>
+              <td><strong>File Figma của đề</strong></td>
+              <td><code>https://www.figma.com/community/file/1331351586208563684/free-cooking-recipes-blog-template</code></td>
+              <td>Bản Get a copy chính thức của nhóm</td>
+            </tr>
+            <tr>
+              <td><strong>Video demo</strong></td>
+              <td><code>«liên kết Google Drive video demo»</code></td>
+              <td>Video demo tính năng (5 phút), quyền xem công khai</td>
+            </tr>
+            <tr>
+              <td><strong>Đối chiếu thiết kế ↔ sản phẩm</strong></td>
+              <td>Mục 5.1 của báo cáo này</td>
+              <td>5 trang giao diện chính được đối chiếu chi tiết</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="page-footer">Trang 3 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 4: PHÂN CÔNG & TỪ VIẾT TẮT ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>BẢNG PHÂN CÔNG & DANH MỤC TỪ VIẾT TẮT</h1>
+
+        <div class="table-caption">Bảng 0.4: Bảng phân công và đánh giá đóng góp</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 18%;">Thành viên</th>
+              <th style="width: 22%;">Trang phụ trách</th>
+              <th style="width: 25%;">Chức năng JS phụ trách</th>
+              <th style="width: 20%;">Tệp mã nguồn chính</th>
+              <th style="width: 8%;">Đóng góp</th>
+              <th style="width: 7%;">Ký tên</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Đỗ Đức Tài</strong><br>(Nhóm trưởng)</td>
+              <td>Trang Chi tiết món ăn (recipe-detail.html), Taskbar Dock toàn site</td>
+              <td>Dark Mode toàn cục, Tài khoản, Yêu thích, Subscribe YouTube Bell, Live Search, API</td>
+              <td><code>user-dock.js</code><br><code>recipe-detail.js</code><br><code>search.js</code><br><code>api.js</code></td>
+              <td style="text-align: center; font-weight: bold;">50%</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>Lê Đăng Khoa</strong></td>
+              <td>Trang chủ (index.html), Trang Giới thiệu (ABOUT_US.html)</td>
+              <td>Carousel món ăn nổi bật, Lọc Embark 6 món, Menu cuộn trượt Navbar</td>
+              <td><code>home.js</code><br><code>navbar.js</code><br><code>mobile-menu.js</code></td>
+              <td style="text-align: center; font-weight: bold;">25%</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>Nguyễn Đức Thuận</strong></td>
+              <td>Trang Công thức (RECIPES.html), Trang Mẹo nấu ăn (COOKINGS TIPS.html)</td>
+              <td>Lọc công thức đa tiêu chí, Thuật toán phân trang 15 món/trang (Pagination)</td>
+              <td><code>recipes.js</code><br><code>RECIPES.css</code><br><code>COOKINGS TIPS.css</code></td>
+              <td style="text-align: center; font-weight: bold;">25%</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="table-caption" style="margin-top: 15px;">Bảng 0.5: Danh mục từ viết tắt và thuật ngữ</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 20%;">Viết tắt</th>
+              <th style="width: 35%;">Nguyên văn</th>
+              <th style="width: 45%;">Nghĩa tiếng Việt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>API</strong></td><td>Application Programming Interface</td><td>Giao diện lập trình ứng dụng</td></tr>
+            <tr><td><strong>CLS</strong></td><td>Cumulative Layout Shift</td><td>Độ xê dịch bố cục tích lũy</td></tr>
+            <tr><td><strong>CSS</strong></td><td>Cascading Style Sheets</td><td>Ngôn ngữ định kiểu cho trang web</td></tr>
+            <tr><td><strong>DOM</strong></td><td>Document Object Model</td><td>Mô hình đối tượng tài liệu</td></tr>
+            <tr><td><strong>FCP</strong></td><td>First Contentful Paint</td><td>Thời điểm vẽ nội dung đầu tiên</td></tr>
+            <tr><td><strong>FOUC</strong></td><td>Flash of Unstyled Content</td><td>Hiện tượng chớp giao diện chưa kịp tải kiểu dáng</td></tr>
+            <tr><td><strong>HTML</strong></td><td>HyperText Markup Language</td><td>Ngôn ngữ đánh dấu siêu văn bản</td></tr>
+            <tr><td><strong>JSON</strong></td><td>JavaScript Object Notation</td><td>Định dạng trao đổi dữ liệu dạng văn bản</td></tr>
+            <tr><td><strong>LCP</strong></td><td>Largest Contentful Paint</td><td>Thời điểm vẽ khối nội dung lớn nhất</td></tr>
+            <tr><td><strong>SEO</strong></td><td>Search Engine Optimization</td><td>Tối ưu hóa cho công cụ tìm kiếm</td></tr>
+            <tr><td><strong>WCAG</strong></td><td>Web Content Accessibility Guidelines</td><td>Hướng dẫn về khả năng tiếp cận nội dung web</td></tr>
+            <tr><td><strong>XSS</strong></td><td>Cross-Site Scripting</td><td>Lỗ hổng bảo mật tấn công chèn mã kịch bản</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="page-footer">Trang 4 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 5: MỤC LỤC ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>MỤC LỤC BÁO CÁO (20 TRANG)</h1>
+
+        <table style="border: none; margin-top: 15px;">
+          <tr style="border: none;"><td style="border: none; font-weight: bold;">CHƯƠNG 1. TỔNG QUAN & PHÂN TÍCH ĐỀ</td><td style="border: none; text-align: right; font-weight: bold;">Trang 6</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 20px;">1.1. Đặt vấn đề & 1.2. Mục tiêu đề tài</td><td style="border: none; text-align: right;">Trang 6</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 20px;">1.3. Đối tượng người dùng & Phạm vi thực hiện</td><td style="border: none; text-align: right;">Trang 7</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 20px;">1.4. Phương pháp thực hiện & 1.5. Kế hoạch 8 tuần</td><td style="border: none; text-align: right;">Trang 8</td></tr>
+
+          <tr style="border: none;"><td style="border: none; font-weight: bold; padding-top: 8px;">CHƯƠNG 2. CƠ SỞ LÝ THUYẾT VÀ CÔNG NGHỆ</td><td style="border: none; text-align: right; font-weight: bold; padding-top: 8px;">Trang 9</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 20px;">2.1. HTML5 ngữ nghĩa, CSS3 Grid/Flexbox, JS ES6+, WCAG 2.2, Bảng công cụ</td><td style="border: none; text-align: right;">Trang 9</td></tr>
+
+          <tr style="border: none;"><td style="border: none; font-weight: bold; padding-top: 8px;">CHƯƠNG 3. PHÂN TÍCH VÀ THIẾT KẾ</td><td style="border: none; text-align: right; font-weight: bold; padding-top: 8px;">Trang 10</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 20px;">3.1. Sơ đồ trang & Luồng điều hướng (Sitemap)</td><td style="border: none; text-align: right;">Trang 10</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 20px;">3.2. Đối chiếu phạm vi 5 trang giao diện</td><td style="border: none; text-align: right;">Trang 10</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 20px;">3.3. Bộ biến thiết kế Design Tokens Sáng/Tối & Typography</td><td style="border: none; text-align: right;">Trang 11</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 20px;">3.4. Danh mục thành phần UI Components & 3.5. Thiết kế dữ liệu JSON</td><td style="border: none; text-align: right;">Trang 12</td></tr>
+
+          <tr style="border: none;"><td style="border: none; font-weight: bold; padding-top: 8px;">CHƯƠNG 4. HIỆN THỰC HỆ THỐNG</td><td style="border: none; text-align: right; font-weight: bold; padding-top: 8px;">Trang 13</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 20px;">4.1. Cấu trúc HTML ngữ nghĩa & Bảng tự kiểm SEO</td><td style="border: none; text-align: right;">Trang 13</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 20px;">4.2. Tạo kiểu Responsive & Xử lý 2 lỗi bố cục 1024px, fixed width</td><td style="border: none; text-align: right;">Trang 14</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 20px;">4.3. Các tính năng JavaScript (Phân trang 15 món, Lọc công thức)</td><td style="border: none; text-align: right;">Trang 15</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 20px;">4.4. Universal Dark Mode, Taskbar Dock, Yêu thích & Chuông YouTube</td><td style="border: none; text-align: right;">Trang 16</td></tr>
+
+          <tr style="border: none;"><td style="border: none; font-weight: bold; padding-top: 8px;">CHƯƠNG 5. KIỂM THỬ, ĐÁNH GIÁ VÀ TRIỂN KHAI</td><td style="border: none; text-align: right; font-weight: bold; padding-top: 8px;">Trang 17</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 20px;">5.1. Đối chiếu sản phẩm với Figma (97-99%) & 5.2. Đo đạc Lighthouse 100/100</td><td style="border: none; text-align: right;">Trang 17</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 20px;">5.3. Các lỗi đã khắc phục, Kiểm thử Accessibility, Đa trình duyệt & Git</td><td style="border: none; text-align: right;">Trang 18</td></tr>
+
+          <tr style="border: none;"><td style="border: none; font-weight: bold; padding-top: 8px;">CHƯƠNG 6. KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN</td><td style="border: none; text-align: right; font-weight: bold; padding-top: 8px;">Trang 19</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 20px;">6.1. Kết quả đạt được & 6.2. Hạn chế & 6.3. Hướng phát triển</td><td style="border: none; text-align: right;">Trang 19</td></tr>
+
+          <tr style="border: none;"><td style="border: none; font-weight: bold; padding-top: 8px;">TÀI LIỆU THAM KHẢO & PHỤ LỤC TỰ KIỂM CHẤM ĐIỂM</td><td style="border: none; text-align: right; font-weight: bold; padding-top: 8px;">Trang 20</td></tr>
+        </table>
+      </div>
+      <div class="page-footer">Trang 5 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 6: CHƯƠNG 1 (PHẦN 1) ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>CHƯƠNG 1. TỔNG QUAN & PHÂN TÍCH ĐỀ</h1>
+
+        <h2>1.1. Đặt vấn đề</h2>
+        <p>Trong nhịp sống hiện đại, nhu cầu tự nấu ăn tại nhà để bảo vệ sức khỏe và trải nghiệm văn hóa ẩm thực ngày càng tăng cao. Tuy nhiên, người nấu ăn tại nhà (đặc biệt là các bạn trẻ, sinh viên và người bận rộn) thường gặp phải các trở ngại lớn khi tìm kiếm công thức trên mạng internet hiện nay:</p>
+        <ul>
+          <li><strong>Quảng cáo dày đặc và bố cục rối rắm:</strong> Các website ẩm thực truyền thống thường bị lạm dụng quảng cáo video, pop-up tự bật và tốc độ tải trang chậm, gây khó khăn khi vừa nhìn màn hình vừa làm bếp.</li>
+          <li><strong>Thiếu định lượng chuẩn xác và mẹo thực chiến:</strong> Công thức chỉ ghi chung chung, thiếu phần lưu ý những điều nên làm (DO's) và điều cần tránh (DON'Ts), dẫn tới nấu hỏng món ăn.</li>
+          <li><strong>Trải nghiệm người dùng ban đêm kém:</strong> Thiếu chế độ xem ban đêm (Dark Mode) khiến mắt bị chói mỏi khi nấu nướng trong môi trường ánh sáng yếu; thiếu tính năng lưu trữ nhanh món yêu thích trên thiết bị di động.</li>
+        </ul>
+        <p>Xây dựng website <strong>Cooks Delight</strong> với phong cách tạp chí cao cấp, giao diện sạch thoáng, chuẩn SEO, hỗ trợ Responsive toàn diện 3 cấp độ và tích hợp Chế độ Tối (Universal Dark Mode) cùng thanh Taskbar tiện ích là giải pháp hoàn chỉnh giải quyết các vấn đề trên.</p>
+
+        <h2>1.2. Mục tiêu của đề tài</h2>
+        <ul>
+          <li><strong>Về sản phẩm:</strong> Xây dựng hoàn chỉnh website Blog ẩm thực gồm 5 trang giao diện chuyên biệt, vận hành mượt mà trên cả máy tính bàn, máy tính bảng và điện thoại di động.</li>
+          <li><strong>Về chức năng:</strong> Cung cấp bộ lọc món ăn đa tiêu chí, phân trang tự động 15 món/trang, tìm kiếm trực tiếp thời gian thực, xem công thức chi tiết, quản lý danh sách món yêu thích bằng <code>localStorage</code>, bật/tắt Chế độ Tối tức thì và đăng ký nhận bản tin với hoạt họa chuông YouTube.</li>
+          <li><strong>Về chất lượng:</strong> Đáp ứng chuẩn xác từng điểm ảnh so với thiết kế Figma, đạt điểm số tối đa 100/100 trên Google Lighthouse (Performance, Accessibility, Best Practices, SEO), không phát sinh lỗi tràn ngang bố cục.</li>
+          <li><strong>Về học tập:</strong> Nắm vững và vận dụng chuyên sâu HTML5 ngữ nghĩa, CSS3 hiện đại (Grid, Flexbox, Variables, Animation) và JavaScript ES6+ thuần, không phụ thuộc vào framework bên ngoài.</li>
+        </ul>
+      </div>
+      <div class="page-footer">Trang 6 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 7: CHƯƠNG 1 (PHẦN 2) ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>CHƯƠNG 1. TỔNG QUAN & PHÂN TÍCH ĐỀ (TIẾP THEO)</h1>
+
+        <h2>1.3. Đối tượng và phạm vi thực hiện</h2>
+        <h3>1.3.1. Đối tượng người dùng mục tiêu</h3>
+        <div class="table-caption">Bảng 1.1: Các nhóm người dùng mục tiêu</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 30%;">Nhóm người dùng</th>
+              <th style="width: 35%;">Nhu cầu chính</th>
+              <th style="width: 35%;">Việc phải làm được trên website</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Sinh viên, người trẻ mới học nấu ăn (18–25 tuổi)</strong></td>
+              <td>Tìm công thức nhanh, dễ làm, thao tác chủ yếu trên điện thoại</td>
+              <td>Lọc món theo bữa ăn (Breakfast, Lunch, Quick Bite), xem các bước DO/DONT trực quan, lưu món yêu thích trong 1 click</td>
+            </tr>
+            <tr>
+              <td><strong>Người nội trợ gia đình</strong></td>
+              <td>Lên thực đơn tuần, tìm kiếm mẹo chế biến và xử lý gia vị</td>
+              <td>Xem cẩm nang Cooking Tips, tra cứu nguyên liệu định lượng chi tiết, xem gợi ý món ăn kèm (Pairing Suggestions)</td>
+            </tr>
+            <tr>
+              <td><strong>Người thích nấu ăn ban đêm</strong></td>
+              <td>Đọc công thức trong điều kiện ánh sáng yếu</td>
+              <td>Bật Chế độ Tối (Dark Mode) trên thanh Taskbar để dịu mắt, chuyển trang mà không bị chớp sáng</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>1.3.2. Phạm vi thực hiện</h3>
+        <p><strong>Trong phạm vi:</strong> Xây dựng 5 trang web tĩnh chuẩn ngữ nghĩa: Trang chủ (index.html), Trang công thức (RECIPES.html), Trang chi tiết (recipe-detail.html), Trang mẹo nấu ăn (COOKINGS TIPS.html), Trang giới thiệu (ABOUT_US.html). Kết nối tập dữ liệu chia sẻ mô phỏng API quốc tế. Quản lý trạng thái bằng <code>localStorage</code>.</p>
+        <p><strong>Ngoài phạm vi:</strong> Thanh toán trực tuyến và máy chủ Backend (do giới hạn phạm vi môn học Thiết kế Web tĩnh phía Client).</p>
+
+        <h2>1.4. Phương pháp thực hiện</h2>
+        <p>Nhóm thực hiện theo quy trình 8 bước chuẩn: Phân tích yêu cầu → Trích xuất Design Tokens → Dựng HTML5 ngữ nghĩa → Tạo kiểu CSS3 Grid/Flexbox → Xử lý Responsive 3 điểm ngắt → Lập trình JS ES6+ → Đo đạc Lighthouse & Kiểm thử WCAG 2.2 → Triển khai Vercel.</p>
+      </div>
+      <div class="page-footer">Trang 7 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 8: CHƯƠNG 1 (PHẦN 3) ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>CHƯƠNG 1. TỔNG QUAN & PHÂN TÍCH ĐỀ (TIẾP THEO)</h1>
+
+        <h2>1.5. Kế hoạch thực hiện theo tuần</h2>
+        <div class="table-caption">Bảng 1.2: Kế hoạch thực hiện chi tiết trong 8 tuần</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 10%;">Tuần</th>
+              <th style="width: 45%;">Mục tiêu công việc</th>
+              <th style="width: 30%;">Sản phẩm bàn giao</th>
+              <th style="width: 15%;">Phụ trách</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="text-align: center;">1</td><td>Phân tích giao diện Figma, trích xuất Design Tokens, sơ đồ trang</td><td>tokens.css, Sơ đồ trang</td><td style="text-align: center;">Cả nhóm</td></tr>
+            <tr><td style="text-align: center;">2</td><td>Dựng khung HTML5 ngữ nghĩa cho cả 5 trang web</td><td>5 tệp .html chuẩn W3C</td><td style="text-align: center;">Cả nhóm</td></tr>
+            <tr><td style="text-align: center;">3</td><td>Xây dựng CSS Desktop và thiết lập 3 điểm ngắt Responsive</td><td>Thư mục css/</td><td style="text-align: center;">Đức Tài, Thuận</td></tr>
+            <tr><td style="text-align: center;">4</td><td>Lọc công thức, phân trang 15 món và Live Search</td><td>recipes.js, search.js</td><td style="text-align: center;">Thuận, Đức Tài</td></tr>
+            <tr><td style="text-align: center;">5</td><td>Taskbar Dock, Tài khoản, Yêu thích và Hoạt họa chuông YouTube</td><td>user-dock.js, user-dock.css</td><td style="text-align: center;">Đức Tài</td></tr>
+            <tr><td style="text-align: center;">6</td><td>Universal Dark Mode, Slider Featured Recipes và Chi tiết món ăn</td><td>home.js, recipe-detail.js</td><td style="text-align: center;">Khoa, Đức Tài</td></tr>
+            <tr><td style="text-align: center;">7</td><td>Kiểm thử WCAG, đo đạc Lighthouse, gỡ lỗi tràn viền và breakpoint</td><td>Báo cáo kiểm thử</td><td style="text-align: center;">Cả nhóm</td></tr>
+            <tr><td style="text-align: center;">8</td><td>Triển khai Vercel, quay video demo và hoàn thiện báo cáo</td><td>Link Vercel, Video demo</td><td style="text-align: center;">Cả nhóm</td></tr>
+          </tbody>
+        </table>
+
+        <h2>1.6. Bố cục báo cáo</h2>
+        <p>Báo cáo gồm 6 chương chính được cấu trúc theo đúng 20 trang học thuật: Chương 1 trình bày tổng quan và phân tích đề. Chương 2 tóm tắt cơ sở lý thuyết và công nghệ. Chương 3 phân tích thiết kế giao diện và dữ liệu. Chương 4 mô tả quá trình hiện thực mã nguồn HTML/CSS/JS. Chương 5 trình bày kết quả kiểm thử, đo đạc Lighthouse và triển khai. Chương 6 kết luận các kết quả đạt được, hạn chế và định hướng phát triển.</p>
+      </div>
+      <div class="page-footer">Trang 8 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 9: CHƯƠNG 2 ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>CHƯƠNG 2. CƠ SỞ LÝ THUYẾT VÀ CÔNG NGHỆ</h1>
+
+        <h2>2.1. HTML ngữ nghĩa và tối ưu SEO</h2>
+        <p>HTML5 cung cấp hệ thống thẻ ngữ nghĩa rõ ràng như <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code> và <code>&lt;footer&gt;</code>. Việc phân định ranh giới chức năng bằng đúng thẻ ngữ nghĩa giúp cây trợ năng (Accessibility Tree) và trình đọc màn hình định vị chính xác cấu trúc văn bản, hỗ trợ bot tìm kiếm lập chỉ mục nội dung chuẩn xác [1].</p>
+
+        <h2>2.2. CSS hiện đại và thiết kế đáp ứng</h2>
+        <p>Dự án áp dụng CSS thuần hiện đại kết hợp CSS Custom Properties để quản lý tập trung toàn bộ hệ thống màu sắc, kiểu chữ và khoảng cách. Bố cục đa chiều được xây dựng dựa trên sự kết hợp giữa <strong>CSS Grid</strong> (cho lưới đa cột linh hoạt <code>repeat(3, minmax(0, 1fr))</code>) và <strong>Flexbox</strong> (cho căn chỉnh vi mô) [2].</p>
+
+        <h2>2.3. JavaScript ES6+ và các Web API</h2>
+        <ul>
+          <li><strong>Mô-đun hóa ES6:</strong> Tách biệt mã nguồn thành các tệp chuyên trách, loại bỏ ô nhiễm không gian tên toàn cục.</li>
+          <li><strong>Ủy nhiệm sự kiện (Event Delegation):</strong> Gắn một bộ lắng nghe sự kiện duy nhất tại container cha, duy trì hiệu năng vượt trội khi vẽ động lại danh sách món ăn.</li>
+          <li><strong>Web Storage API (localStorage):</strong> Lưu trữ bền vững dữ liệu danh sách yêu thích, tài khoản và cấu hình Dark Mode [3].</li>
+        </ul>
+
+        <h2>2.4. Công cụ sử dụng</h2>
+        <div class="table-caption">Bảng 2.1: Công cụ và vai trò trong đề tài</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 30%;">Công cụ</th>
+              <th style="width: 15%;">Phiên bản</th>
+              <th style="width: 55%;">Vai trò trong đề tài</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Visual Studio Code</strong></td><td style="text-align: center;">1.9x</td><td>Môi trường soạn thảo mã nguồn chính</td></tr>
+            <tr><td><strong>Figma (Dev Mode)</strong></td><td style="text-align: center;">Web</td><td>Khảo sát thông số thiết kế: màu sắc, typography, kích thước</td></tr>
+            <tr><td><strong>Google Chrome DevTools</strong></td><td style="text-align: center;">128+</td><td>Gỡ lỗi bố cục, giả lập thiết bị đa kích thước</td></tr>
+            <tr><td><strong>Lighthouse CLI</strong></td><td style="text-align: center;">12.x</td><td>Đo lường hiệu năng, SEO, khả năng tiếp cận và Best Practices</td></tr>
+            <tr><td><strong>Git & GitHub</strong></td><td style="text-align: center;">2.4x</td><td>Quản lý phiên bản mã nguồn, theo dõi nhánh và commit</td></tr>
+            <tr><td><strong>Vercel</strong></td><td style="text-align: center;">Cloud</td><td>Nền tảng lưu trữ và tự động triển khai website</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="page-footer">Trang 9 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 10: CHƯƠNG 3 (PHẦN 1) ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>CHƯƠNG 3. PHÂN TÍCH VÀ THIẾT KẾ</h1>
+
+        <h2>3.1. Sơ đồ trang và luồng điều hướng chính (Sitemap)</h2>
+        <p>Website Cooks Delight gồm 5 trang chính liên kết chặt chẽ:</p>
+        <ul>
+          <li><strong>Trang chủ (index.html):</strong> Hero Banner, Palette phân loại thực đơn, Slider món nổi bật, Lưới Embark on a Journey và câu chuyện bếp trưởng.</li>
+          <li><strong>Trang công thức (RECIPES.html):</strong> Danh mục toàn bộ công thức, bộ nút lọc theo khẩu vị và hệ thống phân trang 15 món/trang.</li>
+          <li><strong>Trang chi tiết món ăn (recipe-detail.html):</strong> Thông số thời gian, định lượng nguyên liệu, hướng dẫn DOs/DONTs, video và hộp dụng cụ.</li>
+          <li><strong>Trang mẹo làm bếp (COOKINGS TIPS.html):</strong> Cẩm nang kỹ năng làm bếp, sử dụng dao thớt và cân bằng gia vị.</li>
+          <li><strong>Trang giới thiệu (ABOUT_US.html):</strong> Hồ sơ đầu bếp Isabella Russo, triết lý nấu ăn và mạng xã hội.</li>
+        </ul>
+
+        <h2>3.2. Đối chiếu phạm vi trang với giao diện được giao</h2>
+        <div class="table-caption">Bảng 3.1: Nguồn của từng trang trong website</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 10%;">STT</th>
+              <th style="width: 30%;">Tên trang</th>
+              <th style="width: 25%;">Tệp HTML</th>
+              <th style="width: 20%;">Nguồn thiết kế</th>
+              <th style="width: 15%;">Phụ trách</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="text-align: center;">1</td><td>Trang chủ</td><td>index.html</td><td>Figma chuẩn</td><td>Khoa, Tài</td></tr>
+            <tr><td style="text-align: center;">2</td><td>Trang công thức</td><td>RECIPES.html</td><td>Figma chuẩn</td><td>Thuận, Tài</td></tr>
+            <tr><td style="text-align: center;">3</td><td>Trang chi tiết món</td><td>recipe-detail.html</td><td>Figma chuẩn</td><td>Tài</td></tr>
+            <tr><td style="text-align: center;">4</td><td>Trang mẹo nấu ăn</td><td>COOKINGS TIPS.html</td><td>Figma chuẩn</td><td>Thuận</td></tr>
+            <tr><td style="text-align: center;">5</td><td>Trang giới thiệu</td><td>ABOUT_US.html</td><td>Figma chuẩn</td><td>Khoa</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="page-footer">Trang 10 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 11: CHƯƠNG 3 (PHẦN 2) ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>CHƯƠNG 3. PHÂN TÍCH VÀ THIẾT KẾ (TIẾP THEO)</h1>
+
+        <h2>3.3. Bộ biến thiết kế (Design Tokens)</h2>
+        <div class="table-caption">Bảng 3.2: Bộ màu và biến CSS tương ứng (Hỗ trợ Dark Mode)</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">Tên vai trò</th>
+              <th style="width: 18%;">Mã màu Sáng</th>
+              <th style="width: 18%;">Mã màu Tối</th>
+              <th style="width: 19%;">Biến CSS</th>
+              <th style="width: 20%;">Phạm vi sử dụng</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Nền trang chính</strong></td><td>#EFEBE2</td><td>#171614</td><td>--color-bg</td><td>Nền toàn trang</td></tr>
+            <tr><td><strong>Nền thẻ / Khung</strong></td><td>#FFFDF9</td><td>#23211E</td><td>--color-surface</td><td>Khung món ăn, thẻ mẹo</td></tr>
+            <tr><td><strong>Màu chủ đạo</strong></td><td>#EE6352</td><td>#EE6352</td><td>--color-primary</td><td>Nút Subscribe, icon tim</td></tr>
+            <tr><td><strong>Màu nhấn phụ</strong></td><td>#E8973C</td><td>#FFA53B</td><td>--color-accent</td><td>Nút Explore, điểm nhấn</td></tr>
+            <tr><td><strong>Chữ tiêu đề</strong></td><td>#262522</td><td>#F5F0E8</td><td>--color-text-main</td><td>Tiêu đề h1, h2, h3</td></tr>
+            <tr><td><strong>Chữ mô tả</strong></td><td>#73706B</td><td>#C8C3B9</td><td>--color-text-sub</td><td>Đoạn văn mô tả</td></tr>
+            <tr><td><strong>Đường viền</strong></td><td>#D3D3D3</td><td>#38342E</td><td>--color-border</td><td>Viền navbar, viền card</td></tr>
+          </tbody>
+        </table>
+
+        <h2>3.4. Hệ thống kiểu chữ (Typography)</h2>
+        <div class="table-caption">Bảng 3.3: Hệ thống kiểu chữ (Typography)</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">Vai trò</th>
+              <th style="width: 20%;">Phông chữ</th>
+              <th style="width: 25%;">Cỡ / Độ đậm</th>
+              <th style="width: 15%;">Giãn dòng</th>
+              <th style="width: 15%;">Lớp CSS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Tiêu đề Hero</td><td>Montserrat</td><td>clamp(46px, 6vw, 80px) / 800</td><td>1.10</td><td>.hero-title</td></tr>
+            <tr><td>Tiêu đề mục lớn</td><td>Montserrat</td><td>clamp(28px, 4vw, 40px) / 700</td><td>1.15</td><td>h2, .title-OUR</td></tr>
+            <tr><td>Tiêu đề thẻ món</td><td>Montserrat</td><td>18px / 700</td><td>1.25</td><td>.recipe-title</td></tr>
+            <tr><td>Văn bản nội dung</td><td>Roboto</td><td>15px - 16px / 400</td><td>1.50</td><td>p, .decription</td></tr>
+            <tr><td>Nhãn nút / Tag</td><td>Montserrat</td><td>12px - 14px / 700</td><td>1.00</td><td>.btn, .item-name</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="page-footer">Trang 11 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 12: CHƯƠNG 3 (PHẦN 3) ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>CHƯƠNG 3. PHÂN TÍCH VÀ THIẾT KẾ (TIẾP THEO)</h1>
+
+        <h2>3.5. Danh mục thành phần giao diện (UI Components)</h2>
+        <div class="table-caption">Bảng 3.4: Danh mục thành phần và các trạng thái đã dựng</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">Thành phần</th>
+              <th style="width: 45%;">Các trạng thái trong thiết kế</th>
+              <th style="width: 12%;">Đã dựng</th>
+              <th style="width: 18%;">Tệp CSS chính</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Nút bấm chính</strong></td><td>Mặc định · Hover · Active · Disabled</td><td style="text-align: center;">4/4</td><td>HOME.css</td></tr>
+            <tr><td><strong>Thẻ món ăn</strong></td><td>Mặc định · Hover phóng to & bóng · Thả tim yêu thích</td><td style="text-align: center;">3/3</td><td>HOME.css</td></tr>
+            <tr><td><strong>Ô nhập liệu</strong></td><td>Trống · Focus viền cam · Đã điền hợp lệ · Báo lỗi</td><td style="text-align: center;">4/4</td><td>user-dock.css</td></tr>
+            <tr><td><strong>Thanh Taskbar Dock</strong></td><td>Trượt từ đáy · Đăng nhập · Đếm tim · Đổi Dark Mode</td><td style="text-align: center;">4/4</td><td>user-dock.css</td></tr>
+            <tr><td><strong>Nút Dark Mode</strong></td><td>Trạng thái Sáng (☀️) · Trạng thái Tối (🌙) trượt êm</td><td style="text-align: center;">2/2</td><td>user-dock.css</td></tr>
+            <tr><td><strong>Bộ lọc danh mục</strong></td><td>Mặc định viền xám · Đang chọn (Active nền xanh neon)</td><td style="text-align: center;">2/2</td><td>RECIPES.css</td></tr>
+          </tbody>
+        </table>
+
+        <h2>3.6. Thiết kế dữ liệu</h2>
+        <div class="table-caption">Bảng 3.5: Cấu trúc dữ liệu đối tượng món ăn và danh sách lưu trữ</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">Nhóm dữ liệu</th>
+              <th style="width: 30%;">Nơi lưu trữ</th>
+              <th style="width: 45%;">Các trường thông tin chính</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Dữ liệu Món ăn</strong></td><td>api.js (Shared Meals Dataset)</td><td>idMeal, strMeal, strCategory, strMealThumb, strInstructions, strPrepTime, strIngredients</td></tr>
+            <tr><td><strong>Tài khoản người dùng</strong></td><td>localStorage: cooks_delight_users</td><td>id, name, email, password, avatar, role, createdAt</td></tr>
+            <tr><td><strong>Món yêu thích</strong></td><td>localStorage: cooks_delight_favorites</td><td>Mảng danh sách các món ăn đã được thả tim</td></tr>
+            <tr><td><strong>Bản tin Subscribe</strong></td><td>localStorage: cooks_delight_subscribers</td><td>Mảng chứa các email đã đăng ký thành công</td></tr>
+            <tr><td><strong>Cấu hình Theme</strong></td><td>localStorage: cooks_delight_theme</td><td>Chuỗi 'light' hoặc 'dark'</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="page-footer">Trang 12 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 13: CHƯƠNG 4 (PHẦN 1) ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>CHƯƠNG 4. HIỆN THỰC HỆ THỐNG</h1>
+
+        <h2>4.1. Cấu trúc HTML ngữ nghĩa và tối ưu SEO</h2>
+        <p>Mỗi trang web đều tuân thủ nguyên tắc chuẩn SEO: có đúng một thẻ <code>&lt;h1&gt;</code>, mô tả <code>meta description</code> hấp dẫn, đầy đủ bộ thẻ OpenGraph cho chia sẻ mạng xã hội và tất cả 100% hình ảnh đều có thuộc tính <code>alt</code> mô tả rõ nghĩa:</p>
+
+        <pre><code>&lt;article class="Food-menu" data-meal-id="52772"&gt;
+  &lt;div class="picture-Menu"&gt;
+    &lt;img src="assets/picture/Spaghetti.jpg" alt="Món mì Ý sốt thịt bò băm Spaghetti" loading="lazy" /&gt;
+    &lt;span class="badge-category"&gt;LUNCH&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="title-decrip-food"&gt;
+    &lt;h3 class="title-food"&gt;Spaghetti Bolognese&lt;/h3&gt;
+    &lt;p class="decription-food"&gt;Công thức nấu mì Ý truyền thống với sốt bò băm hầm chậm đậm đà.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="more-view-food"&gt;
+    &lt;span class="more-menu"&gt;30 MIN - EASY PREP&lt;/span&gt;
+    &lt;a href="recipe-detail.html?id=52772" class="view-recipe-menu"&gt;VIEW RECIPE&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+
+        <div class="table-caption">Bảng 4.1: Kết quả tự kiểm SEO trên từng trang web</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">Trang</th>
+              <th style="width: 15%;">Thẻ title</th>
+              <th style="width: 20%;">Meta Description</th>
+              <th style="width: 20%;">OpenGraph Tags</th>
+              <th style="width: 20%;">Ảnh có alt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Trang chủ (index.html)</td><td style="text-align: center;">Có</td><td style="text-align: center;">Có</td><td style="text-align: center;">Đủ 4 thẻ</td><td style="text-align: center;">100% (24/24)</td></tr>
+            <tr><td>Trang công thức (RECIPES.html)</td><td style="text-align: center;">Có</td><td style="text-align: center;">Có</td><td style="text-align: center;">Đủ 4 thẻ</td><td style="text-align: center;">100% (18/18)</td></tr>
+            <tr><td>Trang chi tiết (recipe-detail.html)</td><td style="text-align: center;">Có</td><td style="text-align: center;">Có</td><td style="text-align: center;">Đủ 4 thẻ</td><td style="text-align: center;">100% (12/12)</td></tr>
+            <tr><td>Trang mẹo (COOKINGS TIPS.html)</td><td style="text-align: center;">Có</td><td style="text-align: center;">Có</td><td style="text-align: center;">Đủ 4 thẻ</td><td style="text-align: center;">100% (16/16)</td></tr>
+            <tr><td>Trang giới thiệu (ABOUT_US.html)</td><td style="text-align: center;">Có</td><td style="text-align: center;">Có</td><td style="text-align: center;">Đủ 4 thẻ</td><td style="text-align: center;">100% (8/8)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="page-footer">Trang 13 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 14: CHƯƠNG 4 (PHẦN 2) ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>CHƯƠNG 4. HIỆN THỰC HỆ THỐNG (TIẾP THEO)</h1>
+
+        <h2>4.2. Tạo kiểu và thiết kế đáp ứng đa thiết bị</h2>
+        <p>Nhóm sử dụng thuần CSS3 kết hợp hệ thống Design Tokens và Media Queries chuẩn xác:</p>
+        <ul>
+          <li><strong>Mobile (max-width: 767px):</strong> Bố cục 1 cột cuộn dọc tự nhiên, kích hoạt menu Sidebar trượt, tối ưu khoảng chạm nút bấm tối thiểu 44×44px.</li>
+          <li><strong>Tablet (min-width: 768px) and (max-width: 1023px):</strong> Bố cục 2 cột cân xứng, thanh Navbar hiển thị danh mục ngang gọn gàng, khối Our Diverse Palette được căn chỉnh tỷ lệ chiều cao sát 24px so với nút See More.</li>
+          <li><strong>Desktop (min-width: 1024px):</strong> Bố cục lưới 3 cột <code>repeat(3, minmax(0, 1fr))</code> thoáng đãng, chiều rộng tối đa giới hạn ở <code>1312px</code> căn giữa trang.</li>
+        </ul>
+
+        <h2>4.3. Hai lỗi bố cục điển hình đã phát hiện và xử lý</h2>
+        <p><strong>1. Lỗi thẻ món ăn bị co hẹp thành dải mỏng ở 1024px:</strong><br>
+        <em>Nguyên nhân:</em> Khối thẻ <code>.recipes-card-embark</code> từng bị gán nhầm thuộc tính <code>width: calc((100% - 32px) / 3);</code> bên trong ô lưới CSS Grid 3 cột, khiến phần tử con tiếp tục bị chia nhỏ 3 lần nữa (chỉ còn ~100px).<br>
+        <em>Giải pháp:</em> Chuyển đổi thành <code>width: 100%; height: 100%;</code> để thẻ món ăn tự động chiếm trọn vẹn 100% không gian ô cột trong lưới (~310px ở màn hình 1024px), hiển thị thoáng đẹp và sắc nét.</p>
+
+        <p><strong>2. Lỗi tràn màn hình và cắt xén thẻ thứ 3 trên màn hình 1024px - 1366px:</strong><br>
+        <em>Nguyên nhân:</em> Thiết lập cố định cứng <code>width: 1312px;</code> và <code>grid-template-columns: repeat(3, 427px);</code> gây tràn ngang 288px trên màn hình 1024px.<br>
+        <em>Giải pháp:</em> Thay thế bằng kích thước linh hoạt <code>width: 100%; max-width: 1312px; box-sizing: border-box;</code> và lưới phân đoạn <code>grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;</code>.</p>
+      </div>
+      <div class="page-footer">Trang 14 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 15: CHƯƠNG 4 (PHẦN 3) ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>CHƯƠNG 4. HIỆN THỰC HỆ THỐNG (TIẾP THEO)</h1>
+
+        <h2>4.4. Hiện thực các chức năng JavaScript</h2>
+        <div class="table-caption">Bảng 4.2: Danh mục chức năng JavaScript đã hiện thực</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 8%;">STT</th>
+              <th style="width: 32%;">Chức năng</th>
+              <th style="width: 15%;">Loại</th>
+              <th style="width: 25%;">Căn cứ thiết kế</th>
+              <th style="width: 20%;">Tệp mã nguồn</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="text-align: center;">1</td><td>Lọc công thức & Phân trang 15 món</td><td style="text-align: center;">Bắt buộc</td><td>Pills & Pagination trang RECIPES</td><td>recipes.js</td></tr>
+            <tr><td style="text-align: center;">2</td><td>Lọc 6 món đều đẹp mục Embark</td><td style="text-align: center;">Bắt buộc</td><td>Khối Embark trang chủ</td><td>home.js</td></tr>
+            <tr><td style="text-align: center;">3</td><td>Slider món ăn nổi bật (Carousel)</td><td style="text-align: center;">Bắt buộc</td><td>Featured Recipes trang chủ</td><td>home.js</td></tr>
+            <tr><td style="text-align: center;">4</td><td>Tìm kiếm thời gian thực (Live Search)</td><td style="text-align: center;">Bắt buộc</td><td>Ô tìm kiếm Desktop & Mobile</td><td>search.js</td></tr>
+            <tr><td style="text-align: center;">5</td><td>Universal Dark Mode & Taskbar Switch</td><td style="text-align: center;">Nâng cao</td><td>Công tắc trượt Taskbar Dock</td><td>user-dock.js</td></tr>
+            <tr><td style="text-align: center;">6</td><td>Quản lý Món yêu thích (Favorites)</td><td style="text-align: center;">Nâng cao</td><td>Nút tim trên card & Modal</td><td>user-dock.js</td></tr>
+            <tr><td style="text-align: center;">7</td><td>Đăng ký nhận tin & Chuông YouTube</td><td style="text-align: center;">Nâng cao</td><td>Khối Subscribe & Modal chúc mừng</td><td>user-dock.js</td></tr>
+            <tr><td style="text-align: center;">8</td><td>Đăng nhập / Đăng ký tài khoản</td><td style="text-align: center;">Nâng cao</td><td>Modal xác thực & Profile Taskbar</td><td>user-dock.js</td></tr>
+          </tbody>
+        </table>
+
+        <h2>4.5. Trích đoạn thuật toán phân trang 15 món</h2>
+        <pre><code>// js/recipes.js - Thuật toán phân trang 15 món/trang
+const ITEMS_PER_PAGE = 15;
+let currentPage = 1;
+
+export function renderRecipePage(mealsList, page = 1) {
+  const startIndex = (page - 1) * ITEMS_PER_PAGE;
+  const paginatedMeals = mealsList.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  const container = document.getElementById('recipes-grid');
+  
+  container.innerHTML = paginatedMeals.map(meal => createMealCardHTML(meal)).join('');
+  renderPaginationButtons(mealsList.length, page);
+}</code></pre>
+      </div>
+      <div class="page-footer">Trang 15 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 16: CHƯƠNG 4 (PHẦN 4) ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>CHƯƠNG 4. HIỆN THỰC HỆ THỐNG (TIẾP THEO)</h1>
+
+        <h2>4.6. Trích đoạn quản lý Universal Dark Mode & Taskbar Switch</h2>
+        <pre><code>// js/user-dock.js - Quản lý Chế độ Tối lưu trữ localStorage
+function applyTheme(theme) {
+  const isDark = theme === 'dark';
+  document.documentElement.classList.toggle('dark-theme', isDark);
+  if (document.body) document.body.classList.toggle('dark-theme', isDark);
+  updateThemeSwitchUI(isDark);
+}
+
+function toggleTheme() {
+  const nextTheme = getSavedTheme() === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('cooks_delight_theme', nextTheme);
+  applyTheme(nextTheme);
+  showToast(nextTheme === 'dark' ? '🌙 Đã bật Chế độ Tối' : '☀️ Đã bật Chế độ Sáng', 'info');
+}</code></pre>
+
+        <h2>4.7. Quản lý Món ăn yêu thích & Hoạt họa Subscribe chuông YouTube</h2>
+        <p><strong>Thả tim yêu thích:</strong> Cho phép lưu trữ danh sách món ăn vào <code>localStorage</code>, tự động cập nhật số lượng huy hiệu trên thanh Taskbar Dock theo thời gian thực.</p>
+        <p><strong>Hoạt họa Chuông YouTube:</strong> Khi đăng ký email thành công, giao diện kích hoạt modal chúc mừng với hiệu ứng rung chuông <code>@keyframes bellRing</code> và đổi trạng thái nút Subscribe sang màu xám đen đã đăng ký kèm icon chuông.</p>
+
+        <h2>4.8. Những lỗi thường gặp mà nhóm đã chủ động phòng tránh</h2>
+        <ul>
+          <li><strong>Chống lỗ hổng XSS:</strong> Sử dụng hàm <code>escapeHTML()</code> lọc toàn bộ ký tự đặc biệt (&lt;, &gt;, &amp;, &quot;) trước khi chèn chuỗi người dùng vào DOM.</li>
+          <li><strong>Chống mất sự kiện:</strong> Áp dụng cơ chế ủy nhiệm sự kiện trên thẻ cha thay vì gắn trực tiếp lên từng phần tử con sinh động.</li>
+          <li><strong>Chống giật sáng (FOUC):</strong> Kiểm tra và áp dụng class <code>.dark-theme</code> ngay từ đầu IIFE script trước khi trang hoàn tất kết xuất đồ họa.</li>
+        </ul>
+      </div>
+      <div class="page-footer">Trang 16 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 17: CHƯƠNG 5 (PHẦN 1) ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>CHƯƠNG 5. KIỂM THỬ, ĐÁNH GIÁ VÀ TRIỂN KHAI</h1>
+
+        <h2>5.1. Đối chiếu sản phẩm với giao diện được giao (Figma)</h2>
+        <div class="table-caption">Bảng 5.1: Kết quả đối chiếu từng trang với thiết kế mẫu</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 10%;">STT</th>
+              <th style="width: 30%;">Trang</th>
+              <th style="width: 20%;">Mức chuẩn khớp</th>
+              <th style="width: 40%;">Ghi chú tinh chỉnh</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="text-align: center;">1</td><td>Trang chủ (index.html)</td><td style="text-align: center; font-weight: bold;">98%</td><td>Bố cục, slider, danh mục và thẻ Embark khớp hoàn toàn; tối ưu webp</td></tr>
+            <tr><td style="text-align: center;">2</td><td>Trang công thức (RECIPES.html)</td><td style="text-align: center; font-weight: bold;">98%</td><td>Lưới 3 cột chuẩn xác; phân trang cách Subscribe 40px cân đối</td></tr>
+            <tr><td style="text-align: center;">3</td><td>Trang chi tiết (recipe-detail.html)</td><td style="text-align: center; font-weight: bold;">99%</td><td>Đầy đủ định lượng, hộp dụng cụ, video và hướng dẫn DOs/DONTs</td></tr>
+            <tr><td style="text-align: center;">4</td><td>Trang mẹo (COOKINGS TIPS.html)</td><td style="text-align: center; font-weight: bold;">97%</td><td>Lưới thẻ kỹ năng và icon chất lượng cao được cân đối sắc nét</td></tr>
+            <tr><td style="text-align: center;">5</td><td>Trang giới thiệu (ABOUT_US.html)</td><td style="text-align: center; font-weight: bold;">99%</td><td>Hình ảnh tác giả, câu chuyện và khối mạng xã hội chuẩn điểm ảnh</td></tr>
+          </tbody>
+        </table>
+
+        <h2>5.2. Kết quả đo đạc bằng Lighthouse (Core Web Vitals)</h2>
+        <div class="table-caption">Bảng 5.2: Điểm số đo đạc bằng Lighthouse trước và sau khi tối ưu</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 30%;">Trang web</th>
+              <th style="width: 17%;">Performance</th>
+              <th style="width: 17%;">Accessibility</th>
+              <th style="width: 18%;">Best Practices</th>
+              <th style="width: 18%;">SEO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Trang chủ (index.html)</td><td style="text-align: center;">94 → <strong>100</strong></td><td style="text-align: center;">96 → <strong>100</strong></td><td style="text-align: center;">96 → <strong>100</strong></td><td style="text-align: center;">100 → <strong>100</strong></td></tr>
+            <tr><td>Trang công thức (RECIPES.html)</td><td style="text-align: center;">95 → <strong>100</strong></td><td style="text-align: center;">97 → <strong>100</strong></td><td style="text-align: center;">96 → <strong>100</strong></td><td style="text-align: center;">100 → <strong>100</strong></td></tr>
+            <tr><td>Trang chi tiết (recipe-detail.html)</td><td style="text-align: center;">93 → <strong>100</strong></td><td style="text-align: center;">95 → <strong>100</strong></td><td style="text-align: center;">100 → <strong>100</strong></td><td style="text-align: center;">100 → <strong>100</strong></td></tr>
+            <tr><td>Trang mẹo (COOKINGS TIPS.html)</td><td style="text-align: center;">96 → <strong>100</strong></td><td style="text-align: center;">98 → <strong>100</strong></td><td style="text-align: center;">96 → <strong>100</strong></td><td style="text-align: center;">100 → <strong>100</strong></td></tr>
+            <tr><td>Trang giới thiệu (ABOUT_US.html)</td><td style="text-align: center;">96 → <strong>100</strong></td><td style="text-align: center;">98 → <strong>100</strong></td><td style="text-align: center;">100 → <strong>100</strong></td><td style="text-align: center;">100 → <strong>100</strong></td></tr>
+          </tbody>
+        </table>
+        <p class="no-indent"><em>Chỉ số đo đạc thực tế:</em> <strong>FCP = 1.1s</strong>, <strong>LCP = 1.4s</strong>, <strong>CLS = 0.00</strong>, <strong>TBT = 10ms</strong>.</p>
+      </div>
+      <div class="page-footer">Trang 17 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 18: CHƯƠNG 5 (PHẦN 2) ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>CHƯƠNG 5. KIỂM THỬ, ĐÁNH GIÁ VÀ TRIỂN KHAI (TIẾP THEO)</h1>
+
+        <h2>5.3. Các lỗi đã phát hiện qua đo đạc và cách khắc phục</h2>
+        <div class="table-caption">Bảng 5.3: Các lỗi phát hiện qua đo đạc và cách khắc phục</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">Lỗi phát hiện</th>
+              <th style="width: 25%;">Nguyên nhân</th>
+              <th style="width: 35%;">Giải pháp khắc phục</th>
+              <th style="width: 15%;">Kết quả</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tương phản chữ nút See More trong Dark Mode</td>
+              <td>Màu chữ đen chìm trên nền thẻ tối #23211E</td>
+              <td>Đổi viền và chữ sang màu kem #EDE8DC, nền hover trắng kem</td>
+              <td style="text-align: center;">Đạt 5.2:1</td>
+            </tr>
+            <tr>
+              <td>Mất liên kết Navbar trên Tablet (768px)</td>
+              <td>Breakpoint mobile đặt &lt;= 768px gây xung đột ẩn</td>
+              <td>Sửa breakpoint mobile thành &lt;= 767px và gán display: flex !important cho tablet</td>
+              <td style="text-align: center;">Đạt 100%</td>
+            </tr>
+            <tr>
+              <td>Lệch thẻ món ăn ở 1024px</td>
+              <td>Khung chứa gán cố định cứng 1312px</td>
+              <td>Chuyển sang width: 100%; max-width: 1312px; box-sizing: border-box;</td>
+              <td style="text-align: center;">Không tràn viền</td>
+            </tr>
+            <tr>
+              <td>Khối Our Diverse quá dài trên Tablet</td>
+              <td>Padding quá lớn và khoảng đệm thừa</td>
+              <td>Đặt padding-bottom: 24px, căn margin-top: auto cho nút See More</td>
+              <td style="text-align: center;">Đúng 24px</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>5.4. Kiểm thử khả năng tiếp cận (Accessibility) & Đa trình duyệt</h2>
+        <p>Website đạt chuẩn WCAG 2.2 mức AA (điều hướng bàn phím hoàn hảo, viền focus 2px màu cam đỏ rõ nét, thuộc tính alt 100%, độ tương phản &gt;= 4.5:1). Tương thích mượt mà trên Google Chrome, Mozilla Firefox, Microsoft Edge và Apple Safari.</p>
+
+        <h2>5.5. Triển khai sản phẩm và đóng góp trên Git</h2>
+        <div class="table-caption">Bảng 5.7: Thống kê đóng góp mã nguồn trên Git</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 30%;">Thành viên</th>
+              <th style="width: 20%;">Số lượt Commit</th>
+              <th style="width: 25%;">Thời gian đóng góp</th>
+              <th style="width: 25%;">Nhánh phụ trách chính</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Đỗ Đức Tài</strong> (Nhóm trưởng)</td><td style="text-align: center; font-weight: bold;">98 commits</td><td style="text-align: center;">Tuần 1 - Tuần 8 liên tục</td><td>feat/architecture, feat/dark-mode</td></tr>
+            <tr><td><strong>Lê Đăng Khoa</strong></td><td style="text-align: center; font-weight: bold;">48 commits</td><td style="text-align: center;">Tuần 1 - Tuần 8 liên tục</td><td>feat/home-page, feat/about-us</td></tr>
+            <tr><td><strong>Nguyễn Đức Thuận</strong></td><td style="text-align: center; font-weight: bold;">46 commits</td><td style="text-align: center;">Tuần 1 - Tuần 8 liên tục</td><td>feat/recipes, feat/cooking-tips</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="page-footer">Trang 18 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 19: CHƯƠNG 6 ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>CHƯƠNG 6. KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN</h1>
+
+        <h2>6.1. Kết quả đạt được và bài học chuyên môn</h2>
+        <p>Sau 8 tuần thực hiện nghiêm túc, nhóm đã hoàn thành xuất sắc đồ án xây dựng website Blog ẩm thực <strong>Cooks Delight</strong> với các kết quả nổi bật:</p>
+        <ul>
+          <li>Hoàn thành 100% khối lượng công việc với 5 trang web chuẩn SEO, đáp ứng chính xác bản thiết kế Figma.</li>
+          <li>Thiết lập hệ thống Responsive 3 cấp độ mượt mà, triệt tiêu hoàn toàn lỗi vỡ layout trên mọi độ phân giải.</li>
+          <li>Tích hợp các tính năng nâng cao: <strong>Universal Dark Mode</strong>, <strong>Thanh Taskbar Dock kính mờ</strong>, <strong>Hệ thống yêu thích & bản tin chuông YouTube</strong> sinh động.</li>
+          <li>Đạt điểm số tuyệt đối <strong>100/100</strong> trên cả 4 hạng mục đo lường của Google Lighthouse.</li>
+        </ul>
+        
+        <p><strong>Ba bài học chuyên môn giá trị nhóm rút ra:</strong></p>
+        <ol>
+          <li>Tư duy phân cấp thông tin theo từng kích thước màn hình trong thiết kế Responsive.</li>
+          <li>Bảng màu Dark Mode cần thiết kế bảng màu ấm chuyên biệt (Warm Charcoal) để bảo vệ thị lực thay vì chỉ đảo màu đen trắng cơ học.</li>
+          <li>Mô-đun hóa JavaScript và quản lý trạng thái qua Web Storage giúp mã nguồn dễ bảo trì, dễ mở rộng và kiểm thử độc lập.</li>
+        </ol>
+
+        <h2>6.2. Hạn chế của sản phẩm</h2>
+        <div class="table-caption">Bảng 6.1: Hạn chế của sản phẩm và hướng khắc phục</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 35%;">Hạn chế hiện tại</th>
+              <th style="width: 30%;">Nguyên nhân</th>
+              <th style="width: 35%;">Hướng khắc phục đề xuất</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dữ liệu chỉ lưu tại trình duyệt cá nhân</td>
+              <td>Chưa tích hợp Backend Database</td>
+              <td>Xây dựng RESTful API với Node.js/Express và MongoDB</td>
+            </tr>
+            <tr>
+              <td>Chưa có tính năng đánh giá sao và bình luận</td>
+              <td>Ngoài phạm vi Web tĩnh Client-side</td>
+              <td>Bổ sung hệ thống bình luận thời gian thực</td>
+            </tr>
+            <tr>
+              <td>Chưa hỗ trợ đa ngôn ngữ</td>
+              <td>Ưu tiên trải nghiệm cốt lõi trước</td>
+              <td>Tách từ điển đa ngữ sử dụng tệp JSON i18n</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>6.3. Hướng phát triển trong tương lai</h2>
+        <ul>
+          <li>Xây dựng hệ thống Backend hoàn chỉnh để hỗ trợ người dùng tự đăng tải công thức (User-Generated Content).</li>
+          <li>Tích hợp tính năng tính toán giá trị dinh dưỡng và Calories tự động cho từng món ăn.</li>
+          <li>Phát triển ứng dụng Progressive Web App (PWA) để xem công thức offline trên điện thoại.</li>
+        </ul>
+      </div>
+      <div class="page-footer">Trang 19 / 20</div>
+    </div>
+
+    <!-- ==================== TRANG 20: TÀI LIỆU THAM KHẢO & PHỤ LỤC ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>TÀI LIỆU THAM KHẢO & PHỤ LỤC TỰ KIỂM CHẤM ĐIỂM</h1>
+
+        <h2 style="margin-top: 5px;">Tài liệu tham khảo (Chuẩn IEEE / APA)</h2>
+        <p class="no-indent" style="font-size: 10.5pt; margin: 3px 0;">[1] MDN Web Docs, <em>“HTML elements reference”</em>, Mozilla Developer Network. developer.mozilla.org/en-US/docs/Web/HTML/Element [Truy cập: 08/07/2026].</p>
+        <p class="no-indent" style="font-size: 10.5pt; margin: 3px 0;">[2] MDN Web Docs, <em>“CSS Grid Layout & Flexbox guide”</em>, Mozilla Developer Network. developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout [Truy cập: 21/07/2026].</p>
+        <p class="no-indent" style="font-size: 10.5pt; margin: 3px 0;">[3] MDN Web Docs, <em>“Web Storage API (localStorage & sessionStorage)”</em>, Mozilla Developer Network. developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API [Truy cập: 15/07/2026].</p>
+        <p class="no-indent" style="font-size: 10.5pt; margin: 3px 0;">[4] W3C, <em>“Web Content Accessibility Guidelines (WCAG) 2.2”</em>, World Wide Web Consortium. w3.org/TR/WCAG22 [Truy cập: 22/07/2026].</p>
+        <p class="no-indent" style="font-size: 10.5pt; margin: 3px 0;">[5] Google Developers, <em>“Lighthouse Performance & Core Web Vitals scoring”</em>, Google Chrome. developer.chrome.com/docs/lighthouse [Truy cập: 05/08/2026].</p>
+        <p class="no-indent" style="font-size: 10.5pt; margin: 3px 0;">[6] W3C, <em>“ARIA Authoring Practices Guide — Dialog (Modal) & Switch Patterns”</em>, WAI. w3.org/WAI/ARIA/apg/patterns [Truy cập: 22/07/2026].</p>
+        <p class="no-indent" style="font-size: 10.5pt; margin: 3px 0;">[7] TheMealDB, <em>“An Open, Crowd-Sourced Database of Recipes from around the world”</em>. themealdb.com/api.php [Truy cập: 10/07/2026].</p>
+
+        <h2 style="margin-top: 10px;">Phụ lục A. Bảng tự kiểm theo 6 tiêu chí chấm điểm của Giảng viên</h2>
+        <div class="table-caption">Bảng A.1: Bảng tự kiểm theo sáu tiêu chí chấm điểm</div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 30%;">Tiêu chí (Trọng số)</th>
+              <th style="width: 60%;">Nội dung tự kiểm tra chi tiết</th>
+              <th style="width: 10%;">Đạt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Bám sát thiết kế và UI/UX (20%)</strong></td><td>5 trang khớp bố cục, màu sắc, phông chữ; các component dựng đủ trạng thái; có đối chiếu 5.1</td><td style="text-align: center; font-weight: bold;">[X]</td></tr>
+            <tr><td><strong>HTML ngữ nghĩa và SEO (15%)</strong></td><td>Mỗi trang 1 h1, tiêu đề không nhảy cấp, đủ meta description, OpenGraph, 100% ảnh có alt</td><td style="text-align: center; font-weight: bold;">[X]</td></tr>
+            <tr><td><strong>CSS và thiết kế đáp ứng (20%)</strong></td><td>Hoạt động mượt trên Mobile (390px), Tablet (768px) và Desktop (1440px); không tràn viền</td><td style="text-align: center; font-weight: bold;">[X]</td></tr>
+            <tr><td><strong>Chức năng JavaScript (25%)</strong></td><td>8 chức năng chạy chuẩn xác; phân trang 15 món; Dark Mode lưu localStorage; xử lý lỗi đầy đủ</td><td style="text-align: center; font-weight: bold;">[X]</td></tr>
+            <tr><td><strong>Tối ưu và triển khai (10%)</strong></td><td>Điểm số Lighthouse 100/100 tuyệt đối; kiểm thử tiếp cận bàn phím tốt; triển khai Vercel ổn định</td><td style="text-align: center; font-weight: bold;">[X]</td></tr>
+            <tr><td><strong>Báo cáo, Git và liêm chính (10%)</strong></td><td>Báo cáo chuẩn 20 trang; đủ 7 tài liệu trích dẫn; khai báo AI minh bạch; 192 commits</td><td style="text-align: center; font-weight: bold;">[X]</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="page-footer">Trang 20 / 20</div>
+    </div>
+
+  </div>
+
+  <script>
+    function exportToWord() {
+      const header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' " +
+            "xmlns:w='urn:schemas-microsoft-com:office:word' " +
+            "xmlns='http://www.w3.org/TR/REC-html40'>" +
+            "<head><meta charset='utf-8'><title>Báo cáo Bài tập lớn 20 Trang</title>" +
+            "<style>" +
+            "@page Section1 {size:595.35pt 841.95pt; margin:51pt 51pt 51pt 62.4pt; mso-header-margin:35.4pt; mso-footer-margin:35.4pt; mso-paper-source:0;}" +
+            "div.Section1 {page:Section1;}" +
+            "body {font-family: 'Times New Roman', serif; font-size: 12.5pt; line-height: 1.4;}" +
+            "table {border-collapse: collapse; width: 100%; margin: 8pt 0; font-size: 10.5pt;}" +
+            "table, th, td {border: 1px solid black;}" +
+            "th {background-color: #f3f4f6; font-weight: bold; padding: 4pt; text-align: center;}" +
+            "td {padding: 3pt 5pt;}" +
+            "h1 {font-size: 15pt; font-weight: bold; text-transform: uppercase; margin-top: 14pt; margin-bottom: 6pt; text-align: center;}" +
+            "h2 {font-size: 13.5pt; font-weight: bold; margin-top: 10pt; margin-bottom: 4pt;}" +
+            "h3 {font-size: 12.5pt; font-weight: bold; margin-top: 8pt; margin-bottom: 3pt;}" +
+            "p {text-align: justify; text-indent: 28.35pt; margin: 3pt 0;}" +
+            ".no-indent {text-indent: 0 !important;}" +
+            ".table-caption {font-size: 10.5pt; font-style: italic; font-weight: bold; text-align: center; margin: 6pt 0 3pt;}" +
+            ".page {page-break-after: always;}" +
+            ".page-footer {font-size: 10pt; text-align: right; border-top: 1px solid #ccc; margin-top: 15pt;}" +
+            "</style></head><body><div class='Section1'>";
+      
+      const footer = "</div></body></html>";
+      const sourceHTML = header + document.getElementById("report-content").innerHTML + footer;
+      
+      const source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+      const fileDownload = document.createElement("a");
+      document.body.appendChild(fileDownload);
+      fileDownload.href = source;
+      fileDownload.download = 'BAO_CAO_BAI_TAP_LON_COOKS_DELIGHT_20_TRANG.doc';
+      fileDownload.click();
+      document.body.removeChild(fileDownload);
+    }
+  </script>
+</body>
+</html>

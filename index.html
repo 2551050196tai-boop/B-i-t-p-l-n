@@ -11,6 +11,7 @@
     />
     <title>công thức nấu ăn</title>
     <link rel="stylesheet" href="css/HOME.css" />
+    <link rel="stylesheet" href="css/user-dock.css" />
     <!--Thuận link thêm font chữ Monsterrat-->
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
@@ -44,14 +45,14 @@
   <body class="congthucnauan">
     <nav class="navbar">
       <div class="logo">
-        <a href="HOME.html"
+        <a href="index.html"
           ><img src="assets/picture/chef.jpg" alt="Cooks Delight Logo"
         /></a>
         <span>Cooks<br />Delight</span>
       </div>
 
       <ul class="nav-links">
-        <li><a href="HOME.html" class="active">HOME</a></li>
+        <li><a href="index.html" class="active">HOME</a></li>
         <li><a href="RECIPES.html">RECIPES</a></li>
         <li><a href="COOKINGS TIPS.html">COOKING TIPS</a></li>
         <li><a href="ABOUT_US.html">ABOUT US</a></li>
@@ -79,7 +80,7 @@
     <div class="mobile-menu-overlay" aria-hidden="true">
       <div class="mobile-menu-panel">
         <div class="mobile-menu-header">
-          <a href="HOME.html" class="mobile-menu-logo">
+          <a href="index.html" class="mobile-menu-logo">
             <img src="assets/picture/chef.jpg" alt="Cooks Delight Logo" />
             <span>Cooks<br />Delight</span>
           </a>
@@ -91,7 +92,7 @@
         </div>
 
         <nav class="mobile-menu-links" aria-label="Mobile navigation">
-          <a href="HOME.html" class="active">HOME</a>
+          <a href="index.html" class="active">HOME</a>
           <a href="RECIPES.html">RECIPES</a>
           <a href="COOKINGS TIPS.html">COOKING TIPS</a>
           <a href="ABOUT_US.html">ABOUT US</a>
@@ -263,7 +264,7 @@
             <div class="title-decription-OUR">
               <a
                 class="ABOUT-US-OUR"
-                href="https://www.facebook.com/otai.296166/"
+                href="ABOUT_US.html"
               >
                 ABOUT US
               </a>
@@ -306,8 +307,7 @@
           <p class="SUB">SUBSCRIBE</p>
           <h1 class="title-SUB">
             JOIN THE FUN <br />
-            SUBSCRIBE <br />
-            NOW!
+            SUBSCRIBE <span class="sub-break-mobile"><br /></span>NOW!
           </h1>
           <p class="decription-SUB">
             Subscribe to our newsletter for a weekly serving of recipes, cooking
@@ -315,8 +315,8 @@
           </p>
         </div>
         <div class="email-address-SUB">
-          <p class="input">Email Address</p>
-          <button class="btn-subcribe-SUB">SUBSCRIBE</button>
+          <input type="email" class="input input-sub-email" placeholder="Email Address" required />
+          <button type="button" class="btn-subcribe-SUB">SUBSCRIBE</button>
         </div>
       </div>
       <div class="Oval-top-SUB"></div>
@@ -336,7 +336,7 @@
         </div>
         <!--Menu cuoi trang-->
         <div class="footer-menu">
-          <a href="HOME.html">HOME</a>
+          <a href="index.html">HOME</a>
           <a href="RECIPES.html">RECIPES</a>
           <a href="COOKINGS TIPS.html">COOKING TIPS</a>
           <a href="ABOUT_US.html">ABOUT US</a>
@@ -371,6 +371,7 @@
     <script src="js/search.js"></script>
     <script src="js/mobile-menu.js"></script>
     <script src="js/home.js"></script>
+    <script src="js/user-dock.js"></script>
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   </body>
 </html>

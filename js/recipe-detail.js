@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <li>
                            Cook until the shrimp are tender and fully cooked.
                             </li>`,
-        "img-recipe-food-1": "./picture/black-eyed pea fritters with shrimp filling ingredients.jpg",
+        "img-recipe-food-1": "assets/picture/black-eyed pea fritters with shrimp filling ingredients.jpg",
         "TITLE-in-LIST-3": "HEAT the oil",
         "LIST-in-LIST-3": `<li>Heat enough oul in a deep pan for frying</li>
                             <li>Maintain a steady medium-high temperatire befire adding the ReadableByteStreamController. </li>
@@ -54,14 +54,14 @@ document.addEventListener("DOMContentLoaded", () => {
                             <li>Fry until golden brown and crisp on the outside.</li>
                               <li>Turn them occasionally so they cook evenly on all sides.</li>
                                <li>Transfer the fritters to a plate lined with paper towels to remove excess oil.</li>`,
-        "img-recipe-food-2": "./picture/black-eyed pea fritters with shrimp filling product.webp",
+        "img-recipe-food-2": "assets/picture/black-eyed pea fritters with shrimp filling product.webp",
         "TITLE-in-LIST-5": "FILL THE ACARAJÉ",
         "LIST-in-LIST-5": `<li>Allow the fritters to cool slightly before handling them.</li>
                             <li>
                             Carefully cut a slit along one side of each fritter.</li>
                             <li>
                             Fill generously with the prepared shrimp mixture.</li>`,
-        "video-recipe": "./video/Acaraje- Black Eye Pea Fritters.mp4",
+        "video-recipe": "assets/video/Acaraje- Black Eye Pea Fritters.mp4",
         "LIST-PAIRING": `<li>
                  Traditional Accompaniment: Serve with vatapá, a creamy Brazilian filling made with shrimp, coconut milk, and aromatic ingredients.
                 </li>
@@ -114,7 +114,7 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
         "LIST-in-LIST-2": `<li>Remove the skillet from the heat.</li>
                             <li>Allow the seeds to continue infusing the oil for about 5 minutes.</li>
                             <li>Let the natural color and aroma develop fully.</li>`,
-        "img-recipe-food-1": "./picture/achiote oil ingredients.jpg",
+        "img-recipe-food-1": "assets/picture/achiote oil ingredients.jpg",
         "TITLE-in-LIST-3": `STRAIN THE OIL`,
         "LIST-in-LIST-3": `<li>Place a fine strainer over a clean container.</li>
                             <li>Pour the infused oil through the strainer.</li>
@@ -123,7 +123,7 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
         "LIST-in-LIST-4": `<li>Transfer the strained oil into a clean jar.</li>
                            <li>Close the jar tightly with a lid.</li>
                            <li>Store at room temperature for up to 15 days.</li>`,
-        "img-recipe-food-2": "./picture/achiote oil product.jpg",
+        "img-recipe-food-2": "assets/picture/achiote oil product.jpg",
         "TITLE-in-LIST-5": `SERVE & ENJOY`,
         "LIST-in-LIST-5": `<li>Use the oil to add color to rice and vegetables.</li>
                            <li>Add it to marinades or sauces.</li>
@@ -175,7 +175,7 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
         "LIST-in-LIST-2": `<li>Knead the mixture thoroughly for 2–3 minutes.</li>
                             <li>Wet your hands with cold water if the mixture becomes sticky.</li>
                             <li>Cover and chill for at least 2 hours.</li>`,
-        "img-recipe-food-1": "./picture/adana kebab ingredients.jpg",
+        "img-recipe-food-1": "assets/picture/adana kebab ingredients.jpg",
         "TITLE-in-LIST-3": `SHAPE THE KEBABS`,
         "LIST-in-LIST-3": `<li>Preheat the grill to high heat.</li>
                             <li>Divide the mixture into equal portions.</li>
@@ -186,12 +186,12 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
                            <li>Place them under the grill.</li>
                            <li>Cook for about 10–12 minutes.</li>
                            <li>Turn regularly until crispy outside and juicy inside.</li>`,
-        "img-recipe-food-2": "./picture/adana kebab product.jpg",
+        "img-recipe-food-2": "assets/picture/adana kebab product.jpg",
         "TITLE-in-LIST-5": `SERVE THE KEBAB`,
         "LIST-in-LIST-5": `<li>Transfer the cooked kebabs to a serving plate.</li>
                            <li>Serve immediately while hot.</li>
                            <li>Pair with fresh vegetables, flatbread, or salad.</li>`,
-        "video-recipe": "./video/Adana Kebab.mp4",
+        "video-recipe": "assets/video/Adana Kebab.mp4",
         "LIST-PAIRING": `<li>Flatbread: Serve with warm Turkish flatbread and fresh vegetables.</li>
                          <li>Fresh Salad: Pair with tomatoes, onions, and herbs for a refreshing contrast.</li>`,
         "RED-LINE-PAIRING-1": `<span class="RED">Grilled Vegetables:</span>Serve alongside grilled peppers, tomatoes, or onions for a smoky combination.`,
@@ -242,7 +242,7 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
                             <li>Add about 1/4 cup of filling to the center.</li>
                             <li>Moisten the wrapper edges with water.</li>
                             <li>Fold and roll tightly into a cylinder.</li>`,
-        "img-recipe-food-1": "./picture/air fryer egg rolls ingredients.jpg",
+        "img-recipe-food-1": "assets/picture/air fryer egg rolls ingredients.jpg",
         "TITLE-in-LIST-3": `PREHEAT THE AIR FRYER`,
         "LIST-in-LIST-3": `<li>Place the egg rolls into the air fryer basket.</li>
                             <li>Make sure they do not touch or overlap.</li>
@@ -254,12 +254,12 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
                            <li>Brush the other side lightly with oil.</li>
                            <li>Cook for another 4–5 minutes.</li>
                            <li>Remove when golden brown and crispy.</li>`,
-        "img-recipe-food-2": "./picture/air fryer egg rolls product.jpg",
+        "img-recipe-food-2": "assets/picture/air fryer egg rolls product.jpg",
         "TITLE-in-LIST-5": `SERVE & ENJOY`,
         "LIST-in-LIST-5": `<li>Allow the egg rolls to cool slightly.</li>
                            <li>Serve immediately while crispy.</li>
                            <li>Pair with duck sauce, plum sauce, or soy sauce.</li>`,
-        "video-recipe": "./video/Air Fryer Egg Rolls.mp4",
+        "video-recipe": "assets/video/Air Fryer Egg Rolls.mp4",
         "LIST-PAIRING": `<li>Duck Sauce: Serve with sweet duck sauce for a classic combination.</li>
                          <li>Plum Sauce: Add plum sauce for a sweet and tangy contrast.</li>`,
         "RED-LINE-PAIRING-1": `<span class="RED">Soy Sauce:</span>Serve with a small bowl of soy sauce for a savory dipping option.`,
@@ -310,7 +310,7 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
                             <li>Add garlic and paprika.</li>
                             <li>Stir in tomato puree and chopped tomatoes.</li>
                             <li>Cook until the sauce thickens slightly.</li>`,
-        "img-recipe-food-1": "./picture/air fryer patatas bravas ingredients.jpg",
+        "img-recipe-food-1": "assets/picture/air fryer patatas bravas ingredients.jpg",
         "TITLE-in-LIST-3": `AIR FRY THE POTATOES`,
         "LIST-in-LIST-3": `<li>Preheat the air fryer to 200°C.</li>
                             <li>Place the seasoned potatoes in the basket.</li>
@@ -321,12 +321,12 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
                            <li>Pour the tomato sauce over the potatoes.</li>
                            <li>Spread the sauce evenly.</li>
                            <li>Garnish with fresh basil.</li>`,
-        "img-recipe-food-2": "./picture/air fryer patatas bravas product.jpg",
+        "img-recipe-food-2": "assets/picture/air fryer patatas bravas product.jpg",
         "TITLE-in-LIST-5": `SERVE & ENJOY`,
         "LIST-in-LIST-5": `<li>Serve the potatoes while they are hot and crispy.</li>
                            <li>Add extra sauce if desired.</li>
                            <li>Enjoy as a Spanish-inspired tapas dish or side.</li>`,
-        "video-recipe": "./video/Air Fryer Patatas Bravas.mp4",
+        "video-recipe": "assets/video/Air Fryer Patatas Bravas.mp4",
         "LIST-PAIRING": `<li>Fresh Salad: Pair with a crisp salad for a refreshing contrast.</li>
                          <li>Grilled Chicken: Serve alongside grilled chicken for a complete meal.</li>`,
         "RED-LINE-PAIRING-1": `<span class="RED">Garlic Sauce:</span>Add a creamy garlic sauce for an extra layer of richness.`,
@@ -376,7 +376,7 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
                             <li>Blend until the mixture becomes smooth.</li>
                             <li>Scrape the sides if necessary.</li>
                             <li>Blend again until fully combined.</li>`,
-        "img-recipe-food-1": "./picture/aji de aguacate ingredients.jpg",
+        "img-recipe-food-1": "assets/picture/aji de aguacate ingredients.jpg",
         "TITLE-in-LIST-3": `ADJUST THE CONSISTENCY`,
         "LIST-in-LIST-3": `<li>Check the thickness of the sauce.</li>
                             <li>Add additional lime juice if it is too thick.</li>
@@ -386,7 +386,7 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
                            <li>Adjust the salt if necessary.</li>
                            <li>Add more lime juice for extra brightness.</li>
                            <li>Add more chili for additional heat if desired.</li>`,
-        "img-recipe-food-2": "./picture/aji de aguacate product.jpg",
+        "img-recipe-food-2": "assets/picture/aji de aguacate product.jpg",
         "TITLE-in-LIST-5": `SERVE & ENJOY`,
         "LIST-in-LIST-5": `<li>Transfer the sauce to a serving bowl.</li>
                            <li>Serve immediately or chill before serving.</li>
@@ -439,7 +439,7 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
                             <li>Add garlic, olive oil, vinegar, and water.</li>
                             <li>Add salt to taste.</li>
                             <li>Blend until completely smooth.</li>`,
-        "img-recipe-food-1": "./picture/ajo blanco ingredients.jpg",
+        "img-recipe-food-1": "assets/picture/ajo blanco ingredients.jpg",
         "TITLE-in-LIST-3": `CHILL THE SOUP`,
         "LIST-in-LIST-3": `<li>Transfer the blended soup to a container.</li>
                             <li>Cover and refrigerate.</li>
@@ -449,12 +449,12 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
                            <li>Stir gently before serving.</li>
                            <li>Drizzle with extra virgin olive oil.</li>
                            <li>Add freshly ground black pepper.</li>`,
-        "img-recipe-food-2": "./picture/ajo blanco product.jpg",
+        "img-recipe-food-2": "assets/picture/ajo blanco product.jpg",
         "TITLE-in-LIST-5": `SERVE & ENJOY`,
         "LIST-in-LIST-5": `<li>Serve the soup chilled.</li>
                            <li>Garnish with a drizzle of olive oil.</li>
                            <li>Enjoy as a refreshing starter.</li>`,
-        "video-recipe": "./video/Ajo Blanco.mp4",
+        "video-recipe": "assets/video/Ajo Blanco.mp4",
         "LIST-PAIRING": `<li>Fresh Grapes: Serve with fresh grapes for a refreshing sweet contrast.</li>
                          <li>Toasted Almonds: Add toasted almonds for extra crunch and nutty flavor.</li>`,
         "RED-LINE-PAIRING-1": `<span class="RED">Fresh Herbs:</span>Garnish with parsley or other fresh herbs for additional brightness.`,
@@ -502,7 +502,7 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
         "LIST-in-LIST-2": `<li>Wrap the dough carefully.</li>
                             <li>Place it in the refrigerator.</li>
                             <li>Chill for about 1 hour.</li>`,
-        "img-recipe-food-1": "./picture/alfajores ingredients.jpg",
+        "img-recipe-food-1": "assets/picture/alfajores ingredients.jpg",
         "TITLE-in-LIST-3": `BAKE THE COOKIES`,
         "LIST-in-LIST-3": `<li>Preheat the oven to 180°C (350°F).</li>
                             <li>Roll out the chilled dough.</li>
@@ -514,12 +514,12 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
                            <li>Place another cookie on top.</li>
                            <li>Press gently to create a sandwich.</li>
                            <li>Roll the edges in coconut flakes.</li>`,
-        "img-recipe-food-2": "./picture/alfajores product.jpg",
+        "img-recipe-food-2": "assets/picture/alfajores product.jpg",
         "TITLE-in-LIST-5": `ADD THE FINAL TOUCH`,
         "LIST-in-LIST-5": `<li>Melt chocolate if desired.</li>
                            <li>Dip or drizzle the Alfajores with chocolate.</li>
                            <li>Allow the chocolate to set before serving.</li>`,
-        "video-recipe": "./video/Alfajores.mp4",
+        "video-recipe": "assets/video/Alfajores.mp4",
         "LIST-PAIRING": `<li>Coffee: Serve with a warm cup of coffee for a classic afternoon treat.</li>
                          <li>Tea: Pair with black tea or herbal tea for a gentle and comforting combination.</li>`,
         "RED-LINE-PAIRING-1": `<span class="RED">Fresh Berries:</span>Serve with fresh berries for a bright contrast to the rich dulce de leche.`,
@@ -571,7 +571,7 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
                             <li>Remove the pepper cores and seeds.</li>
                             <li>Cook jalapeños and garlic in olive oil.</li>
                             <li>Combine everything into a coarse sauce.</li>`,
-        "img-recipe-food-1": "./picture/algerian bouzgene bread ingredients.jpg",
+        "img-recipe-food-1": "assets/picture/algerian bouzgene bread ingredients.jpg",
         "TITLE-in-LIST-3": `PREPARE THE DOUGH`,
         "LIST-in-LIST-3": `<li>Place semolina into a large bowl.</li>
                             <li>Add salt and olive oil.</li>
@@ -584,7 +584,7 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
                            <li>Cook until dark brown spots appear.</li>
                            <li>Flip and cook until crisp.</li>
                            <li>Wrap finished bread in a clean towel.</li>`,
-        "img-recipe-food-2": "./picture/algerian bouzgene berber bread product.jpg",
+        "img-recipe-food-2": "assets/picture/algerian bouzgene berber bread product.jpg",
         "TITLE-in-LIST-5": `SERVE & ENJOY`,
         "LIST-in-LIST-5": `<li>Place the warm bread on a serving plate.</li>
                            <li>Serve alongside the roasted pepper sauce.</li>
@@ -627,6 +627,29 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
 
           if (titleEl) titleEl.innerText = recipe.strMeal;
           if (imageEl) imageEl.src = recipe.strMealThumb;
+
+          const detailHeartBtn = document.getElementById("detail-card-heart-btn");
+          if (detailHeartBtn) {
+            detailHeartBtn.setAttribute("data-id", recipe.idMeal);
+            if (typeof window.isMealFavorited === "function" && window.isMealFavorited(recipe.idMeal)) {
+              detailHeartBtn.classList.add("is-favorited");
+            } else {
+              detailHeartBtn.classList.remove("is-favorited");
+            }
+            detailHeartBtn.onclick = (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              if (typeof window.toggleFavoriteMeal === "function") {
+                window.toggleFavoriteMeal({
+                  idMeal: recipe.idMeal,
+                  strMeal: recipe.strMeal,
+                  strMealThumb: recipe.strMealThumb,
+                  strCategory: recipe.strCategory,
+                  strArea: recipe.strArea,
+                });
+              }
+            };
+          }
 
           // Danh sách nguyên liệu
           const ingredientsList = document.getElementById("recipe-ingredients");
@@ -693,6 +716,51 @@ Crispy fritters, savory shrimp, aromatic seasonings, and vibrant Brazilian flavo
                   element.innerHTML = customRecipe[key];
                 }
               }
+            }
+          }
+
+          // 3. Xử lý an toàn cho ảnh minh họa các bước và video để không bị icon ảnh vỡ
+          const stepImg1 = document.getElementById("img-recipe-food-1");
+          const stepImg2 = document.getElementById("img-recipe-food-2");
+          const recipeVideo = document.getElementById("video-recipe");
+
+          [stepImg1, stepImg2].forEach((img) => {
+            if (img) {
+              const src = img.getAttribute("src");
+              if (
+                !src ||
+                src.trim() === "" ||
+                src.endsWith("recipe-detail.html") ||
+                src === window.location.href
+              ) {
+                img.style.display = "none";
+                img.removeAttribute("src");
+              } else {
+                img.style.display = "block";
+                img.onerror = () => {
+                  img.style.display = "none";
+                  img.removeAttribute("src");
+                };
+              }
+            }
+          });
+
+          if (recipeVideo) {
+            const vSrc = recipeVideo.getAttribute("src");
+            if (
+              !vSrc ||
+              vSrc.trim() === "" ||
+              vSrc.endsWith("recipe-detail.html") ||
+              vSrc === window.location.href
+            ) {
+              recipeVideo.style.display = "none";
+              recipeVideo.removeAttribute("src");
+            } else {
+              recipeVideo.style.display = "block";
+              recipeVideo.onerror = () => {
+                recipeVideo.style.display = "none";
+                recipeVideo.removeAttribute("src");
+              };
             }
           }
         }

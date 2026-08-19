@@ -1052,13 +1052,13 @@ input {
   gap: 24px;
 }
 
+.filter-embark-grid,
 .filter-embark1,
 .filter-embark2 {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
   animation: embarkFadeIn 0.5s ease forwards;
 }
 
@@ -1075,7 +1075,7 @@ input {
 
 .recipes-card-embark {
   width: 100%;
-  max-width: 427px;
+  height: 100%;
   background: var(--color-bg-card-alt);
   border-radius: 24px;
   overflow: hidden;
@@ -1083,6 +1083,7 @@ input {
   position: relative;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1091,67 +1092,91 @@ input {
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
 }
 
-.recipes-card-embark img {
+.recipes-card-img-wrap {
+  position: relative;
   width: 100%;
   height: 234px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.recipes-card-embark img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .tag-embark {
   position: absolute;
-  top: 180px;
-  right: 24px;
-  width: 66px;
-  height: 66px;
+  bottom: 12px;
+  right: 14px;
+  width: 58px;
+  height: 58px;
   display: flex;
   z-index: 2;
 }
 
 .tag-embark img {
-  width: 66px;
-  height: 66px;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
 }
 
 .title-recipes {
-  padding: 24px 24px 0;
+  padding: 22px 24px 12px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  flex: 1;
 }
 
 .title-recipes h3 {
   font-family: var(--font-heading);
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
   color: var(--color-dark);
+  margin: 0 0 10px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 55px;
 }
 
 .title-recipes p {
-  font-size: 16px;
+  font-size: 14.5px;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.45;
   color: var(--color-gray-dark);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 42px;
 }
 
 .button-embark {
-  padding: 24px;
+  padding: 16px 24px 24px;
   margin-top: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .button-embark span {
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 11.5px;
+  font-weight: 600;
   line-height: 1.2;
   text-transform: uppercase;
-  color: var(--color-dark);
+  color: #73706b;
+  letter-spacing: 0.3px;
 }
 
 .btn-embark-view {
-  width: 132px;
+  width: 124px;
   height: 38px;
   display: flex;
   align-items: center;
@@ -1159,12 +1184,13 @@ input {
   background: transparent;
   border: 1px solid var(--color-dark);
   border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   color: var(--color-dark);
   cursor: pointer;
   text-decoration: none;
-  transition: var(--transition-transform);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
 .btn-embark-view:hover {
@@ -1361,7 +1387,8 @@ input {
 .SUBSCRIBE {
   width: 100%;
   max-width: 1312px;
-  height: 486px;
+  min-height: 440px;
+  height: auto;
   border-radius: 30px;
   margin: 80px auto 0;
   background: var(--color-primary);
@@ -1370,6 +1397,8 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 60px 20px;
+  box-sizing: border-box;
 }
 
 .Oval-top-SUB,
@@ -1398,71 +1427,120 @@ input {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1078px;
+  max-width: 850px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 20px;
+  justify-content: center;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.title-decrip-SUB {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 
 .SUB {
-  font-size: 18px;
+  font-family: var(--font-heading);
+  font-size: 15px;
   color: var(--color-bg-card);
   font-weight: 700;
-  margin-bottom: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  margin-top: 0;
 }
 
 .title-SUB {
   font-family: var(--font-heading);
-  font-size: 80px;
-  font-weight: 700;
+  font-size: 72px;
+  font-weight: 800;
   color: var(--color-bg-card);
-  line-height: 1.05;
+  line-height: 1.08;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+}
+
+.sub-break-mobile {
+  display: none;
 }
 
 .decription-SUB {
   color: var(--color-bg-card);
-  font-size: 21px;
-  margin-top: 12px;
-  line-height: 1.3;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  max-width: 660px;
+  margin: 16px auto 0;
+  text-align: center;
 }
 
 .email-address-SUB {
   width: 100%;
-  max-width: 426px;
-  height: 50px;
-  margin-top: 36px;
-  border-radius: 24px;
+  max-width: 440px;
+  height: 52px;
+  margin-top: 32px;
+  border-radius: 50px;
   background: var(--color-bg-card);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 9px 6px 24px;
+  padding: 5px 6px 5px 24px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
 .input {
-  font-size: 18px;
-  color: var(--color-dark);
-  opacity: 0.5;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: #262522;
+  border: none;
+  background: transparent;
+  outline: none;
+  flex: 1;
+  min-width: 0;
+  height: 42px;
+  line-height: 42px;
+  padding: 0 10px 0 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.input::placeholder {
+  color: #8e8b85;
+  opacity: 1;
 }
 
 .btn-subcribe-SUB {
-  height: 38px;
-  padding: 0 20px;
+  height: 42px;
+  padding: 0 24px;
   background: var(--color-dark);
   color: var(--color-text-light);
   border: none;
   border-radius: 50px;
-  font-size: 14px;
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: var(--transition-transform);
 }
 
 .btn-subcribe-SUB:hover {
-  background: var(--color-text-light);
-  color: var(--color-dark);
+  background: #000000;
+  color: #ffffff;
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
@@ -1614,8 +1692,8 @@ input {
    13. RESPONSIVE MEDIA QUERIES (Tối ưu đa thiết bị)
    ========================================================================== */
 
-/* ---------- 13.1. DESKTOP VỪA (1200px - 1439px) ---------- */
-@media (max-width: 1439px) and (min-width: 1200px) {
+/* ---------- 13.1. DESKTOP VỪA (1024px - 1439px) ---------- */
+@media (min-width: 1024px) and (max-width: 1439px) {
   body {
     padding: 28px 24px;
   }
@@ -1639,7 +1717,8 @@ input {
   }
 
   .recipes-card-embark {
-    width: calc((100% - 32px) / 3);
+    width: 100%;
+    height: 100%;
   }
 
   .left-body-OUR {
@@ -1651,8 +1730,8 @@ input {
   }
 }
 
-/* ---------- 13.2. TABLET (769px - 1199px) ---------- */
-@media (min-width: 769px) and (max-width: 1199px) {
+/* ---------- 13.2. TABLET (768px - 1023px) ---------- */
+@media (min-width: 768px) and (max-width: 1023px) {
   body {
     padding: 20px 18px;
   }
@@ -1672,16 +1751,29 @@ input {
   }
 
   .nav-links {
+    display: flex !important;
     gap: 16px;
+    list-style: none;
   }
 
   .nav-links li a {
     font-size: 12px;
+    font-weight: 700;
+  }
+
+  .nav-actions {
+    display: flex !important;
+    gap: 10px;
+    align-items: center;
   }
 
   .subscribe-btn {
     padding: 10px 18px;
     font-size: 12px;
+  }
+
+  .mobile-menu-btn {
+    display: none !important;
   }
 
   .hero {
@@ -1694,32 +1786,47 @@ input {
   }
 
   .palet-section {
-    padding: 36px 30px;
+    padding: 30px 30px 24px 30px;
     border-radius: 28px;
+    min-height: unset;
   }
 
   .palet-contain {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 35px;
-    align-items: center;
+    align-items: stretch;
   }
 
   .left-palet {
     max-width: none;
-    padding-top: 20px;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .left-palet .title {
-    font-size: clamp(32px, 4vw, 40px);
+    font-size: clamp(30px, 3.8vw, 38px);
   }
 
-  .left-palet .description br {
+  .left-palet .description br,
+  .decription br {
     display: none;
   }
 
+  .btn-seemore {
+    margin-top: auto;
+  }
+
+  .right-palet {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   .palette-item {
-    padding: 20px 24px;
+    padding: 12px 20px;
   }
 
   .featured-section {
@@ -1762,52 +1869,116 @@ input {
     padding: 8px 16px;
   }
 
+  .filter-embark-grid,
   .filter-embark1,
   .filter-embark2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
   }
 
   .recipes-card-embark {
-    max-width: none;
+    max-width: none !important;
+    height: 100% !important;
   }
 
   .OUR-CULINARY-section {
-    padding: 12px;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    padding: 24px !important;
+    margin-top: 40px !important;
+    border-radius: 28px !important;
+    box-sizing: border-box !important;
   }
 
   .body-OUR {
-    display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
-    gap: 16px;
+    display: grid !important;
+    grid-template-columns: 1.15fr 0.85fr !important;
+    gap: 24px !important;
+    align-items: stretch !important;
   }
 
-  .left-body-OUR,
-  .right-body-OUR {
-    max-width: none;
-    width: 100%;
+  .left-body-OUR {
+    max-width: none !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+  }
+
+  .title-pc-right_OUR {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+
+  .title-decription-OUR {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .ABOUT-US-OUR {
+    font-size: 13px !important;
+    padding: 5px 14px !important;
+    margin-bottom: 8px !important;
   }
 
   .title-OUR {
-    font-size: clamp(28px, 4vw, 38px);
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: clamp(30px, 4.2vw, 38px) !important;
+    font-weight: 800 !important;
+    line-height: 1.12 !important;
+    color: var(--color-dark) !important;
+    margin: 6px 0 12px 0 !important;
+  }
+
+  .decription-OUR {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    color: #4a4742 !important;
+    margin: 0 0 18px 0 !important;
   }
 
   .decription-OUR br {
-    display: none;
+    display: none !important;
+  }
+
+  .READ-MORE-OUR {
+    padding: 10px 24px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    align-self: flex-start !important;
   }
 
   .picture-right-OUR {
-    width: 40%;
-    height: 260px;
+    display: none !important;
   }
 
   .picture-bottom-OUR {
-    height: 300px;
+    width: 100% !important;
+    height: 240px !important;
+    border-radius: 20px !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  .right-body-OUR {
+    max-width: none !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
   }
 
   .picture-right-body-OUR {
-    height: 575px;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 480px !important;
+    border-radius: 20px !important;
+    object-fit: cover !important;
+    display: block !important;
   }
 
   .SUBSCRIBE {
@@ -1829,8 +2000,8 @@ input {
   }
 }
 
-/* ---------- 13.3. MOBILE CHÍNH (<= 768px) ---------- */
-@media (max-width: 768px) {
+/* ---------- 13.3. MOBILE CHÍNH (<= 767px) ---------- */
+@media (max-width: 767px) {
   body {
     padding: 12px !important;
   }
@@ -2532,24 +2703,39 @@ input {
     gap: 16px;
   }
 
+  .filter-embark-grid,
   .filter-embark1,
   .filter-embark2 {
-    flex-direction: column;
-    gap: 16px;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
   }
 
   .recipes-card-embark {
-    max-width: none;
-    border-radius: 20px;
+    max-width: none !important;
+    border-radius: 20px !important;
+    height: 100% !important;
+  }
+
+  .recipes-card-img-wrap {
+    height: 210px !important;
   }
 
   .recipes-card-embark img {
-    height: 210px;
+    height: 100% !important;
   }
 
   .tag-embark {
-    right: 15px;
-    top: 158px;
+    right: 12px !important;
+    bottom: 10px !important;
+    top: auto !important;
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .tag-embark img {
+    width: 48px !important;
+    height: 48px !important;
   }
 
   .title-recipes {
@@ -2621,14 +2807,18 @@ input {
     border-radius: 20px;
   }
 
-  /* Subscribe mobile */
+  /* Subscribe mobile (Matching Figma media_1787155145465.png) */
+  .sub-break-mobile {
+    display: inline !important;
+  }
+
   .SUBSCRIBE {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
     min-height: 0 !important;
-    margin: 40px auto 0 !important;
-    padding: 44px 20px 36px !important;
+    margin: 36px auto 0 !important;
+    padding: 40px 18px 34px !important;
     border-radius: 28px !important;
     background: #ee6352 !important;
     position: relative !important;
@@ -2646,21 +2836,21 @@ input {
     border-radius: 50% !important;
     background: #ff6653 !important;
     pointer-events: none !important;
-    opacity: 0.8 !important;
+    opacity: 0.7 !important;
   }
 
   .Oval-top-SUB {
     width: 160% !important;
-    height: 350px !important;
-    top: -240px !important;
+    height: 320px !important;
+    top: -200px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
   }
 
   .Oval-bottom-SUB {
     width: 160% !important;
-    height: 350px !important;
-    bottom: -220px !important;
+    height: 320px !important;
+    bottom: -190px !important;
     top: auto !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
@@ -2690,17 +2880,17 @@ input {
     font-size: 13px !important;
     font-weight: 700 !important;
     letter-spacing: 1.5px !important;
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: #ffffff !important;
     text-transform: uppercase !important;
-    margin-bottom: 10px !important;
+    margin: 0 0 12px 0 !important;
   }
 
   .title-SUB {
     font-family: 'Montserrat', sans-serif !important;
-    font-size: clamp(32px, 8.5vw, 42px) !important;
+    font-size: clamp(34px, 9vw, 44px) !important;
     font-weight: 800 !important;
     color: #ffffff !important;
-    line-height: 1.08 !important;
+    line-height: 1.05 !important;
     text-align: center !important;
     text-transform: uppercase !important;
     margin: 0 0 16px 0 !important;
@@ -2708,24 +2898,25 @@ input {
   }
 
   .decription-SUB {
-    font-size: 13.5px !important;
-    line-height: 1.45 !important;
-    color: rgba(255, 255, 255, 0.85) !important;
-    max-width: 320px !important;
-    margin: 0 auto 28px !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    color: #ffffff !important;
+    opacity: 0.95 !important;
+    max-width: 290px !important;
+    margin: 0 auto 26px !important;
     text-align: center !important;
   }
 
   .email-address-SUB {
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 320px !important;
     height: auto !important;
-    margin-top: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    margin: 0 auto !important;
     padding: 0 !important;
     background: transparent !important;
     border-radius: 0 !important;
+    box-shadow: none !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -2734,29 +2925,47 @@ input {
   }
 
   .email-address-SUB .input,
+  .email-address-SUB input.input,
+  input.input-sub-email,
   .input {
     width: 100% !important;
-    max-width: 360px !important;
-    height: 52px !important;
-    background: #eae5dd !important;
+    max-width: 320px !important;
+    height: 50px !important;
+    min-height: 50px !important;
+    max-height: 50px !important;
+    line-height: 50px !important;
+    background: #ede8dc !important;
     border-radius: 50px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: flex-start !important;
-    padding: 0 24px !important;
+    padding: 0 22px !important;
     font-size: 14.5px !important;
-    color: #8a8985 !important;
+    color: #262522 !important;
     opacity: 1 !important;
     margin: 0 !important;
     border: none !important;
+    outline: none !important;
     box-sizing: border-box !important;
-    font-family: inherit !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    font-family: 'Roboto', sans-serif !important;
+    text-align: left !important;
+  }
+
+  .email-address-SUB input.input::placeholder,
+  .input::placeholder {
+    color: #949088 !important;
+    opacity: 1 !important;
   }
 
   .btn-subcribe-SUB {
     width: 100% !important;
-    max-width: 360px !important;
-    height: 52px !important;
+    max-width: 320px !important;
+    height: 50px !important;
+    min-height: 50px !important;
+    max-height: 50px !important;
+    line-height: 50px !important;
     background: #262522 !important;
     color: #ffffff !important;
     border-radius: 50px !important;
@@ -2765,17 +2974,19 @@ input {
     justify-content: center !important;
     font-size: 13.5px !important;
     font-weight: 700 !important;
-    letter-spacing: 1px !important;
+    letter-spacing: 0.8px !important;
     border: none !important;
     cursor: pointer !important;
     margin: 0 !important;
     padding: 0 !important;
     box-sizing: border-box !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
     transition: transform 0.2s ease, opacity 0.2s ease !important;
   }
 
   .btn-subcribe-SUB:hover {
-    background: #1a1917 !important;
+    background: #000000 !important;
     color: #ffffff !important;
     transform: none !important;
   }
