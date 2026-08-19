@@ -6,47 +6,74 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
-  // 1. FEATURED RECIPES SLIDER
+  // 1. FEATURED / SIMILAR / NEWEST RECIPES SLIDER
   // ==========================================
   const featuredContainer = document.getElementById("featured-cards-container");
   if (featuredContainer) {
-    const prevBtn = document.querySelector(".prev-arrow");
-    const nextBtn = document.querySelector(".next-arrow");
+    const featuredSection =
+      featuredContainer.closest(".featured-section") || document;
+    const prevBtn = featuredSection.querySelector(".prev-arrow");
+    const nextBtn = featuredSection.querySelector(".next-arrow");
     const scrollAmount = 648;
+
+    function renderFeatured(meals) {
+      if (!meals || meals.length === 0) return;
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const currentId = urlParams.get("id");
+      let displayMeals = meals;
+      if (currentId) {
+        displayMeals = meals.filter((m) => m.idMeal !== currentId);
+      }
+
+      featuredContainer.innerHTML = "";
+      // Lấy 10 món đầu tiên cho thanh cuộn ngang
+      displayMeals.slice(0, 10).forEach((recipe) => {
+        const area = recipe.strArea
+          ? recipe.strArea.toUpperCase()
+          : "GLOBAL";
+        const category = recipe.strCategory
+          ? recipe.strCategory.toUpperCase()
+          : "DISH";
+        const cardHTML = `
+          <div class="recipe-card">
+            <div class="recipe-image">
+              <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}" />
+            </div>
+            <div class="recipe-info">
+              <h3 class="recipe-title">${recipe.strMeal}</h3>
+              <p class="recipe-description">${recipe.strInstructions || ""}</p>
+              <div class="recipe-footer">
+                <span class="recipe-meta">${area} CULINARY · ${category}</span>
+                <a class="btn-viewrecipe" href="recipe-detail.html?id=${recipe.idMeal}" style="display: inline-flex; text-decoration: none;">VIEW RECIPE</a>
+              </div>
+            </div>
+          </div>
+        `;
+        featuredContainer.insertAdjacentHTML("beforeend", cardHTML);
+      });
+
+      setTimeout(updateNavButtons, 200);
+    }
 
     async function fetchFeaturedRecipes() {
       try {
         if (typeof window.getSharedMeals !== "function") return;
-        const meals = await window.getSharedMeals();
+        const meals = await window.getSharedMeals((updatedMeals) => {
+          if (
+            (!featuredContainer.children ||
+              featuredContainer.children.length === 0) &&
+            updatedMeals &&
+            updatedMeals.length > 0
+          ) {
+            renderFeatured(updatedMeals);
+          }
+        });
         if (meals && meals.length > 0) {
-          featuredContainer.innerHTML = "";
-          // Lấy 10 món đầu tiên cho thanh cuộn ngang
-          meals.slice(0, 10).forEach((recipe) => {
-            const area = recipe.strArea
-              ? recipe.strArea.toUpperCase()
-              : "GLOBAL";
-            const category = recipe.strCategory
-              ? recipe.strCategory.toUpperCase()
-              : "DISH";
-            const cardHTML = `
-              <div class="recipe-card">
-                <div class="recipe-image">
-                  <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}" />
-                </div>
-                <div class="recipe-info">
-                  <h3 class="recipe-title">${recipe.strMeal}</h3>
-                  <p class="recipe-description">${recipe.strInstructions}</p>
-                  <div class="recipe-footer">
-                    <span class="recipe-meta">${area} CULINARY · ${category}</span>
-                    <a class="btn-viewrecipe" href="recipe-detail.html?id=${recipe.idMeal}" style="display: inline-flex; text-decoration: none;">VIEW RECIPE</a>
-                  </div>
-                </div>
-              </div>
-            `;
-            featuredContainer.insertAdjacentHTML("beforeend", cardHTML);
-          });
+          renderFeatured(meals);
         }
       } catch (error) {
+        console.error("Lỗi khi tải món nổi bật:", error);
         featuredContainer.innerHTML =
           "<p style='margin-left:24px;'>Không thể tải dữ liệu lúc này.</p>";
       }
@@ -54,7 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateNavButtons() {
       if (!prevBtn || !nextBtn) return;
-      const maxScroll = featuredContainer.scrollWidth - featuredContainer.clientWidth;
+      const maxScroll =
+        featuredContainer.scrollWidth - featuredContainer.clientWidth;
       if (featuredContainer.scrollLeft <= 10) {
         prevBtn.classList.add("disabled");
         prevBtn.style.opacity = "0.35";
@@ -76,7 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    featuredContainer.addEventListener("scroll", updateNavButtons, { passive: true });
+    featuredContainer.addEventListener("scroll", updateNavButtons, {
+      passive: true,
+    });
 
     if (nextBtn)
       nextBtn.addEventListener("click", () => {
@@ -84,12 +114,13 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     if (prevBtn)
       prevBtn.addEventListener("click", () => {
-        featuredContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+        featuredContainer.scrollBy({
+          left: -scrollAmount,
+          behavior: "smooth",
+        });
       });
 
-    fetchFeaturedRecipes().then(() => {
-      setTimeout(updateNavButtons, 200);
-    });
+    fetchFeaturedRecipes();
   }
 
   // ==========================================
