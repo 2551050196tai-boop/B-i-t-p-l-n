@@ -117,10 +117,19 @@
       localStorage.setItem(STORAGE_KEY_CURRENT_USER, JSON.stringify(user));
     } else {
       localStorage.removeItem(STORAGE_KEY_CURRENT_USER);
+      try {
+        localStorage.removeItem(STORAGE_KEY_FAVORITES);
+      } catch (e) {}
     }
     updateUserDockUI();
+    updateDockBadge();
     updateAllHeartButtons();
     syncSubscribeInputsAndButtons();
+
+    const favModal = document.getElementById("favorites-modal");
+    if (favModal && favModal.classList.contains("is-open")) {
+      renderFavoritesList();
+    }
   }
 
   function isUserLoggedIn() {
@@ -261,17 +270,39 @@
   // FAVORITES MANAGEMENT (MÓN ĂN YÊU THÍCH)
   // ==========================================
   function getFavorites() {
+    const user = getCurrentUser();
+    if (!user) {
+      return []; // Chưa đăng nhập hoặc đã đăng xuất -> Số món yêu thích luôn là 0!
+    }
     try {
-      const data = localStorage.getItem(STORAGE_KEY_FAVORITES);
-      return data ? JSON.parse(data) : [];
+      const userKey = `${STORAGE_KEY_FAVORITES}_${user.id || user.email}`;
+      const data = localStorage.getItem(userKey);
+      if (data) return JSON.parse(data);
+
+      // Nếu có dữ liệu cũ lưu chung, chuyển vào tài khoản này
+      const legacyData = localStorage.getItem(STORAGE_KEY_FAVORITES);
+      if (legacyData) {
+        try {
+          const parsed = JSON.parse(legacyData);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            localStorage.setItem(userKey, JSON.stringify(parsed));
+            localStorage.removeItem(STORAGE_KEY_FAVORITES);
+            return parsed;
+          }
+        } catch (err) {}
+      }
+      return [];
     } catch (e) {
       return [];
     }
   }
 
   function saveFavorites(favorites) {
+    const user = getCurrentUser();
+    if (!user) return;
     try {
-      localStorage.setItem(STORAGE_KEY_FAVORITES, JSON.stringify(favorites));
+      const userKey = `${STORAGE_KEY_FAVORITES}_${user.id || user.email}`;
+      localStorage.setItem(userKey, JSON.stringify(favorites));
       updateDockBadge();
       updateAllHeartButtons();
     } catch (e) {
@@ -280,7 +311,7 @@
   }
 
   function isFavorited(idMeal) {
-    if (!idMeal) return false;
+    if (!idMeal || !isUserLoggedIn()) return false;
     const favs = getFavorites();
     return favs.some((m) => String(m.idMeal) === String(idMeal));
   }
