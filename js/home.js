@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       featuredContainer.innerHTML = "";
-      // Lấy 10 món đầu tiên cho thanh cuộn ngang
+      // Lấy danh sách món cho thanh cuộn / danh sách món tương tự
       displayMeals.slice(0, 10).forEach((recipe) => {
         const area = recipe.strArea
           ? recipe.strArea.toUpperCase()
@@ -35,17 +35,29 @@ document.addEventListener("DOMContentLoaded", () => {
         const category = recipe.strCategory
           ? recipe.strCategory.toUpperCase()
           : "DISH";
+        const isVegan =
+          recipe.strCategory === "Vegan" ||
+          recipe.strCategory === "Vegetarian" ||
+          (recipe.strMeal &&
+            (recipe.strMeal.toLowerCase().includes("mousse") ||
+              recipe.strMeal.toLowerCase().includes("vegan") ||
+              recipe.strMeal.toLowerCase().includes("salad") ||
+              recipe.strMeal.toLowerCase().includes("veggie")));
+        const badgeHTML = isVegan
+          ? `<div class="recipe-badge"><img src="assets/picture/Tag.png" alt="VEGAN" /></div>`
+          : "";
         const cardHTML = `
           <div class="recipe-card">
             <div class="recipe-image">
               <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}" />
+              ${badgeHTML}
             </div>
             <div class="recipe-info">
               <h3 class="recipe-title">${recipe.strMeal}</h3>
               <p class="recipe-description">${recipe.strInstructions || ""}</p>
               <div class="recipe-footer">
-                <span class="recipe-meta">${area} CULINARY · ${category}</span>
-                <a class="btn-viewrecipe" href="recipe-detail.html?id=${recipe.idMeal}" style="display: inline-flex; text-decoration: none;">VIEW RECIPE</a>
+                <span class="recipe-meta">${recipe.strPrepTime || "30 MIN"} - ${recipe.strDifficulty || "MEDIUM PREP"} - ${recipe.strServings || "4 SERVES"}</span>
+                <a class="btn-viewrecipe" href="recipe-detail.html?id=${recipe.idMeal}">VIEW RECIPE</a>
               </div>
             </div>
           </div>
@@ -137,33 +149,54 @@ document.addEventListener("DOMContentLoaded", () => {
       if (category === "ALL") return embarkAllMeals.slice(0, 6);
 
       let filtered = [];
-      if (category === "VEGAN")
+      if (category === "VEGAN") {
         filtered = embarkAllMeals.filter(
-          (m) => m.strCategory === "Vegan" || m.strCategory === "Vegetarian"
+          (m) =>
+            m.strCategory === "Vegan" ||
+            m.strCategory === "Vegetarian" ||
+            m.strCategory === "Side"
         );
-      else if (category === "BREAKFAST")
-        filtered = embarkAllMeals.filter((m) => m.strCategory === "Breakfast");
-      else if (category === "DESSERT")
+      } else if (category === "BREAKFAST") {
+        filtered = embarkAllMeals.filter(
+          (m) => m.strCategory === "Breakfast" || m.strCategory === "Starter"
+        );
+      } else if (category === "DESSERT") {
         filtered = embarkAllMeals.filter((m) => m.strCategory === "Dessert");
-      else if (category === "LUNCH")
+      } else if (category === "LUNCH") {
         filtered = embarkAllMeals.filter((m) =>
-          ["Pasta", "Seafood", "Side"].includes(m.strCategory)
+          ["Pasta", "Seafood", "Side", "Miscellaneous"].includes(m.strCategory)
         );
-      else if (category === "DINNER")
+      } else if (category === "DINNER") {
         filtered = embarkAllMeals.filter((m) =>
-          ["Beef", "Chicken", "Pork", "Lamb"].includes(m.strCategory)
+          ["Beef", "Chicken", "Pork", "Lamb", "Goat"].includes(m.strCategory)
         );
-      else if (category === "QUICKBITE")
+      } else if (category === "QUICKBITE") {
         filtered = embarkAllMeals.filter(
-          (m) => m.strCategory === "Starter" || m.strCategory === "Miscellaneous"
+          (m) =>
+            m.strCategory === "Starter" ||
+            m.strCategory === "Side" ||
+            m.strCategory === "Miscellaneous"
         );
+      }
 
-      return filtered.slice(0, 6);
+      // Luôn đảm bảo hiển thị đúng 6 món để lưới bài trí trọn vẹn (3x2 Desktop hoặc 2x3 Tablet)
+      if (filtered.length > 0 && filtered.length < 6) {
+        const extra = embarkAllMeals.filter(
+          (m) => !filtered.some((f) => f.idMeal === m.idMeal)
+        );
+        filtered = [...filtered, ...extra].slice(0, 6);
+      } else if (filtered.length >= 6) {
+        filtered = filtered.slice(0, 6);
+      } else if (filtered.length === 0 && embarkAllMeals.length > 0) {
+        filtered = embarkAllMeals.slice(0, 6);
+      }
+
+      return filtered;
     }
 
-    // Hàm render cards
+    // Hàm render cards thành lưới đồng nhất
     function renderEmbarkCards(meals) {
-      if (meals.length === 0) {
+      if (!meals || meals.length === 0) {
         embarkContainer.innerHTML = `
           <div class="embark-empty">
             <h3>Oops! Hiện tại chưa có món ăn nào trong mục này.</h3>
@@ -172,23 +205,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const row1 = meals.slice(0, 3);
-      const row2 = meals.slice(3, 6);
-
-      let html = "";
-      html += '<div class="filter-embark1">';
-      row1.forEach((recipe) => {
+      let html = '<div class="filter-embark-grid filter-embark1">';
+      meals.forEach((recipe) => {
         html += buildEmbarkCard(recipe);
       });
       html += "</div>";
-
-      if (row2.length > 0) {
-        html += '<div class="filter-embark2">';
-        row2.forEach((recipe) => {
-          html += buildEmbarkCard(recipe);
-        });
-        html += "</div>";
-      }
 
       embarkContainer.innerHTML = html;
     }
@@ -202,16 +223,20 @@ document.addEventListener("DOMContentLoaded", () => {
       const metaInfo = `${prepTime} Min - ${difficulty} - ${serves} serves`;
 
       const isVegan =
-        recipe.strCategory === "Vegan" || recipe.strCategory === "Vegetarian";
+        recipe.strCategory === "Vegan" ||
+        recipe.strCategory === "Vegetarian" ||
+        recipe.strCategory === "Side";
 
       const description = recipe.strInstructions
-        ? recipe.strInstructions.substring(0, 80) + "..."
-        : "A delicious recipe worth trying.";
+        ? recipe.strInstructions.substring(0, 85) + "..."
+        : "A delicious and wholesome recipe that brings incredible flavors to your kitchen.";
 
       return `
         <div class="recipes-card-embark">
-          <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}" />
-          ${isVegan ? '<span class="tag-embark"><img src="./picture/Tag.png" alt="VEGAN" /></span>' : ""}
+          <div class="recipes-card-img-wrap">
+            <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}" loading="lazy" />
+            ${isVegan ? '<span class="tag-embark"><img src="assets/picture/Tag.png" alt="VEGAN" /></span>' : ""}
+          </div>
           <div class="title-recipes">
             <h3>${recipe.strMeal}</h3>
             <p>${description}</p>

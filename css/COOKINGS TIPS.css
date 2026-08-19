@@ -376,22 +376,25 @@ body {
 /* Khung chứa 2 cột */
 .cookings-container {
   display: grid;
-  width: 1312px;
-  height: 160px;
+  width: 100%;
+  max-width: 1312px;
+  height: auto;
   margin-top: 88px;
   margin-left: auto;
   margin-right: auto;
-  grid-template-columns: 1fr 1fr; /* Chia thành 2 cột bằng nhau */
-  gap: 12px;                     /* Khoảng cách giữa 2 cột */
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
   align-items: start;
+  box-sizing: border-box;
 }
 
 /* Tiêu đề lớn bên trái */
 .cookings-title {
   font-family: "Montserrat", sans-serif;
-  width: 763px;
-  height: 160px;
-  font-size: 80px;
+  width: 100%;
+  max-width: 763px;
+  height: auto;
+  font-size: clamp(48px, 6vw, 80px);
   line-height: 100%;
   letter-spacing: -0.01rem;
   color: #262522;
@@ -402,7 +405,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
+  width: 100%;
 }
 
 .cookings-description {
@@ -413,6 +416,7 @@ body {
   line-height: 1.4;
   letter-spacing: 1%;
   color: #262522;
+  width: 100%;
 }
 
 .features-container {
@@ -421,9 +425,8 @@ body {
   margin: 40px auto;
   padding: 40px 32px;
   border: 1px solid rgb(124, 117, 117);
-  border-radius: 24px;           /* Bo góc khung lớn */
+  border-radius: 24px;
   box-sizing: border-box;
-  /* Chia 3 cột đều nhau */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
@@ -433,8 +436,8 @@ body {
 /* Từng phần tử cột */
 .feature-item {
   display: flex;
-  align-items: center;          /* Căn giữa icon và chữ theo chiều dọc */
-  gap: 40px;                     /* Khoảng cách giữa icon và chữ */
+  align-items: center;
+  gap: 40px;
 }
 
 /* Định dạng Icon */
@@ -442,7 +445,7 @@ body {
   width: 48px;
   height: 48px;
   object-fit: contain;
-  flex-shrink: 0;                /* Giữ nguyên kích thước icon không bị bóp méo */
+  flex-shrink: 0;
 }
 
 /* Khung nội dung chữ */
@@ -456,7 +459,7 @@ body {
 .feature-title {
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
-  color: #ee6352;                /* Màu cam đỏ nổi bật */
+  color: #ee6352;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   margin: 0;
@@ -475,7 +478,8 @@ body {
 /* ===== FEATURED RECIPES SECTION ===== */
 .featured-section {
   position: relative;
-  width: 1312px;
+  width: 100%;
+  max-width: 1312px;
   height: 573px;
   background: none;
   border: 1px solid rgb(124, 117, 117);
@@ -484,6 +488,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: 16px;
+  box-sizing: border-box;
 }
 
 
@@ -814,7 +819,8 @@ body {
 
 /* Khung ngoài NOURISHING EVERY PALATE */
 .nourishing-section {
-  width: 1312px;
+  width: 100%;
+  max-width: 1312px;
   height: 648px;
   margin-top: 38px;
   margin-left: auto;
@@ -961,7 +967,8 @@ body {
 .SUBSCRIBE {
   width: 100%;
   max-width: 1312px;
-  height: 486px;
+  min-height: 440px;
+  height: auto;
   border-radius: 30px;
   margin: 80px auto 0;
   background: #ee6352;
@@ -970,6 +977,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 60px 20px;
   box-sizing: border-box;
 }
 
@@ -999,77 +1007,123 @@ body {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1078px;
+  max-width: 850px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 20px;
+  justify-content: center;
+  padding: 0;
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
+.title-decrip-SUB {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
 .SUB {
-  font-size: 18px;
-  color: #fffbf2;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  color: #ffffff;
   font-weight: 700;
-  margin-bottom: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  margin-top: 0;
 }
 
 .title-SUB {
   font-family: "Montserrat", sans-serif;
-  font-size: 80px;
-  font-weight: 700;
-  color: #fffbf2;
-  line-height: 1.05;
+  font-size: 72px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.08;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  text-align: center;
   margin: 0;
 }
 
+.sub-break-mobile {
+  display: none;
+}
+
 .decription-SUB {
-  color: #fffbf2;
-  font-size: 21px;
-  margin-top: 12px;
-  line-height: 1.3;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  max-width: 660px;
+  margin: 16px auto 0;
+  text-align: center;
 }
 
 .email-address-SUB {
   width: 100%;
-  max-width: 426px;
-  height: 50px;
-  margin-top: 36px;
-  border-radius: 24px;
-  background: #fffbf2;
+  max-width: 440px;
+  height: 52px;
+  margin-top: 32px;
+  border-radius: 50px;
+  background: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 9px 6px 24px;
+  padding: 5px 6px 5px 24px;
   box-sizing: border-box;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
 .input {
-  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
   color: #262522;
-  opacity: 0.5;
+  border: none;
+  background: transparent;
+  outline: none;
+  flex: 1;
+  min-width: 0;
+  height: 42px;
+  line-height: 42px;
+  padding: 0 10px 0 0;
   margin: 0;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.input::placeholder {
+  color: #8e8b85;
+  opacity: 1;
 }
 
 .btn-subcribe-SUB {
-  height: 38px;
-  padding: 0 20px;
+  height: 42px;
+  padding: 0 24px;
   background: #262522;
-  color: #f0ebe1;
+  color: #ffffff;
   border: none;
   border-radius: 50px;
-  font-size: 14px;
-  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
 }
 
 .btn-subcribe-SUB:hover {
-  background: #f0ebe1;
-  color: #262522;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: #000000;
+  color: #ffffff;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Doan cuoi trang Home */
@@ -1549,26 +1603,47 @@ body {
   }
  
   .navbar {
+    height: 64px;
     min-height: 64px;
     padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
  
   .logo img {
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
   }
  
   .logo span {
-    font-size: 16px;
+    font-size: 15px;
   }
  
-  .nav-links,
+  .nav-links {
+    display: flex !important;
+    gap: 16px;
+    list-style: none;
+  }
+
+  .nav-links li a {
+    font-size: 12px;
+    font-weight: 700;
+  }
+
   .nav-actions {
-    display: none;
+    display: flex !important;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .subscribe-btn {
+    padding: 10px 18px;
+    font-size: 12px;
   }
  
   .mobile-menu-btn {
-    display: flex;
+    display: none !important;
   }
  
   .cookings-container {
@@ -1956,8 +2031,8 @@ body {
     max-width: 100% !important;
     height: auto !important;
     min-height: 0 !important;
-    margin: 40px auto 0 !important;
-    padding: 44px 20px 36px !important;
+    margin: 36px auto 0 !important;
+    padding: 40px 18px 34px !important;
     border-radius: 28px !important;
     background: #ee6352 !important;
     position: relative !important;
@@ -1969,27 +2044,31 @@ body {
     justify-content: center !important;
   }
 
+  .sub-break-mobile {
+    display: inline !important;
+  }
+
   .Oval-top-SUB,
   .Oval-bottom-SUB {
     position: absolute !important;
     border-radius: 50% !important;
     background: #ff6653 !important;
     pointer-events: none !important;
-    opacity: 0.8 !important;
+    opacity: 0.7 !important;
   }
 
   .Oval-top-SUB {
     width: 160% !important;
-    height: 350px !important;
-    top: -240px !important;
+    height: 320px !important;
+    top: -200px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
   }
 
   .Oval-bottom-SUB {
     width: 160% !important;
-    height: 350px !important;
-    bottom: -220px !important;
+    height: 320px !important;
+    bottom: -190px !important;
     top: auto !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
@@ -2019,17 +2098,17 @@ body {
     font-size: 13px !important;
     font-weight: 700 !important;
     letter-spacing: 1.5px !important;
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: #ffffff !important;
     text-transform: uppercase !important;
-    margin-bottom: 10px !important;
+    margin: 0 0 12px 0 !important;
   }
 
   .title-SUB {
     font-family: 'Montserrat', sans-serif !important;
-    font-size: clamp(32px, 8.5vw, 42px) !important;
+    font-size: clamp(34px, 9vw, 44px) !important;
     font-weight: 800 !important;
     color: #ffffff !important;
-    line-height: 1.08 !important;
+    line-height: 1.05 !important;
     text-align: center !important;
     text-transform: uppercase !important;
     margin: 0 0 16px 0 !important;
@@ -2037,24 +2116,25 @@ body {
   }
 
   .decription-SUB {
-    font-size: 13.5px !important;
-    line-height: 1.45 !important;
-    color: rgba(255, 255, 255, 0.85) !important;
-    max-width: 320px !important;
-    margin: 0 auto 28px !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    color: #ffffff !important;
+    opacity: 0.95 !important;
+    max-width: 290px !important;
+    margin: 0 auto 26px !important;
     text-align: center !important;
   }
 
   .email-address-SUB {
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 320px !important;
     height: auto !important;
-    margin-top: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    margin: 0 auto !important;
     padding: 0 !important;
     background: transparent !important;
     border-radius: 0 !important;
+    box-shadow: none !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -2063,29 +2143,47 @@ body {
   }
 
   .email-address-SUB .input,
+  .email-address-SUB input.input,
+  input.input-sub-email,
   .input {
     width: 100% !important;
-    max-width: 360px !important;
-    height: 52px !important;
-    background: #eae5dd !important;
+    max-width: 320px !important;
+    height: 50px !important;
+    min-height: 50px !important;
+    max-height: 50px !important;
+    line-height: 50px !important;
+    background: #ede8dc !important;
     border-radius: 50px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: flex-start !important;
-    padding: 0 24px !important;
+    padding: 0 22px !important;
     font-size: 14.5px !important;
-    color: #8a8985 !important;
+    color: #262522 !important;
     opacity: 1 !important;
     margin: 0 !important;
     border: none !important;
+    outline: none !important;
     box-sizing: border-box !important;
-    font-family: inherit !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    font-family: 'Roboto', sans-serif !important;
+    text-align: left !important;
+  }
+
+  .email-address-SUB input.input::placeholder,
+  .input::placeholder {
+    color: #949088 !important;
+    opacity: 1 !important;
   }
 
   .btn-subcribe-SUB {
     width: 100% !important;
-    max-width: 360px !important;
-    height: 52px !important;
+    max-width: 320px !important;
+    height: 50px !important;
+    min-height: 50px !important;
+    max-height: 50px !important;
+    line-height: 50px !important;
     background: #262522 !important;
     color: #ffffff !important;
     border-radius: 50px !important;
@@ -2094,17 +2192,19 @@ body {
     justify-content: center !important;
     font-size: 13.5px !important;
     font-weight: 700 !important;
-    letter-spacing: 1px !important;
+    letter-spacing: 0.8px !important;
     border: none !important;
     cursor: pointer !important;
     margin: 0 !important;
     padding: 0 !important;
     box-sizing: border-box !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
     transition: transform 0.2s ease, opacity 0.2s ease !important;
   }
 
   .btn-subcribe-SUB:hover {
-    background: #1a1917 !important;
+    background: #000000 !important;
     color: #ffffff !important;
     transform: none !important;
   }
@@ -2284,8 +2384,8 @@ body {
   display: none;
 }
  
-/* ---------- 1. GIAO DIỆN MOBILE CHÍNH (<= 768px) ---------- */
-@media (max-width: 768px) {
+/* ---------- 1. GIAO DIỆN MOBILE CHÍNH (<= 767px) ---------- */
+@media (max-width: 767px) {
   .nav-links,
   .nav-actions {
     display: none !important;
