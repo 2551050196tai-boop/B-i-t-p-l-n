@@ -46,6 +46,10 @@ document.addEventListener("DOMContentLoaded", () => {
       mobileMenuOverlay.setAttribute("aria-hidden", "true");
 
       document.body.classList.remove("mobile-menu-open");
+
+      if (typeof window.closeMobileSearch === "function") {
+        window.closeMobileSearch();
+      }
     }
 
     // Bấm ra bên ngoài panel -> đóng menu
@@ -62,15 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
         closeMobileMenu();
       });
     });
-
-    // Bấm nút tìm kiếm trong mobile menu -> chuyển đến RECIPES
-    const mobileSearchBtn = document.querySelector(".mobile-search-btn");
-    if (mobileSearchBtn) {
-      mobileSearchBtn.addEventListener("click", () => {
-        closeMobileMenu();
-        window.location.href = "RECIPES.html";
-      });
-    }
 
     // Nhấn phím ESC -> đóng menu
     document.addEventListener("keydown", (e) => {
