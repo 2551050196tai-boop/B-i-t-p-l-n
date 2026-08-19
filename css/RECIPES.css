@@ -786,7 +786,7 @@ body {
 
   .mobile-menu-links a:hover,
   .mobile-menu-links a.active {
-    color: #fff;
+    color: orange;
     padding-left: 13px;
   }
 

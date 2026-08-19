@@ -443,7 +443,7 @@ body {
 
 .info {
   width: 1312px;        /* Dùng max-width thay vì width cố định để co giãn tốt trên mọi màn hình */
-  height: 1144;
+  height: 1144px;
   border-radius: 32px;
   margin-top: 16px;
   margin-left: auto;
@@ -1305,7 +1305,7 @@ body {
 
   .mobile-menu-links a:hover,
   .mobile-menu-links a.active {
-    color: #fff;
+    color: orange;
     padding-left: 13px;
   }
 
@@ -1544,3 +1544,1325 @@ body {
     }
 }
 
+/* =========================================================
+   RESPONSIVE SYSTEM - ABOUT US
+   Mobile / Tablet / Desktop / Extra Large
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL RESPONSIVE FIX
+   ========================================================= */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* Các container chính */
+.welcome-container,
+.info,
+.featured-section,
+.SUBSCRIBE,
+.footer {
+  width: calc(100% - 48px);
+  max-width: 1312px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Sửa lỗi height không có đơn vị */
+.info {
+  height: auto;
+}
+
+
+/* =========================================================
+   1. EXTRA LARGE - >= 1440px
+   ========================================================= */
+
+@media (min-width: 1440px) {
+
+  body {
+    padding: 40px;
+  }
+
+  .navbar {
+    width: calc(100% - 80px);
+    max-width: 1312px;
+  }
+
+  .welcome-container {
+    width: calc(100% - 80px);
+    max-width: 1312px;
+  }
+
+  .info {
+    width: calc(100% - 80px);
+    max-width: 1312px;
+  }
+
+  .featured-section {
+    width: calc(100% - 80px);
+    max-width: 1312px;
+  }
+
+  .SUBSCRIBE {
+    width: calc(100% - 80px);
+    max-width: 1312px;
+  }
+
+  .footer {
+    width: calc(100% - 80px);
+    max-width: 1313px;
+  }
+
+  /* Welcome */
+  .welcome-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+
+  .welcome-title {
+    width: 100%;
+    max-width: 648px;
+    font-size: clamp(64px, 5vw, 80px);
+  }
+
+  .welcome-description {
+    max-width: 600px;
+  }
+
+  /* Info */
+  .info-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .info-title {
+    font-size: clamp(32px, 3vw, 40px);
+  }
+
+  /* Recipe */
+  .recipe-card {
+    width: 632px;
+  }
+
+  /* Subscribe */
+  .content-SUB {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+}
+
+
+/* =========================================================
+   2. DESKTOP - 1024px -> 1439px
+   ========================================================= */
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+
+  body {
+    padding: 24px;
+  }
+
+  /* ================= NAVBAR ================= */
+
+  .navbar {
+    width: 100%;
+    max-width: 1312px;
+    margin-top: 0;
+  }
+
+  .nav-links {
+    gap: clamp(16px, 2vw, 32px);
+  }
+
+  .nav-actions {
+    gap: 10px;
+  }
+
+  .subscribe-btn {
+    padding: 11px 20px;
+  }
+
+
+  /* ================= WELCOME ================= */
+
+  .welcome-container {
+    width: 100%;
+    height: auto;
+    min-height: 240px;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+
+    gap: 30px;
+
+    margin-top: 70px;
+  }
+
+  .welcome-title {
+    width: 100%;
+    height: auto;
+    font-size: clamp(52px, 6vw, 72px);
+    line-height: 0.98;
+  }
+
+  .welcome-description {
+    margin-top: 20px;
+    font-size: clamp(17px, 1.7vw, 21px);
+  }
+
+  .welcome-button {
+    margin-top: 28px;
+  }
+
+
+  /* ================= INFO ================= */
+
+  .info {
+    width: 100%;
+    padding: 28px;
+    margin-top: 24px;
+  }
+
+  .info-container {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .info-title {
+    font-size: clamp(28px, 3.2vw, 40px);
+  }
+
+  .info-description {
+    font-size: 15px;
+  }
+
+  .info-gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .info-gallery img {
+    height: 180px;
+  }
+
+
+  /* ================= FEATURED ================= */
+
+  .featured-section {
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    padding: 32px 20px 24px;
+  }
+
+  .featured-title {
+    font-size: clamp(28px, 3vw, 40px);
+  }
+
+  .featured-cards {
+    gap: 16px;
+  }
+
+  .recipe-card {
+    width: min(632px, 75vw);
+  }
+
+  .recipe-image {
+    height: 220px;
+  }
+
+
+  /* ================= SUBSCRIBE ================= */
+
+  .SUBSCRIBE {
+    width: 100%;
+    height: 450px;
+    margin-top: 60px;
+  }
+
+  .content-SUB {
+    width: 90%;
+    max-width: 1078px;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    margin-top: 55px;
+  }
+
+  .title-decrip-SUB {
+    width: 100%;
+  }
+
+  .title-SUB {
+    font-size: clamp(50px, 6vw, 76px);
+  }
+
+  .decription-SUB {
+    font-size: clamp(16px, 1.7vw, 21px);
+  }
+
+  .email-address-SUB {
+    width: min(426px, 70%);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  /* ================= FOOTER ================= */
+
+  .footer {
+    width: 100%;
+    height: auto;
+    min-height: 136px;
+  }
+
+}
+
+
+/* =========================================================
+   3. TABLET - 768px -> 1023px
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  body {
+    padding: 20px;
+  }
+
+
+  /* ================= NAVBAR ================= */
+
+  .navbar {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+    padding: 10px 16px;
+
+    height: 64px;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .nav-links li a {
+    font-size: 12px;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .subscribe-btn {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+
+  /*
+     Tablet vẫn sử dụng navbar desktop.
+     Không bật hamburger ở tablet.
+  */
+
+
+  /* ================= WELCOME ================= */
+
+  .welcome-container {
+    width: 100%;
+    height: auto;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 24px;
+
+    margin-top: 60px;
+  }
+
+  .welcome-title {
+    width: 100%;
+    height: auto;
+
+    font-size: clamp(42px, 6vw, 62px);
+    line-height: 0.98;
+  }
+
+  .welcome-description {
+    margin-top: 5px;
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .welcome-button {
+    margin-top: 24px;
+    padding: 11px 25px;
+  }
+
+
+  /* ================= INFO ================= */
+
+  .info {
+    width: 100%;
+    padding: 20px;
+
+    margin-top: 20px;
+  }
+
+  .info-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .info-title {
+    font-size: clamp(24px, 3.5vw, 34px);
+  }
+
+  .info-description {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .follow_me {
+    padding: 10px 16px;
+  }
+
+  .social-icons {
+    gap: 10px;
+  }
+
+  .info-gallery {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 40px;
+  }
+
+  .info-gallery img {
+    height: 130px;
+    border-radius: 16px;
+  }
+
+
+  /* ================= FEATURED ================= */
+
+  .featured-section {
+    width: 100%;
+    height: auto;
+    min-height: 450px;
+
+    padding: 28px 16px 20px;
+  }
+
+  .featured-title {
+    font-size: 30px;
+    margin: 0;
+  }
+
+  .featured-cards {
+    gap: 14px;
+  }
+
+  .recipe-card {
+    width: 72vw;
+    max-width: 550px;
+  }
+
+  .recipe-image {
+    height: 190px;
+  }
+
+  .recipe-info {
+    padding: 18px;
+  }
+
+  .recipe-title {
+    font-size: 21px;
+  }
+
+  .recipe-description {
+    font-size: 14px;
+  }
+
+
+  /* ================= SUBSCRIBE ================= */
+
+  .SUBSCRIBE {
+    width: 100%;
+    height: 400px;
+
+    margin-top: 50px;
+  }
+
+  .content-SUB {
+    width: 90%;
+    height: auto;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    margin-top: 48px;
+  }
+
+  .title-decrip-SUB {
+    width: 100%;
+    height: auto;
+  }
+
+  .SUB {
+    font-size: 16px;
+  }
+
+  .title-SUB {
+    font-size: clamp(42px, 6vw, 60px);
+  }
+
+  .decription-SUB {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .decription-SUB br {
+    display: none;
+  }
+
+  .email-address-SUB {
+    width: min(426px, 80%);
+    margin: 35px auto 0;
+  }
+
+
+  /* ================= FOOTER ================= */
+
+  .footer {
+    width: 100%;
+    height: auto;
+
+    padding: 22px 24px;
+  }
+
+  .footer-container {
+    gap: 20px;
+  }
+
+  .footer-menu {
+    gap: 18px;
+  }
+
+  .footer-menu a {
+    font-size: 12px;
+  }
+
+  .foot-mxh {
+    gap: 10px;
+  }
+
+}
+
+
+/* =========================================================
+   4. MOBILE - <= 767px
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  body {
+    padding: 12px !important;
+  }
+
+
+  /* =======================================================
+     NAVBAR
+     ======================================================= */
+
+  .navbar {
+    width: 100% !important;
+    max-width: none !important;
+
+    height: 58px !important;
+    max-height: none !important;
+
+    margin: 0 !important;
+
+    padding: 8px 12px !important;
+
+    border-radius: 24px;
+  }
+
+  .logo {
+    gap: 7px;
+  }
+
+  .logo img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .logo span {
+    font-size: 14px;
+  }
+
+
+  /* =======================================================
+     WELCOME
+     ======================================================= */
+
+  .welcome-container {
+    width: 100% !important;
+
+    height: auto !important;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+    margin-top: 50px;
+  }
+
+  .welcome-title {
+    width: 100% !important;
+    height: auto !important;
+
+    font-size: clamp(42px, 12vw, 64px);
+
+    line-height: 0.95;
+
+    letter-spacing: -0.02em;
+  }
+
+  .welcome-right {
+    width: 100%;
+  }
+
+  .welcome-description {
+    width: 100%;
+
+    margin-top: 0;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+  }
+
+  .welcome-button {
+    margin-top: 22px;
+
+    padding: 11px 24px;
+
+    font-size: 13px;
+  }
+
+
+  /* =======================================================
+     INFO
+     ======================================================= */
+
+  .info {
+    width: 100% !important;
+
+    height: auto !important;
+
+    padding: 16px !important;
+
+    margin-top: 24px;
+
+    border-radius: 24px;
+  }
+
+  .info-container {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 28px;
+  }
+
+  .info-left,
+  .info-right {
+    width: 100%;
+  }
+
+
+  /* IMAGE */
+
+  .info-picture img {
+    width: 100%;
+    height: auto;
+
+    border-radius: 18px;
+  }
+
+
+  /* FOLLOW ME */
+
+  .follow_me {
+    width: 100%;
+
+    padding: 11px 16px;
+
+    font-size: 12px;
+  }
+
+  .social-icons {
+    gap: 12px;
+  }
+
+  .social-icons img {
+    width: 18px;
+    height: 18px;
+  }
+
+
+  /* TITLE */
+
+  .info-title {
+    font-size: clamp(26px, 8vw, 36px);
+
+    line-height: 1.05;
+  }
+
+
+  /* DESCRIPTION */
+
+  .info-description {
+    font-size: 15px;
+
+    line-height: 1.55;
+
+    gap: 14px;
+  }
+
+  .signature {
+    font-size: 20px;
+  }
+
+
+  /* =======================================================
+     GALLERY
+     ======================================================= */
+
+  .info-gallery {
+    margin-top: 35px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+  }
+
+  .info-gallery img {
+    width: 100%;
+    height: 150px;
+
+    border-radius: 16px;
+  }
+
+
+  /* =======================================================
+     SIMILAR RECIPES / API
+     ======================================================= */
+
+  .featured-section {
+    width: 100% !important;
+
+    height: auto !important;
+
+    min-height: 0;
+
+    margin-top: 24px;
+
+    padding: 22px 12px 18px;
+
+    border-radius: 22px;
+  }
+
+  .featured-header {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+  }
+
+  .featured-title {
+    flex: 1;
+
+    min-width: 0;
+
+    margin: 0 !important;
+
+    font-size: clamp(24px, 7vw, 32px);
+
+    line-height: 1;
+  }
+
+  .featured-nav {
+    flex-shrink: 0;
+
+    display: flex;
+
+    gap: 5px;
+  }
+
+  .featured-nav .nav-arrow {
+    width: 32px !important;
+    height: 32px !important;
+
+    min-width: 32px !important;
+    min-height: 32px !important;
+
+    flex: 0 0 32px !important;
+  }
+
+  .featured-nav .nav-arrow img {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+
+  /* API CARDS */
+
+  .featured-cards {
+    width: 100%;
+
+    display: flex;
+
+    gap: 12px;
+
+    overflow-x: auto;
+
+    scroll-snap-type: x mandatory;
+
+    padding-bottom: 8px;
+  }
+
+  .recipe-card {
+    width: calc(100vw - 64px) !important;
+
+    max-width: none;
+
+    min-width: calc(100vw - 64px) !important;
+
+    flex: 0 0 calc(100vw - 64px) !important;
+
+    scroll-snap-align: start;
+
+    border-radius: 20px;
+  }
+
+  .recipe-image {
+    width: 100%;
+
+    height: 190px;
+
+    border-radius: 20px 20px 0 0;
+  }
+
+  .recipe-badge {
+    right: 14px;
+    bottom: 10px;
+  }
+
+  .recipe-badge img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .recipe-info {
+    padding: 18px;
+  }
+
+  .recipe-title {
+    font-size: 20px;
+
+    line-height: 1.2;
+  }
+
+  .recipe-description {
+    font-size: 14px;
+
+    line-height: 1.45;
+
+    margin-bottom: 18px;
+  }
+
+  .recipe-meta {
+    font-size: 11px;
+  }
+
+  .btn-viewrecipe {
+    min-width: 110px;
+
+    height: 36px;
+
+    padding: 0 18px;
+
+    font-size: 12px;
+  }
+
+
+  /* =======================================================
+     SUBSCRIBE
+     ======================================================= */
+
+  .SUBSCRIBE {
+    width: 100% !important;
+
+    height: 420px;
+
+    margin-top: 50px;
+
+    border-radius: 24px;
+  }
+
+  .content-SUB {
+    width: calc(100% - 32px);
+
+    height: auto;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    margin-top: 48px;
+
+    overflow: visible;
+  }
+
+  .title-decrip-SUB {
+    width: 100%;
+
+    height: auto;
+  }
+
+  .SUB {
+    font-size: 15px;
+  }
+
+  .title-SUB {
+    width: 100%;
+
+    font-size: clamp(36px, 10vw, 54px);
+
+    line-height: 0.98;
+  }
+
+  .decription-SUB {
+    width: 100%;
+
+    font-size: 15px;
+
+    line-height: 1.4;
+
+    margin-top: 16px;
+  }
+
+  .decription-SUB br {
+    display: none;
+  }
+
+
+  /* EMAIL */
+
+  .email-address-SUB {
+    width: 100% !important;
+
+    max-width: 426px;
+
+    height: 50px;
+
+    margin: 35px auto 0 !important;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding-left: 18px;
+
+    padding-right: 6px;
+
+    border-radius: 30px;
+  }
+
+  .input {
+    margin: 0 !important;
+
+    font-size: 15px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+  }
+
+  .btn-subcribe-SUB {
+    flex-shrink: 0;
+
+    width: 112px;
+
+    height: 38px;
+
+    margin: 0 !important;
+
+    font-size: 12px;
+  }
+
+
+  /* =======================================================
+     SUBSCRIBE OVAL
+     ======================================================= */
+
+  .Oval-top-SUB {
+    width: 150%;
+    height: 65%;
+
+    top: -35%;
+    left: -25%;
+  }
+
+  .Oval-bottom-SUB {
+    width: 150%;
+    height: 65%;
+
+    top: 70%;
+    left: -25%;
+  }
+
+
+  /* =======================================================
+     FOOTER
+     ======================================================= */
+
+  .footer {
+    width: 100% !important;
+
+    height: auto;
+
+    min-height: 0;
+
+    margin-top: 24px;
+
+    padding: 24px 18px;
+
+    border-radius: 24px;
+  }
+
+  .footer-container {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 24px;
+
+    margin-bottom: 20px;
+  }
+
+  .footer-logo {
+    justify-content: center;
+  }
+
+  .footer-menu {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 14px 20px;
+  }
+
+  .footer-menu a {
+    font-size: 12px;
+  }
+
+  .foot-mxh {
+    justify-content: center;
+
+    gap: 16px;
+  }
+
+  .footer hr {
+    margin: 20px 0 14px;
+  }
+
+  .footer-bottom p {
+    font-size: 10px;
+  }
+
+}
+
+
+/* =========================================================
+   5. EXTRA SMALL MOBILE - <= 380px
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  body {
+    padding: 8px !important;
+  }
+
+  .navbar {
+    height: 56px !important;
+  }
+
+  .logo img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .logo span {
+    font-size: 13px;
+  }
+
+
+  /* WELCOME */
+
+  .welcome-container {
+    margin-top: 40px;
+  }
+
+  .welcome-title {
+    font-size: 40px;
+  }
+
+  .welcome-description {
+    font-size: 14px;
+  }
+
+
+  /* INFO */
+
+  .info {
+    padding: 12px !important;
+  }
+
+  .info-title {
+    font-size: 25px;
+  }
+
+  .info-description {
+    font-size: 14px;
+  }
+
+  .info-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .info-gallery img {
+    height: 120px;
+  }
+
+
+  /* RECIPE */
+
+  .featured-section {
+    padding: 18px 10px;
+  }
+
+  .featured-title {
+    font-size: 23px;
+  }
+
+  .recipe-card {
+    width: calc(100vw - 48px) !important;
+    min-width: calc(100vw - 48px) !important;
+    flex-basis: calc(100vw - 48px) !important;
+  }
+
+  .recipe-image {
+    height: 170px;
+  }
+
+
+  /* SUBSCRIBE */
+
+  .SUBSCRIBE {
+    height: 400px;
+  }
+
+  .content-SUB {
+    margin-top: 42px;
+  }
+
+  .SUB {
+    font-size: 13px;
+  }
+
+  .title-SUB {
+    font-size: 34px;
+  }
+
+  .decription-SUB {
+    font-size: 13px;
+  }
+
+  .email-address-SUB {
+    height: 46px;
+
+    padding-left: 15px;
+  }
+
+  .input {
+    font-size: 13px;
+  }
+
+  .btn-subcribe-SUB {
+    width: 100px;
+    height: 34px;
+
+    font-size: 11px;
+  }
+
+}
+
+
+/* =========================================================
+   6. LANDSCAPE MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) and (orientation: landscape) {
+
+  .welcome-container {
+    margin-top: 35px;
+  }
+
+  .welcome-title {
+    font-size: 42px;
+  }
+
+  .info-container {
+    flex-direction: row;
+  }
+
+  .info-left,
+  .info-right {
+    width: 50%;
+  }
+
+  .info-gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .info-gallery img {
+    height: 100px;
+  }
+
+  .SUBSCRIBE {
+    height: 360px;
+  }
+
+  .title-SUB {
+    font-size: 42px;
+  }
+
+}
+
+
+/* =========================================================
+   7. ACCESSIBILITY / TOUCH
+   ========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+  .welcome-title:hover,
+  .featured-title:hover,
+  .title-SUB:hover,
+  .info-title h3:hover,
+  .welcome-description:hover,
+  .decription-SUB:hover,
+  .info-description p:hover,
+  .welcome-button:hover,
+  .SUB:hover,
+  .signature:hover {
+    transform: none;
+    text-shadow: none;
+  }
+
+  .info-gallery img:hover,
+  .info-picture img:hover,
+  .recipe-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+}
+
+
+/* =========================================================
+   8. PREVENT LONG TEXT FROM BREAKING LAYOUT
+   ========================================================= */
+
+.welcome-description,
+.info-description,
+.recipe-description,
+.decription-SUB {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   9. FIX FLEX OVERFLOW
+   ========================================================= */
+
+.welcome-container > *,
+.info-container > *,
+.featured-header > *,
+.footer-container > * {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   10. API LOADING / EMPTY STATE
+   ========================================================= */
+
+.featured-cards:empty::before {
+  content: "Loading recipes...";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 180px;
+
+  color: #777;
+
+  font-size: 15px;
+}
