@@ -215,6 +215,19 @@
       font-size: 9.5pt;
     }
 
+    table code {
+      word-break: break-all;
+      font-size: 8.5pt;
+      line-height: 1.25;
+      display: inline-block;
+    }
+
+    .table-compact th, .table-compact td {
+      padding: 3px 5px;
+      font-size: 9.8pt;
+      line-height: 1.35;
+    }
+
     pre {
       background-color: #f8fafc;
       border: 1px solid #cbd5e1;
@@ -383,50 +396,50 @@
         <h1>KHAI BÁO SỬ DỤNG AI & THÔNG TIN NỘP BÀI</h1>
 
         <div class="table-caption">Bảng 0.2: Khai báo sử dụng công cụ trí tuệ nhân tạo</div>
-        <table>
+        <table class="table-compact">
           <thead>
             <tr>
-              <th style="width: 28%;">Phần việc</th>
-              <th style="width: 16%;">Công cụ</th>
-              <th style="width: 26%;">Mức độ hỗ trợ</th>
-              <th style="width: 30%;">Nhóm đã kiểm chứng và chỉnh sửa</th>
+              <th style="width: 26%;">Phần việc</th>
+              <th style="width: 17%;">Công cụ</th>
+              <th style="width: 25%;">Mức độ hỗ trợ</th>
+              <th style="width: 32%;">Nhóm đã kiểm chứng và chỉnh sửa</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><strong>Hoạt họa Chuông YouTube & Hộp Subscribe</strong></td>
-              <td style="text-align: center;">ChatGPT / AI Assistant</td>
-              <td>Gợi ý khung hiệu ứng rung lắc CSS @keyframes và pháo hoa</td>
-              <td>Viết lại theo cấu trúc DOM riêng, tối ưu hóa sự kiện đóng/mở modal, bổ sung bẫy phím và kiểm tra bàn phím trên 3 trình duyệt</td>
+              <td style="text-align: center;">ChatGPT / AI</td>
+              <td>Gợi ý khung hiệu ứng rung lắc CSS @keyframes</td>
+              <td>Tự viết lại DOM riêng, tối ưu hóa sự kiện modal, bẫy phím và kiểm tra trên 3 trình duyệt</td>
             </tr>
             <tr>
               <td><strong>Hệ thống Universal Dark Mode</strong></td>
               <td style="text-align: center;">AI Assistant</td>
-              <td>Gợi ý cấu trúc biến CSS và đảo màu bộ nhận diện</td>
-              <td>Tự thiết kế bảng màu Warm Charcoal cao cấp (#171614, #23211e, #ede8dc), đồng bộ lớp .dark-theme toàn cục và lưu trữ localStorage</td>
+              <td>Gợi ý cấu trúc biến CSS và đảo màu giao diện</td>
+              <td>Tự thiết kế bảng màu Warm Charcoal (#171614, #23211e, #ede8dc), đồng bộ lớp .dark-theme và lưu localStorage</td>
             </tr>
             <tr>
               <td><strong>Thuật toán bù 6 thẻ món ăn mục Embark</strong></td>
               <td style="text-align: center;">AI Assistant</td>
               <td>Gợi ý cấu trúc lọc dữ liệu JavaScript</td>
-              <td>Tự viết hàm kiểm tra số lượng và lấy bù thẻ từ tập dữ liệu dự phòng đảm bảo luôn hiển thị đủ 6 card cân đối trên mọi màn hình</td>
+              <td>Tự viết hàm kiểm tra số lượng và lấy bù từ mảng dự phòng đảm bảo luôn đủ 6 card cân đối trên mọi màn hình</td>
             </tr>
             <tr>
               <td><strong>Nội dung Chương 1 và Chương 6</strong></td>
               <td style="text-align: center;">Không sử dụng</td>
               <td style="text-align: center;">—</td>
-              <td>Nhóm tự nghiên cứu, tổng kết và viết toàn bộ</td>
+              <td>Nhóm tự nghiên cứu, khảo sát thực tế và biên soạn toàn bộ</td>
             </tr>
           </tbody>
         </table>
 
-        <div class="table-caption" style="margin-top: 15px;">Bảng 0.3: Thông tin sản phẩm nộp kèm</div>
-        <table>
+        <div class="table-caption" style="margin-top: 10px;">Bảng 0.3: Thông tin sản phẩm nộp kèm</div>
+        <table class="table-compact">
           <thead>
             <tr>
-              <th style="width: 30%;">Hạng mục</th>
-              <th style="width: 40%;">Đường dẫn / Mô tả</th>
-              <th style="width: 30%;">Ghi chú</th>
+              <th style="width: 26%;">Hạng mục</th>
+              <th style="width: 48%;">Đường dẫn / Mô tả</th>
+              <th style="width: 26%;">Ghi chú</th>
             </tr>
           </thead>
           <tbody>
@@ -447,8 +460,8 @@
             </tr>
             <tr>
               <td><strong>Sản phẩm đã triển khai</strong></td>
-              <td><code>nauancungminh.netlify.app</code></td>
-              <td>netlify, tự động CI/CD dựng từ nhánh main</td>
+              <td><code>https://nauancungminh.netlify.app</code></td>
+              <td>Netlify, tự động CI/CD dựng từ main</td>
             </tr>
             <tr>
               <td><strong>File Figma của đề</strong></td>
@@ -458,12 +471,12 @@
             <tr>
               <td><strong>Video demo</strong></td>
               <td><code>https://drive.google.com/file/d/1OvlI4My7n3YgJrqPPQtDaB-aCx7LYcrc/view?usp=sharing</code></td>
-              <td>Video demo tính năng (5 phút), quyền xem công khai</td>
+              <td>Video demo tính năng (5 phút), xem công khai</td>
             </tr>
             <tr>
               <td><strong>Đối chiếu thiết kế ↔ sản phẩm</strong></td>
               <td>Mục 5.1 của báo cáo này</td>
-              <td>5 trang giao diện chính được đối chiếu chi tiết</td>
+              <td>5 trang giao diện được đối chiếu chi tiết</td>
             </tr>
           </tbody>
         </table>
@@ -1248,6 +1261,8 @@ function toggleTheme() {
             "body {font-family: 'Times New Roman', serif; font-size: 12.5pt; line-height: 1.4;}" +
             "table {border-collapse: collapse; width: 100%; margin: 8pt 0; font-size: 10.5pt;}" +
             "table, th, td {border: 1px solid black;}" +
+            "table code {font-size: 8.5pt;}" +
+            ".table-compact th, .table-compact td {padding: 2.5pt 4pt; font-size: 9.5pt;}" +
             "th {background-color: #f3f4f6; font-weight: bold; padding: 4pt; text-align: center;}" +
             "td {padding: 3pt 5pt;}" +
             "h1 {font-size: 15pt; font-weight: bold; text-transform: uppercase; margin-top: 14pt; margin-bottom: 6pt; text-align: center;}" +
