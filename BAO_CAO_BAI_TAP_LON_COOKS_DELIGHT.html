@@ -306,14 +306,24 @@
     /* Signatures */
     .signature-section {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       margin-top: 10pt;
     }
 
     .signature-box-right {
       text-align: center;
-      width: 52%;
+      width: 48%;
       margin-left: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .signature-box-right p {
+      text-align: center !important;
+      text-indent: 0 !important;
+      width: 100%;
     }
 
     .signature-space {
@@ -474,11 +484,11 @@
         <p class="no-indent" style="letter-spacing: 2px; color: #333; margin: 6px 0;">...........................................................................................................................................</p>
 
         <div class="signature-section" style="margin-top: 40px;">
-          <div class="signature-box-right">
-            <p class="no-indent" style="font-style: italic; margin-bottom: 3px;">TP. HCM, ngày ..... tháng ..... năm 2026</p>
-            <p class="no-indent" style="font-weight: bold; margin-bottom: 3px;">Giảng viên hướng dẫn</p>
-            <p class="no-indent" style="font-style: italic; margin-bottom: 45px;">(ký và ghi rõ họ tên)</p>
-            <p class="no-indent" style="font-weight: bold;">Thầy Võ Việt Khoa</p>
+          <div class="signature-box-right" style="text-align: center; width: 45%; margin-left: auto; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <p class="no-indent" style="text-align: center; font-style: italic; margin: 0 0 3px; width: 100%;">TP. HCM, ngày ..... tháng ..... năm 2026</p>
+            <p class="no-indent" style="text-align: center; font-weight: bold; margin: 0 0 3px; width: 100%;">Giảng viên hướng dẫn</p>
+            <p class="no-indent" style="text-align: center; font-style: italic; margin: 0 0 45px; width: 100%;">(ký và ghi rõ họ tên)</p>
+            <p class="no-indent" style="text-align: center; font-weight: bold; margin: 0; width: 100%;">Thầy Võ Việt Khoa</p>
           </div>
         </div>
       </div>
@@ -532,13 +542,13 @@
         </table>
 
         <div class="signature-section" style="margin-top: 10px;">
-          <div class="signature-box-right">
-            <p class="no-indent" style="font-weight: bold; margin-bottom: 2px;">Nhóm thực hiện</p>
-            <p class="no-indent" style="font-style: italic; margin-bottom: 4px;">(ký và ghi rõ họ tên)</p>
-            <div style="height: 36px; display: flex; align-items: center; justify-content: center;">
-              <img src="assets/picture/signature-tai.png" alt="Chữ ký Đỗ Đức Tài" style="max-height: 34px; max-width: 90px;" />
+          <div class="signature-box-right" style="text-align: center; width: 45%; margin-left: auto; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <p class="no-indent" style="text-align: center; font-weight: bold; margin: 0 0 2px; width: 100%;">Nhóm thực hiện</p>
+            <p class="no-indent" style="text-align: center; font-style: italic; margin: 0 0 4px; width: 100%;">(ký và ghi rõ họ tên)</p>
+            <div style="height: 38px; display: flex; align-items: center; justify-content: center; width: 100%; margin: 2px 0;">
+              <img src="assets/picture/signature-tai.png" alt="Chữ ký Đỗ Đức Tài" style="max-height: 36px; max-width: 90px; display: block; margin: 0 auto;" />
             </div>
-            <p class="no-indent" style="font-weight: bold; margin-top: 3px;">Đỗ Đức Tài</p>
+            <p class="no-indent" style="text-align: center; font-weight: bold; margin: 4px 0 0; width: 100%;">Đỗ Đức Tài</p>
           </div>
         </div>
       </div>
@@ -587,7 +597,7 @@
             </tr>
             <tr>
               <td><strong>Video demo</strong></td>
-              <td><code>https://drive.google.com/file/d/1OvlI4My7n3YgJrqPPQtDaB-aCx7LYcrc/view?usp=sharing</code></td>
+              <td><code>https://drive.google.com/file/d/1CEjeZLVOKidD_4KDAcykwIGmHnGSTJOa/view?usp=sharing</code></td>
               <td>Video demo tính năng (5 phút), xem công khai</td>
             </tr>
             <tr>
@@ -618,7 +628,7 @@
               <td><code>user-dock.js</code><br><code>recipe-detail.js</code><br><code>search.js</code><br><code>api.js</code></td>
               <td style="text-align: center; font-weight: bold;">50%</td>
               <td style="text-align: center; vertical-align: middle; padding: 2px;">
-                <img src="assets/picture/signature-tai.png" alt="Chữ ký Đỗ Đức Tài" style="max-height: 26px; max-width: 60px; display: inline-block; vertical-align: middle;" />
+                <img src="assets/picture/signature-tai.png" alt="Chữ ký Đỗ Đức Tài" style="max-height: 28px; max-width: 65px; display: inline-block; vertical-align: middle;" />
               </td>
             </tr>
             <tr>
@@ -627,7 +637,9 @@
               <td>Carousel món ăn nổi bật, Lọc Embark 6 món, Menu cuộn trượt Navbar</td>
               <td><code>home.js</code><br><code>navbar.js</code><br><code>mobile-menu.js</code></td>
               <td style="text-align: center; font-weight: bold;">25%</td>
-              <td></td>
+              <td style="text-align: center; vertical-align: middle; padding: 2px;">
+                <img src="assets/picture/signature-khoa.png" alt="Chữ ký Lê Đăng Khoa" style="max-height: 28px; max-width: 65px; display: inline-block; vertical-align: middle;" />
+              </td>
             </tr>
             <tr>
               <td><strong>Nguyễn Đức Thuận</strong></td>
@@ -635,7 +647,9 @@
               <td>Lọc công thức đa tiêu chí, Thuật toán phân trang 15 món/trang (Pagination)</td>
               <td><code>recipes.js</code><br><code>RECIPES.css</code><br><code>COOKINGS TIPS.css</code></td>
               <td style="text-align: center; font-weight: bold;">25%</td>
-              <td></td>
+              <td style="text-align: center; vertical-align: middle; padding: 2px;">
+                <img src="assets/picture/signature-thuan.png" alt="Chữ ký Nguyễn Đức Thuận" style="max-height: 28px; max-width: 65px; display: inline-block; vertical-align: middle;" />
+              </td>
             </tr>
           </tbody>
         </table>
