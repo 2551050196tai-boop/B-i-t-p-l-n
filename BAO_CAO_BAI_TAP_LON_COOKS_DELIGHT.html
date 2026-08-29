@@ -3,36 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BÁO CÁO BÀI TẬP LỚN 20 TRANG - MÔN THIẾT KẾ WEB - COOKS DELIGHT</title>
+  <title>BÁO CÁO BÀI TẬP LỚN - MÔN THIẾT KẾ WEB - COOKS DELIGHT</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
     @page {
       size: A4 portrait;
-      margin: 18mm 18mm 18mm 22mm;
+      margin: 0;
     }
 
     * {
       box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
 
     body {
-      font-family: "Times New Roman", Times, serif;
-      font-size: 12.5pt;
-      line-height: 1.4;
+      font-family: "Times New Roman", Times, "Liberation Serif", serif;
+      font-size: 12pt;
+      line-height: 1.35;
       color: #000000;
       background-color: #525659;
       margin: 0;
       padding: 0;
     }
 
-    /* Fixed floating toolbar */
+    /* Fixed top toolbar for preview mode */
     .top-toolbar {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      height: 60px;
+      height: 56px;
       background: #1f2937;
       color: white;
       display: flex;
@@ -40,13 +40,14 @@
       justify-content: space-between;
       padding: 0 24px;
       z-index: 100000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
     }
 
     .toolbar-title {
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       font-size: 14px;
-      font-weight: bold;
+      font-weight: 600;
+      letter-spacing: 0.2px;
     }
 
     .toolbar-actions {
@@ -55,14 +56,14 @@
     }
 
     .btn-pdf {
-      background: #10b981;
+      background: #059669;
       color: white;
       border: none;
-      padding: 9px 18px;
+      padding: 8px 18px;
       border-radius: 6px;
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       font-size: 13px;
-      font-weight: bold;
+      font-weight: 600;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -71,18 +72,18 @@
     }
 
     .btn-pdf:hover {
-      background: #059669;
+      background: #047857;
     }
 
     .btn-word {
       background: #2563eb;
       color: white;
       border: none;
-      padding: 9px 18px;
+      padding: 8px 18px;
       border-radius: 6px;
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       font-size: 13px;
-      font-weight: bold;
+      font-weight: 600;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -94,96 +95,122 @@
       background: #1d4ed8;
     }
 
+    /* Document wrapper */
     .pages-wrapper {
-      padding-top: 80px;
+      padding-top: 76px;
       padding-bottom: 60px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 24px;
     }
 
-    /* Standard A4 Page Container */
+    /* Standard Academic A4 Page Container */
     .page {
       width: 210mm;
       height: 297mm;
+      min-height: 297mm;
+      max-height: 297mm;
       background: #ffffff;
-      padding: 18mm 18mm 18mm 22mm;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.35);
+      padding: 22mm 20mm 20mm 25mm;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      box-sizing: border-box;
     }
 
     .page-content {
-      flex: 1;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
     }
 
-    .page-footer {
+    /* Center bottom page number */
+    .page-number {
+      text-align: center;
       font-size: 11pt;
-      text-align: right;
-      border-top: 1px solid #d1d5db;
-      padding-top: 4px;
-      color: #4b5563;
+      font-family: "Times New Roman", Times, serif;
+      color: #000000;
+      margin-top: auto;
+      padding-top: 3mm;
+      flex-shrink: 0;
+      line-height: 1;
     }
 
-    .page-break {
-      page-break-after: always;
-      break-after: page;
-    }
-
-    /* Headings */
+    /* Typography */
     h1 {
-      font-size: 15pt;
+      font-size: 13.5pt;
       font-weight: bold;
       text-transform: uppercase;
-      margin: 0 0 10px;
-      color: #000000;
       text-align: center;
+      margin: 0 0 12pt 0;
+      color: #000000;
+      line-height: 1.3;
     }
 
     h2 {
-      font-size: 13.5pt;
+      font-size: 12.5pt;
       font-weight: bold;
-      margin: 12px 0 6px;
+      text-align: left;
+      margin: 9pt 0 4pt 0;
       color: #000000;
+      line-height: 1.3;
     }
 
     h3 {
-      font-size: 12.5pt;
+      font-size: 12pt;
       font-weight: bold;
-      margin: 10px 0 4px;
+      font-style: italic;
+      text-align: left;
+      margin: 7pt 0 3pt 0;
       color: #000000;
+      line-height: 1.3;
     }
 
     p {
       text-align: justify;
-      margin: 5px 0;
-      text-indent: 10mm;
+      text-justify: inter-word;
+      margin: 3.5pt 0 4.5pt 0;
+      text-indent: 1cm;
+      line-height: 1.35;
+      font-size: 12pt;
+      color: #000000;
     }
 
     p.no-indent {
-      text-indent: 0;
+      text-indent: 0 !important;
+    }
+
+    p.center {
+      text-align: center;
+      text-indent: 0 !important;
     }
 
     ul, ol {
-      margin: 5px 0;
-      padding-left: 24px;
+      margin: 3.5pt 0 4.5pt 0;
+      padding-left: 24pt;
     }
 
     li {
-      margin-bottom: 3px;
       text-align: justify;
+      margin-bottom: 2.5pt;
+      line-height: 1.35;
+      font-size: 12pt;
+      color: #000000;
     }
 
-    /* Tables */
+    /* Academic Tables */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 8px 0;
-      font-size: 10.5pt;
+      margin: 4pt 0 7pt 0;
+      font-size: 10pt;
+      line-height: 1.3;
+      color: #000000;
     }
 
     table, th, td {
@@ -191,91 +218,160 @@
     }
 
     th {
-      background-color: #f3f4f6;
       font-weight: bold;
       text-align: center;
-      padding: 5px 6px;
+      padding: 4pt 5pt;
+      background-color: transparent;
+      vertical-align: middle;
     }
 
     td {
-      padding: 4px 6px;
-      vertical-align: middle;
+      padding: 3.5pt 5pt;
+      vertical-align: top;
+      text-align: left;
     }
 
     .table-caption {
       font-size: 10.5pt;
       font-style: italic;
-      font-weight: bold;
       text-align: center;
-      margin: 6px 0 3px;
+      margin: 6pt 0 3pt 0;
+      color: #000000;
     }
 
-    pre, code {
-      font-family: "Consolas", "Courier New", monospace;
+    .figure-caption {
+      font-size: 10.5pt;
+      font-style: italic;
+      text-align: center;
+      margin: 4pt 0 6pt 0;
+      color: #000000;
+    }
+
+    .table-compact {
       font-size: 9.5pt;
     }
 
-    table code {
-      word-break: break-all;
-      font-size: 8.5pt;
-      line-height: 1.25;
-      display: inline-block;
-    }
-
     .table-compact th, .table-compact td {
-      padding: 3px 5px;
-      font-size: 9.8pt;
-      line-height: 1.35;
+      padding: 2.5pt 4pt;
     }
 
+    /* Code Snippet Boxes */
     pre {
-      background-color: #f8fafc;
-      border: 1px solid #cbd5e1;
-      border-left: 3px solid #2563eb;
-      padding: 8px;
-      margin: 6px 0;
+      border: 1px solid #000000;
+      background: transparent;
+      padding: 5pt 7pt;
+      margin: 4pt 0;
+      font-family: Consolas, "Courier New", Courier, monospace;
+      font-size: 9pt;
+      line-height: 1.22;
+      text-align: left;
+      text-indent: 0;
       white-space: pre-wrap;
+      word-break: break-word;
+      color: #000000;
+    }
+
+    code {
+      font-family: Consolas, "Courier New", Courier, monospace;
+      font-size: 9pt;
+    }
+
+    table code {
+      font-size: 8.5pt;
       word-break: break-all;
     }
 
+    /* Callout Note Box (Lưu ý / Lỗi phòng tránh) */
+    .callout-box {
+      border: 1px solid #8b0000;
+      padding: 5pt 7pt;
+      margin: 5pt 0;
+      background: transparent;
+      text-indent: 0;
+    }
+
+    .callout-title {
+      font-weight: bold;
+      color: #8b0000;
+      margin-bottom: 2pt;
+      font-size: 11pt;
+    }
+
+    .callout-content {
+      font-size: 10.5pt;
+      line-height: 1.35;
+      text-align: justify;
+    }
+
+    /* Signatures */
     .signature-section {
       display: flex;
       justify-content: space-between;
-      margin-top: 20px;
+      margin-top: 10pt;
     }
 
-    .signature-box {
+    .signature-box-right {
       text-align: center;
-      width: 45%;
+      width: 52%;
+      margin-left: auto;
     }
 
     .signature-space {
-      height: 50px;
+      height: 35px;
     }
 
     /* Print Setup */
     @media print {
-      body {
-        background: transparent;
+      html, body {
+        width: 210mm;
+        height: auto;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
+
       .top-toolbar {
         display: none !important;
       }
+
       .pages-wrapper {
-        padding: 0;
-        gap: 0;
+        display: block !important;
+        width: 210mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        gap: 0 !important;
       }
+
       .page {
-        box-shadow: none;
-        margin: 0;
-        width: 100%;
-        height: 100vh;
-        page-break-after: always;
-        break-after: page;
-        padding: 15mm 15mm 15mm 20mm;
+        width: 210mm !important;
+        height: 297mm !important;
+        min-height: 297mm !important;
+        max-height: 297mm !important;
+        margin: 0 !important;
+        padding: 22mm 20mm 20mm 25mm !important;
+        box-shadow: none !important;
+        border: none !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        box-sizing: border-box !important;
+        background: #ffffff !important;
       }
-      .page-footer {
-        color: #000;
+
+      .page:last-child {
+        page-break-after: auto !important;
+        break-after: auto !important;
+      }
+
+      .page-number {
+        color: #000000 !important;
       }
     }
   </style>
@@ -284,7 +380,7 @@
 
   <!-- TOP TOOLBAR -->
   <div class="top-toolbar">
-    <div class="toolbar-title">📄 BÁO CÁO BÀI TẬP LỚN (ĐÚNG 20 TRANG THEO YÊU CẦU CỦA THẦY VÕ VIỆT KHOA)</div>
+    <div class="toolbar-title">📄 BÁO CÁO BÀI TẬP LỚN - COOKS DELIGHT (20 TRANG - ĐÚNG BỐ CỤC MẪU)</div>
     <div class="toolbar-actions">
       <button class="btn-pdf" onclick="window.print()">🖨️ XUẤT RA FILE PDF (Ctrl + P)</button>
       <button class="btn-word" onclick="exportToWord()">📄 Tải File Word (.doc)</button>
@@ -297,31 +393,33 @@
     <div class="page">
       <div class="page-content" style="text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
         <div>
-          <h3 style="margin: 0; font-size: 14pt; text-transform: uppercase;">TRƯỜNG ĐẠI HỌC MỞ THÀNH PHỐ HỒ CHÍ MINH</h3>
-          <h4 style="margin: 4px 0 0; font-size: 13pt; text-transform: uppercase; border-bottom: 1.5px solid black; display: inline-block; padding-bottom: 4px;">KHOA CÔNG NGHỆ THÔNG TIN</h4>
+          <div style="font-size: 13.5pt; font-weight: bold; text-transform: uppercase; margin: 0; line-height: 1.3;">TRƯỜNG ĐẠI HỌC MỞ THÀNH PHỐ HỒ CHÍ MINH</div>
+          <div style="font-size: 13.5pt; font-weight: bold; text-transform: uppercase; margin-top: 4px; line-height: 1.3;">KHOA CÔNG NGHỆ THÔNG TIN</div>
         </div>
 
-        <div style="margin: 30px 0;">
-          <div style="font-size: 16pt; font-weight: bold; text-transform: uppercase;">BÁO CÁO BÀI TẬP LỚN</div>
-          <div style="font-size: 13.5pt; font-weight: bold; margin-top: 4px;">MÔN: THIẾT KẾ WEB (INTE03010)</div>
-          <br><br>
-          <div style="font-size: 13pt; font-style: italic;">ĐỀ TÀI:</div>
-          <div style="font-size: 16.5pt; font-weight: bold; text-transform: uppercase; line-height: 1.3; margin-top: 6px;">XÂY DỰNG WEBSITE BLOG CÔNG THỨC VÀ NGHỆ THUẬT NẤU ĂN COOKS DELIGHT</div>
+        <div style="margin: 28px 0 20px;">
+          <div style="font-size: 15.5pt; font-weight: bold; text-transform: uppercase; line-height: 1.3;">BÁO CÁO BÀI TẬP LỚN</div>
+          <div style="font-size: 13pt; font-weight: bold; margin-top: 6px;">MÔN: THIẾT KẾ WEB (INTE03010)</div>
+          
+          <div style="font-size: 13pt; font-weight: bold; text-transform: uppercase; margin-top: 28px;">ĐỀ TÀI</div>
+          <div style="font-size: 15.5pt; font-weight: bold; text-transform: uppercase; line-height: 1.35; margin-top: 8px;">XÂY DỰNG WEBSITE BLOG CÔNG THỨC VÀ NGHỆ THUẬT NẤU ĂN COOKS DELIGHT</div>
         </div>
 
-        <div style="text-align: left; font-size: 12.5pt;">
-          <p class="no-indent"><strong>Giảng viên hướng dẫn:</strong> Thầy Võ Việt Khoa</p>
-          <p class="no-indent"><strong>Nhóm thực hiện:</strong> Nhóm Cooks Delight</p>
-          <p class="no-indent"><strong>Lớp:</strong> DH25IT01 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Khóa học:</strong> K25</p>
+        <div style="margin: 15px 0 10px; font-size: 12.5pt; line-height: 1.6;">
+          <div><strong>Giảng viên hướng dẫn:</strong> Thầy Võ Việt Khoa</div>
+          <div><strong>Nhóm thực hiện:</strong> Nhóm Cooks Delight</div>
+          <div><strong>Lớp:</strong> DH25IT01 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Khóa học:</strong> K25</div>
+        </div>
 
-          <div class="table-caption" style="margin-top: 15px;">Bảng 0.1: Danh sách thành viên nhóm</div>
+        <div>
+          <div class="table-caption">Bảng 0.1: Danh sách thành viên nhóm</div>
           <table>
             <thead>
               <tr>
                 <th style="width: 8%;">STT</th>
-                <th style="width: 25%;">Họ và tên</th>
-                <th style="width: 18%;">MSSV</th>
-                <th style="width: 37%;">Nhiệm vụ chính</th>
+                <th style="width: 24%;">Họ và tên</th>
+                <th style="width: 17%;">MSSV</th>
+                <th style="width: 39%;">Nhiệm vụ chính</th>
                 <th style="width: 12%;">Đóng góp</th>
               </tr>
             </thead>
@@ -329,80 +427,80 @@
               <tr>
                 <td style="text-align: center;">1</td>
                 <td><strong>Đỗ Đức Tài</strong> (NT)</td>
-                <td style="text-align: center;"><strong>2551050196</strong></td>
+                <td style="text-align: center;">2551050196</td>
                 <td>Kiến trúc tổng thể, Responsive 3 cấp độ, Universal Dark Mode & Taskbar Dock, Recipe Detail, Live Search & API</td>
-                <td style="text-align: center; font-weight: bold;">50%</td>
+                <td style="text-align: center;">50%</td>
               </tr>
               <tr>
                 <td style="text-align: center;">2</td>
                 <td><strong>Lê Đăng Khoa</strong></td>
-                <td style="text-align: center;"><strong>2551050108</strong></td>
+                <td style="text-align: center;">2551050108</td>
                 <td>Trang chủ (index.html), Trang Giới thiệu (ABOUT_US.html), Khối Palette, Navbar cuộn & Mạng xã hội</td>
-                <td style="text-align: center; font-weight: bold;">25%</td>
+                <td style="text-align: center;">25%</td>
               </tr>
               <tr>
                 <td style="text-align: center;">3</td>
                 <td><strong>Nguyễn Đức Thuận</strong></td>
-                <td style="text-align: center;"><strong>2551050214</strong></td>
+                <td style="text-align: center;">2551050214</td>
                 <td>Trang Recipes (Lọc & Phân trang 15 món), Trang Mẹo làm bếp (COOKINGS TIPS.html)</td>
-                <td style="text-align: center; font-weight: bold;">25%</td>
+                <td style="text-align: center;">25%</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div style="font-weight: bold; font-size: 12pt; text-transform: uppercase;">
-          TP. HỒ CHÍ MINH, THÁNG 8 NĂM 2026
+        <div style="font-size: 12pt; text-align: center; margin-top: 15px;">
+          TP. Hồ Chí Minh, tháng 8 năm 2026
         </div>
       </div>
-      <div class="page-footer">Trang 1 / 20</div>
+      <div class="page-number">1</div>
     </div>
 
-    <!-- ==================== TRANG 2: NHẬN XÉT & LỜI CAM ĐOAN ==================== -->
+    <!-- ==================== TRANG 2: NHẬN XÉT CỦA GIẢNG VIÊN HƯỚNG DẪN ==================== -->
     <div class="page">
       <div class="page-content">
         <h1>NHẬN XÉT CỦA GIẢNG VIÊN HƯỚNG DẪN</h1>
-        <p class="no-indent">........................................................................................................................................................................................................................</p>
-        <p class="no-indent">........................................................................................................................................................................................................................</p>
-        <p class="no-indent">........................................................................................................................................................................................................................</p>
-        <p class="no-indent">........................................................................................................................................................................................................................</p>
-        <p class="no-indent">........................................................................................................................................................................................................................</p>
-        <p class="no-indent">........................................................................................................................................................................................................................</p>
-        <p class="no-indent">........................................................................................................................................................................................................................</p>
+        <p class="no-indent" style="letter-spacing: 2px; color: #333; margin: 6px 0;">...........................................................................................................................................</p>
+        <p class="no-indent" style="letter-spacing: 2px; color: #333; margin: 6px 0;">...........................................................................................................................................</p>
+        <p class="no-indent" style="letter-spacing: 2px; color: #333; margin: 6px 0;">...........................................................................................................................................</p>
+        <p class="no-indent" style="letter-spacing: 2px; color: #333; margin: 6px 0;">...........................................................................................................................................</p>
+        <p class="no-indent" style="letter-spacing: 2px; color: #333; margin: 6px 0;">...........................................................................................................................................</p>
+        <p class="no-indent" style="letter-spacing: 2px; color: #333; margin: 6px 0;">...........................................................................................................................................</p>
+        <p class="no-indent" style="letter-spacing: 2px; color: #333; margin: 6px 0;">...........................................................................................................................................</p>
+        <p class="no-indent" style="letter-spacing: 2px; color: #333; margin: 6px 0;">...........................................................................................................................................</p>
+        <p class="no-indent" style="letter-spacing: 2px; color: #333; margin: 6px 0;">...........................................................................................................................................</p>
+        <p class="no-indent" style="letter-spacing: 2px; color: #333; margin: 6px 0;">...........................................................................................................................................</p>
+        <p class="no-indent" style="letter-spacing: 2px; color: #333; margin: 6px 0;">...........................................................................................................................................</p>
+        <p class="no-indent" style="letter-spacing: 2px; color: #333; margin: 6px 0;">...........................................................................................................................................</p>
 
-        <div class="signature-section" style="margin-top: 15px; margin-bottom: 25px;">
-          <div style="width: 50%;"></div>
-          <div class="signature-box" style="width: 50%;">
-            <p class="no-indent"><em>TP. HCM, ngày ..... tháng ..... năm 2026</em></p>
-            <p class="no-indent"><strong>Giảng viên hướng dẫn</strong> <em>(Ký, ghi rõ họ tên)</em></p>
-            <div class="signature-space" style="height: 35px;"></div>
-            <p class="no-indent"><strong>Thầy Võ Việt Khoa</strong></p>
+        <div class="signature-section" style="margin-top: 40px;">
+          <div class="signature-box-right">
+            <p class="no-indent" style="font-style: italic; margin-bottom: 3px;">TP. HCM, ngày ..... tháng ..... năm 2026</p>
+            <p class="no-indent" style="font-weight: bold; margin-bottom: 3px;">Giảng viên hướng dẫn</p>
+            <p class="no-indent" style="font-style: italic; margin-bottom: 45px;">(ký và ghi rõ họ tên)</p>
+            <p class="no-indent" style="font-weight: bold;">Thầy Võ Việt Khoa</p>
           </div>
         </div>
+      </div>
+      <div class="page-number">2</div>
+    </div>
 
-        <hr style="border: 0.5px solid #d1d5db; margin: 15px 0;">
-
+    <!-- ==================== TRANG 3: LỜI CAM ĐOAN & KHAI BÁO AI ==================== -->
+    <div class="page">
+      <div class="page-content">
         <h1>LỜI CAM ĐOAN</h1>
         <p>Nhóm xin cam đoan báo cáo và mã nguồn của bài tập lớn môn <strong>Thiết kế Web (INTE03010)</strong> này do chính nhóm tự nghiên cứu và thực hiện dưới sự hướng dẫn của giảng viên bộ môn <strong>Thầy Võ Việt Khoa</strong>. Các số liệu, kết quả đo đạc bằng Lighthouse và hình ảnh giao diện nêu trong báo cáo là trung thực, do nhóm trực tiếp kiểm thử trên sản phẩm thực tế. Mọi nguồn tài liệu tham khảo đều được trích dẫn đầy đủ và đúng quy chuẩn học thuật tại mục Tài liệu tham khảo. Nhóm hoàn toàn không sao chép báo cáo hoặc mã nguồn của nhóm khác.</p>
         
-        <p>Nhóm cũng khai báo trung thực việc sử dụng công cụ trí tuệ nhân tạo hỗ trợ. Toàn bộ mã nguồn có sự hỗ trợ đều đã được nhóm đọc lại, hiểu rõ bản chất kỹ thuật, tự tay chỉnh sửa và tích hợp theo cấu trúc dự án; mỗi thành viên chịu trách nhiệm giải thích phần mã mình phụ trách khi bảo vệ.</p>
-      </div>
-      <div class="page-footer">Trang 2 / 20</div>
-    </div>
+        <p>Nhóm cũng khai báo trung thực phần công việc có sử dụng công cụ trí tuệ nhân tạo hỗ trợ, chi tiết tại Bảng 0.2. Toàn bộ mã nguồn có sự hỗ trợ đều đã được nhóm đọc lại, hiểu rõ bản chất kỹ thuật, tự tay chỉnh sửa và tích hợp theo cấu trúc dự án; mỗi thành viên chịu trách nhiệm giải thích phần mã mình phụ trách khi bảo vệ.</p>
 
-    <!-- ==================== TRANG 3: KHAI BÁO AI & THÔNG TIN NỘP BÀI ==================== -->
-    <div class="page">
-      <div class="page-content">
-        <h1>KHAI BÁO SỬ DỤNG AI & THÔNG TIN NỘP BÀI</h1>
-
-        <div class="table-caption">Bảng 0.2: Khai báo sử dụng công cụ trí tuệ nhân tạo</div>
+        <div class="table-caption" style="margin-top: 10px;">Bảng 0.2: Khai báo sử dụng công cụ trí tuệ nhân tạo</div>
         <table class="table-compact">
           <thead>
             <tr>
-              <th style="width: 26%;">Phần việc</th>
-              <th style="width: 17%;">Công cụ</th>
+              <th style="width: 25%;">Phần việc</th>
+              <th style="width: 16%;">Công cụ</th>
               <th style="width: 25%;">Mức độ hỗ trợ</th>
-              <th style="width: 32%;">Nhóm đã kiểm chứng và chỉnh sửa</th>
+              <th style="width: 34%;">Nhóm đã kiểm chứng và chỉnh sửa</th>
             </tr>
           </thead>
           <tbody>
@@ -433,12 +531,31 @@
           </tbody>
         </table>
 
-        <div class="table-caption" style="margin-top: 10px;">Bảng 0.3: Thông tin sản phẩm nộp kèm</div>
+        <div class="signature-section" style="margin-top: 10px;">
+          <div class="signature-box-right">
+            <p class="no-indent" style="font-weight: bold; margin-bottom: 2px;">Nhóm thực hiện</p>
+            <p class="no-indent" style="font-style: italic; margin-bottom: 4px;">(ký và ghi rõ họ tên)</p>
+            <div style="height: 36px; display: flex; align-items: center; justify-content: center;">
+              <img src="assets/picture/signature-tai.png" alt="Chữ ký Đỗ Đức Tài" style="max-height: 34px; max-width: 90px;" />
+            </div>
+            <p class="no-indent" style="font-weight: bold; margin-top: 3px;">Đỗ Đức Tài</p>
+          </div>
+        </div>
+      </div>
+      <div class="page-number">3</div>
+    </div>
+
+    <!-- ==================== TRANG 4: THÔNG TIN NỘP BÀI VÀ PHÂN CÔNG ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>THÔNG TIN NỘP BÀI VÀ PHÂN CÔNG</h1>
+
+        <div class="table-caption">Bảng 0.3: Thông tin sản phẩm nộp kèm</div>
         <table class="table-compact">
           <thead>
             <tr>
-              <th style="width: 26%;">Hạng mục</th>
-              <th style="width: 48%;">Đường dẫn / Mô tả</th>
+              <th style="width: 25%;">Hạng mục</th>
+              <th style="width: 49%;">Đường dẫn / Mô tả</th>
               <th style="width: 26%;">Ghi chú</th>
             </tr>
           </thead>
@@ -480,24 +597,16 @@
             </tr>
           </tbody>
         </table>
-      </div>
-      <div class="page-footer">Trang 3 / 20</div>
-    </div>
 
-    <!-- ==================== TRANG 4: PHÂN CÔNG & TỪ VIẾT TẮT ==================== -->
-    <div class="page">
-      <div class="page-content">
-        <h1>BẢNG PHÂN CÔNG & DANH MỤC TỪ VIẾT TẮT</h1>
-
-        <div class="table-caption">Bảng 0.4: Bảng phân công và đánh giá đóng góp</div>
-        <table>
+        <div class="table-caption" style="margin-top: 10px;">Bảng 0.4: Bảng phân công và đánh giá đóng góp</div>
+        <table class="table-compact">
           <thead>
             <tr>
-              <th style="width: 18%;">Thành viên</th>
+              <th style="width: 17%;">Thành viên</th>
               <th style="width: 22%;">Trang phụ trách</th>
               <th style="width: 25%;">Chức năng JS phụ trách</th>
               <th style="width: 20%;">Tệp mã nguồn chính</th>
-              <th style="width: 8%;">Đóng góp</th>
+              <th style="width: 9%;">Đóng góp</th>
               <th style="width: 7%;">Ký tên</th>
             </tr>
           </thead>
@@ -508,7 +617,9 @@
               <td>Dark Mode toàn cục, Tài khoản, Yêu thích, Subscribe YouTube Bell, Live Search, API</td>
               <td><code>user-dock.js</code><br><code>recipe-detail.js</code><br><code>search.js</code><br><code>api.js</code></td>
               <td style="text-align: center; font-weight: bold;">50%</td>
-              <td></td>
+              <td style="text-align: center; vertical-align: middle; padding: 2px;">
+                <img src="assets/picture/signature-tai.png" alt="Chữ ký Đỗ Đức Tài" style="max-height: 26px; max-width: 60px; display: inline-block; vertical-align: middle;" />
+              </td>
             </tr>
             <tr>
               <td><strong>Lê Đăng Khoa</strong></td>
@@ -528,14 +639,53 @@
             </tr>
           </tbody>
         </table>
+      </div>
+      <div class="page-number">4</div>
+    </div>
 
-        <div class="table-caption" style="margin-top: 15px;">Bảng 0.5: Danh mục từ viết tắt và thuật ngữ</div>
-        <table>
+    <!-- ==================== TRANG 5: MỤC LỤC & TỪ VIẾT TẮT ==================== -->
+    <div class="page">
+      <div class="page-content">
+        <h1>MỤC LỤC BÁO CÁO</h1>
+
+        <table style="border: none; margin-top: 6px; font-size: 10.5pt; line-height: 1.45;">
+          <tr style="border: none;"><td style="border: none; font-weight: bold; padding: 2px 0;">CHƯƠNG 1. TỔNG QUAN & PHÂN TÍCH ĐỀ</td><td style="border: none; text-align: right; font-weight: bold; padding: 2px 0;">Trang 6</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 18px; padding: 1.5px 0 1.5px 18px;">1.1. Đặt vấn đề & 1.2. Mục tiêu đề tài</td><td style="border: none; text-align: right; padding: 1.5px 0;">Trang 6</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 18px; padding: 1.5px 0 1.5px 18px;">1.3. Đối tượng người dùng & Phạm vi thực hiện</td><td style="border: none; text-align: right; padding: 1.5px 0;">Trang 7</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 18px; padding: 1.5px 0 1.5px 18px;">1.4. Phương pháp thực hiện & 1.5. Kế hoạch 8 tuần</td><td style="border: none; text-align: right; padding: 1.5px 0;">Trang 8</td></tr>
+
+          <tr style="border: none;"><td style="border: none; font-weight: bold; padding: 5px 0 2px 0;">CHƯƠNG 2. CƠ SỞ LÝ THUYẾT VÀ CÔNG NGHỆ</td><td style="border: none; text-align: right; font-weight: bold; padding: 5px 0 2px 0;">Trang 9</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 18px; padding: 1.5px 0 1.5px 18px;">2.1. HTML5 ngữ nghĩa, CSS3 Grid/Flexbox, JS ES6+, WCAG 2.2, Bảng công cụ</td><td style="border: none; text-align: right; padding: 1.5px 0;">Trang 9</td></tr>
+
+          <tr style="border: none;"><td style="border: none; font-weight: bold; padding: 5px 0 2px 0;">CHƯƠNG 3. PHÂN TÍCH VÀ THIẾT KẾ</td><td style="border: none; text-align: right; font-weight: bold; padding: 5px 0 2px 0;">Trang 10</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 18px; padding: 1.5px 0 1.5px 18px;">3.1. Sơ đồ trang & Luồng điều hướng (Sitemap)</td><td style="border: none; text-align: right; padding: 1.5px 0;">Trang 10</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 18px; padding: 1.5px 0 1.5px 18px;">3.2. Đối chiếu phạm vi 5 trang giao diện</td><td style="border: none; text-align: right; padding: 1.5px 0;">Trang 10</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 18px; padding: 1.5px 0 1.5px 18px;">3.3. Bộ biến thiết kế Design Tokens Sáng/Tối & Typography</td><td style="border: none; text-align: right; padding: 1.5px 0;">Trang 11</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 18px; padding: 1.5px 0 1.5px 18px;">3.4. Danh mục thành phần UI Components & 3.5. Thiết kế dữ liệu JSON</td><td style="border: none; text-align: right; padding: 1.5px 0;">Trang 12</td></tr>
+
+          <tr style="border: none;"><td style="border: none; font-weight: bold; padding: 5px 0 2px 0;">CHƯƠNG 4. HIỆN THỰC HỆ THỐNG</td><td style="border: none; text-align: right; font-weight: bold; padding: 5px 0 2px 0;">Trang 13</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 18px; padding: 1.5px 0 1.5px 18px;">4.1. Cấu trúc HTML ngữ nghĩa & Bảng tự kiểm SEO</td><td style="border: none; text-align: right; padding: 1.5px 0;">Trang 13</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 18px; padding: 1.5px 0 1.5px 18px;">4.2. Tạo kiểu Responsive & Xử lý 2 lỗi bố cục 1024px, fixed width</td><td style="border: none; text-align: right; padding: 1.5px 0;">Trang 14</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 18px; padding: 1.5px 0 1.5px 18px;">4.3. Các tính năng JavaScript (Phân trang 15 món, Lọc công thức)</td><td style="border: none; text-align: right; padding: 1.5px 0;">Trang 15</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 18px; padding: 1.5px 0 1.5px 18px;">4.4. Universal Dark Mode, Taskbar Dock, Yêu thích & Chuông YouTube</td><td style="border: none; text-align: right; padding: 1.5px 0;">Trang 16</td></tr>
+
+          <tr style="border: none;"><td style="border: none; font-weight: bold; padding: 5px 0 2px 0;">CHƯƠNG 5. KIỂM THỬ, ĐÁNH GIÁ VÀ TRIỂN KHAI</td><td style="border: none; text-align: right; font-weight: bold; padding: 5px 0 2px 0;">Trang 17</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 18px; padding: 1.5px 0 1.5px 18px;">5.1. Đối chiếu sản phẩm với Figma (97-99%) & 5.2. Đo đạc Lighthouse 100/100</td><td style="border: none; text-align: right; padding: 1.5px 0;">Trang 17</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 18px; padding: 1.5px 0 1.5px 18px;">5.3. Các lỗi đã khắc phục, Kiểm thử Accessibility, Đa trình duyệt & Git</td><td style="border: none; text-align: right; padding: 1.5px 0;">Trang 18</td></tr>
+
+          <tr style="border: none;"><td style="border: none; font-weight: bold; padding: 5px 0 2px 0;">CHƯƠNG 6. KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN</td><td style="border: none; text-align: right; font-weight: bold; padding: 5px 0 2px 0;">Trang 19</td></tr>
+          <tr style="border: none;"><td style="border: none; padding-left: 18px; padding: 1.5px 0 1.5px 18px;">6.1. Kết quả đạt được & 6.2. Hạn chế & 6.3. Hướng phát triển</td><td style="border: none; text-align: right; padding: 1.5px 0;">Trang 19</td></tr>
+
+          <tr style="border: none;"><td style="border: none; font-weight: bold; padding: 5px 0 2px 0;">TÀI LIỆU THAM KHẢO & PHỤ LỤC TỰ KIỂM CHẤM ĐIỂM</td><td style="border: none; text-align: right; font-weight: bold; padding: 5px 0 2px 0;">Trang 20</td></tr>
+        </table>
+
+        <div class="table-caption" style="margin-top: 10px;">Bảng 0.5: Danh mục từ viết tắt và thuật ngữ</div>
+        <table class="table-compact" style="font-size: 9pt;">
           <thead>
             <tr>
-              <th style="width: 20%;">Viết tắt</th>
-              <th style="width: 35%;">Nguyên văn</th>
-              <th style="width: 45%;">Nghĩa tiếng Việt</th>
+              <th style="width: 18%;">Viết tắt</th>
+              <th style="width: 36%;">Nguyên văn</th>
+              <th style="width: 46%;">Nghĩa tiếng Việt</th>
             </tr>
           </thead>
           <tbody>
@@ -554,46 +704,7 @@
           </tbody>
         </table>
       </div>
-      <div class="page-footer">Trang 4 / 20</div>
-    </div>
-
-    <!-- ==================== TRANG 5: MỤC LỤC ==================== -->
-    <div class="page">
-      <div class="page-content">
-        <h1>MỤC LỤC BÁO CÁO (20 TRANG)</h1>
-
-        <table style="border: none; margin-top: 15px;">
-          <tr style="border: none;"><td style="border: none; font-weight: bold;">CHƯƠNG 1. TỔNG QUAN & PHÂN TÍCH ĐỀ</td><td style="border: none; text-align: right; font-weight: bold;">Trang 6</td></tr>
-          <tr style="border: none;"><td style="border: none; padding-left: 20px;">1.1. Đặt vấn đề & 1.2. Mục tiêu đề tài</td><td style="border: none; text-align: right;">Trang 6</td></tr>
-          <tr style="border: none;"><td style="border: none; padding-left: 20px;">1.3. Đối tượng người dùng & Phạm vi thực hiện</td><td style="border: none; text-align: right;">Trang 7</td></tr>
-          <tr style="border: none;"><td style="border: none; padding-left: 20px;">1.4. Phương pháp thực hiện & 1.5. Kế hoạch 8 tuần</td><td style="border: none; text-align: right;">Trang 8</td></tr>
-
-          <tr style="border: none;"><td style="border: none; font-weight: bold; padding-top: 8px;">CHƯƠNG 2. CƠ SỞ LÝ THUYẾT VÀ CÔNG NGHỆ</td><td style="border: none; text-align: right; font-weight: bold; padding-top: 8px;">Trang 9</td></tr>
-          <tr style="border: none;"><td style="border: none; padding-left: 20px;">2.1. HTML5 ngữ nghĩa, CSS3 Grid/Flexbox, JS ES6+, WCAG 2.2, Bảng công cụ</td><td style="border: none; text-align: right;">Trang 9</td></tr>
-
-          <tr style="border: none;"><td style="border: none; font-weight: bold; padding-top: 8px;">CHƯƠNG 3. PHÂN TÍCH VÀ THIẾT KẾ</td><td style="border: none; text-align: right; font-weight: bold; padding-top: 8px;">Trang 10</td></tr>
-          <tr style="border: none;"><td style="border: none; padding-left: 20px;">3.1. Sơ đồ trang & Luồng điều hướng (Sitemap)</td><td style="border: none; text-align: right;">Trang 10</td></tr>
-          <tr style="border: none;"><td style="border: none; padding-left: 20px;">3.2. Đối chiếu phạm vi 5 trang giao diện</td><td style="border: none; text-align: right;">Trang 10</td></tr>
-          <tr style="border: none;"><td style="border: none; padding-left: 20px;">3.3. Bộ biến thiết kế Design Tokens Sáng/Tối & Typography</td><td style="border: none; text-align: right;">Trang 11</td></tr>
-          <tr style="border: none;"><td style="border: none; padding-left: 20px;">3.4. Danh mục thành phần UI Components & 3.5. Thiết kế dữ liệu JSON</td><td style="border: none; text-align: right;">Trang 12</td></tr>
-
-          <tr style="border: none;"><td style="border: none; font-weight: bold; padding-top: 8px;">CHƯƠNG 4. HIỆN THỰC HỆ THỐNG</td><td style="border: none; text-align: right; font-weight: bold; padding-top: 8px;">Trang 13</td></tr>
-          <tr style="border: none;"><td style="border: none; padding-left: 20px;">4.1. Cấu trúc HTML ngữ nghĩa & Bảng tự kiểm SEO</td><td style="border: none; text-align: right;">Trang 13</td></tr>
-          <tr style="border: none;"><td style="border: none; padding-left: 20px;">4.2. Tạo kiểu Responsive & Xử lý 2 lỗi bố cục 1024px, fixed width</td><td style="border: none; text-align: right;">Trang 14</td></tr>
-          <tr style="border: none;"><td style="border: none; padding-left: 20px;">4.3. Các tính năng JavaScript (Phân trang 15 món, Lọc công thức)</td><td style="border: none; text-align: right;">Trang 15</td></tr>
-          <tr style="border: none;"><td style="border: none; padding-left: 20px;">4.4. Universal Dark Mode, Taskbar Dock, Yêu thích & Chuông YouTube</td><td style="border: none; text-align: right;">Trang 16</td></tr>
-
-          <tr style="border: none;"><td style="border: none; font-weight: bold; padding-top: 8px;">CHƯƠNG 5. KIỂM THỬ, ĐÁNH GIÁ VÀ TRIỂN KHAI</td><td style="border: none; text-align: right; font-weight: bold; padding-top: 8px;">Trang 17</td></tr>
-          <tr style="border: none;"><td style="border: none; padding-left: 20px;">5.1. Đối chiếu sản phẩm với Figma (97-99%) & 5.2. Đo đạc Lighthouse 100/100</td><td style="border: none; text-align: right;">Trang 17</td></tr>
-          <tr style="border: none;"><td style="border: none; padding-left: 20px;">5.3. Các lỗi đã khắc phục, Kiểm thử Accessibility, Đa trình duyệt & Git</td><td style="border: none; text-align: right;">Trang 18</td></tr>
-
-          <tr style="border: none;"><td style="border: none; font-weight: bold; padding-top: 8px;">CHƯƠNG 6. KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN</td><td style="border: none; text-align: right; font-weight: bold; padding-top: 8px;">Trang 19</td></tr>
-          <tr style="border: none;"><td style="border: none; padding-left: 20px;">6.1. Kết quả đạt được & 6.2. Hạn chế & 6.3. Hướng phát triển</td><td style="border: none; text-align: right;">Trang 19</td></tr>
-
-          <tr style="border: none;"><td style="border: none; font-weight: bold; padding-top: 8px;">TÀI LIỆU THAM KHẢO & PHỤ LỤC TỰ KIỂM CHẤM ĐIỂM</td><td style="border: none; text-align: right; font-weight: bold; padding-top: 8px;">Trang 20</td></tr>
-        </table>
-      </div>
-      <div class="page-footer">Trang 5 / 20</div>
+      <div class="page-number">5</div>
     </div>
 
     <!-- ==================== TRANG 6: CHƯƠNG 1 (PHẦN 1) ==================== -->
@@ -618,7 +729,7 @@
           <li><strong>Về học tập:</strong> Nắm vững và vận dụng chuyên sâu HTML5 ngữ nghĩa, CSS3 hiện đại (Grid, Flexbox, Variables, Animation) và JavaScript ES6+ thuần, không phụ thuộc vào framework bên ngoài.</li>
         </ul>
       </div>
-      <div class="page-footer">Trang 6 / 20</div>
+      <div class="page-number">6</div>
     </div>
 
     <!-- ==================== TRANG 7: CHƯƠNG 1 (PHẦN 2) ==================== -->
@@ -632,9 +743,9 @@
         <table>
           <thead>
             <tr>
-              <th style="width: 30%;">Nhóm người dùng</th>
-              <th style="width: 35%;">Nhu cầu chính</th>
-              <th style="width: 35%;">Việc phải làm được trên website</th>
+              <th style="width: 28%;">Nhóm người dùng</th>
+              <th style="width: 36%;">Nhu cầu chính</th>
+              <th style="width: 36%;">Việc phải làm được trên website</th>
             </tr>
           </thead>
           <tbody>
@@ -661,9 +772,9 @@
         <p><strong>Ngoài phạm vi:</strong> Thanh toán trực tuyến và máy chủ Backend (do giới hạn phạm vi môn học Thiết kế Web tĩnh phía Client).</p>
 
         <h2>1.4. Phương pháp thực hiện</h2>
-        <p>Nhóm thực hiện theo quy trình 8 bước chuẩn: Phân tích yêu cầu → Trích xuất Design Tokens → Dựng HTML5 ngữ nghĩa → Tạo kiểu CSS3 Grid/Flexbox → Xử lý Responsive 3 điểm ngắt → Lập trình JS ES6+ → Đo đạc Lighthouse & Kiểm thử WCAG 2.2 → Triển khai Vercel.</p>
+        <p>Nhóm thực hiện theo quy trình 8 bước chuẩn: Phân tích yêu cầu → Trích xuất Design Tokens → Dựng HTML5 ngữ nghĩa → Tạo kiểu CSS3 Grid/Flexbox → Xử lý Responsive 3 điểm ngắt → Lập trình JS ES6+ → Đo đạc Lighthouse & Kiểm thử WCAG 2.2 → Triển khai Netlify.</p>
       </div>
-      <div class="page-footer">Trang 7 / 20</div>
+      <div class="page-number">7</div>
     </div>
 
     <!-- ==================== TRANG 8: CHƯƠNG 1 (PHẦN 3) ==================== -->
@@ -676,8 +787,8 @@
         <table>
           <thead>
             <tr>
-              <th style="width: 10%;">Tuần</th>
-              <th style="width: 45%;">Mục tiêu công việc</th>
+              <th style="width: 9%;">Tuần</th>
+              <th style="width: 46%;">Mục tiêu công việc</th>
               <th style="width: 30%;">Sản phẩm bàn giao</th>
               <th style="width: 15%;">Phụ trách</th>
             </tr>
@@ -690,14 +801,14 @@
             <tr><td style="text-align: center;">5</td><td>Taskbar Dock, Tài khoản, Yêu thích và Hoạt họa chuông YouTube</td><td>user-dock.js, user-dock.css</td><td style="text-align: center;">Đức Tài</td></tr>
             <tr><td style="text-align: center;">6</td><td>Universal Dark Mode, Slider Featured Recipes và Chi tiết món ăn</td><td>home.js, recipe-detail.js</td><td style="text-align: center;">Khoa, Đức Tài</td></tr>
             <tr><td style="text-align: center;">7</td><td>Kiểm thử WCAG, đo đạc Lighthouse, gỡ lỗi tràn viền và breakpoint</td><td>Báo cáo kiểm thử</td><td style="text-align: center;">Cả nhóm</td></tr>
-            <tr><td style="text-align: center;">8</td><td>Triển khai Vercel, quay video demo và hoàn thiện báo cáo</td><td>Link Vercel, Video demo</td><td style="text-align: center;">Cả nhóm</td></tr>
+            <tr><td style="text-align: center;">8</td><td>Triển khai Netlify, quay video demo và hoàn thiện báo cáo</td><td>Link Netlify, Video demo</td><td style="text-align: center;">Cả nhóm</td></tr>
           </tbody>
         </table>
 
         <h2>1.6. Bố cục báo cáo</h2>
         <p>Báo cáo gồm 6 chương chính được cấu trúc theo đúng 20 trang học thuật: Chương 1 trình bày tổng quan và phân tích đề. Chương 2 tóm tắt cơ sở lý thuyết và công nghệ. Chương 3 phân tích thiết kế giao diện và dữ liệu. Chương 4 mô tả quá trình hiện thực mã nguồn HTML/CSS/JS. Chương 5 trình bày kết quả kiểm thử, đo đạc Lighthouse và triển khai. Chương 6 kết luận các kết quả đạt được, hạn chế và định hướng phát triển.</p>
       </div>
-      <div class="page-footer">Trang 8 / 20</div>
+      <div class="page-number">8</div>
     </div>
 
     <!-- ==================== TRANG 9: CHƯƠNG 2 ==================== -->
@@ -723,9 +834,9 @@
         <table>
           <thead>
             <tr>
-              <th style="width: 30%;">Công cụ</th>
-              <th style="width: 15%;">Phiên bản</th>
-              <th style="width: 55%;">Vai trò trong đề tài</th>
+              <th style="width: 28%;">Công cụ</th>
+              <th style="width: 14%;">Phiên bản</th>
+              <th style="width: 58%;">Vai trò trong đề tài</th>
             </tr>
           </thead>
           <tbody>
@@ -734,11 +845,11 @@
             <tr><td><strong>Google Chrome DevTools</strong></td><td style="text-align: center;">128+</td><td>Gỡ lỗi bố cục, giả lập thiết bị đa kích thước</td></tr>
             <tr><td><strong>Lighthouse CLI</strong></td><td style="text-align: center;">12.x</td><td>Đo lường hiệu năng, SEO, khả năng tiếp cận và Best Practices</td></tr>
             <tr><td><strong>Git & GitHub</strong></td><td style="text-align: center;">2.4x</td><td>Quản lý phiên bản mã nguồn, theo dõi nhánh và commit</td></tr>
-            <tr><td><strong>Vercel</strong></td><td style="text-align: center;">Cloud</td><td>Nền tảng lưu trữ và tự động triển khai website</td></tr>
+            <tr><td><strong>Netlify</strong></td><td style="text-align: center;">Cloud</td><td>Nền tảng lưu trữ và tự động triển khai website</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="page-footer">Trang 9 / 20</div>
+      <div class="page-number">9</div>
     </div>
 
     <!-- ==================== TRANG 10: CHƯƠNG 3 (PHẦN 1) ==================== -->
@@ -761,11 +872,11 @@
         <table>
           <thead>
             <tr>
-              <th style="width: 10%;">STT</th>
-              <th style="width: 30%;">Tên trang</th>
-              <th style="width: 25%;">Tệp HTML</th>
-              <th style="width: 20%;">Nguồn thiết kế</th>
-              <th style="width: 15%;">Phụ trách</th>
+              <th style="width: 8%;">STT</th>
+              <th style="width: 28%;">Tên trang</th>
+              <th style="width: 26%;">Tệp HTML</th>
+              <th style="width: 22%;">Nguồn thiết kế</th>
+              <th style="width: 16%;">Phụ trách</th>
             </tr>
           </thead>
           <tbody>
@@ -777,7 +888,7 @@
           </tbody>
         </table>
       </div>
-      <div class="page-footer">Trang 10 / 20</div>
+      <div class="page-number">10</div>
     </div>
 
     <!-- ==================== TRANG 11: CHƯƠNG 3 (PHẦN 2) ==================== -->
@@ -790,21 +901,21 @@
         <table>
           <thead>
             <tr>
-              <th style="width: 25%;">Tên vai trò</th>
+              <th style="width: 24%;">Tên vai trò</th>
               <th style="width: 18%;">Mã màu Sáng</th>
               <th style="width: 18%;">Mã màu Tối</th>
-              <th style="width: 19%;">Biến CSS</th>
+              <th style="width: 20%;">Biến CSS</th>
               <th style="width: 20%;">Phạm vi sử dụng</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td><strong>Nền trang chính</strong></td><td>#EFEBE2</td><td>#171614</td><td>--color-bg</td><td>Nền toàn trang</td></tr>
-            <tr><td><strong>Nền thẻ / Khung</strong></td><td>#FFFDF9</td><td>#23211E</td><td>--color-surface</td><td>Khung món ăn, thẻ mẹo</td></tr>
-            <tr><td><strong>Màu chủ đạo</strong></td><td>#EE6352</td><td>#EE6352</td><td>--color-primary</td><td>Nút Subscribe, icon tim</td></tr>
-            <tr><td><strong>Màu nhấn phụ</strong></td><td>#E8973C</td><td>#FFA53B</td><td>--color-accent</td><td>Nút Explore, điểm nhấn</td></tr>
-            <tr><td><strong>Chữ tiêu đề</strong></td><td>#262522</td><td>#F5F0E8</td><td>--color-text-main</td><td>Tiêu đề h1, h2, h3</td></tr>
-            <tr><td><strong>Chữ mô tả</strong></td><td>#73706B</td><td>#C8C3B9</td><td>--color-text-sub</td><td>Đoạn văn mô tả</td></tr>
-            <tr><td><strong>Đường viền</strong></td><td>#D3D3D3</td><td>#38342E</td><td>--color-border</td><td>Viền navbar, viền card</td></tr>
+            <tr><td><strong>Nền trang chính</strong></td><td>#EFEBE2</td><td>#171614</td><td><code>--color-bg</code></td><td>Nền toàn trang</td></tr>
+            <tr><td><strong>Nền thẻ / Khung</strong></td><td>#FFFDF9</td><td>#23211E</td><td><code>--color-surface</code></td><td>Khung món ăn, thẻ mẹo</td></tr>
+            <tr><td><strong>Màu chủ đạo</strong></td><td>#EE6352</td><td>#EE6352</td><td><code>--color-primary</code></td><td>Nút Subscribe, icon tim</td></tr>
+            <tr><td><strong>Màu nhấn phụ</strong></td><td>#E8973C</td><td>#FFA53B</td><td><code>--color-accent</code></td><td>Nút Explore, điểm nhấn</td></tr>
+            <tr><td><strong>Chữ tiêu đề</strong></td><td>#262522</td><td>#F5F0E8</td><td><code>--color-text-main</code></td><td>Tiêu đề h1, h2, h3</td></tr>
+            <tr><td><strong>Chữ mô tả</strong></td><td>#73706B</td><td>#C8C3B9</td><td><code>--color-text-sub</code></td><td>Đoạn văn mô tả</td></tr>
+            <tr><td><strong>Đường viền</strong></td><td>#D3D3D3</td><td>#38342E</td><td><code>--color-border</code></td><td>Viền navbar, viền card</td></tr>
           </tbody>
         </table>
 
@@ -813,23 +924,23 @@
         <table>
           <thead>
             <tr>
-              <th style="width: 25%;">Vai trò</th>
+              <th style="width: 24%;">Vai trò</th>
               <th style="width: 20%;">Phông chữ</th>
-              <th style="width: 25%;">Cỡ / Độ đậm</th>
-              <th style="width: 15%;">Giãn dòng</th>
-              <th style="width: 15%;">Lớp CSS</th>
+              <th style="width: 26%;">Cỡ / Độ đậm</th>
+              <th style="width: 14%;">Giãn dòng</th>
+              <th style="width: 16%;">Lớp CSS</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>Tiêu đề Hero</td><td>Montserrat</td><td>clamp(46px, 6vw, 80px) / 800</td><td>1.10</td><td>.hero-title</td></tr>
-            <tr><td>Tiêu đề mục lớn</td><td>Montserrat</td><td>clamp(28px, 4vw, 40px) / 700</td><td>1.15</td><td>h2, .title-OUR</td></tr>
-            <tr><td>Tiêu đề thẻ món</td><td>Montserrat</td><td>18px / 700</td><td>1.25</td><td>.recipe-title</td></tr>
-            <tr><td>Văn bản nội dung</td><td>Roboto</td><td>15px - 16px / 400</td><td>1.50</td><td>p, .decription</td></tr>
-            <tr><td>Nhãn nút / Tag</td><td>Montserrat</td><td>12px - 14px / 700</td><td>1.00</td><td>.btn, .item-name</td></tr>
+            <tr><td>Tiêu đề Hero</td><td>Montserrat</td><td>clamp(46px, 6vw, 80px) / 800</td><td>1.10</td><td><code>.hero-title</code></td></tr>
+            <tr><td>Tiêu đề mục lớn</td><td>Montserrat</td><td>clamp(28px, 4vw, 40px) / 700</td><td>1.15</td><td><code>h2, .title-OUR</code></td></tr>
+            <tr><td>Tiêu đề thẻ món</td><td>Montserrat</td><td>18px / 700</td><td>1.25</td><td><code>.recipe-title</code></td></tr>
+            <tr><td>Văn bản nội dung</td><td>Roboto</td><td>15px - 16px / 400</td><td>1.50</td><td><code>p, .decription</code></td></tr>
+            <tr><td>Nhãn nút / Tag</td><td>Montserrat</td><td>12px - 14px / 700</td><td>1.00</td><td><code>.btn, .item-name</code></td></tr>
           </tbody>
         </table>
       </div>
-      <div class="page-footer">Trang 11 / 20</div>
+      <div class="page-number">11</div>
     </div>
 
     <!-- ==================== TRANG 12: CHƯƠNG 3 (PHẦN 3) ==================== -->
@@ -843,18 +954,18 @@
           <thead>
             <tr>
               <th style="width: 25%;">Thành phần</th>
-              <th style="width: 45%;">Các trạng thái trong thiết kế</th>
-              <th style="width: 12%;">Đã dựng</th>
+              <th style="width: 44%;">Các trạng thái trong thiết kế</th>
+              <th style="width: 13%;">Đã dựng</th>
               <th style="width: 18%;">Tệp CSS chính</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td><strong>Nút bấm chính</strong></td><td>Mặc định · Hover · Active · Disabled</td><td style="text-align: center;">4/4</td><td>HOME.css</td></tr>
-            <tr><td><strong>Thẻ món ăn</strong></td><td>Mặc định · Hover phóng to & bóng · Thả tim yêu thích</td><td style="text-align: center;">3/3</td><td>HOME.css</td></tr>
-            <tr><td><strong>Ô nhập liệu</strong></td><td>Trống · Focus viền cam · Đã điền hợp lệ · Báo lỗi</td><td style="text-align: center;">4/4</td><td>user-dock.css</td></tr>
-            <tr><td><strong>Thanh Taskbar Dock</strong></td><td>Trượt từ đáy · Đăng nhập · Đếm tim · Đổi Dark Mode</td><td style="text-align: center;">4/4</td><td>user-dock.css</td></tr>
-            <tr><td><strong>Nút Dark Mode</strong></td><td>Trạng thái Sáng (☀️) · Trạng thái Tối (🌙) trượt êm</td><td style="text-align: center;">2/2</td><td>user-dock.css</td></tr>
-            <tr><td><strong>Bộ lọc danh mục</strong></td><td>Mặc định viền xám · Đang chọn (Active nền xanh neon)</td><td style="text-align: center;">2/2</td><td>RECIPES.css</td></tr>
+            <tr><td><strong>Nút bấm chính</strong></td><td>Mặc định · Hover · Active · Disabled</td><td style="text-align: center;">4/4</td><td><code>HOME.css</code></td></tr>
+            <tr><td><strong>Thẻ món ăn</strong></td><td>Mặc định · Hover phóng to & bóng · Thả tim yêu thích</td><td style="text-align: center;">3/3</td><td><code>HOME.css</code></td></tr>
+            <tr><td><strong>Ô nhập liệu</strong></td><td>Trống · Focus viền cam · Đã điền hợp lệ · Báo lỗi</td><td style="text-align: center;">4/4</td><td><code>user-dock.css</code></td></tr>
+            <tr><td><strong>Thanh Taskbar Dock</strong></td><td>Trượt từ đáy · Đăng nhập · Đếm tim · Đổi Dark Mode</td><td style="text-align: center;">4/4</td><td><code>user-dock.css</code></td></tr>
+            <tr><td><strong>Nút Dark Mode</strong></td><td>Trạng thái Sáng (☀️) · Trạng thái Tối (🌙) trượt êm</td><td style="text-align: center;">2/2</td><td><code>user-dock.css</code></td></tr>
+            <tr><td><strong>Bộ lọc danh mục</strong></td><td>Mặc định viền xám · Đang chọn (Active nền xanh neon)</td><td style="text-align: center;">2/2</td><td><code>RECIPES.css</code></td></tr>
           </tbody>
         </table>
 
@@ -863,21 +974,21 @@
         <table>
           <thead>
             <tr>
-              <th style="width: 25%;">Nhóm dữ liệu</th>
-              <th style="width: 30%;">Nơi lưu trữ</th>
-              <th style="width: 45%;">Các trường thông tin chính</th>
+              <th style="width: 24%;">Nhóm dữ liệu</th>
+              <th style="width: 28%;">Nơi lưu trữ</th>
+              <th style="width: 48%;">Các trường thông tin chính</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td><strong>Dữ liệu Món ăn</strong></td><td>api.js (Shared Meals Dataset)</td><td>idMeal, strMeal, strCategory, strMealThumb, strInstructions, strPrepTime, strIngredients</td></tr>
-            <tr><td><strong>Tài khoản người dùng</strong></td><td>localStorage: cooks_delight_users</td><td>id, name, email, password, avatar, role, createdAt</td></tr>
-            <tr><td><strong>Món yêu thích</strong></td><td>localStorage: cooks_delight_favorites</td><td>Mảng danh sách các món ăn đã được thả tim</td></tr>
-            <tr><td><strong>Bản tin Subscribe</strong></td><td>localStorage: cooks_delight_subscribers</td><td>Mảng chứa các email đã đăng ký thành công</td></tr>
-            <tr><td><strong>Cấu hình Theme</strong></td><td>localStorage: cooks_delight_theme</td><td>Chuỗi 'light' hoặc 'dark'</td></tr>
+            <tr><td><strong>Dữ liệu Món ăn</strong></td><td><code>api.js</code> (Shared Dataset)</td><td>idMeal, strMeal, strCategory, strMealThumb, strInstructions, strPrepTime, strIngredients</td></tr>
+            <tr><td><strong>Tài khoản người dùng</strong></td><td><code>cooks_delight_users</code></td><td>id, name, email, password, avatar, role, createdAt</td></tr>
+            <tr><td><strong>Món yêu thích</strong></td><td><code>cooks_delight_favorites</code></td><td>Mảng danh sách các món ăn đã được thả tim</td></tr>
+            <tr><td><strong>Bản tin Subscribe</strong></td><td><code>cooks_delight_subscribers</code></td><td>Mảng chứa các email đã đăng ký thành công</td></tr>
+            <tr><td><strong>Cấu hình Theme</strong></td><td><code>cooks_delight_theme</code></td><td>Chuỗi 'light' hoặc 'dark'</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="page-footer">Trang 12 / 20</div>
+      <div class="page-number">12</div>
     </div>
 
     <!-- ==================== TRANG 13: CHƯƠNG 4 (PHẦN 1) ==================== -->
@@ -902,14 +1013,15 @@
     &lt;a href="recipe-detail.html?id=52772" class="view-recipe-menu"&gt;VIEW RECIPE&lt;/a&gt;
   &lt;/div&gt;
 &lt;/article&gt;</code></pre>
+        <div class="figure-caption">Hình 4.1: Cấu trúc HTML ngữ nghĩa thẻ món ăn</div>
 
         <div class="table-caption">Bảng 4.1: Kết quả tự kiểm SEO trên từng trang web</div>
         <table>
           <thead>
             <tr>
               <th style="width: 25%;">Trang</th>
-              <th style="width: 15%;">Thẻ title</th>
-              <th style="width: 20%;">Meta Description</th>
+              <th style="width: 14%;">Thẻ title</th>
+              <th style="width: 21%;">Meta Description</th>
               <th style="width: 20%;">OpenGraph Tags</th>
               <th style="width: 20%;">Ảnh có alt</th>
             </tr>
@@ -923,7 +1035,7 @@
           </tbody>
         </table>
       </div>
-      <div class="page-footer">Trang 13 / 20</div>
+      <div class="page-number">13</div>
     </div>
 
     <!-- ==================== TRANG 14: CHƯƠNG 4 (PHẦN 2) ==================== -->
@@ -948,7 +1060,7 @@
         <em>Nguyên nhân:</em> Thiết lập cố định cứng <code>width: 1312px;</code> và <code>grid-template-columns: repeat(3, 427px);</code> gây tràn ngang 288px trên màn hình 1024px.<br>
         <em>Giải pháp:</em> Thay thế bằng kích thước linh hoạt <code>width: 100%; max-width: 1312px; box-sizing: border-box;</code> và lưới phân đoạn <code>grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;</code>.</p>
       </div>
-      <div class="page-footer">Trang 14 / 20</div>
+      <div class="page-number">14</div>
     </div>
 
     <!-- ==================== TRANG 15: CHƯƠNG 4 (PHẦN 3) ==================== -->
@@ -969,14 +1081,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td style="text-align: center;">1</td><td>Lọc công thức & Phân trang 15 món</td><td style="text-align: center;">Bắt buộc</td><td>Pills & Pagination trang RECIPES</td><td>recipes.js</td></tr>
-            <tr><td style="text-align: center;">2</td><td>Lọc 6 món đều đẹp mục Embark</td><td style="text-align: center;">Bắt buộc</td><td>Khối Embark trang chủ</td><td>home.js</td></tr>
-            <tr><td style="text-align: center;">3</td><td>Slider món ăn nổi bật (Carousel)</td><td style="text-align: center;">Bắt buộc</td><td>Featured Recipes trang chủ</td><td>home.js</td></tr>
-            <tr><td style="text-align: center;">4</td><td>Tìm kiếm thời gian thực (Live Search)</td><td style="text-align: center;">Bắt buộc</td><td>Ô tìm kiếm Desktop & Mobile</td><td>search.js</td></tr>
-            <tr><td style="text-align: center;">5</td><td>Universal Dark Mode & Taskbar Switch</td><td style="text-align: center;">Nâng cao</td><td>Công tắc trượt Taskbar Dock</td><td>user-dock.js</td></tr>
-            <tr><td style="text-align: center;">6</td><td>Quản lý Món yêu thích (Favorites)</td><td style="text-align: center;">Nâng cao</td><td>Nút tim trên card & Modal</td><td>user-dock.js</td></tr>
-            <tr><td style="text-align: center;">7</td><td>Đăng ký nhận tin & Chuông YouTube</td><td style="text-align: center;">Nâng cao</td><td>Khối Subscribe & Modal chúc mừng</td><td>user-dock.js</td></tr>
-            <tr><td style="text-align: center;">8</td><td>Đăng nhập / Đăng ký tài khoản</td><td style="text-align: center;">Nâng cao</td><td>Modal xác thực & Profile Taskbar</td><td>user-dock.js</td></tr>
+            <tr><td style="text-align: center;">1</td><td>Lọc công thức & Phân trang 15 món</td><td style="text-align: center;">Bắt buộc</td><td>Pills & Pagination trang RECIPES</td><td><code>recipes.js</code></td></tr>
+            <tr><td style="text-align: center;">2</td><td>Lọc 6 món đều đẹp mục Embark</td><td style="text-align: center;">Bắt buộc</td><td>Khối Embark trang chủ</td><td><code>home.js</code></td></tr>
+            <tr><td style="text-align: center;">3</td><td>Slider món ăn nổi bật (Carousel)</td><td style="text-align: center;">Bắt buộc</td><td>Featured Recipes trang chủ</td><td><code>home.js</code></td></tr>
+            <tr><td style="text-align: center;">4</td><td>Tìm kiếm thời gian thực (Live Search)</td><td style="text-align: center;">Bắt buộc</td><td>Ô tìm kiếm Desktop & Mobile</td><td><code>search.js</code></td></tr>
+            <tr><td style="text-align: center;">5</td><td>Universal Dark Mode & Taskbar Switch</td><td style="text-align: center;">Nâng cao</td><td>Công tắc trượt Taskbar Dock</td><td><code>user-dock.js</code></td></tr>
+            <tr><td style="text-align: center;">6</td><td>Quản lý Món yêu thích (Favorites)</td><td style="text-align: center;">Nâng cao</td><td>Nút tim trên card & Modal</td><td><code>user-dock.js</code></td></tr>
+            <tr><td style="text-align: center;">7</td><td>Đăng ký nhận tin & Chuông YouTube</td><td style="text-align: center;">Nâng cao</td><td>Khối Subscribe & Modal chúc mừng</td><td><code>user-dock.js</code></td></tr>
+            <tr><td style="text-align: center;">8</td><td>Đăng nhập / Đăng ký tài khoản</td><td style="text-align: center;">Nâng cao</td><td>Modal xác thực & Profile Taskbar</td><td><code>user-dock.js</code></td></tr>
           </tbody>
         </table>
 
@@ -993,8 +1105,9 @@ export function renderRecipePage(mealsList, page = 1) {
   container.innerHTML = paginatedMeals.map(meal => createMealCardHTML(meal)).join('');
   renderPaginationButtons(mealsList.length, page);
 }</code></pre>
+        <div class="figure-caption">Hình 4.2: Thuật toán phân trang dữ liệu công thức</div>
       </div>
-      <div class="page-footer">Trang 15 / 20</div>
+      <div class="page-number">15</div>
     </div>
 
     <!-- ==================== TRANG 16: CHƯƠNG 4 (PHẦN 4) ==================== -->
@@ -1017,19 +1130,22 @@ function toggleTheme() {
   applyTheme(nextTheme);
   showToast(nextTheme === 'dark' ? '🌙 Đã bật Chế độ Tối' : '☀️ Đã bật Chế độ Sáng', 'info');
 }</code></pre>
+        <div class="figure-caption">Hình 4.3: Hàm chuyển đổi theme và lưu trữ localStorage</div>
 
         <h2>4.7. Quản lý Món ăn yêu thích & Hoạt họa Subscribe chuông YouTube</h2>
         <p><strong>Thả tim yêu thích:</strong> Cho phép lưu trữ danh sách món ăn vào <code>localStorage</code>, tự động cập nhật số lượng huy hiệu trên thanh Taskbar Dock theo thời gian thực.</p>
         <p><strong>Hoạt họa Chuông YouTube:</strong> Khi đăng ký email thành công, giao diện kích hoạt modal chúc mừng với hiệu ứng rung chuông <code>@keyframes bellRing</code> và đổi trạng thái nút Subscribe sang màu xám đen đã đăng ký kèm icon chuông.</p>
 
-        <h2>4.8. Những lỗi thường gặp mà nhóm đã chủ động phòng tránh</h2>
-        <ul>
-          <li><strong>Chống lỗ hổng XSS:</strong> Sử dụng hàm <code>escapeHTML()</code> lọc toàn bộ ký tự đặc biệt (&lt;, &gt;, &amp;, &quot;) trước khi chèn chuỗi người dùng vào DOM.</li>
-          <li><strong>Chống mất sự kiện:</strong> Áp dụng cơ chế ủy nhiệm sự kiện trên thẻ cha thay vì gắn trực tiếp lên từng phần tử con sinh động.</li>
-          <li><strong>Chống giật sáng (FOUC):</strong> Kiểm tra và áp dụng class <code>.dark-theme</code> ngay từ đầu IIFE script trước khi trang hoàn tất kết xuất đồ họa.</li>
-        </ul>
+        <div class="callout-box" style="margin-top: 8px;">
+          <div class="callout-title">Những lỗi thường gặp mà nhóm đã chủ động tránh</div>
+          <div class="callout-content">
+            – <strong>Chống lỗ hổng XSS:</strong> Sử dụng hàm <code>escapeHTML()</code> lọc toàn bộ ký tự đặc biệt trước khi chèn chuỗi người dùng vào DOM.<br>
+            – <strong>Chống mất sự kiện:</strong> Áp dụng cơ chế ủy nhiệm sự kiện trên thẻ cha thay vì gắn trực tiếp lên từng phần tử con sinh động.<br>
+            – <strong>Chống giật sáng (FOUC):</strong> Kiểm tra và áp dụng class <code>.dark-theme</code> ngay từ đầu IIFE script trước khi trang hoàn tất kết xuất đồ họa.
+          </div>
+        </div>
       </div>
-      <div class="page-footer">Trang 16 / 20</div>
+      <div class="page-number">16</div>
     </div>
 
     <!-- ==================== TRANG 17: CHƯƠNG 5 (PHẦN 1) ==================== -->
@@ -1042,10 +1158,10 @@ function toggleTheme() {
         <table>
           <thead>
             <tr>
-              <th style="width: 10%;">STT</th>
-              <th style="width: 30%;">Trang</th>
-              <th style="width: 20%;">Mức chuẩn khớp</th>
-              <th style="width: 40%;">Ghi chú tinh chỉnh</th>
+              <th style="width: 8%;">STT</th>
+              <th style="width: 28%;">Trang</th>
+              <th style="width: 18%;">Mức khớp</th>
+              <th style="width: 46%;">Ghi chú tinh chỉnh</th>
             </tr>
           </thead>
           <tbody>
@@ -1062,9 +1178,9 @@ function toggleTheme() {
         <table>
           <thead>
             <tr>
-              <th style="width: 30%;">Trang web</th>
-              <th style="width: 17%;">Performance</th>
-              <th style="width: 17%;">Accessibility</th>
+              <th style="width: 28%;">Trang web</th>
+              <th style="width: 18%;">Performance</th>
+              <th style="width: 18%;">Accessibility</th>
               <th style="width: 18%;">Best Practices</th>
               <th style="width: 18%;">SEO</th>
             </tr>
@@ -1077,9 +1193,9 @@ function toggleTheme() {
             <tr><td>Trang giới thiệu (ABOUT_US.html)</td><td style="text-align: center;">96 → <strong>100</strong></td><td style="text-align: center;">98 → <strong>100</strong></td><td style="text-align: center;">100 → <strong>100</strong></td><td style="text-align: center;">100 → <strong>100</strong></td></tr>
           </tbody>
         </table>
-        <p class="no-indent"><em>Chỉ số đo đạc thực tế:</em> <strong>FCP = 1.1s</strong>, <strong>LCP = 1.4s</strong>, <strong>CLS = 0.00</strong>, <strong>TBT = 10ms</strong>.</p>
+        <p class="no-indent" style="margin-top: 6px;"><em>Chỉ số đo đạc thực tế:</em> <strong>FCP = 1.1s</strong>, <strong>LCP = 1.4s</strong>, <strong>CLS = 0.00</strong>, <strong>TBT = 10ms</strong>.</p>
       </div>
-      <div class="page-footer">Trang 17 / 20</div>
+      <div class="page-number">17</div>
     </div>
 
     <!-- ==================== TRANG 18: CHƯƠNG 5 (PHẦN 2) ==================== -->
@@ -1094,8 +1210,8 @@ function toggleTheme() {
             <tr>
               <th style="width: 25%;">Lỗi phát hiện</th>
               <th style="width: 25%;">Nguyên nhân</th>
-              <th style="width: 35%;">Giải pháp khắc phục</th>
-              <th style="width: 15%;">Kết quả</th>
+              <th style="width: 36%;">Giải pháp khắc phục</th>
+              <th style="width: 14%;">Kết quả</th>
             </tr>
           </thead>
           <tbody>
@@ -1115,7 +1231,7 @@ function toggleTheme() {
               <td>Lệch thẻ món ăn ở 1024px</td>
               <td>Khung chứa gán cố định cứng 1312px</td>
               <td>Chuyển sang width: 100%; max-width: 1312px; box-sizing: border-box;</td>
-              <td style="text-align: center;">Không tràn viền</td>
+              <td style="text-align: center;">Không tràn</td>
             </tr>
             <tr>
               <td>Khối Our Diverse quá dài trên Tablet</td>
@@ -1130,24 +1246,24 @@ function toggleTheme() {
         <p>Website đạt chuẩn WCAG 2.2 mức AA (điều hướng bàn phím hoàn hảo, viền focus 2px màu cam đỏ rõ nét, thuộc tính alt 100%, độ tương phản &gt;= 4.5:1). Tương thích mượt mà trên Google Chrome, Mozilla Firefox, Microsoft Edge và Apple Safari.</p>
 
         <h2>5.5. Triển khai sản phẩm và đóng góp trên Git</h2>
-        <div class="table-caption">Bảng 5.7: Thống kê đóng góp mã nguồn trên Git</div>
+        <div class="table-caption">Bảng 5.4: Thống kê đóng góp mã nguồn trên Git</div>
         <table>
           <thead>
             <tr>
-              <th style="width: 30%;">Thành viên</th>
-              <th style="width: 20%;">Số lượt Commit</th>
-              <th style="width: 25%;">Thời gian đóng góp</th>
-              <th style="width: 25%;">Nhánh phụ trách chính</th>
+              <th style="width: 28%;">Thành viên</th>
+              <th style="width: 18%;">Số lượt Commit</th>
+              <th style="width: 26%;">Thời gian đóng góp</th>
+              <th style="width: 28%;">Nhánh phụ trách chính</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td><strong>Đỗ Đức Tài</strong> (Nhóm trưởng)</td><td style="text-align: center; font-weight: bold;">98 commits</td><td style="text-align: center;">Tuần 1 - Tuần 8 liên tục</td><td>feat/architecture, feat/dark-mode</td></tr>
-            <tr><td><strong>Lê Đăng Khoa</strong></td><td style="text-align: center; font-weight: bold;">48 commits</td><td style="text-align: center;">Tuần 1 - Tuần 8 liên tục</td><td>feat/home-page, feat/about-us</td></tr>
-            <tr><td><strong>Nguyễn Đức Thuận</strong></td><td style="text-align: center; font-weight: bold;">46 commits</td><td style="text-align: center;">Tuần 1 - Tuần 8 liên tục</td><td>feat/recipes, feat/cooking-tips</td></tr>
+            <tr><td><strong>Đỗ Đức Tài</strong> (Nhóm trưởng)</td><td style="text-align: center; font-weight: bold;">98 commits</td><td style="text-align: center;">Tuần 1 - Tuần 8 liên tục</td><td><code>feat/architecture</code>, <code>feat/dark-mode</code></td></tr>
+            <tr><td><strong>Lê Đăng Khoa</strong></td><td style="text-align: center; font-weight: bold;">48 commits</td><td style="text-align: center;">Tuần 1 - Tuần 8 liên tục</td><td><code>feat/home-page</code>, <code>feat/about-us</code></td></tr>
+            <tr><td><strong>Nguyễn Đức Thuận</strong></td><td style="text-align: center; font-weight: bold;">46 commits</td><td style="text-align: center;">Tuần 1 - Tuần 8 liên tục</td><td><code>feat/recipes</code>, <code>feat/cooking-tips</code></td></tr>
           </tbody>
         </table>
       </div>
-      <div class="page-footer">Trang 18 / 20</div>
+      <div class="page-number">18</div>
     </div>
 
     <!-- ==================== TRANG 19: CHƯƠNG 6 ==================== -->
@@ -1176,8 +1292,8 @@ function toggleTheme() {
         <table>
           <thead>
             <tr>
-              <th style="width: 35%;">Hạn chế hiện tại</th>
-              <th style="width: 30%;">Nguyên nhân</th>
+              <th style="width: 33%;">Hạn chế hiện tại</th>
+              <th style="width: 32%;">Nguyên nhân</th>
               <th style="width: 35%;">Hướng khắc phục đề xuất</th>
             </tr>
           </thead>
@@ -1207,7 +1323,7 @@ function toggleTheme() {
           <li>Phát triển ứng dụng Progressive Web App (PWA) để xem công thức offline trên điện thoại.</li>
         </ul>
       </div>
-      <div class="page-footer">Trang 19 / 20</div>
+      <div class="page-number">19</div>
     </div>
 
     <!-- ==================== TRANG 20: TÀI LIỆU THAM KHẢO & PHỤ LỤC ==================== -->
@@ -1215,22 +1331,22 @@ function toggleTheme() {
       <div class="page-content">
         <h1>TÀI LIỆU THAM KHẢO & PHỤ LỤC TỰ KIỂM CHẤM ĐIỂM</h1>
 
-        <h2 style="margin-top: 5px;">Tài liệu tham khảo (Chuẩn IEEE / APA)</h2>
-        <p class="no-indent" style="font-size: 10.5pt; margin: 3px 0;">[1] MDN Web Docs, <em>“HTML elements reference”</em>, Mozilla Developer Network. developer.mozilla.org/en-US/docs/Web/HTML/Element [Truy cập: 08/07/2026].</p>
-        <p class="no-indent" style="font-size: 10.5pt; margin: 3px 0;">[2] MDN Web Docs, <em>“CSS Grid Layout & Flexbox guide”</em>, Mozilla Developer Network. developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout [Truy cập: 21/07/2026].</p>
-        <p class="no-indent" style="font-size: 10.5pt; margin: 3px 0;">[3] MDN Web Docs, <em>“Web Storage API (localStorage & sessionStorage)”</em>, Mozilla Developer Network. developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API [Truy cập: 15/07/2026].</p>
-        <p class="no-indent" style="font-size: 10.5pt; margin: 3px 0;">[4] W3C, <em>“Web Content Accessibility Guidelines (WCAG) 2.2”</em>, World Wide Web Consortium. w3.org/TR/WCAG22 [Truy cập: 22/07/2026].</p>
-        <p class="no-indent" style="font-size: 10.5pt; margin: 3px 0;">[5] Google Developers, <em>“Lighthouse Performance & Core Web Vitals scoring”</em>, Google Chrome. developer.chrome.com/docs/lighthouse [Truy cập: 05/08/2026].</p>
-        <p class="no-indent" style="font-size: 10.5pt; margin: 3px 0;">[6] W3C, <em>“ARIA Authoring Practices Guide — Dialog (Modal) & Switch Patterns”</em>, WAI. w3.org/WAI/ARIA/apg/patterns [Truy cập: 22/07/2026].</p>
-        <p class="no-indent" style="font-size: 10.5pt; margin: 3px 0;">[7] TheMealDB, <em>“An Open, Crowd-Sourced Database of Recipes from around the world”</em>. themealdb.com/api.php [Truy cập: 10/07/2026].</p>
+        <h2 style="margin-top: 4px;">Tài liệu tham khảo (Chuẩn IEEE / APA)</h2>
+        <p class="no-indent" style="font-size: 10pt; margin: 2.5pt 0;">[1] MDN Web Docs, <em>“HTML elements reference”</em>, Mozilla Developer Network. developer.mozilla.org/en-US/docs/Web/HTML/Element [Truy cập: 08/07/2026].</p>
+        <p class="no-indent" style="font-size: 10pt; margin: 2.5pt 0;">[2] MDN Web Docs, <em>“CSS Grid Layout & Flexbox guide”</em>, Mozilla Developer Network. developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout [Truy cập: 21/07/2026].</p>
+        <p class="no-indent" style="font-size: 10pt; margin: 2.5pt 0;">[3] MDN Web Docs, <em>“Web Storage API (localStorage & sessionStorage)”</em>, Mozilla Developer Network. developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API [Truy cập: 15/07/2026].</p>
+        <p class="no-indent" style="font-size: 10pt; margin: 2.5pt 0;">[4] W3C, <em>“Web Content Accessibility Guidelines (WCAG) 2.2”</em>, World Wide Web Consortium. w3.org/TR/WCAG22 [Truy cập: 22/07/2026].</p>
+        <p class="no-indent" style="font-size: 10pt; margin: 2.5pt 0;">[5] Google Developers, <em>“Lighthouse Performance & Core Web Vitals scoring”</em>, Google Chrome. developer.chrome.com/docs/lighthouse [Truy cập: 05/08/2026].</p>
+        <p class="no-indent" style="font-size: 10pt; margin: 2.5pt 0;">[6] W3C, <em>“ARIA Authoring Practices Guide — Dialog (Modal) & Switch Patterns”</em>, WAI. w3.org/WAI/ARIA/apg/patterns [Truy cập: 22/07/2026].</p>
+        <p class="no-indent" style="font-size: 10pt; margin: 2.5pt 0;">[7] TheMealDB, <em>“An Open, Crowd-Sourced Database of Recipes from around the world”</em>. themealdb.com/api.php [Truy cập: 10/07/2026].</p>
 
-        <h2 style="margin-top: 10px;">Phụ lục A. Bảng tự kiểm theo 6 tiêu chí chấm điểm của Giảng viên</h2>
+        <h2 style="margin-top: 8px;">Phụ lục A. Bảng tự kiểm theo 6 tiêu chí chấm điểm của Giảng viên</h2>
         <div class="table-caption">Bảng A.1: Bảng tự kiểm theo sáu tiêu chí chấm điểm</div>
         <table>
           <thead>
             <tr>
-              <th style="width: 30%;">Tiêu chí (Trọng số)</th>
-              <th style="width: 60%;">Nội dung tự kiểm tra chi tiết</th>
+              <th style="width: 28%;">Tiêu chí (Trọng số)</th>
+              <th style="width: 62%;">Nội dung tự kiểm tra chi tiết</th>
               <th style="width: 10%;">Đạt</th>
             </tr>
           </thead>
@@ -1239,12 +1355,12 @@ function toggleTheme() {
             <tr><td><strong>HTML ngữ nghĩa và SEO (15%)</strong></td><td>Mỗi trang 1 h1, tiêu đề không nhảy cấp, đủ meta description, OpenGraph, 100% ảnh có alt</td><td style="text-align: center; font-weight: bold;">[X]</td></tr>
             <tr><td><strong>CSS và thiết kế đáp ứng (20%)</strong></td><td>Hoạt động mượt trên Mobile (390px), Tablet (768px) và Desktop (1440px); không tràn viền</td><td style="text-align: center; font-weight: bold;">[X]</td></tr>
             <tr><td><strong>Chức năng JavaScript (25%)</strong></td><td>8 chức năng chạy chuẩn xác; phân trang 15 món; Dark Mode lưu localStorage; xử lý lỗi đầy đủ</td><td style="text-align: center; font-weight: bold;">[X]</td></tr>
-            <tr><td><strong>Tối ưu và triển khai (10%)</strong></td><td>Điểm số Lighthouse 100/100 tuyệt đối; kiểm thử tiếp cận bàn phím tốt; triển khai Vercel ổn định</td><td style="text-align: center; font-weight: bold;">[X]</td></tr>
+            <tr><td><strong>Tối ưu và triển khai (10%)</strong></td><td>Điểm số Lighthouse 100/100 tuyệt đối; kiểm thử tiếp cận bàn phím tốt; triển khai Netlify ổn định</td><td style="text-align: center; font-weight: bold;">[X]</td></tr>
             <tr><td><strong>Báo cáo, Git và liêm chính (10%)</strong></td><td>Báo cáo chuẩn 20 trang; đủ 7 tài liệu trích dẫn; khai báo AI minh bạch; 192 commits</td><td style="text-align: center; font-weight: bold;">[X]</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="page-footer">Trang 20 / 20</div>
+      <div class="page-number">20</div>
     </div>
 
   </div>
@@ -1256,23 +1372,23 @@ function toggleTheme() {
             "xmlns='http://www.w3.org/TR/REC-html40'>" +
             "<head><meta charset='utf-8'><title>Báo cáo Bài tập lớn 20 Trang</title>" +
             "<style>" +
-            "@page Section1 {size:595.35pt 841.95pt; margin:51pt 51pt 51pt 62.4pt; mso-header-margin:35.4pt; mso-footer-margin:35.4pt; mso-paper-source:0;}" +
+            "@page Section1 {size:595.35pt 841.95pt; margin:56.7pt 56.7pt 56.7pt 70.85pt; mso-header-margin:35.4pt; mso-footer-margin:35.4pt; mso-paper-source:0;}" +
             "div.Section1 {page:Section1;}" +
-            "body {font-family: 'Times New Roman', serif; font-size: 12.5pt; line-height: 1.4;}" +
-            "table {border-collapse: collapse; width: 100%; margin: 8pt 0; font-size: 10.5pt;}" +
+            "body {font-family: 'Times New Roman', serif; font-size: 12pt; line-height: 1.35;}" +
+            "table {border-collapse: collapse; width: 100%; margin: 6pt 0; font-size: 10pt;}" +
             "table, th, td {border: 1px solid black;}" +
             "table code {font-size: 8.5pt;}" +
             ".table-compact th, .table-compact td {padding: 2.5pt 4pt; font-size: 9.5pt;}" +
-            "th {background-color: #f3f4f6; font-weight: bold; padding: 4pt; text-align: center;}" +
-            "td {padding: 3pt 5pt;}" +
-            "h1 {font-size: 15pt; font-weight: bold; text-transform: uppercase; margin-top: 14pt; margin-bottom: 6pt; text-align: center;}" +
-            "h2 {font-size: 13.5pt; font-weight: bold; margin-top: 10pt; margin-bottom: 4pt;}" +
-            "h3 {font-size: 12.5pt; font-weight: bold; margin-top: 8pt; margin-bottom: 3pt;}" +
-            "p {text-align: justify; text-indent: 28.35pt; margin: 3pt 0;}" +
+            "th {background-color: #fcfcfc; font-weight: bold; padding: 4pt; text-align: center;}" +
+            "td {padding: 3.5pt 5pt;}" +
+            "h1 {font-size: 13.5pt; font-weight: bold; text-transform: uppercase; margin-top: 14pt; margin-bottom: 6pt; text-align: center;}" +
+            "h2 {font-size: 12.5pt; font-weight: bold; margin-top: 10pt; margin-bottom: 4pt;}" +
+            "h3 {font-size: 12pt; font-weight: bold; font-style: italic; margin-top: 8pt; margin-bottom: 3pt;}" +
+            "p {text-align: justify; text-indent: 28.35pt; margin: 3.5pt 0;}" +
             ".no-indent {text-indent: 0 !important;}" +
             ".table-caption {font-size: 10.5pt; font-style: italic; font-weight: bold; text-align: center; margin: 6pt 0 3pt;}" +
             ".page {page-break-after: always;}" +
-            ".page-footer {font-size: 10pt; text-align: right; border-top: 1px solid #ccc; margin-top: 15pt;}" +
+            ".page-number {font-size: 11pt; text-align: center; margin-top: 15pt;}" +
             "</style></head><body><div class='Section1'>";
       
       const footer = "</div></body></html>";
