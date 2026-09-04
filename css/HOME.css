@@ -906,6 +906,15 @@ input {
   line-height: 1.2;
 }
 
+.btn-viewrecipe,
+.btn-viewrecipe:link,
+.btn-viewrecipe:visited,
+.btn-viewrecipe:hover,
+.btn-viewrecipe:focus,
+.btn-viewrecipe:active {
+  text-decoration: none !important;
+}
+
 .btn-viewrecipe {
   min-width: 132px;
   height: 38px;
@@ -919,7 +928,8 @@ input {
   background: none;
   border: 1px solid var(--color-dark);
   color: var(--color-dark);
-  text-decoration: none;
+  text-decoration: none !important;
+  white-space: nowrap !important;
   cursor: pointer;
   transition: var(--transition-transform);
 }

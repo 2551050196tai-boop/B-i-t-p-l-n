@@ -1574,6 +1574,7 @@ body.dark-theme .READ-MORE-OUR {
   border: 1px solid #ede8dc !important;
   color: #ede8dc !important;
   background: transparent !important;
+  text-decoration: none !important;
 }
 
 body.dark-theme .read-more-btn:hover,
@@ -1584,6 +1585,7 @@ body.dark-theme .btn-seemore:hover,
 body.dark-theme .READ-MORE-OUR:hover {
   background: #ede8dc !important;
   color: #171614 !important;
+  text-decoration: none !important;
 }
 
 /* Palette items & Feature icons */
