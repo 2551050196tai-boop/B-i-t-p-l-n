@@ -653,20 +653,33 @@ body {
   line-height: 120%;
 }
 
+.btn-viewrecipe,
+.btn-viewrecipe:link,
+.btn-viewrecipe:visited,
+.btn-viewrecipe:hover,
+.btn-viewrecipe:focus,
+.btn-viewrecipe:active {
+  color: #262522;
+  text-decoration: none !important;
+}
+
 .btn-viewrecipe {
-  min-width: 132px;
+  width: auto;
+  min-width: 114px;
   height: 38px;
-  border-radius: 24px;
-  padding: 0px 24px;
+  border-radius: 50px;
+  padding: 0px 16px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   background: none;
   border: 1px solid #262522;
-  color: #262522;
   cursor: pointer;
+  white-space: nowrap !important;
+  flex-shrink: 0;
+  line-height: 1;
   transition:
     transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
     background-color 0.25s ease,
@@ -677,6 +690,7 @@ body {
 .btn-viewrecipe:hover {
   background: #262522;
   color: #F0EBE1;
+  text-decoration: none !important;
   box-shadow: 0 6px 15px rgba(38, 37, 34, 0.2);
 }
 

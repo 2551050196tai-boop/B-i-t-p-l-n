@@ -520,21 +520,32 @@ body {
   text-transform: uppercase;
   color: #73706b;
 }
-.view-recipe-menu {
+.view-recipe-menu,
+.view-recipe-menu:link,
+.view-recipe-menu:visited,
+.view-recipe-menu:hover,
+.view-recipe-menu:focus,
+.view-recipe-menu:active {
   color: #262522;
-  text-decoration: none;
+  text-decoration: none !important;
+}
+.view-recipe-menu {
   font-family: "Roboto", sans-serif;
   font-size: 13px;
   font-weight: bold;
-  width: 124px;
+  white-space: nowrap !important;
+  width: auto;
+  min-width: 116px;
+  padding: 0 16px;
   height: 38px;
   border: 1px solid #262522;
   border-radius: 50px;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   transition: all 0.25s ease;
   flex-shrink: 0;
+  line-height: 1;
 }
 .view-recipe-menu:hover {
   color: #fffbf2;
@@ -1847,8 +1858,8 @@ body {
     display: none !important;
   }
 }
-/* desktop >= 1024px */
-@media (min-width: 1024px) {
+/* desktop >= 1025px */
+@media (min-width: 1025px) {
   body {
     padding: 32px 24px;
   }
@@ -1872,8 +1883,8 @@ body {
     width: 100%;
   }
 }
-/* Tablet( 768px - 1023px) */
-@media (min-width: 768px) and (max-width: 1023px){
+/* Tablet( 768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px){
   html,
   body {
     width: 100%;
@@ -1953,6 +1964,10 @@ body {
     width: 100%;
     height: auto;
     min-height: 430px;
+    border: 1px solid #dfddd6;
+    border-radius: 28px;
+    overflow: hidden;
+    box-sizing: border-box;
   }
   .picture-Menu {
     width: 100%;
@@ -1961,12 +1976,12 @@ body {
     object-fit: cover;
   }
   .title-decrip-food {
-    width: calc(100% - 40px);
+    width: 100%;
     height: auto;
     min-height: 85px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
+    margin: 0;
+    padding: 20px 24px 12px;
+    box-sizing: border-box;
   }
   .title-food {
     font-size: 22px;
@@ -1976,8 +1991,34 @@ body {
     line-height: 1.5;
   }
   .more-view-food {
-    width: calc(100% - 40px);
-    margin-top: 35px;
+    width: 100%;
+    margin-top: auto;
+    padding: 16px 24px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+  }
+  .more-menu {
+    font-size: 11px;
+    line-height: 1.35;
+  }
+  .view-recipe-menu {
+    white-space: nowrap !important;
+    text-decoration: none !important;
+    border: 1px solid #262522 !important;
+    width: auto;
+    min-width: 112px;
+    padding: 0 16px;
+    height: 38px;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
   }
   /* mobile menu 
    Tablet vẫn dùng navbar của desktop
@@ -2102,9 +2143,13 @@ body {
     font-size: 11px;
   }
   .view-recipe-menu{
-    width: 120px;
+    width: auto;
+    min-width: 108px;
+    padding: 0 14px;
     height: 36px;
-    font-size: 13px;
+    font-size: 12px;
+    white-space: nowrap !important;
+    text-decoration: none !important;
   }
   /* card hover
   điện thoại không có hover thế nên phải tắt hiệu ứng nâng card để tránh cảm giác card bị nhảy khi chạm tay vào
